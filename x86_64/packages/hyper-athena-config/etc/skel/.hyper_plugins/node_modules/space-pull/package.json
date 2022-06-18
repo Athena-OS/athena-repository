@@ -1,0 +1,40 @@
+{
+  "name": "space-pull",
+  "version": "1.0.13",
+  "description": "Spaceship that delivers your code to you on git pull.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lukaszromerowicz/space-pull.git"
+  },
+  "keywords": [
+    "hyper",
+    "space-pull",
+    "hyperapp",
+    "terminal",
+    "animated-pull"
+  ],
+  "author": "Lukasz Romerowicz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukaszromerowicz/space-pull/issues"
+  },
+  "homepage": "https://github.com/lukaszromerowicz/space-pull#readme",
+  "dependencies": {
+    "styled-components": "^2.1.0"
+  },
+  "devDependencies": {
+    "react": "^16.2.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.11.0",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

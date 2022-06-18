@@ -1,0 +1,14 @@
+pkgname="hyper-athena-config"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Hyper Configuration for Athena"
+arch=("x86_64")
+license=("custom")
+source=("hyper-athena-config.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel"
+  cp -rf "${srcdir}/etc/skel/.hyper.js" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.hyper_plugins" "${pkgdir}/etc/skel/"  
+}
+sha256sums=('dfe20dd4bfa492e3aaf1d9180ea50860afc087bd7a2fc0ddccaa589804af78d4')

@@ -1,0 +1,19 @@
+{
+  "name": "hyper-startup",
+  "version": "0.2.0",
+  "description": "A Hyper extension to execute commands on launch.",
+  "main": "index.js",
+  "repository": "curz46/hyper-startup",
+  "author": "d.46.curzon@hotmail.co.uk",
+  "dependencies": {},
+  "keywords": [
+    "hyper",
+    "hyper.app",
+    "hyperterm",
+    "hyper-plugin",
+    "hyperterm-plugin",
+    "plugin",
+    "run",
+    "startup"
+  ]
+}

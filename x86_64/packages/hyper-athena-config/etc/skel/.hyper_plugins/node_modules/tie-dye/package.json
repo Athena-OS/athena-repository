@@ -1,0 +1,47 @@
+{
+  "name": "tie-dye",
+  "version": "1.0.3",
+  "description": "A simple modular color converter.",
+  "main": "index.js",
+  "files": [
+    "hexToHsl.js",
+    "hexToRgb.js",
+    "hslToHex.js",
+    "hslToRgb.js",
+    "hueToRgb.js",
+    "rgbToHex.js",
+    "rgbToHsl.js"
+  ],
+  "scripts": {
+    "test": "ava",
+    "test-watch": "ava --fail-fast --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supercrabtree/tie-dye"
+  },
+  "keywords": [
+    "color",
+    "convert",
+    "converter",
+    "dye",
+    "format",
+    "hsl",
+    "hex",
+    "hexadecimal",
+    "modular",
+    "rgb",
+    "tie",
+    "tie-dye"
+  ],
+  "author": "George Crabtree",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/supercrabtree/tie-dye/issues"
+  },
+  "homepage": "https://github.com/supercrabtree/tie-dye",
+  "devDependencies": {
+    "ava": "^0.13.0",
+    "lodash": "^4.6.1"
+  }
+}

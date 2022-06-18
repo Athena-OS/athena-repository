@@ -1,0 +1,24 @@
+{
+  "name": "hyperterm-dibdabs",
+  "version": "0.0.8",
+  "description": "Add dibdabs to your hyperterm tabs",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supercrabtree/hyperterm-dibdabs.git"
+  },
+  "keywords": [
+    "hyperterm",
+    "tabs",
+    "tab"
+  ],
+  "author": "George Crabtree <supercrabtree@googlemail.com> (https://github.com/supercrabtree)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/supercrabtree/hyperterm-dibdabs/issues"
+  },
+  "homepage": "https://github.com/supercrabtree/hyperterm-dibdabs#readme",
+  "dependencies": {
+    "hashbow": "1.1.1"
+  }
+}

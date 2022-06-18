@@ -1,0 +1,43 @@
+{
+  "name": "hashbow",
+  "version": "1.1.1",
+  "description": "Hexadecimal hashes of everything",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "test-watch": "ava --watch --fail-fast"
+  },
+  "bin": {
+    "hashbow": "cli.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supercrabtree/hashbow.git"
+  },
+  "keywords": [
+    "color",
+    "colors",
+    "convert",
+    "hash",
+    "hex",
+    "hexadecimal",
+    "rainbow"
+  ],
+  "author": "George Crabtree",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/supercrabtree/hashbow/issues"
+  },
+  "homepage": "https://github.com/supercrabtree/hashbow",
+  "devDependencies": {
+    "ava": "0.14.0"
+  },
+  "dependencies": {
+    "meow": "3.7.0",
+    "tie-dye": "1.0.3"
+  }
+}

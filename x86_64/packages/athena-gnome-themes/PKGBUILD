@@ -1,0 +1,20 @@
+pkgname="athena-gnome-themes"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="GNOME themes for Athena"
+arch=("x86_64")
+license=("custom")
+source=("athena-gnome-themes.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/themes"
+  mkdir -p "${pkgdir}/usr/share/icons"
+  cp -rf "${srcdir}/usr/share/themes/Sweet-Dark" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/icons/Sweet-Purple" "${pkgdir}/usr/share/icons/"  
+  cp -rf "${srcdir}/usr/share/icons/candy-icons" "${pkgdir}/usr/share/icons/"
+
+  gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark"
+  gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"  
+  gsettings set org.gnome.desktop.interface icon-theme "Sweet-Purple"
+}
+sha256sums=('1fa93ffdccbd4a72eb6269aad3307122a24ae4053a89d2d70b44cdd5c096ad96')

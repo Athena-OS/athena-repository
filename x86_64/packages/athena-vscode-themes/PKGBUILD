@@ -1,0 +1,20 @@
+pkgname="athena-vscode-themes"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="VSCode themes for Athena"
+arch=("x86_64")
+license=("custom")
+depends=('code')
+source=("athena-vscode-themes.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  mkdir -p "${pkgdir}/etc/skel/.config/Code - OSS/User"
+  cp -rf "${srcdir}/etc/skel/.config/Code - OSS/User/settings.json" "${pkgdir}/etc/skel/.config/Code - OSS/User/"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/thorerik.hacker-theme-2.0.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/carrie999.cyberpunk-2020-0.1.4.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/dhedgecock.radical-vscode-3.2.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/enkia.tokyo-night-0.8.4.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/hfac.msdos-theme-0.1.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+}
+sha256sums=('4cfe24c050513437d71a82aa469b8c65a0d8ebab6d04364cab37bb39b79adef2')

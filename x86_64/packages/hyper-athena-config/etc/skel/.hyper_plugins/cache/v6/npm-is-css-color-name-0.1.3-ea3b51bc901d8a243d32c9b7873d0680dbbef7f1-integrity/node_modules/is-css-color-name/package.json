@@ -1,0 +1,46 @@
+{
+  "name": "is-css-color-name",
+  "version": "0.1.3",
+  "description": "Determine if a name is a valid CSS color name",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "gulp test",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": "dustinspecker/is-css-color-name",
+  "keywords": [
+    "css",
+    "color",
+    "name"
+  ],
+  "author": {
+    "name": "Dustin Specker",
+    "email": "DustinSpecker@DustinSpecker.com",
+    "url": "https://github.com/dustinspecker"
+  },
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "css-color-names": "0.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.12",
+    "babel-preset-es2015": "^6.0.12",
+    "chai": "^3.0.0",
+    "coveralls": "^2.11.2",
+    "del": "^2.0.0",
+    "eslint-config-dustinspecker": "^0.1.0",
+    "eslint-path-formatter": "^0.1.1",
+    "eslint-plugin-new-with-error": "^1.1.0",
+    "eslint-plugin-no-use-extend-native": "^0.3.1",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.0.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jscs": "^3.0.1",
+    "gulp-jshint": "^1.11.0",
+    "gulp-mocha": "^2.1.0"
+  }
+}

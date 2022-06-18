@@ -1,0 +1,28 @@
+{
+  "name": "hyper-tabs-enhanced",
+  "version": "0.4.2",
+  "description": "Enhaned Tabs Plugin for Hyper",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "henrikdahl/hyper-tabs-enhanced",
+  "author": {
+    "name": "Henrik Dahlheim",
+    "email": "henrik.dahlheim@gmail.com"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "hyper",
+    "hyper-tabs",
+    "hyper-tabs-enhanced",
+    "hyperterm",
+    "hyperterm-tabs",
+    "hyperterm-tabs-enhanced",
+    "tabs",
+    "enhanced"
+  ],
+  "dependencies": {
+    "color": "^1.0.3"
+  }
+}
