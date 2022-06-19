@@ -1,9 +1,9 @@
 #!/bin/bash
 
-rm athena_local_repo*
+rm athena-repository*
 
 echo "repo-add"
-repo-add -n -R athena_local_repo.db.tar.gz *.pkg.tar.zst
+repo-add -n -R athena-repository.db.tar.gz *.pkg.tar.zst
 
 echo "####################################"
 echo "Repo Updated!!"
