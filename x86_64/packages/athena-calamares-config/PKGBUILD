@@ -1,0 +1,13 @@
+pkgname="athena-calamares-config"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Calamares Configuration for Athena"
+arch=("x86_64")
+license=("custom")
+source=("athena-calamares-config.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc"
+
+  cp -rf "${srcdir}/etc/calamares" "${pkgdir}/etc/"
+}

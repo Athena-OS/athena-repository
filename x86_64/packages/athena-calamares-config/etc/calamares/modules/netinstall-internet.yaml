@@ -1,0 +1,64 @@
+- name: "Browsers"
+  description: "Browsers"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - brave-bin
+    - chromium
+    - falkon
+    - firefox
+    - firefox-adblock-plus
+    - firefox-ublock-origin
+    - google-chrome
+    - librewolf-bin
+    - midori
+    - min
+    - netsurf
+    - opera
+    - qutebrowser
+    - torbrowser-launcher
+    - vivaldi
+    - vivaldi-ffmpeg-codecs
+    - vivaldi-widevine
+- name: "Downloaders"
+  description: "Downloaders"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - aria2
+    - deluge
+    - filezilla
+    - fragments
+    - gdown
+    - jdownloader2
+    - ktorrent
+    - persepolis
+    - qbittorrent
+    - transmission-gtk
+    - xdman
+- name: "Cloud Software"
+  description: "Cloud software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - dropbox
+    - insync
+    - megasync-bin
+    - nextcloud-client
+- name: "Mail Clients"
+  description: "Mail clients"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - evolution
+    - geary
+    - mailspring    
+    - thunderbird

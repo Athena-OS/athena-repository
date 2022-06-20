@@ -1,0 +1,13 @@
+- name: "Graphics"
+  description: "Graphics"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - blender
+    - darktable
+    - digikam
+    - gimp
+    - inkscape
+    - krita

@@ -1,0 +1,28 @@
+pkgname="athena-system-config"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="System configuration for Athena"
+arch=("x86_64")
+license=("custom")
+source=("athena-system-config.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/modprobe.d"
+  mkdir -p "${pkgdir}/etc/pacman.d/gnupg"
+  mkdir -p "${pkgdir}/etc/pacman.d/hooks"
+  mkdir -p "${pkgdir}/usr/lib"
+  mkdir -p "${pkgdir}/usr/local/bin"
+  mkdir -p "${pkgdir}/usr/local/share"
+  mkdir -p "${pkgdir}/usr/share/icons/hicolor"
+  mkdir -p "${pkgdir}/usr/share/pixmaps"
+
+  cp -rf "${srcdir}"/etc/modprobe.d/* "${pkgdir}/etc/modprobe.d/"
+  cp -rf "${srcdir}/etc/pacman.d/gnupg/gpg.conf" "${pkgdir}/etc/pacman.d/gnupg/"
+  cp -rf "${srcdir}"/etc/pacman.d/hooks/* "${pkgdir}/etc/pacman.d/hooks/"
+
+  cp -rf "${srcdir}/usr/lib/os-release-athena" "${pkgdir}/usr/lib/"
+  cp -rf "${srcdir}"/usr/local/bin/* "${pkgdir}/usr/local/bin/"  
+  cp -rf "${srcdir}/usr/local/share/athena" "${pkgdir}/usr/local/share/"
+  cp -rf "${srcdir}"/usr/share/icons/hicolor/* "${pkgdir}/usr/share/icons/hicolor/"
+  cp -rf "${srcdir}"/usr/share/pixmaps/* "${pkgdir}/usr/share/pixmaps/"
+}

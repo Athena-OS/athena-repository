@@ -1,0 +1,124 @@
+- name: "Abiword"
+  description: "Abiword"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - abiword
+- name: "Calligra"
+  description: "Office Suite"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - calligra
+    - calligra-plan
+- name: "Epub"
+  description: "Epub"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - calibre
+    - sigil
+- name: "Freeoffice"
+  description: "Freeoffice"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - freeoffice
+- name: "Focuswriter"
+  description: "Focuswriter"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - focuswriter
+- name: "Ghostwriter"
+  description: "Ghostwriter"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - ghostwriter
+- name: "Gnumeric"
+  description: "Gnumeric"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - gnumeric
+- name: "Libre Office Fresh"
+  description: "Installs libre office fresh - feature branch - conflicts with still"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - libreoffice-fresh
+    - hunspell
+- name: "Libre Office Still"
+  description: "Installs libre office still - stable branch - conflicts with fresh"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - libreoffice-still
+    - hunspell
+- name: "Ms Office Online"
+  description: "Microsoft Office Suite Online as a native application"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - ms-office-online
+- name: "Moneydance"
+  description: "Moneydance"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - moneydance
+- name: "Onlyoffice"
+  description: "Onlyoffice"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - onlyoffice-bin
+- name: "Openoffice"
+  description: "Openoffice"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - openoffice-bin
+- name: "PDF applications"
+  description: "PDF applications"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - atril
+    - epdfview
+    - evince
+    - okular
+    - pdfarranger
+    - xpdf
+    - xreader
+- name: "Scribus"
+  description: "Scribus"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - scribus
+- name: "WPS Office"
+  description: "Installs wps office"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - wps-office
+    - wps-office-mime
+    - ttf-wps-fonts

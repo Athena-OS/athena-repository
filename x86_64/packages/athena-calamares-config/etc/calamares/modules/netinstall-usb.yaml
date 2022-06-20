@@ -1,0 +1,35 @@
+- name: "Usb/Disk Utilities"
+  description: "Utility software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - baobab
+    - brasero
+    - etcher-bin
+    - imagewriter
+    - ventoy-bin
+    - woeusb
+    - xfburn
+- name: "Printing Utilities"
+  description: "Printing software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - hplip
+- name: "Accessibility Utilities"
+  description: "Accessibility Utility software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - brltty
+    - espeak-ng
+    - florence    
+    - mousetweaks
+    - onboard
+    - orca

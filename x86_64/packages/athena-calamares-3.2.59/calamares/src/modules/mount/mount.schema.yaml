@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2020 Adriaan de Groot <groot@kde.org>
+# SPDX-License-Identifier: GPL-3.0-or-later
+---
+$schema: https://json-schema.org/schema#
+$id: https://calamares.io/schemas/mount
+additionalProperties: false
+type: object
+properties:
+    extraMounts:
+        type: array
+        items:
+            type: object
+            additionalProperties: false
+            properties:
+                device: { type: string }
+                fs: { type: string }
+                mountPoint: { type: string }
+                options: { type: array, items: { type: string } }
+                efi: { type: boolean, default: false }
+            required: [ device, mountPoint ]
+    btrfsSubvolumes:
+        type: array
+        items:
+            type: object
+            additionalProperties: false
+            properties:
+                mountPoint: { type: string }
+                subvolume: { type: string }
+            required: [ subvolume, mountPoint ]
+    btrfsSwapSubvol: { type: string }
+    mountOptions:
+        type: array
+        items:
+            type: object
+            additionalProperties: false
+            properties:
+                filesystem: { type: string }
+                options: { type: array, items: { type: string } }
+                ssdOptions: { type: array, items: { type: string } }
+                hddOptions: { type: array, items: { type: string } }
+            required: [ filesystem ]
+
+

@@ -1,0 +1,84 @@
+- name: "Accessories"
+  description: "Accessories"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - cheese
+    - font-manager-git
+    - galculator
+    - gpick
+    - flameshot-git
+    - liferea
+    - mediainfo-gui
+    - mcomix
+    - nitrogen
+    - nomacs
+    - pdfarranger
+    - plank
+    - arcolinux-plank-themes-git
+    - screenkey-git
+- name: "Git"
+  description: "Git applications"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - gitahead-bin
+    - gitg
+    - gitfiend
+    - gitkraken
+- name: "Password Manager"
+  description: "Password managers"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - bitwarden
+    - enpass-bin
+    - keepassxc
+    - lastpass
+- name: "Privacy"
+  description: "Applications that ensure your privacy"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - tor-browser
+    - tor
+    - privoxy
+- name: "Virtualbox for Linux kernel"
+  description: "Installs virtualbox for linux kernel"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: false
+  packages:
+    - virtualbox
+    - virtualbox-host-dkms
+    - linux-headers
+- name: "Virtualbox for Linux-lts kernel"
+  description: "Installs virtualbox for linux-lts kernel"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: false
+  packages:
+    - virtualbox
+    - virtualbox-host-dkms
+    - linux-lts-headers
+    - linux-lts
+- name: "Vmware"
+  description: "Installs vmware software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: false
+  packages:
+    - open-vm-tools
+    - vmware-workstation
+    - vmware-keymaps

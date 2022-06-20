@@ -1,0 +1,57 @@
+#   SPDX-FileCopyrightText: no
+#   SPDX-License-Identifier: CC0-1.0
+#
+# C++ objects and libs
+
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+
+# Python
+
+__pycache__
+
+# Qt-es
+
+/.qmake.cache
+/.qmake.stash
+*.pro.user
+*.pro.user.*
+*.moc
+*.qmlc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*-build-*
+*-build
+/build
+
+# QtCreator
+
+*.autosave
+qtcreator-build
+CMakeLists.txt.user
+
+# KDevelop
+*.kdev4
+
+# PyCharm
+.idea
+
+# Visual Studio Code
+.vscode
+
+# Backup files
+*~
+*.bak
+
+# Kate
+*.kate-swp
+tags

@@ -1,0 +1,58 @@
+- name: "Games"
+  description: "Gaming software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - aisleriot    
+    - armagetronad
+    - astromenace
+    - chromium-bsu
+    - extremetuxracer
+    - freeciv
+    - gnome-chess
+    - gnuchess
+    - hedgewars
+    - kbreakout
+    - knights
+    - mari0
+    - minecraft-launcher
+    - multimc-git
+    - neverball
+    - sauerbraten
+    - sauerbraten-data
+    - supertux
+    - supertuxkart
+    - warsow
+    - wesnoth
+    - xonotic
+    - xonotic-data
+- name: "Game utilities"
+  description: "Game utilities"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - arcolinux-meta-steam-amd
+    - arcolinux-meta-steam-intel
+    - arcolinux-meta-steam-nvidia
+    - gamehub-bin
+    - gamemode
+    - goverlay-bin
+    - heroic-games-launcher-bin
+    - itch
+    - legendary
+    - lutris
+    - mangohud
+    - minigalaxy
+    - playonlinux
+    - proton-community-updater
+    - proton-ge-custom-bin
+    - protonup-git
+    - rare
+    - replay-sorcery
+    - steam-buddy
+    - steam-tweaks
+    - vkbasalt

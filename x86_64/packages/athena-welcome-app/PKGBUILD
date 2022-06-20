@@ -1,0 +1,22 @@
+pkgname="athena-welcome-app"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Welcome App for Athena"
+arch=("x86_64")
+license=("custom")
+source=("athena-welcome-app.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel/.config/athena-welcome-app"
+  mkdir -p "${pkgdir}/etc/skel/.config/autostart"
+  mkdir -p "${pkgdir}/usr/local/bin"
+  mkdir -p "${pkgdir}/usr/share/applications"
+  mkdir -p "${pkgdir}/usr/share/icons/hicolor/scalable/apps"
+
+  cp -rf "${srcdir}/etc/skel/.config/athena-welcome-app/settings.conf" "${pkgdir}/etc/skel/.config/athena-welcome-app/"
+  cp -rf "${srcdir}/etc/skel/.config/autostart/athena-welcome-app.desktop" "${pkgdir}/etc/skel/.config/autostart/"  
+  cp -rf "${srcdir}/usr/local/bin/athena-welcome-app" "${pkgdir}/usr/local/bin/"
+  cp -rf "${srcdir}/usr/share/applications/athena-welcome-app.desktop" "${pkgdir}/usr/share/applications/"
+  cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/arcolinux-hello.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
+  cp -rf "${srcdir}/usr/share/athena-welcome-app" "${pkgdir}/usr/share/"
+}

@@ -1,0 +1,40 @@
+- name: "Communication"
+  description: "Communication software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - element-desktop
+    - discord
+    - google-chat-linux-bin
+    - hexchat
+    - jitsi-meet-desktop-bin
+    - mumble
+    - neochat
+    - pidgin
+    - qtox
+    - skypeforlinux-stable-bin
+    - signal-desktop
+    - slack-desktop
+    - teams
+    - telegram-desktop
+    - tweetdeck-desktop
+    - viber
+    - whatsapp-nativefier
+    - wire-desktop
+    - zoom
+- name: "Connect Remotely"
+  description: "Applications to connect to other systems"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - arcolinux-teamviewer
+    - krdc
+    - nomachine
+    - realvnc-vnc-server
+    - realvnc-vnc-viewer
+    - remmina
+    - tigervnc
