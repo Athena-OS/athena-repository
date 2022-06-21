@@ -18,10 +18,10 @@ sed -i '/^sha256/d' PKGBUILD
 tar -zcvf $pkgname.tar.gz $sourcefiles 
 
 makepkg -g >> PKGBUILD
-makepkg -f
+makepkg -f -sr --sign
 
 rm -rf src pkg $pkgname.tar.gz
 
 rm -rf ../../$pkgfile
 
-cp $pkgfile ../../
+mv $pkgfile $pkgfile.sig ../../

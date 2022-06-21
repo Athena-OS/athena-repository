@@ -18,3 +18,4 @@ package() {
   cp -rf "${srcdir}/usr/share/polkit-1/actions/org.archlinux.tweaktool.policy" "${pkgdir}/usr/share/polkit-1/actions/"
   cp -rf "${srcdir}/usr/share/archlinux-tweak-tool" "${pkgdir}/usr/share/"
 }
+sha256sums=('00bb2b290a29d45dae3de7209f4bee52f7290371d8855db5c96c791071a9c42f')

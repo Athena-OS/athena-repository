@@ -1,10 +1,10 @@
-pkgname="archlinux-tweak-tool"
+pkgname="athena-system-installation"
 pkgver="1.0.0"
 pkgrel="1"
-pkgdesc="Arch Linux Tweak Tool for Athena"
+pkgdesc="Installation files for Athena"
 arch=("x86_64")
 license=("custom")
-source=("archlinux-tweak-tool.tar.gz")
+source=("athena-system-installation.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/etc/xdg/autostart"
@@ -12,6 +12,7 @@ package() {
   mkdir -p "${pkgdir}/usr/local/bin"
 
   cp -rf "${srcdir}/etc/xdg/autostart/athena-welcome-app.desktop" "${pkgdir}/etc/xdg/autostart/"
-  cp -rf "${srcdir}"usr/lib/systemd/system/athena-graphical-target.service" "${pkgdir}/usr/lib/systemd/system/"
+  cp -rf "${srcdir}/usr/lib/systemd/system/athena-graphical-target.service" "${pkgdir}/usr/lib/systemd/system/"
   cp -rf "${srcdir}"/usr/local/bin/* "${pkgdir}/usr/local/bin/"
 }
+sha256sums=('8f4d85763cf48e8a145f3c2f16e8819f7a642d89291a3c4d47fe90ac38a7da7b')
