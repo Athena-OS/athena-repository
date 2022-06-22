@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/usersq/calamares_viewmodule_usersq_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/usersq",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/usersq",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/usersq/calamares_viewmodule_usersq_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/usersq/usersq.qml"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/usersq/CMakeFiles/calamares_viewmodule_usersq_autogen.dir/AutoRcc_usersq_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "usersq" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_usersq.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/usersq/CMakeFiles/calamares_viewmodule_usersq_autogen.dir/AutoRcc_usersq_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/usersq/usersq.qrc",
+	"VERBOSITY" : 0
+}

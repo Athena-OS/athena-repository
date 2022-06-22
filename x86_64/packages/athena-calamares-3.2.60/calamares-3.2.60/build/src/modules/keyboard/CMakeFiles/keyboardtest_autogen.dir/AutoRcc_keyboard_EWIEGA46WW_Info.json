@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/keyboard/keyboardtest_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/keyboard",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/keyboard",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/keyboard/keyboardtest_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/keyboard/kbd-model-map",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/keyboard/non-ascii-layouts",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/keyboard/images/restore.png"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/keyboard/CMakeFiles/keyboardtest_autogen.dir/AutoRcc_keyboard_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "keyboard" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_keyboard.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/keyboard/CMakeFiles/keyboardtest_autogen.dir/AutoRcc_keyboard_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/keyboard/keyboard.qrc",
+	"VERBOSITY" : 0
+}

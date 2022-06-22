@@ -1,0 +1,26 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/tracking/calamares_viewmodule_tracking_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/tracking",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/tracking",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/tracking/calamares_viewmodule_tracking_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/tracking/level-user.svg",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/tracking/level-none.svg",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/tracking/level-install.svg",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/tracking/level-machine.svg",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/data/images/information.svgz"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/tracking/CMakeFiles/calamares_viewmodule_tracking_autogen.dir/AutoRcc_page_trackingstep_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "page_trackingstep" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_page_trackingstep.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/tracking/CMakeFiles/calamares_viewmodule_tracking_autogen.dir/AutoRcc_page_trackingstep_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/tracking/page_trackingstep.qrc",
+	"VERBOSITY" : 0
+}

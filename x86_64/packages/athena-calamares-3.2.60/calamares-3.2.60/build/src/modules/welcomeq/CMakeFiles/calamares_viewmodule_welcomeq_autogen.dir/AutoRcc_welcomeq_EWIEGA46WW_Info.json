@@ -1,0 +1,28 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/welcomeq/calamares_viewmodule_welcomeq_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/welcomeq",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/welcomeq/calamares_viewmodule_welcomeq_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/release_notes.qml",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/Recommended.qml",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/welcomeq.qml",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/Requirements.qml",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/img/chevron-left-solid.svg",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/img/squid.png",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/img/language-icon-48px.png"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/welcomeq/CMakeFiles/calamares_viewmodule_welcomeq_autogen.dir/AutoRcc_welcomeq_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "welcomeq" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_welcomeq.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/modules/welcomeq/CMakeFiles/calamares_viewmodule_welcomeq_autogen.dir/AutoRcc_welcomeq_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/modules/welcomeq/welcomeq.qrc",
+	"VERBOSITY" : 0
+}

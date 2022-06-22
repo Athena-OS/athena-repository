@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/calamares/calamares_bin_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/calamares",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/calamares",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/calamares/calamares_bin_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/calamares/calamares-sidebar.qml",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/calamares/calamares-navigation.qml"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/calamares/CMakeFiles/calamares_bin_autogen.dir/AutoRcc_calamares_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "calamares" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_calamares.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/build/src/calamares/CMakeFiles/calamares_bin_autogen.dir/AutoRcc_calamares_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares-3.2.60/calamares-3.2.60/src/calamares/calamares.qrc",
+	"VERBOSITY" : 0
+}
