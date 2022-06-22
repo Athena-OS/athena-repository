@@ -28,6 +28,6 @@ package() {
   cp -rf "${srcdir}/usr/lib/libcalamaresui.so.3.2.60" "${pkgdir}/usr/lib/"
   cp -rf "${srcdir}/usr/lib/libcalamaresui.so" "${pkgdir}/usr/lib/"
   cp -rf "${srcdir}/usr/share/polkit-1/actions/com.github.calamares.calamares.policy" "${pkgdir}/usr/share/polkit-1/actions/"
-  cp -rf "${srcdir}/usr/lib/libKF5Crash.so.5" "${srcdir}/usr/lib/libKF5Crash.so.5.95.0" "${srcdir}/usr/lib/libyaml-cpp.so.0.7" "${srcdir}/usr/lib/libyaml-cpp.so.0.7.0" "${srcdir}/usr/lib/libKF5CoreAddons.so.5" "${srcdir}/usr/lib/libKF5CoreAddons.so.5.95.0" "${srcdir}/usr/lib/libQt5Svg.so.5" "${srcdir}/usr/lib/libQt5Svg.so.5.15.5" "${pkgdir}/usr/lib/"
 }
-sha256sums=('392cf78fd889af3f05eb9f391747072a9b7ef911ae4f8feaaefe4b63d01eef32')
+
+sha256sums=('a3d9cb3830f82e96476cb838219ab2c46e93d066986f83ae41225edebc4af927')
