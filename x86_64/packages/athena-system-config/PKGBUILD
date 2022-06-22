@@ -1,6 +1,6 @@
 pkgname="athena-system-config"
 pkgver="1.0.0"
-pkgrel="1"
+pkgrel="2"
 pkgdesc="System configuration for Athena"
 arch=("x86_64")
 license=("custom")
