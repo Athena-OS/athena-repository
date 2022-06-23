@@ -10,13 +10,11 @@ package() {
   mkdir -p "${pkgdir}/usr/share/icons/hicolor/128x128"
   mkdir -p "${pkgdir}/usr/share/icons/hicolor/categories"
   mkdir -p "${pkgdir}/usr/share/icons/shells"
-  mkdir -p "${pkgdir}/usr/share/icons/default"
   mkdir -p "${pkgdir}/usr/share/pixmaps"
 
   cp -rf "${srcdir}"/usr/share/icons/hicolor/128x128/* "${pkgdir}/usr/share/icons/hicolor/128x128/"
   cp -rf "${srcdir}"/usr/share/icons/hicolor/categories/* "${pkgdir}/usr/share/icons/hicolor/categories/"
   cp -rf "${srcdir}"/usr/share/icons/shells/* "${pkgdir}/usr/share/icons/shells/"
-  cp -rf "${srcdir}/usr/share/icons/default/index.theme" "${pkgdir}/usr/share/icons/default/"
   cp -rf "${srcdir}"/usr/share/pixmaps/* "${pkgdir}/usr/share/pixmaps/"
 }
-sha256sums=('fafb7b8219d815d582217af7d5bd83ff89d2bbb876f536f42c8c59f3f3ca8be6')
+sha256sums=('00efc95d975921bd99bd5b8f2c095c09cccb2e12372c1f9855cf4188d2580d06')
