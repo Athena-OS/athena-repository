@@ -15,4 +15,4 @@ package() {
   cp -rf "${srcdir}/usr/lib/systemd/system/athena-graphical-target.service" "${pkgdir}/usr/lib/systemd/system/"
   cp -rf "${srcdir}"/usr/local/bin/* "${pkgdir}/usr/local/bin/"
 }
-sha256sums=('f53461153c57030998cf3077a7d045cbbd67ce3026e92159e78e52af037b5d8d')
+sha256sums=('62630c06cd6288b50062ad7c99dd17ffa02902d89d4a14040e202cde8f1df22c')
