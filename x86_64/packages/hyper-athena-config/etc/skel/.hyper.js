@@ -139,7 +139,6 @@ module.exports = {
     //   `project#1.0.1`
     plugins: [
        `hyper-sweet`,
-       `hyper-tabs-enhanced`,
        `hyperborder`,
        `gitrocket`,
        `space-pull`,

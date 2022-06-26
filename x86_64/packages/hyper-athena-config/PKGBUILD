@@ -11,4 +11,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.hyper.js" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.hyper_plugins" "${pkgdir}/etc/skel/"  
 }
-sha256sums=('a7aad828309c5a9110fe6b2c15fbe91f328441af9c842de16b7cc571d9cadf30')
+sha256sums=('9a3d00d99eb4e7a87ec95ca17aa6eca025425e4c95fce05e14ca841b64dbf2a4')

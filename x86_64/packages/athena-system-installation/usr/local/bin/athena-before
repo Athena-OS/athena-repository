@@ -25,11 +25,6 @@ echo "#################################"
 mv /etc/mkinitcpio.d/athena /etc/mkinitcpio.d/linux.preset
 echo
 echo "#################################"
-echo "Installing AUR packages"
-echo "#################################"
-paru -S --noconfirm discord_arch_electron
-echo
-echo "#################################"
 echo "End athena-before"
 echo "#################################"
 echo
