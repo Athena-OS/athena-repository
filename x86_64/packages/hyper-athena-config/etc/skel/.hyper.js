@@ -128,10 +128,8 @@ module.exports = {
         // set to true to enable screen reading apps (like NVDA) to read the contents of the terminal
         screenReaderMode: false,
         // set to true to preserve working directory when creating splits or tabs
-        preserveCWD: true,
-        // for advanced config flags please refer to https://hyper.is/#cfg
-        commands: ['neofetch']
-        
+        preserveCWD: true
+        // for advanced config flags please refer to https://hyper.is/#cfg        
     },
     // a list of plugins to fetch and install from npm
     // format: [@org/]project[#version]
@@ -140,12 +138,9 @@ module.exports = {
     //   `@company/project`
     //   `project#1.0.1`
     plugins: [
-       `hyper-startup`,
        `hyper-sweet`,
        `hyper-tabs-enhanced`,
-       `hyperterm-dibdabs`,
        `hyperborder`,
-       `hyperpower`,
        `gitrocket`,
        `space-pull`,
        `hyper-bloody`

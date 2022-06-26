@@ -1,0 +1,14 @@
+pkgname="athena-pwnage-menu"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="PWNage Menu for Athena"
+arch=("x86_64")
+license=("custom")
+source=("athena-pwnage-menu.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/icons/pwnage"
+
+  cp -rf "${srcdir}"/usr/share/icons/pwnage/* "${pkgdir}/usr/share/icons/pwnage/"
+}
+sha256sums=('87f40fc817c7f46f42c281f5a163f3fe13e2a0e9c219b507f9ac5bfca8a377e9')
