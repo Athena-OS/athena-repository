@@ -8,7 +8,7 @@ Server = https://athena-os.github.io/$repo/$arch
 ```
 and on the terminal execute:
 ```
-sudo pacman-key --recv-keys E0CF5924036306BF --keyserver keyserver.ubuntu.com
+sudo pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
 ```
 
 ### Athena OS
