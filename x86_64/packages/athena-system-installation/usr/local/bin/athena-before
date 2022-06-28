@@ -10,6 +10,7 @@ echo
 pacman-key --init
 pacman-key --populate archlinux
 pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+pacman-key --lsign A3F78B994C2171D5
 /usr/local/bin/strap.sh
 rm -rf /usr/local/bin/strap.sh
 #pacman-key --populate chaotic
