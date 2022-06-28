@@ -10,7 +10,10 @@ echo
 pacman-key --init
 pacman-key --populate archlinux
 pacman-key --populate blackarch
-pacman-key --populate chaotic
+#pacman-key --populate chaotic
+echo "Importing Athena Repository key"
+pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+echo "End Athena Repository importing key"
 echo
 echo "#################################"
 echo "Copy grub Vimix theme (archiso deletes /boot when making the ISO)"
