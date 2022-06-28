@@ -4,6 +4,8 @@ echo "#################################"
 echo "Start athena-final"
 echo "#################################"
 echo
+pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+echo
 echo "#################################"
 echo "Permissions of important folders"
 echo "#################################"
