@@ -9,10 +9,12 @@ echo "#################################"
 echo
 pacman-key --init
 pacman-key --populate archlinux
-pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+#pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+pacman-key --add /etc/athenapublic.key
 pacman-key --lsign A3F78B994C2171D5
 /usr/local/bin/strap.sh
 rm -rf /usr/local/bin/strap.sh
+rm -rf /etc/athenapublic.key
 #pacman-key --populate chaotic
 echo
 echo "#################################"
