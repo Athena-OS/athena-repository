@@ -30,4 +30,4 @@ package() {
   cp -rf "${srcdir}/usr/share/polkit-1/actions/com.github.calamares.calamares.policy" "${pkgdir}/usr/share/polkit-1/actions/"
 }
 
-sha256sums=('a3d9cb3830f82e96476cb838219ab2c46e93d066986f83ae41225edebc4af927')
+sha256sums=('b4600674e4990cfaeb6cba8b449753cff2fbd4b47e06a2356ecc1be915b0c352')
