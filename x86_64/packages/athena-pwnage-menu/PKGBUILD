@@ -11,4 +11,4 @@ package() {
 
   cp -rf "${srcdir}"/usr/share/icons/pwnage/* "${pkgdir}/usr/share/icons/pwnage/"
 }
-sha256sums=('87f40fc817c7f46f42c281f5a163f3fe13e2a0e9c219b507f9ac5bfca8a377e9')
+sha256sums=('7f6112cf8fd050929cbb3807e067d224c073b6a8d9b68a5ee113a4f5986f3fce')

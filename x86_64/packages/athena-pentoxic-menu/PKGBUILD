@@ -17,4 +17,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/shells/* "${pkgdir}/usr/share/icons/shells/"
   cp -rf "${srcdir}"/usr/share/pixmaps/* "${pkgdir}/usr/share/pixmaps/"
 }
-sha256sums=('00efc95d975921bd99bd5b8f2c095c09cccb2e12372c1f9855cf4188d2580d06')
+sha256sums=('bea4c90d2538f9dd0aff1054a7adb5d5857dccb5ec293138d8766b17fad71c16')

@@ -17,4 +17,4 @@ package() {
   gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"  
   gsettings set org.gnome.desktop.interface icon-theme "Sweet-Purple"
 }
-sha256sums=('2667cecaec4e70f7ad06b055727fbd48506452a50cdd7acfd269c067d7f24144')
+sha256sums=('90eb4e5fc259ae2e6b06ae8544b0ffe57d67f2cfb67e7fd1f08f09503b724a94')

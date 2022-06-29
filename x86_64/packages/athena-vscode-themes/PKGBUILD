@@ -17,4 +17,4 @@ package() {
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/enkia.tokyo-night-0.8.4.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/hfac.msdos-theme-0.1.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
 }
-sha256sums=('cf94c0ea7330439da38d0f4cea507522fce47df41d7906e0df7e6da6b7e7060c')
+sha256sums=('df38287dfda24bf68ae8cb3ffebb731f5b6ae43865421aa55401f771c9400731')
