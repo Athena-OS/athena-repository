@@ -15,7 +15,6 @@ package() {
   cp -rf "${srcdir}/usr/lib/systemd/system/athena-graphical-target.service" "${pkgdir}/usr/lib/systemd/system/"
   cp -rf "${srcdir}"/usr/local/bin/* "${pkgdir}/usr/local/bin/"
   cp -rf "${srcdir}/etc/athenapublic.key" "${pkgdir}/etc/"
-  pacman-key --add "${pkgdir}/etc/"
-  pacman-key --lsign A3F78B994C2171D5
+  pacman-key --add "${pkgdir}/etc/athenapublic.key"
 }
-sha256sums=('b85a9d38f96fcaccb7103a78b64ec9dcd5bd6dc5331c77e25d0efdae57b18626')
+sha256sums=('9d907983a9e7f60526b359dd77eba627686c0795314577145f09c252f538105b')
