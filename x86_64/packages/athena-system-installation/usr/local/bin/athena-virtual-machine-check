@@ -99,11 +99,15 @@ if [ $result = "kvm" ];
 			systemctl disable vboxservice.service
 			pacman -Rns virtualbox-guest-utils --noconfirm
 			echo "Removed virtualbox-guest-utils"
+                        rm /etc/systemd/system/multi-user.target.wants/vboxservice.service
+                        echo "Removed vboxservice.service if still exists"
 		fi
 		if pacman -Qi virtualbox-guest-utils-nox &> /dev/null; then
 			systemctl disable vboxservice.service
 			pacman -Rns virtualbox-guest-utils-nox --noconfirm
 			echo "Removed virtualbox-guest-utils-nox"
+                        rm /etc/systemd/system/multi-user.target.wants/vboxservice.service
+                        echo "Removed vboxservice.service if still exists"
 		fi
 fi
 
@@ -114,11 +118,15 @@ if [ $result = "vmware" ];
 			systemctl disable vboxservice.service
 			pacman -Rns virtualbox-guest-utils --noconfirm
 			echo "Removed virtualbox-guest-utils"
+                        rm /etc/systemd/system/multi-user.target.wants/vboxservice.service
+                        echo "Removed vboxservice.service if still exists"
 		fi
 		if pacman -Qi virtualbox-guest-utils-nox &> /dev/null; then
 			systemctl disable vboxservice.service
 			pacman -Rns virtualbox-guest-utils-nox --noconfirm
 			echo "Removed virtualbox-guest-utils-nox"
+                        rm /etc/systemd/system/multi-user.target.wants/vboxservice.service
+                        echo "Removed vboxservice.service if still exists"
 		fi
 
 		#remove qemu
@@ -136,12 +144,16 @@ if [ $result = "none" ];
 			systemctl disable vboxservice.service
 			pacman -Rns virtualbox-guest-utils --noconfirm
 			echo "Removed virtualbox-guest-utils"
+                        rm /etc/systemd/system/multi-user.target.wants/vboxservice.service
+                        echo "Removed vboxservice.service if still exists"
 		fi
 
 		if pacman -Qi virtualbox-guest-utils-nox &> /dev/null; then
 			systemctl disable vboxservice.service
 			pacman -Rns virtualbox-guest-utils-nox --noconfirm
 			echo "Removed virtualbox-guest-utils-nox"
+                        rm /etc/systemd/system/multi-user.target.wants/vboxservice.service
+                        echo "Removed vboxservice.service if still exists"
 		fi
 
 		#remove vmware
