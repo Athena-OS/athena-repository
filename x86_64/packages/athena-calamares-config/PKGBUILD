@@ -11,4 +11,4 @@ package() {
 
   cp -rf "${srcdir}/etc/calamares" "${pkgdir}/etc/"
 }
-sha256sums=('21547d41b733f1e3ed08f4637b2552338e3a89eaa394c5ebcb577ec92234aa33')
+sha256sums=('f2ea41cb7d0cd3b9d9d93cb64b5f69132c220aea913851a655d12088a443cfde')
