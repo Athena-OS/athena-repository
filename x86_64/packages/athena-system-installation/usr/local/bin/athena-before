@@ -11,7 +11,6 @@ pacman-key --init
 pacman-key --populate
 /usr/local/bin/strap.sh
 rm -rf /usr/local/bin/strap.sh
-#pacman-key --populate chaotic
 echo
 echo "#################################"
 echo "Copy grub Vimix theme (archiso deletes /boot when making the ISO)"
