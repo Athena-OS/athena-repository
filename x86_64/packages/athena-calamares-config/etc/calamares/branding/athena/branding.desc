@@ -166,7 +166,7 @@ images:
     productLogo:			"squid.png"
     productIcon:			"logo.png"
     # productWallpaper:    "wallpaper.png"
-    productWelcome:			"calamares-0.png"
+    productWelcome:			"languages.png"
 
 # Colors for text and background components.
 #
@@ -180,10 +180,10 @@ images:
 # branding component also ships a stylesheet.qss. Then they are
 # the corresponding CSS attributes of #sidebarApp.
 style:
-   sidebarBackground:    "#353945"
-   sidebarText:          "#ECEDEE"
+   sidebarBackground:    "#282a36"
+   sidebarText:          "#FFFFFF"
    sidebarTextSelect:    "#FFFFFF"
-   sidebarTextHighlight: "#D35400"
+   sidebarTextHighlight: "#81A1C1"
 
 ### SLIDESHOW
 #

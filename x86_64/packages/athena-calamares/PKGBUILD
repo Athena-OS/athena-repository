@@ -7,7 +7,7 @@ arch=('i686' 'x86_64')
 license=(GPL)
 url="https://github.com/calamares/calamares/releases"
 license=('LGPL')
-depends=('appstream-qt' 'kconfig' 'kcoreaddons' 'kiconthemes' 'ki18n' 'kio' 'solid' 'yaml-cpp' 'kpmcore>=4.2.0' 'mkinitcpio-openswap'
+depends=('kconfig' 'kcoreaddons' 'kiconthemes' 'ki18n' 'kio' 'solid' 'yaml-cpp' 'kpmcore>=4.2.0' 'mkinitcpio-openswap'
          'boost-libs' 'ckbcomp' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gtk-update-icon-cache' 'plasma-framework'
          'qt5-xmlpatterns' 'squashfs-tools' 'libpwquality' 'efibootmgr' 'icu')
 conflicts=()
@@ -55,6 +55,8 @@ build() {
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_PREFIX=/usr \
 	-DCMAKE_INSTALL_LIBDIR=lib \
+        -DWITH_APPSTREAM=OFF \
+        -DWITH_APPDATA=OFF \
 	-DWITH_PYTHONQT=OFF \
 	-DWITH_KF5DBus=OFF \
 	-DBoost_NO_BOOST_CMAKE=ON \

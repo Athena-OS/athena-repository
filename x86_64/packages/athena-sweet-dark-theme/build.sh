@@ -2,7 +2,7 @@
 
 #NEED ONLY TO EDIT  sourcefiles VARIABLE
 
-sourcefiles="usr"
+sourcefiles="etc usr"
 
 pkgname=$(grep "^pkgname=" PKGBUILD | awk -F'"' '{print $2}')
 pkgver=$(grep "^pkgver=" PKGBUILD | awk -F'"' '{print $2}')
