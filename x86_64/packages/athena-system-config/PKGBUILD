@@ -4,7 +4,7 @@ pkgrel="1"
 pkgdesc="System configuration for Athena"
 arch=("x86_64")
 license=("custom")
-source=("athena-system-config.tar.gz")
+source=("$pkgname.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/etc/modprobe.d"

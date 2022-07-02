@@ -4,7 +4,7 @@ pkgrel="1"
 pkgdesc="PWNage Menu for Athena"
 arch=("x86_64")
 license=("custom")
-source=("athena-pwnage-menu.tar.gz")
+source=("$pkgname.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/usr/share/icons/pwnage"

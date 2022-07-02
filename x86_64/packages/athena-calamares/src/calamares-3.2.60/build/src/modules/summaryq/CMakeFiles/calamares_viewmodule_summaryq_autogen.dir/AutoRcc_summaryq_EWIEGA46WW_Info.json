@@ -1,0 +1,24 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/summaryq/calamares_viewmodule_summaryq_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/summaryq",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/summaryq",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/summaryq/calamares_viewmodule_summaryq_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/summaryq/summaryq.qml",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/summaryq/img/lokalize.svg",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/summaryq/img/keyboard.svg"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/summaryq/CMakeFiles/calamares_viewmodule_summaryq_autogen.dir/AutoRcc_summaryq_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "summaryq" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_summaryq.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/summaryq/CMakeFiles/calamares_viewmodule_summaryq_autogen.dir/AutoRcc_summaryq_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/summaryq/summaryq.qrc",
+	"VERBOSITY" : 0
+}

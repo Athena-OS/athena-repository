@@ -1,0 +1,48 @@
+- name: "Linux kernel - installed by default"
+  description: "Installs the latest linux kernel"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - linux
+    - linux-headers
+- name: "Linux-lts kernel"
+  description: "Installs the linux-lts kernel"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - linux-lts
+    - linux-lts-headers
+- name: "Linux-hardened kernel"
+  description: "Installs the linux-hardened kernel"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - linux-hardened
+    - linux-hardened-headers
+- name: "Linux-zen kernel"
+  description: "Installs the linux-zen kernel"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - linux-zen
+    - linux-zen-headers
+- name: "Intel-ucode"
+  description: "Installs intel-ucode"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - intel-ucode
+- name: "Amd-ucode"
+  description: "Installs amd-ucode"
+  critical: false
+  hidden: false
+  selected: false
+  packages:
+    - amd-ucode

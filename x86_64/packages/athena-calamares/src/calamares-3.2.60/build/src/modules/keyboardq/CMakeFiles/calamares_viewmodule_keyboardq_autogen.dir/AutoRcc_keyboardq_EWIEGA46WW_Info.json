@@ -1,0 +1,25 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/keyboardq/calamares_viewmodule_keyboardq_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/keyboardq",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/keyboardq",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/keyboardq/calamares_viewmodule_keyboardq_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/keyboard/kbd-model-map",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/keyboardq/keyboardq.qml",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/keyboard/non-ascii-layouts",
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/keyboard/images/restore.png"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/keyboardq/CMakeFiles/calamares_viewmodule_keyboardq_autogen.dir/AutoRcc_keyboardq_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "keyboardq" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_keyboardq.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/keyboardq/CMakeFiles/calamares_viewmodule_keyboardq_autogen.dir/AutoRcc_keyboardq_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/keyboardq/keyboardq.qrc",
+	"VERBOSITY" : 0
+}

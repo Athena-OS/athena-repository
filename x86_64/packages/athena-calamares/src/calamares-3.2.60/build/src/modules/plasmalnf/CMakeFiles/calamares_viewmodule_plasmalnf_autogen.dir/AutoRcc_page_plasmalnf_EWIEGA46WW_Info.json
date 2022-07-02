@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/plasmalnf/calamares_viewmodule_plasmalnf_autogen",
+	"CMAKE_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/plasmalnf",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/plasmalnf",
+	"CMAKE_SOURCE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60",
+	"INCLUDE_DIR" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/plasmalnf/calamares_viewmodule_plasmalnf_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/plasmalnf/view-preview.png"
+	],
+	"LOCK_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/plasmalnf/CMakeFiles/calamares_viewmodule_plasmalnf_autogen.dir/AutoRcc_page_plasmalnf_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "page_plasmalnf" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_page_plasmalnf.cpp",
+	"RCC_EXECUTABLE" : "/usr/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/build/src/modules/plasmalnf/CMakeFiles/calamares_viewmodule_plasmalnf_autogen.dir/AutoRcc_page_plasmalnf_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/athena/athena-repository/x86_64/packages/athena-calamares/src/calamares-3.2.60/src/modules/plasmalnf/page_plasmalnf.qrc",
+	"VERBOSITY" : 0
+}

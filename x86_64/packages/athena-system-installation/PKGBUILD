@@ -4,7 +4,7 @@ pkgrel="1"
 pkgdesc="Installation files for Athena"
 arch=("x86_64")
 license=("custom")
-source=("athena-system-installation.tar.gz")
+source=("$pkgname.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/etc/xdg/autostart"

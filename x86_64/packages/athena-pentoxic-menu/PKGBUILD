@@ -4,7 +4,7 @@ pkgrel="1"
 pkgdesc="PenTOXIC Menu for Athena"
 arch=("x86_64")
 license=("custom")
-source=("athena-pentoxic-menu.tar.gz")
+source=("$pkgname.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/usr/share/icons/hicolor/128x128"

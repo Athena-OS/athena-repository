@@ -1,0 +1,26 @@
+pkgname="athena-sweet-dark-theme"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Sweet Dark theme with Sweet Purple icons for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/themes"
+  mkdir -p "${pkgdir}/usr/share/icons"
+  mkdir -p "${pkgdir}/usr/share/backgrounds/default"
+  mkdir -p "${pkgdir}/etc/skel/.config/Code - OSS/User"
+
+  cp -rf "${srcdir}/usr/share/themes/Sweet-Dark" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/icons/Sweet-Purple" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/backgrounds/default/neon_circle.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
+  cp -rf "${srcdir}/etc/skel/.config/Code - OSS/User/settings.json" "${pkgdir}/etc/skel/.config/Code - OSS/User/"
+
+  gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark"
+  gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"
+  gsettings set org.gnome.desktop.background picture-uri-dark "file://${pkgdir}/usr/share/backgrounds/default/neon_circle.jpg"
+  gsettings set org.gnome.desktop.background picture-uri "file://${pkgdir}/usr/share/backgrounds/default/neon_circle.jpg"  
+  gsettings set org.gnome.desktop.background picture-options stretched
+}
+sha256sums=('799259c443bfa73f8eaeadf0ca21b22e552e3a05ffed737a7d8afc64ed155009')

@@ -1,0 +1,73 @@
+- name: "Nvidia-dkms for linux kernel - installed by default"
+  description: "Installs nvidia-dkms for linux kernel"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - linux
+    - linux-headers
+    - nvidia-dkms
+    - nvidia-settings
+    - nvidia-utils
+- name: "Nvidia-dkms for linux-lts kernel"
+  description: "Installs nvidia-dkms for linux-lts kernel"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - linux-lts
+    - linux-lts-headers
+    - nvidia-dkms
+    - nvidia-settings
+    - nvidia-utils
+- name: "Nvidia-dkms for linux-zen kernel"
+  description: "Installs nvidia-dkms for linux-zen kernel"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - linux-zen
+    - linux-zen-headers
+    - nvidia-dkms
+    - nvidia-settings
+    - nvidia-utils
+- name: "Nvidia-dkms for linux-hardened kernel"
+  description: "Installs nvidia-dkms for linux-hardened kernel"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - linux-hardened
+    - linux-hardened-headers
+    - nvidia-dkms
+    - nvidia-settings
+    - nvidia-utils       
+- name: "Nvidia Related"
+  description: "Nvidia related applications"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - bumblebee
+    - cuda
+    - disper
+    - envycontrol
+    - gwe
+    - nvflash
+    - nvidia
+    - nvidia-lts
+    - nvidia-prime
+    - nvidia-xrun
+    - nvtop
+    - optimus-manager
+    - optimus-manager-qt

@@ -4,7 +4,7 @@ pkgrel="1"
 pkgdesc="Hyper Configuration for Athena"
 arch=("x86_64")
 license=("custom")
-source=("hyper-athena-config.tar.gz")
+source=("$pkgname.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/etc/skel"

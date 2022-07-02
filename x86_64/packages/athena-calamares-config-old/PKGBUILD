@@ -1,0 +1,16 @@
+pkgname="athena-calamares-config"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Calamares Configuration for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc"
+  mkdir -p "${pkgdir}/usr/lib/calamares/modules"  
+
+  cp -rf "${srcdir}/etc/calamares" "${pkgdir}/etc/"
+  cp -rf "${srcdir}/usr/lib/calamares/modules/ucode" "${pkgdir}/usr/lib/calamares/modules/"
+}
+sha256sums=('fc0d2cad0831014d85d173efe13b2d84860a396c158016514429ece384495021')

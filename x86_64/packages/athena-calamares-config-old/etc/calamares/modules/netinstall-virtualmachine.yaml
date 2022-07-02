@@ -1,0 +1,19 @@
+- name: "VMware Virtual Machine"
+  description: "Installs packages for VMware VM"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - open-vm-tools
+- name: "VirtualBox Virtual Machine"
+  description: "Installs packages for VirtualBox"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: false
+  packages:
+    - virtualbox-guest-utils
+    - xf86-video-vmware
