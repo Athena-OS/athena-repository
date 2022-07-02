@@ -17,13 +17,5 @@ package() {
   cp -rf "${srcdir}/usr/share/icons/candy-icons" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/neon_circle.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
   cp -rf "${srcdir}/etc/skel/.config/Code - OSS/User/settings.json" "${pkgdir}/etc/skel/.config/Code - OSS/User/"
-
-  gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark"
-  gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"
-  gsettings set org.gnome.desktop.interface icon-theme "Sweet-Purple"
-  gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-  gsettings set org.gnome.desktop.background picture-uri-dark "file://${pkgdir}/usr/share/backgrounds/default/neon_circle.jpg"
-  gsettings set org.gnome.desktop.background picture-uri "file://${pkgdir}/usr/share/backgrounds/default/neon_circle.jpg"  
-  gsettings set org.gnome.desktop.background picture-options "stretched"
 }
-sha256sums=('cf0056abdcc70c01abdb78d2d876c69df98d59c7061143c236e81b99536ee963')
+sha256sums=('58844eed00a0773e18e9f2fb308f10cfd2e2095cc55be3f694c75a56253bb1e8')
