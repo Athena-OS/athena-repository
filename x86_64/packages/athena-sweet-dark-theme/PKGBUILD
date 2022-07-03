@@ -10,12 +10,10 @@ package() {
   mkdir -p "${pkgdir}/usr/share/themes"
   mkdir -p "${pkgdir}/usr/share/icons"
   mkdir -p "${pkgdir}/usr/share/backgrounds/default"
-  mkdir -p "${pkgdir}/etc/skel/.config/Code - OSS/User"
 
   cp -rf "${srcdir}/usr/share/themes/Sweet-Dark" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Sweet-Purple" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/candy-icons" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/neon_circle.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
-  cp -rf "${srcdir}/etc/skel/.config/Code - OSS/User/settings.json" "${pkgdir}/etc/skel/.config/Code - OSS/User/"
 }
-sha256sums=('83389e8bc1426007f2849f256542aecff65f8d24021e5decea7f9ecb143b7d75')
+sha256sums=('ac96f6d9dab56cf8a72aab7ab837cdeb0f181277c933e8e608de68fde67b8b84')
