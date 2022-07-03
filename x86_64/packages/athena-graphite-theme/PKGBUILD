@@ -21,4 +21,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/Code - OSS/User/settings.json" "${pkgdir}/etc/skel/.config/Code - OSS/User/"
 
 }
-sha256sums=('6c3a38c19c31ae8e0fe6f1b743289b2401114282b5d4e17a61d708956e43ce00')
+sha256sums=('d9561e4c404d2b10cb782458fcf606d8c4617e7aaf73a6fdeb78a868039b6fa0')
