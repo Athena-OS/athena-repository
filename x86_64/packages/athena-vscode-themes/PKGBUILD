@@ -14,5 +14,6 @@ package() {
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/dhedgecock.radical-vscode-3.2.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/enkia.tokyo-night-0.8.4.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/hfac.msdos-theme-0.1.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/nur.just-black-3.1.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
 }
-sha256sums=('4da1e9941e7e0a3599705730f94f149f002472a1629c4d38b984e764ea27d67a')
+sha256sums=('7e01ccfe0b90689bc6323fa2c60925139c5879907339612d02f11217c0e98749')

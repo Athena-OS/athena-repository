@@ -1,0 +1,21 @@
+pkgname="athena-graphite-theme"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Sweet Dark theme with Sweet Purple icons for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/themes"
+  mkdir -p "${pkgdir}/usr/share/icons"
+  mkdir -p "${pkgdir}/usr/share/backgrounds/default"
+  mkdir -p "${pkgdir}/etc/skel/.config/Code - OSS/User"
+
+  cp -rf "${srcdir}/usr/share/themes/Graphite-gtk-theme" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/icons/Tela-circle-icon-theme" "${pkgdir}/usr/share/icons/"  
+  cp -rf "${srcdir}/usr/share/backgrounds/default/arch-ascii.png" "${pkgdir}/usr/share/backgrounds/default/"  
+  cp -rf "${srcdir}/etc/skel/.config/Code - OSS/User/settings.json" "${pkgdir}/etc/skel/.config/Code - OSS/User/"
+
+}
+sha256sums=('7f72f8bccf3ee31c2e4b121568a0c0637bcab83679f5ae27772cc466c3b42bad')
