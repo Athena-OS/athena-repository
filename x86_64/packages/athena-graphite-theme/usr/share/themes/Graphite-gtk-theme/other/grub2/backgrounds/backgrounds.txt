@@ -1,4 +1,0 @@
-wave-light
-wave-dark
-wave-light-nord
-wave-dark-nord
