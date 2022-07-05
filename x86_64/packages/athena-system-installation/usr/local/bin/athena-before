@@ -7,8 +7,7 @@ echo "#################################"
 echo "Populate Core Team keys"
 echo "#################################"
 echo
-pacman-key --init
-pacman-key --populate
+rm -rf /usr/share/pacman/keyrings/blackarch*
 /usr/local/bin/strap.sh
 rm -rf /usr/local/bin/strap.sh
 echo
