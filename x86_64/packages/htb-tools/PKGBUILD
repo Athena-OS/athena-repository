@@ -9,6 +9,7 @@ source=("$pkgname.tar.gz")
 package() {
   mkdir -p "${pkgdir}/usr/local/bin"
   mkdir -p "${pkgdir}/usr/share/icons/pwnage"  
+  mkdir -p "${pkgdir}/usr/share/pwnage/hackthebox"  
 
   cp -rf "${srcdir}/usr/share/icons/pwnage/flags" "${pkgdir}/usr/share/icons/pwnage/"
   cp -rf "${srcdir}/usr/share/icons/pwnage/htb-flag.png" "${pkgdir}/usr/share/icons/pwnage/"
@@ -25,6 +26,6 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/htb-update" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-vpn" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/prompt-reset" "${pkgdir}/usr/local/bin/"
-  
+  install -Dm755 "${srcdir}/usr/share/pwnage/hackthebox/htb-update.py" "${pkgdir}/usr/share/pwnage/hackthebox/"
 }
-sha256sums=('68fcf380d0365cc695e4756fec86d867fe5c7be46946fe0f3d230f61af354618')
+sha256sums=('205e583cb9686724d86e85970d62fd3a6565566c1e6042a8c2c0f51ed044c839')
