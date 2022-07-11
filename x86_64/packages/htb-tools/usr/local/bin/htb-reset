@@ -1,0 +1,12 @@
+#!/bin/sh
+
+appkey=$(secret-tool lookup htb-api user-htb-api)
+
+active_id=$(curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq '.info.id')
+
+{ # 'try' block
+    curl -s --location --request POST "https://www.hackthebox.com/api/v4/vm/reset" --data "{\"machine_id\":$active_id}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message'
+} || { # 'catch' block
+    echo -e "\e[31mMaybe no machine is active or your API key is incorrect or expired! Cannot reset.\e[0m"
+    exit 1
+}

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+appkey=$(secret-tool lookup htb-api user-htb-api)
+
+{ # try
+
+    curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq '.message'
+
+} || { # catch
+    echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key and rerun htb-update.\e[0m"
+    exit 1
+}
+
+prompt-reset
