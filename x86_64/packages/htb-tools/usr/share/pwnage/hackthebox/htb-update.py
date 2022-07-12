@@ -31,13 +31,14 @@ htb_user=subprocess.getoutput("curl -s --location --request GET https://www.hack
 htb_user=htb_user.replace('"','')
 
 subprocess.call("mkdir -p $HOME/.local/share/icons/hackthebox/avatar",shell=True)
-subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
 
 subprocess.call("curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list -H \"Authorization: Bearer "+appkey+"\" | jq > "+machine_config,shell=True)
 
 
 with open(machine_config) as json_file:
     data = json.load(json_file)
+
+subprocess.call("rm -rf "+machine_config,shell=True)
 
 for machine in data["info"]:
     machine_id=str(machine["id"])
@@ -75,8 +76,10 @@ for machine in data["info"]:
 
 fly_new = htb_submenu + fly_new[:-1]
 
+subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
 with open(input_config,'r') as fly_file:
     contents = fly_file.read()
+subprocess.call("rm -rf "+input_config,shell=True)
 
 #NOTE: if you change the icon of Available Machine, REMEMBER to change the path here below
 fly_out = re.sub(r'(?<=\{\\"name\\":\\"Available Machines\\",\\"icon\\":\\"\/usr\/share\/icons\/pwnage\/htb-machines.png\\",\\"type\\":\\"CustomMenu\\",\\"children\\":\[)(.*?)(?=\],\\"angle\\":-1,\\"data\\":\{\}\})', fly_new, contents)
@@ -85,7 +88,4 @@ with open(output_config, 'w') as f:
     f.write(fly_out)
 
 subprocess.call("dconf load /org/gnome/shell/extensions/flypie/ < "+output_config,shell=True)
-subprocess.call("rm -rf "+input_config,shell=True)
 subprocess.call("rm -rf "+output_config,shell=True)
-subprocess.call("rm -rf "+machine_config,shell=True)
-
