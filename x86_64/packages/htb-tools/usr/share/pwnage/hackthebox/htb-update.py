@@ -27,6 +27,9 @@ if "parse error: Invalid numeric literal" in htb_user:
     subprocess.call("secret-tool store --label='HTB API key' htb-api user-htb-api",shell=True)
     appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
 
+htb_user=subprocess.getoutput("curl -s --location --request GET https://www.hackthebox.com/api/v4/user/info -H \"Authorization: Bearer "+appkey+"\" | jq '.info.name'")
+htb_user=htb_user.replace('"','')
+
 subprocess.call("mkdir -p $HOME/.local/share/icons/hackthebox/avatar",shell=True)
 subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
 
