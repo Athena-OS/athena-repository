@@ -23,12 +23,16 @@ htb_user=subprocess.getoutput("curl -s --location --request GET https://www.hack
 htb_user=htb_user.replace('"','')
 
 if "parse error: Invalid numeric literal" in htb_user:
-    print("Error. Maybe your API key is incorrect or expired. Renew your API key and rerun 'sudo htb-update', or insert the new API key in the 'Password' field.")
+    print("Error. Maybe your API key is incorrect or expired. Renew your API key and rerun 'htb-update', or insert the new API key in the 'Password' field.")
     subprocess.call("secret-tool store --label='HTB API key' htb-api user-htb-api",shell=True)
     appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
 
 htb_user=subprocess.getoutput("curl -s --location --request GET https://www.hackthebox.com/api/v4/user/info -H \"Authorization: Bearer "+appkey+"\" | jq '.info.name'")
 htb_user=htb_user.replace('"','')
+
+if "parse error: Invalid numeric literal" in htb_user:
+    print("Error. Maybe your API key is incorrect or expired. Renew your API key and rerun 'htb-update', or insert the new API key in the 'Password' field. Closing...")
+    exit()
 
 subprocess.call("mkdir -p $HOME/.local/share/icons/hackthebox/avatar",shell=True)
 
