@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Athena Welcome App
-GenericName=Athena Welcome App
-X-GNOME-FullName=Athena Welcome App
-Comment=Welcome Application for Athena Installs
-Exec=/usr/local/bin/athena-welcome-app
+Name=Athena Welcome
+GenericName=Athena Welcome
+X-GNOME-FullName=Athena Welcome
+Comment=Welcome Application for Athena
+Exec=/usr/local/bin/athena-welcome
 Icon=arcolinux-hello
 Terminal=false
 Type=Application
