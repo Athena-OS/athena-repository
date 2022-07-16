@@ -10,7 +10,6 @@ input_config = os.path.expandvars("$HOME/fly.txt")
 output_config = os.path.expandvars("$HOME/flyout.txt")
 machine_config = os.path.expandvars("$HOME/machine.json")
 appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
-htb_submenu = ""
 fly_new = ""
 
 
@@ -78,7 +77,7 @@ for machine in data["info"]:
     fly_new = fly_new + fly_object
 
 
-fly_new = htb_submenu + fly_new[:-1]
+fly_new = "[" + fly_new[:-1] + "]"
 
 subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
 with open(input_config,'r') as fly_file:
@@ -86,7 +85,7 @@ with open(input_config,'r') as fly_file:
 subprocess.call("rm -rf "+input_config,shell=True)
 
 #NOTE: if you change the icon of Available Machine, REMEMBER to change the path here below
-fly_out = re.sub(r'(?<=\{\\"name\\":\\"Available Machines\\",\\"icon\\":\\"\/usr\/share\/icons\/pwnage\/htb-machines.png\\",\\"type\\":\\"CustomMenu\\",\\"children\\":\[)(.*?)(?=\],\\"angle\\":-1,\\"data\\":\{\}\})', fly_new, contents)
+fly_out = re.sub(r'(?<=\{\\"name\\":\\"Available Machines\\",\\"icon\\":\\"\/usr\/share\/icons\/pwnage\/htb-machines.png\\",\\"type\\":\\"CustomMenu\\",\\"children\\":)(.*?)(?=,\\"angle\\":-1,\\"data\\":\{\}\})', fly_new, contents)
 
 with open(output_config, 'w') as f:
     f.write(fly_out)
