@@ -20,4 +20,4 @@ package() {
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/hfac.msdos-theme-0.1.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/nur.just-black-3.1.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
 }
-sha256sums=('3feb2c6d76d5ff5e2483d9459b60c02d005058fded1b178f0da4a0f2ea1464de')
+sha256sums=('83acb5b9274d1656090d3ed1e1e6409b5a8448f660b4cc146b20b28864f1f953')

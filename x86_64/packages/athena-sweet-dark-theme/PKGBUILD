@@ -16,4 +16,4 @@ package() {
   cp -rf "${srcdir}/usr/share/icons/candy-icons" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/neon_circle.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
 }
-sha256sums=('ac96f6d9dab56cf8a72aab7ab837cdeb0f181277c933e8e608de68fde67b8b84')
+sha256sums=('909cd2f013ef09f474ca6cdb35c58461dbc4aef1432a48491ae81214eb811218')

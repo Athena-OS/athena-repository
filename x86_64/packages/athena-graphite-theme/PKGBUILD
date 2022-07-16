@@ -19,4 +19,4 @@ package() {
   cp -rf "${srcdir}/usr/share/backgrounds/default/arch-ascii.png" "${pkgdir}/usr/share/backgrounds/default/"  
 
 }
-sha256sums=('741f5a40b512dfd197394d27a68837fd027fce5db8ac092bde2d47f172308376')
+sha256sums=('ffc1db5ae90dcb6c2d6e6339aed46f841f2bcc3f9a7a8c486294896b8509f109')
