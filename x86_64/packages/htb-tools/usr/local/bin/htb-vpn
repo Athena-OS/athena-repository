@@ -41,15 +41,19 @@ echo "Connecting to $1 server [id=$vpn_id]..."
     curl --silent --location --request GET "https://www.hackthebox.com/api/v4/access/ovpnfile/$vpn_id/0" -H "Authorization: Bearer $appkey" -o $HOME/lab-vpn.ovpn
 
 } || { # catch
-    echo "Error. Maybe your API key is incorrect or expired. Renew your API key and rerun htb-update."
+    echo "Error. Maybe your API key is incorrect or expired. Renew your API key by running htb-update."
     exit 1
 }
 
 if grep -q "You are not assigned to this VPN Server" "$HOME/lab-vpn.ovpn"; then
-  curl --silent --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/$vpn_id" -H "Authorization: Bearer $appkey" | jq '.message'
-  curl --silent --location --request GET "https://www.hackthebox.com/api/v4/access/ovpnfile/$vpn_id/0" -H "Authorization: Bearer $appkey" -o $HOME/lab-vpn.ovpn
+   { # try
+      curl --silent --location --request POST "https://www.hackthebox.com/api/v4/connections/servers/switch/$vpn_id" -H "Authorization: Bearer $appkey" | jq '.message'
+      curl --silent --location --request GET "https://www.hackthebox.com/api/v4/access/ovpnfile/$vpn_id/0" -H "Authorization: Bearer $appkey" -o $HOME/lab-vpn.ovpn
+   } || { # catch
+      echo "Error. Maybe your API key is incorrect or expired. Renew your API key by running htb-update. If not working, could be a VPN related error."
+      exit 1
+   }
 fi
-
 
 echo "Asking sudo for openvpn..."
 

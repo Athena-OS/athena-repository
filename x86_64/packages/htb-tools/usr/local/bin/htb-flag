@@ -28,15 +28,19 @@ echo -n -e "\e[33mDifficulty Rating:\e[0m"
 read machine_rating
 echo
 
-machine_id=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq .info.id)
-
-curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/own" --data "{\"flag\":\"$flag\",\"id\":$machine_id,\"difficulty\":$machine_rating}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message'
-
-curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json
+{ # try # Test if the API key is valid
+    machine_id=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq .info.id)
+    curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/own" --data "{\"flag\":\"$flag\",\"id\":$machine_id,\"difficulty\":$machine_rating}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message'
+    curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json
+} || { # catch
+    echo "Error. Maybe your API key is incorrect or expired. Renew your API key by running htb-update."
+    exit 1
+}
 
 machine_userflag=$(cat $HOME/machine.json | jq '.info.authUserInUserOwns')
 machine_rootflag=$(cat $HOME/machine.json | jq '.info.authUserInRootOwns')
 machine_review=$(cat $HOME/machine.json | jq '.info.authUserHasReviewed')
+rm -rf $HOME/machine.json
 
 if [ $machine_userflag != "null" ] && [ $machine_rootflag != "null" ] && [ $machine_review == "true" ]; then
   echo -e "\e[33mWonderful! You PWNED $machine_name! Would you like to submit a feedback?\e[0m"
@@ -53,12 +57,16 @@ if [ $machine_userflag != "null" ] && [ $machine_rootflag != "null" ] && [ $mach
                 echo -e "\e[32mHow many starts would you give to this machine?\e[0m";
                 echo -n -e "\e[32mStars (1 to 5): \e[0m";
                 read review_stars;
-                curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/review" --data "{\"id\":$machine_id,\"stars\":$review_stars,\"headline\":\"$review_headline\",\"review\":\"$review_machine\"}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message';
+                { # try # Test if the API key is valid
+                    curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/review" --data "{\"id\":$machine_id,\"stars\":$review_stars,\"headline\":\"$review_headline\",\"review\":\"$review_machine\"}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message';
+                } || { # catch
+                    echo "Error. Maybe your API key is incorrect or expired. Renew your API key by running htb-update."
+                    exit 1
+                }
+                
                 break;;
           No ) break;;
       esac
   done
   
 fi
-
-rm -rf $HOME/machine.json

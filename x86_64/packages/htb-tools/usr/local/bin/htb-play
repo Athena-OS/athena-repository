@@ -1,77 +1,67 @@
 #!/bin/sh
 
-if [[ $# -ne 6 ]] ; then
-    echo 'Please, provide the needed parameters: Machine ID, AppKey, Machine Name, IP Address, Points, HTB User'
-    exit 1
-fi
+appkey=$(secret-tool lookup htb-api user-htb-api)
 
-machine_id=$1
-appkey=$2
-machine_name=$3
-machine_ip=$4
-machine_points=$5
-htb_user=$6
-VPNArray=("EUFree1" "EUFree2" "EUFree3" "USFree1" "USFree2" "USFree3" "AUFree1" "SGFree1")
-
-if nmcli c show --active | grep -q tun ; then
-  echo "VPN Server already running."
-else  
-  while [[ ! ${VPNArray[*]} =~ (^|[[:space:]])$vpn_server($|[[:space:]]) ]] #Use of ':space:' for Exact match in the array
-  do
-     echo "VPN Server not running. Type one of the following VPN servers:"
-     echo -e "\e[36mEUFree1 EUFree2 EUFree3 USFree1 USFree2 USFree3 AUFree1 SGFree1\e[0m"
-     echo -n "VPN Server:"
-     read vpn_server
-     htb-vpn $vpn_server
-  done
-fi
-
-{ # try # Test if the API key is valid
-
-    curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > /dev/null
-
+{ # try
+    curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json
 } || { # catch
-    echo "Error. Maybe your API key is incorrect or expired. Renew your API key and rerun htb-update."
+    echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
+    rm -rf $HOME/machine.json
     exit 1
 }
 
-curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json
+count=$(jq -r '.info | length' $HOME/machine.json)
+array_index_free_machines=()
 
-machine_userflag=$(cat $HOME/machine.json | jq '.info.authUserInUserOwns')
-machine_rootflag=$(cat $HOME/machine.json | jq '.info.authUserInRootOwns')
+echo "Loading retired machines..."
 
-rm -rf $HOME/machine.json
+for sequence in $(seq $count)
+do
+  let index=$sequence-1
+  free=$(jq -r ".info[$index].free" $HOME/machine.json)
 
-if [ $machine_userflag != "null" ]; then
-  echo "Hey! You have already found the User Flag! Nice one!"
-fi
+  # Display variables
+  if [ $free = "true" ]; then
+    array_index_free_machines+=($index)
+  fi
 
-if [ $machine_rootflag != "null" ]; then
-  echo "Hey! You have already found the Root Flag! Keep it up!"
-fi
+done
 
-printf '%b\n' "$(base64 -d <<<"H4sIAAAAAAAAA+1buw6DMAzc+xVZWlUoSlCZqn5K+wv8/9oHUgkQIEBCDtueqlOHi+/imICVihunsL+9yqp6lo/7rb42P+t1iB1CcVjqWAzxkW3ZCtJEkH0QvU5GtGWkQ8wnyG5tu0h5g0Y/XhqME2jsEno7RHmyxVkbT9Bdbl9sV2g0rnsiymeDf9At/cZjBTSSCXfDbHx9wSghXSsQOQTnVW6jQCO/RUdaMkbLTYgP0EiLnagjU7Yk239wtbXl1FQMEd00Vp1GC41jXiT3CZRva2g5gJ2bKNbbomhysOtlTHbjE3oKWYcwb3ecM5Gf8dmXfnyk17gx9aih/JJgiBSeh1K+ygNUqZHbAtFENBFNRBPRRDQRTUSTuJoc8jLKl0VhFN8bZzR66RAs8Tp2UnQvz6zuGu4XZJ/BC0R/oSUpHeJ+ET/4GJbR9bxCEL4hccjuY7v7vA48bDe2DjG5t5yhO9hlLx5rjc/8kD1wBVncoox5ZHpMUhyUsYxNRMAILtp6otXA0RG4BcnZ4O3J+cuWwxtaDodVdT0AAA==" | gunzip)" #User printf for colored output
+echo "Today, the free retired machines are: "
+echo
+for elem in "${array_index_free_machines[@]}"
+do
+    id=$(jq -r ".info[$elem].id" $HOME/machine.json)
+    name=$(jq -r ".info[$elem].name" $HOME/machine.json)
+    points=$(jq -r ".info[$elem].points" $HOME/machine.json)
+    difficultyText=$(jq -r ".info[$elem].difficultyText" $HOME/machine.json)
+    free=$(jq -r ".info[$elem].free" $HOME/machine.json)
+    echo $name
+done
+echo
+echo "What is the name of the machine you would like to play?"
+read machine_name
 echo
 
-if curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Playing"; then
+{ # try
+    curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json 
+    if cat $HOME/machine.json | grep -q "Machine not found"; then
+       echo "Machine not found"
+       echo
+       rm -rf $HOME/machine.json
+       exit 1
+    fi
+    htb_user=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/info" -H "Authorization: Bearer $appkey" | jq '.info.name')
+} || { # catch
+    echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
+    rm -rf $HOME/machine.json
+    exit 1
+}
 
-  sed -i "/PS1=/c\PS1='\\\\e[34m\\\\]┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️Attacker:$htb_user📡IP:$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')\\\\e[32m\\\\]🏆Prize:$machine_points points]\\\\n└──╼[👾]\\\\[\\\\e[36m\\\\]\\\$(pwd) $ \\\\[\\\\e[0m\\\\]'" $HOME/.bashrc
+id=$(jq -r ".info.id" $HOME/machine.json)
+name=$(jq -r ".info.name" $HOME/machine.json)
+ip=$(jq -r ".info.ip" $HOME/machine.json)
+points=$(jq -r ".info.points" $HOME/machine.json)
+rm -rf $HOME/machine.json
 
-  rm -rf $HOME/.config/fish/functions/fish_prompt.fish
-cat <<EOF > $HOME/.config/fish/functions/fish_prompt.fish
-  function fish_prompt
-      set_color 00ff00
-      echo -n "┌──[Target:$machine_name🌐IP:$machine_ip"
-      set_color ff00d7
-      echo -n "⚔️Attacker:$htb_user📡IP:$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')"
-      set_color 00ff00
-      echo "]🏆Prize:$machine_points points]"
-      set_color 00ff00
-      echo -n "└──╼[👾]"
-      set_color 00ffff
-      echo (pwd) '$' (set_color normal)
-      end
-EOF
-  echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
-  echo
-fi
+htb-spawn $id $appkey $name $ip $points $htb_user
