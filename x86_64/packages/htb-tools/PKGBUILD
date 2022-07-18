@@ -1,5 +1,5 @@
 pkgname="htb-tools"
-pkgver="1.0.1"
+pkgver="1.0.2"
 pkgrel="1"
 pkgdesc="Hack The Box tools"
 arch=("x86_64")
@@ -28,4 +28,4 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/prompt-reset" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/share/pwnage/hackthebox/htb-update.py" "${pkgdir}/usr/share/pwnage/hackthebox/"
 }
-sha256sums=('016886c41deb10b461b9edf3fec62c43f000f2f7ffc8a2e20689ee4ee3eb21bb')
+sha256sums=('05a23b7e3248fcbcbc301297619a2b78ee6d1b63b1af909aa51984d68024694a')

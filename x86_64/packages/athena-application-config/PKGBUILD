@@ -1,0 +1,32 @@
+pkgname="athena-application-config"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Application configuration for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/profile.d"
+  mkdir -p "${pkgdir}/etc/skel"
+  mkdir -p "${pkgdir}/usr/share/gnome-shell"
+  mkdir -p "${pkgdir}/usr/share/icons/default"
+
+  cp -rf "${srcdir}/etc/profile.d/run-once.sh" "${pkgdir}/etc/profile.d/"
+  cp -rf "${srcdir}"/etc/skel/* "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.bash_aliases" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.bashrc" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.config" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.icons" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.local" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.mozilla" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.tmux" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.tmux.conf" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.vim_runtime" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.viminfo" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.vimrc" "${pkgdir}/etc/skel/"
+
+  cp -rf "${srcdir}/usr/share/gnome-shell/gnome-shell-theme.gresource.new" "${pkgdir}/usr/share/gnome-shell/"
+  cp -rf "${srcdir}/usr/share/icons/default/index.theme" "${pkgdir}/usr/share/icons/default/"
+}
+sha256sums=('935475def85a47f592a189c0cfb9a8bc3657b20a83419a5a3e849b9d8467cfd1')

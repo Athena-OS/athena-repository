@@ -1,0 +1,16 @@
+pkgname="athena-keyring"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Keyring for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/local/bin"
+  mkdir -p "${pkgdir}/usr/share/pacman/keyrings"
+
+  cp -rf "${srcdir}/usr/local/bin/strap.sh" "${pkgdir}/usr/local/bin/"
+  cp -rf "${srcdir}"/usr/share/pacman/keyrings/* "${pkgdir}/usr/share/pacman/keyrings/"
+}
+sha256sums=('17a7ef3ff92f64c06a2d19980f0e3cd2a92ec9457ef2c875e92546718ccc996d')
