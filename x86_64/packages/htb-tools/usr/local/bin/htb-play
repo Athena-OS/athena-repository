@@ -279,6 +279,7 @@ ListRetiredMachines()
         free=$(jq -r ".info[$elem].free" $HOME/machine.json)
         echo $name
     done
+    rm -rf $HOME/machine.json
     echo
 }
 
