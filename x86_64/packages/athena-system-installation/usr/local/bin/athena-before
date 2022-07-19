@@ -16,8 +16,7 @@ echo "#################################"
 echo "Inherit the cursor theme on the used theme"
 echo "#################################"
 echo
-sed -i "s/Inherits=.*/Inherits=$(gsettings get org.gnome.desktop.interface cursor-theme) /g" /usr/share/icons/default/index.theme
-sed -i "s/'//g" /usr/share/icons/default/index.theme
+sed -i "s/Inherits=.*/Inherits=Breeze_Hacked/g" /usr/share/icons/default/index.theme
 echo
 echo "#################################"
 echo "Copy grub Vimix theme (archiso deletes /boot when making the ISO)"
