@@ -14,5 +14,7 @@ package() {
   cp -rf "${srcdir}/etc/xdg/autostart/athena-welcome.desktop" "${pkgdir}/etc/xdg/autostart/"
   cp -rf "${srcdir}/usr/lib/systemd/system/athena-graphical-target.service" "${pkgdir}/usr/lib/systemd/system/"
   cp -rf "${srcdir}"/usr/local/bin/* "${pkgdir}/usr/local/bin/"
+  
+  install -Dm755 "$srcdir/usr/local/bin/athena-snapper" "$pkgdir/usr/local/bin/"
 }
-sha256sums=('bd0b474a77dfe5434dc31a67e352c0b1a584c0739c367110bba40291ff55df9d')
+sha256sums=('0a2602c9760941d46241ea6e394edeb09b2bb84654d06ca0c05f35bd39b03f55')
