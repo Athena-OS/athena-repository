@@ -1,5 +1,5 @@
 pkgname="htb-tools"
-pkgver="1.0.2"
+pkgver="1.0.3"
 pkgrel="1"
 pkgdesc="Hack The Box tools"
 arch=("x86_64")
@@ -23,6 +23,7 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/htb-play" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-reset" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-stop" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/htb-spawn" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-update" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-vpn" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/prompt-reset" "${pkgdir}/usr/local/bin/"
