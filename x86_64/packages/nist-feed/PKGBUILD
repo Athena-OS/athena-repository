@@ -1,0 +1,18 @@
+pkgname="nist-feed"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="NIST NVD feed and popup notifications"
+arch=("x86_64")
+license=("custom")
+depends=('cron' 'dunst')
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/local/bin"
+  mkdir -p "${pkgdir}/usr/share/icons/hicolor/scalable/apps"
+
+  cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/cve.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
+
+  install -Dm755 "${srcdir}/usr/local/bin/nist-feed" "${pkgdir}/usr/local/bin/"
+}
+sha256sums=('396c9ac5d5a882470b5f60f24df2dacbe6c6621ebfd3df2eb347094e43e95bf4')
