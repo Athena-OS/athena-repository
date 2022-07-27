@@ -216,7 +216,6 @@ last_cve_file="$HOME/.last_cve"
 if [ "$end" ]; then
    echo "Disabling NIST NVD feed popup notification..."
    crontab -l | sed '/nist-feed/d' | crontab
-   echo $last_cve_file
    rm -rf $last_cve_file
    rm -rf $HOME/cve.json
    exit 0
