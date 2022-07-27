@@ -54,6 +54,8 @@ if [ -f "$FLAGFILE" ]; then
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
 
     $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
+    
+    /usr/local/bin/nist-feed -n -l
 fi
 
 #If tun0 is down (i.e., after a reboot), the shell prompt must be updated with the running interfaces

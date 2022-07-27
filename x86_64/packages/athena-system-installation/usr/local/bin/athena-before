@@ -15,7 +15,7 @@ echo
 echo "#################################"
 echo "Set crontab"
 echo "#################################"
-nist-feed -n -l
+systemctl enable cronie.service
 echo
 echo "#################################"
 echo "Inherit the cursor theme on the used theme"

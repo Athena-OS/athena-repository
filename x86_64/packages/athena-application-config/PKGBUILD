@@ -41,4 +41,4 @@ package() {
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/variables.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
 }
-sha256sums=('2ebc9cca361ff721c7b919ec43ef0022d9aa18f84aeb7807341622cd8bd8a3b9')
+sha256sums=('dd2c91262111a2519ec6f03e1da6afe27f20618ea4cd7a0f1cea6c58eb864de6')
