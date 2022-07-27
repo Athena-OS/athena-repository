@@ -15,4 +15,4 @@ package() {
 
   install -Dm755 "${srcdir}/usr/local/bin/nist-feed" "${pkgdir}/usr/local/bin/"
 }
-sha256sums=('e25062fe9597660018ba970c581ca0d027a1c52004209826e4e2a9a0d798974b')
+sha256sums=('6b5099dff6d1d894d839b9d4f3498915632385abfe261735f8eee60c548d1c30')

@@ -74,6 +74,7 @@ Help()
    echo "-s                        Filter by severity (LOW, MEDIUM, HIGH or CRITICAL)."
    echo "-U                        Filter by user interaction metric (NONE='UI:N' or REQUIRED='UI:R')."
    echo "-V                        Filter by attack vector metric (NETWORK='AV:N', ADJACENT='AV:A', LOCAL='AV:L' or PHYSICAL='AV:P')."
+   echo "-z                        Disable desktop notification."
    echo
    echo "Usage Examples:"
    echo "nist-feed -n -l -s CRITICAL"
@@ -85,7 +86,7 @@ Help()
 # Process the input options. Add options as needed.        #
 ############################################################
 # Get the options
-while getopts "A:a:Cc:e:hi:lm:nP:r:s:S:U:V:" option; do #When using getopts, putting : after an option character means that it requires an argument (i.e., 'i:' requires arg).
+while getopts "A:a:Cc:e:hi:lm:nP:r:s:S:U:V:z" option; do #When using getopts, putting : after an option character means that it requires an argument (i.e., 'i:' requires arg).
    case "${option}" in
       
       A)
@@ -186,6 +187,9 @@ while getopts "A:a:Cc:e:hi:lm:nP:r:s:S:U:V:" option; do #When using getopts, put
             exit 0
          fi
          ;;
+      z) # Enter a command
+         end=1
+         ;;
       : )
         echo "Missing option argument for -$OPTARG" >&2; exit 0;;
       *  )
@@ -206,6 +210,14 @@ echo
 # Main program                                             #
 ############################################################
 ############################################################
+
+if [ "$end" ]; then
+   echo "Disabling NIST NVD feed popup notification..."
+   crontab -l | sed '/nist-feed/d' | crontab
+   rm -rf $last_cve_file
+   rm -rf $HOME/cve.json
+   exit 0
+fi
 
 baseURL="https://services.nvd.nist.gov/rest/json/cves/1.0?sortOrder=publishedDate"
 last_cve_file="$HOME/.last_cve"
@@ -307,16 +319,16 @@ if [[ "$id" != "$LAST_CVE" ]] || [ $(crontab -l | wc -c) -eq 0 ];then #if the pr
    
    if [[ "$notify" -eq 1 ]] && [ ! "$severity" ] && [ ! "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l)") | crontab -
+      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /home/athena/nist-feed -l)") | crontab -
    elif [[ "$notify" -eq 1 ]] && [ "$severity" ] && [ ! "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -s $severity)") | crontab -
+      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /home/athena/nist-feed -l -s $severity)") | crontab -
    elif [[ "$notify" -eq 1 ]] && [ ! "$severity" ] && [ "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -m $metric)") | crontab -
+      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /home/athena/nist-feed -l -m $metric)") | crontab -
    elif [[ "$notify" -eq 1 ]] && [ "$severity" ] && [ "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -s $severity -m $metric)") | crontab -
+      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /home/athena/nist-feed -l -s $severity -m $metric)") | crontab -
    fi
    
 fi
