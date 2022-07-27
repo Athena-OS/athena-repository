@@ -1,6 +1,6 @@
 #!/bin/sh
 
-killall /usr/bin/gjs
+pkill -f "/usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications"
 
 ############################################################
 # Colors                                                   #
