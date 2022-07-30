@@ -6,6 +6,8 @@ set -U fish_greeting ""
 
 source ~/.bash_aliases
 
+zoxide init fish | source
+
 #set -x BFETCH_INFO "pfetch"
 #set -x BFETCH_ART "$HOME/.local/textart/fetch/unix.textart"
 #set -x PF_INFO "Unix Genius"
