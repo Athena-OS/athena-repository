@@ -1,6 +1,7 @@
 #!/bin/sh
 
 appkey=$(secret-tool lookup htb-api user-htb-api)
+machine_json_file="$HOME/.machine.json"
 
 ############################################################
 # Banner                                                   #
@@ -229,10 +230,10 @@ ListRetiredMachines()
     echo "Connecting to HTB server..."
     echo
     { # try
-        curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json
+        curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list/retired -H "Authorization: Bearer $appkey" | jq > $machine_json_file
     } || { # catch
         echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
-        rm -rf $HOME/machine.json
+        rm -rf $machine_json_file
         exit 1
     }
     echo "Done."
@@ -240,7 +241,7 @@ ListRetiredMachines()
     echo "Calculating the number of retired machines..."
     echo
     sleep 1
-    count=$(jq -r '.info | length' $HOME/machine.json)
+    count=$(jq -r '.info | length' $machine_json_file)
     array_index_free_machines=()
     echo "Done."
     echo
@@ -249,11 +250,11 @@ ListRetiredMachines()
     for sequence in $(seq $count)
     do
       let index=$sequence-1
-      id=$(jq -r ".info[$index].id" $HOME/machine.json)
-      name=$(jq -r ".info[$index].name" $HOME/machine.json)
-      points=$(jq -r ".info[$index].points" $HOME/machine.json)
-      difficultyText=$(jq -r ".info[$index].difficultyText" $HOME/machine.json)
-      free=$(jq -r ".info[$index].free" $HOME/machine.json)
+      id=$(jq -r ".info[$index].id" $machine_json_file)
+      name=$(jq -r ".info[$index].name" $machine_json_file)
+      points=$(jq -r ".info[$index].points" $machine_json_file)
+      difficultyText=$(jq -r ".info[$index].difficultyText" $machine_json_file)
+      free=$(jq -r ".info[$index].free" $machine_json_file)
 
       # Display variables
       if [ $free = "true" ]; then
@@ -272,14 +273,14 @@ ListRetiredMachines()
     echo
     for elem in "${array_index_free_machines[@]}"
     do
-        id=$(jq -r ".info[$elem].id" $HOME/machine.json)
-        name=$(jq -r ".info[$elem].name" $HOME/machine.json)
-        points=$(jq -r ".info[$elem].points" $HOME/machine.json)
-        difficultyText=$(jq -r ".info[$elem].difficultyText" $HOME/machine.json)
-        free=$(jq -r ".info[$elem].free" $HOME/machine.json)
+        id=$(jq -r ".info[$elem].id" $machine_json_file)
+        name=$(jq -r ".info[$elem].name" $machine_json_file)
+        points=$(jq -r ".info[$elem].points" $machine_json_file)
+        difficultyText=$(jq -r ".info[$elem].difficultyText" $machine_json_file)
+        free=$(jq -r ".info[$elem].free" $machine_json_file)
         echo $name
     done
-    rm -rf $HOME/machine.json
+    rm -rf $machine_json_file
     echo
 }
 
@@ -314,24 +315,24 @@ read machine_name
 echo
 
 { # try
-    curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json 
-    if cat $HOME/machine.json | grep -q "Machine not found"; then
+    curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $machine_json_file 
+    if cat $machine_json_file | grep -q "Machine not found"; then
        echo "Machine not found"
        echo
-       rm -rf $HOME/machine.json
+       rm -rf $machine_json_file
        exit 1
     fi
     htb_user=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/info" -H "Authorization: Bearer $appkey" | jq '.info.name')
 } || { # catch
     echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
-    rm -rf $HOME/machine.json
+    rm -rf $machine_json_file
     exit 1
 }
 
-id=$(jq -r ".info.id" $HOME/machine.json)
-name=$(jq -r ".info.name" $HOME/machine.json)
-ip=$(jq -r ".info.ip" $HOME/machine.json)
-points=$(jq -r ".info.points" $HOME/machine.json)
-rm -rf $HOME/machine.json
+id=$(jq -r ".info.id" $machine_json_file)
+name=$(jq -r ".info.name" $machine_json_file)
+ip=$(jq -r ".info.ip" $machine_json_file)
+points=$(jq -r ".info.points" $machine_json_file)
+rm -rf $machine_json_file
 
 htb-spawn $id $appkey $name $ip $points $htb_user

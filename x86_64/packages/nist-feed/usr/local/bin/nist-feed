@@ -212,12 +212,13 @@ echo
 ############################################################
 
 last_cve_file="$HOME/.last_cve"
+cve_json_file="$HOME/.cve.json"
 
 if [ "$end" ]; then
    echo "Disabling NIST NVD feed popup notification..."
    crontab -l | sed '/nist-feed/d' | crontab
    rm -rf $last_cve_file
-   rm -rf $HOME/cve.json
+   rm -rf $cve_json_file
    exit 0
 fi
 
@@ -248,37 +249,37 @@ fi
 
 #echo "Calling $baseURL"
 
-curl -s --location --request GET "$baseURL" | jq '.result.CVE_Items' > $HOME/cve.json
+curl -s --location --request GET "$baseURL" | jq '.result.CVE_Items' > $cve_json_file
 
 if [[ "$latest" -eq 1 ]] && [ ! "$cve" ]; then
    countCVE=1
 else  
-   countCVE=$(jq -r '. | length' $HOME/cve.json)
+   countCVE=$(jq -r '. | length' $cve_json_file
 fi
 
 for sequenceCVE in $(seq $countCVE)
 do
       let indexCVE=$sequenceCVE-1
-      id=$(jq -r ".[$indexCVE].cve.CVE_data_meta.ID" $HOME/cve.json)
+      id=$(jq -r ".[$indexCVE].cve.CVE_data_meta.ID" $cve_json_file)
 
-      description=$(jq -r ".[$indexCVE].cve.description.description_data[0].value" $HOME/cve.json)
+      description=$(jq -r ".[$indexCVE].cve.description.description_data[0].value" $cve_json_file)
 
-      publishedDate=$(jq -r ".[$indexCVE].publishedDate" $HOME/cve.json)
-      lastModifiedDate=$(jq -r ".[$indexCVE].lastModifiedDate" $HOME/cve.json)
+      publishedDate=$(jq -r ".[$indexCVE].publishedDate" $cve_json_file)
+      lastModifiedDate=$(jq -r ".[$indexCVE].lastModifiedDate" $cve_json_file)
 
-      attackVector=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackVector" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackVector" $HOME/cve.json)")
-      attackComplexity=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackComplexity" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackComplexity" $HOME/cve.json)")
-      privilegesRequired=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.privilegesRequired" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.privilegesRequired" $HOME/cve.json)")
-      userInteraction=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.userInteraction" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.userInteraction" $HOME/cve.json)")
-      scope=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.scope" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.scope" $HOME/cve.json)")
-      confidentialityImpact=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.confidentialityImpact" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.confidentialityImpact" $HOME/cve.json)")
-      integrityImpact=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.integrityImpact" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.integrityImpact" $HOME/cve.json)")
-      availabilityImpact=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.availabilityImpact" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.availabilityImpact" $HOME/cve.json)")
-      baseScore=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseScore" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseScore" $HOME/cve.json)")
-      baseSeverity=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseSeverity" $HOME/cve.json) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseSeverity" $HOME/cve.json)")
+      attackVector=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackVector" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackVector" $cve_json_file)")
+      attackComplexity=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackComplexity" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.attackComplexity" $cve_json_file)")
+      privilegesRequired=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.privilegesRequired" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.privilegesRequired" $cve_json_file)")
+      userInteraction=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.userInteraction" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.userInteraction" $cve_json_file)")
+      scope=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.scope" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.scope" $cve_json_file)")
+      confidentialityImpact=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.confidentialityImpact" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.confidentialityImpact" $cve_json_file)")
+      integrityImpact=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.integrityImpact" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.integrityImpact" $cve_json_file)")
+      availabilityImpact=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.availabilityImpact" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.availabilityImpact" $cve_json_file)")
+      baseScore=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseScore" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseScore" $cve_json_file)")
+      baseSeverity=$([ $(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseSeverity" $cve_json_file) == "null" ] && echo "To Be Evaluated" || echo "$(jq -r ".[$indexCVE].impact.baseMetricV3.cvssV3.baseSeverity" $cve_json_file)")
       nvdURL="https://nvd.nist.gov/vuln/detail/$id"      
 
-      countURL=$(jq -r ".[$indexCVE].cve.references.reference_data | length" $HOME/cve.json)
+      countURL=$(jq -r ".[$indexCVE].cve.references.reference_data | length" $cve_json_file)
       array_URL=()
       
       echo
@@ -290,7 +291,7 @@ do
       for sequenceURL in $(seq $countURL)
       do
         let index=$sequenceURL-1
-        array_URL=$(jq -r ".[$indexCVE].cve.references.reference_data[$index].url" $HOME/cve.json)
+        array_URL=$(jq -r ".[$indexCVE].cve.references.reference_data[$index].url" $cve_json_file)
         echo "$array_URL"
       done
       echo
@@ -336,4 +337,4 @@ if [[ "$id" != "$LAST_CVE" ]] || [ $(crontab -l | wc -c) -eq 0 ];then #if the pr
    
 fi
 
-rm -rf $HOME/cve.json
+rm -rf $cve_json_file

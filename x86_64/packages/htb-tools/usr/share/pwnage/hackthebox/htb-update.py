@@ -6,9 +6,9 @@ import shutil # to save it locally
 import os
 
 #### VARIABLE SETTING ####
-input_config = os.path.expandvars("$HOME/fly.txt")
-output_config = os.path.expandvars("$HOME/flyout.txt")
-machine_config = os.path.expandvars("$HOME/machine.json")
+input_config = os.path.expandvars("$HOME/.fly.txt")
+output_config = os.path.expandvars("$HOME/.flyout.txt")
+machine_config = os.path.expandvars("$HOME/.machine.json")
 appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
 fly_new = ""
 

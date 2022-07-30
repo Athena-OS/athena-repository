@@ -13,6 +13,8 @@ machine_points=$5
 htb_user=$6
 VPNArray=("EUFree1" "EUFree2" "EUFree3" "USFree1" "USFree2" "USFree3" "AUFree1" "SGFree1")
 
+machine_json_file="$HOME/.machine.json"
+
 if nmcli c show --active | grep -q tun ; then
   echo "VPN Server already running."
 else  
@@ -28,18 +30,18 @@ fi
 
 { # try # Test if the API key is valid
 
-    curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $HOME/machine.json
+    curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $machine_json_file
 
 } || { # catch
     echo "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
-    rm -rf $HOME/machine.json
+    rm -rf $machine_json_file
     exit 1
 }
 
-machine_userflag=$(cat $HOME/machine.json | jq '.info.authUserInUserOwns')
-machine_rootflag=$(cat $HOME/machine.json | jq '.info.authUserInRootOwns')
+machine_userflag=$(cat $machine_json_file | jq '.info.authUserInUserOwns')
+machine_rootflag=$(cat $machine_json_file | jq '.info.authUserInRootOwns')
 
-rm -rf $HOME/machine.json
+rm -rf $machine_json_file
 
 if [ $machine_userflag != "null" ]; then
   echo "Hey! You have already found the User Flag! Nice one!"
