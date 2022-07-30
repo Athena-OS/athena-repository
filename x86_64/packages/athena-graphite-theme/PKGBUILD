@@ -1,7 +1,7 @@
 pkgname="athena-graphite-theme"
 pkgver="1.0.0"
 pkgrel="1"
-pkgdesc="Sweet Dark theme with Sweet Purple icons for Athena"
+pkgdesc="Graphite Dark theme with Tela Circle Black Dark icons for Athena"
 arch=("x86_64")
 license=("custom")
 source=("$pkgname.tar.gz")

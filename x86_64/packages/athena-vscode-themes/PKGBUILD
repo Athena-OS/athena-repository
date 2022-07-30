@@ -19,5 +19,7 @@ package() {
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/enkia.tokyo-night-0.8.4.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/hfac.msdos-theme-0.1.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/nur.just-black-3.1.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/gruvbox-material-6.5.0_vsixhub.com.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  code --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/red-blood-0.0.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
 }
-sha256sums=('83acb5b9274d1656090d3ed1e1e6409b5a8448f660b4cc146b20b28864f1f953')
+sha256sums=('894d54202cdae5b42964fad47c5fcf32ed475e7c58a14f32451056cea3d1d6ab')

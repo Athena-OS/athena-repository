@@ -50,6 +50,28 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-options stretched
     fi
 
+    package=athena-gruvbox-theme
+    if pacman -Qq $package > /dev/null ; then
+       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+       gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-B
+       gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark-compact
+       gsettings set org.gnome.desktop.interface icon-theme Material-Black-Mango-Suru
+       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/cyborg_gruv.png
+       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/cyborg_gruv.png
+       gsettings set org.gnome.desktop.background picture-options stretched
+    fi
+
+    package=athena-akame-theme
+    if pacman -Qq $package > /dev/null ; then
+       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+       gsettings set org.gnome.desktop.interface gtk-theme Abyss-BLOOD-3.36
+       gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark-compact
+       gsettings set org.gnome.desktop.interface icon-theme Material-Black-Cherry-Suru
+       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/akame.jpg
+       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/akame.jpg
+       gsettings set org.gnome.desktop.background picture-options stretched
+    fi
+
     rm -rf $HOME/flypieschneegans.github.com.v16.shell-extension.zip $HOME/dash-to-dock $HOME/dingrastersoft.com.v46.shell-extension.zip $HOME/burn-my-windowsschneegans.github.com.v18.shell-extension.zip $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
 

@@ -1,0 +1,19 @@
+pkgname="athena-akame-theme"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Akame theme with Material Black Cherry Suru icons for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/themes"
+  mkdir -p "${pkgdir}/usr/share/icons"
+  mkdir -p "${pkgdir}/usr/share/backgrounds/default"
+
+  cp -rf "${srcdir}/usr/share/themes/Abyss-BLOOD-3.36" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/icons/Material-Black-Cherry-Suru" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/backgrounds/default/akame.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
+
+}
+sha256sums=('7491240424bef59c4ab5f39f20894e7a1672d285207d0184359a3ab31d4d5cb2')

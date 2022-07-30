@@ -1,0 +1,19 @@
+pkgname="athena-gruvbox-theme"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Gruvbox theme with Material Black Mango Suru icons for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/themes"
+  mkdir -p "${pkgdir}/usr/share/icons"
+  mkdir -p "${pkgdir}/usr/share/backgrounds/default"
+
+  cp -rf "${srcdir}/usr/share/themes/Gruvbox-Dark-B" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/icons/Material-Black-Mango-Suru" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/backgrounds/default/cyborg_gruv.png" "${pkgdir}/usr/share/backgrounds/default/"  
+
+}
+sha256sums=('7e90e87c11140b2cb76d8de495f75085ee7a053ba47cfb2fdcb471dc6c3ea179')
