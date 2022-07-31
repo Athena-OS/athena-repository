@@ -76,8 +76,24 @@ Help()
    echo "-V                        Filter by attack vector metric (NETWORK='AV:N', ADJACENT='AV:A', LOCAL='AV:L' or PHYSICAL='AV:P')."
    echo "-z                        Disable desktop notification."
    echo
-   echo "Usage Examples:"
+   echo "Usage Examples"
+   echo
+   echo "Set Desktop Notifications for latest or updated CVE with CRITICAL severity:" 
    echo "nist-feed -n -l -s CRITICAL"
+   echo
+   echo "Show details about the last three CVEs. No Desktop Notifications:"
+   echo "nist-feed -r 3"
+   echo
+   echo "Show details about the last twenty CVEs with PHYSICAL as attack vector and MEDIUM severity. No Desktop Notifications:"
+   echo "nist-feed -V AV:P -s MEDIUM"
+   echo
+   echo "Set Desktop Notifications for latest or updated CVE having high Confidentiality, Integrity and Availability impact:" 
+   echo "nist-feed -n -l -m C:H/I:H/A:H" 
+   echo "or"
+   echo "nist-feed -n -l -c C:H -i I:H -a A:H"
+   echo
+   echo "Set Desktop Notifications for latest or updated CVE with HIGH attack complexity and NETWORK as attack vector:"
+   echo "nist-feed -n -l -A AC:H -V AV:N"
    echo
    echo "Reference: https://nvd.nist.gov"
 }
@@ -254,7 +270,7 @@ curl -s --location --request GET "$baseURL" | jq '.result.CVE_Items' > $cve_json
 if [[ "$latest" -eq 1 ]] && [ ! "$cve" ]; then
    countCVE=1
 else  
-   countCVE=$(jq -r '. | length' $cve_json_file
+   countCVE=$(jq -r '. | length' $cve_json_file)
 fi
 
 for sequenceCVE in $(seq $countCVE)
