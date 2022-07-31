@@ -27,10 +27,8 @@ set -x BFETCH_COLOR "$HOME/.local/textart/color/icon/panes.textart"
 sudo rm -rf /etc/pacman.d/gnupg
 sudo pacman-key --init
 sudo pacman-key --populate
-sudo rm -rf /usr/share/pacman/keyrings/blackarch*
 
 sed -i '/pacman-key/d' $HOME/.config/fish/config.fish
 sed -i '/gnupg/d' $HOME/.config/fish/config.fish
-sed -i '/keyrings/d' $HOME/.config/fish/config.fish
 sed -i '/^$/d' $HOME/.config/fish/config.fish
 sed -i '/sed/d' $HOME/.config/fish/config.fish
