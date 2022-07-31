@@ -42,6 +42,48 @@ Presentation
 
     }
 
+    Slide {
+        anchors.fill: parent
+        anchors.verticalCenterOffset: 0
+        Image {
+            id: background1
+            source: "../../images/graphite-dark.png"
+            width: parent.width; height: parent.height
+            verticalAlignment: Image.AlignTop
+            fillMode: Image.Stretch
+            anchors.fill: parent
+        }
+
+    }
+
+    Slide {
+        anchors.fill: parent
+        anchors.verticalCenterOffset: 0
+        Image {
+            id: background1
+            source: "calamares-1.png"
+            width: parent.width; height: parent.height
+            verticalAlignment: Image.AlignTop
+            fillMode: Image.Stretch
+            anchors.fill: parent
+        }
+
+    }
+
+    Slide {
+        anchors.fill: parent
+        anchors.verticalCenterOffset: 0
+        Image {
+            id: background1
+            source: "../../images/sweet-dark.png"
+            width: parent.width; height: parent.height
+            verticalAlignment: Image.AlignTop
+            fillMode: Image.Stretch
+            anchors.fill: parent
+        }
+
+    }
+
 
     Slide {
         anchors.fill: parent
@@ -49,6 +91,20 @@ Presentation
         Image {
             id: background2
             source: "calamares-2.png"
+            width: parent.width; height: parent.height
+            verticalAlignment: Image.AlignTop
+            fillMode: Image.Stretch
+            anchors.fill: parent
+        }
+
+    }
+
+    Slide {
+        anchors.fill: parent
+        anchors.verticalCenterOffset: 0
+        Image {
+            id: background1
+            source: "../../images/cyborg-gruvbox.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.Stretch
@@ -75,8 +131,36 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
+            id: background1
+            source: "../../images/akame-theme.png"
+            width: parent.width; height: parent.height
+            verticalAlignment: Image.AlignTop
+            fillMode: Image.Stretch
+            anchors.fill: parent
+        }
+
+    }
+
+    Slide {
+        anchors.fill: parent
+        anchors.verticalCenterOffset: 0
+        Image {
             id: background5
             source: "calamares-4.png"
+            width: parent.width; height: parent.height
+            verticalAlignment: Image.AlignTop
+            fillMode: Image.Stretch
+            anchors.fill: parent
+        }
+
+    }
+
+    Slide {
+        anchors.fill: parent
+        anchors.verticalCenterOffset: 0
+        Image {
+            id: background1
+            source: "../../images/blue-eyes-theme.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
             fillMode: Image.Stretch
