@@ -13,7 +13,8 @@ package() {
 
   cp -rf "${srcdir}/usr/share/themes/Gruvbox-Dark-B" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Material-Black-Mango-Suru" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/Fuchsia-Pop" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/cyborg_gruv.png" "${pkgdir}/usr/share/backgrounds/default/"  
 
 }
-sha256sums=('7e90e87c11140b2cb76d8de495f75085ee7a053ba47cfb2fdcb471dc6c3ea179')
+sha256sums=('c0f726e9215a0ccc30e24b8b30431d891f6a0f163537ff3ceb71e3e0a7c5f5c7')

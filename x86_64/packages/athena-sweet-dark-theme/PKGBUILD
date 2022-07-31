@@ -14,6 +14,7 @@ package() {
   cp -rf "${srcdir}/usr/share/themes/Sweet-Dark" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Sweet-Purple" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/candy-icons" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/oreo_spark_purple_cursors" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/neon_circle.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
 }
-sha256sums=('909cd2f013ef09f474ca6cdb35c58461dbc4aef1432a48491ae81214eb811218')
+sha256sums=('69120ccdc780528b7224a33b192a4200344e9534e08587f296a3b183e81b47bf')

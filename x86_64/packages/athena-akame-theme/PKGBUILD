@@ -13,7 +13,8 @@ package() {
 
   cp -rf "${srcdir}/usr/share/themes/Abyss-BLOOD-3.36" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Material-Black-Cherry-Suru" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/Bibata-Modern-DarkRed" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/akame.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
 
 }
-sha256sums=('7491240424bef59c4ab5f39f20894e7a1672d285207d0184359a3ab31d4d5cb2')
+sha256sums=('8e2108940caccf722bd97ae50009c70337ce8451a5e5228cd4e4a54a127b85d8')

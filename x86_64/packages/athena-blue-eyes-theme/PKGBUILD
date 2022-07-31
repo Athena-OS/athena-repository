@@ -1,0 +1,20 @@
+pkgname="athena-blue-eyes-theme"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="Blue Eyes samurai theme with Tokyo Night Dark icons for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/themes"
+  mkdir -p "${pkgdir}/usr/share/icons"
+  mkdir -p "${pkgdir}/usr/share/backgrounds/default"
+
+  cp -rf "${srcdir}/usr/share/themes/Tokyonight-Dark-B" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/icons/tokyonight_dark" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/oreo_spark_lite_cursors" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/backgrounds/default/blue-eyes.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
+
+}
+sha256sums=('5acc0a333960fd9c7b4c5657ed6b2dbccce08f5715792e1a16156cd77b627f7d')

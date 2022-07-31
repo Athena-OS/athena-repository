@@ -2,6 +2,7 @@
 
 appkey=$(secret-tool lookup htb-api user-htb-api)
 machine_json_file="$HOME/.machine.json"
+table_file="$HOME/.table.txt"
 
 ############################################################
 # Banner                                                   #
@@ -246,7 +247,7 @@ ListRetiredMachines()
     echo "Done."
     echo
 
-    echo "ID,Name,Points,Difficulty,Is it Free?" > $HOME/table.txt
+    echo "ID,Name,Points,Difficulty,Is it Free?" > $table_file
     for sequence in $(seq $count)
     do
       let index=$sequence-1
@@ -261,12 +262,12 @@ ListRetiredMachines()
         array_index_free_machines+=($index)
       fi
 
-      echo "$id,$name,$points,$difficultyText,$free" >> $HOME/table.txt
+      echo "$id,$name,$points,$difficultyText,$free" >> $table_file
       progressbar "Loading retired machines" $index $count
     done
 
-    printTable ',' "$(cat $HOME/table.txt)"
-    rm -rf $HOME/table.txt
+    printTable ',' "$(cat $table_file)"
+    rm -rf $table_file
 
     echo
     echo "Today, the free retired machines are: "

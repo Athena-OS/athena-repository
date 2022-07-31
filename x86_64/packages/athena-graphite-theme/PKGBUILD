@@ -16,7 +16,8 @@ package() {
   cp -rf "${srcdir}/usr/share/themes/Graphite-Dark-compact-xhdpi" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Tela-circle-black" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/Tela-circle-black-dark" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/Bibata-Modern-Ice" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/arch-ascii.png" "${pkgdir}/usr/share/backgrounds/default/"  
 
 }
-sha256sums=('ffc1db5ae90dcb6c2d6e6339aed46f841f2bcc3f9a7a8c486294896b8509f109')
+sha256sums=('46a119ed7d98353545fab56c1783aa9d7f024cea7a20abcbe1402a641430bc44')

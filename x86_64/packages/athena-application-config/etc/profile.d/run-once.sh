@@ -34,6 +34,7 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark
        gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark
        gsettings set org.gnome.desktop.interface icon-theme Sweet-Purple
+       gsettings set org.gnome.desktop.interface cursor-theme oreo_spark_purple_cursors
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/neon_circle.jpg
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/neon_circle.jpg
        gsettings set org.gnome.desktop.background picture-options stretched
@@ -45,6 +46,7 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.interface gtk-theme Graphite-Dark-compact
        gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark-compact
        gsettings set org.gnome.desktop.interface icon-theme Tela-circle-black-dark
+       gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/arch-ascii.png
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/arch-ascii.png
        gsettings set org.gnome.desktop.background picture-options stretched
@@ -56,6 +58,7 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-B
        gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark-compact
        gsettings set org.gnome.desktop.interface icon-theme Material-Black-Mango-Suru
+       gsettings set org.gnome.desktop.interface cursor-theme Fuchsia-Pop
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/cyborg_gruv.png
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/cyborg_gruv.png
        gsettings set org.gnome.desktop.background picture-options stretched
@@ -67,8 +70,21 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.interface gtk-theme Abyss-BLOOD-3.36
        gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark-compact
        gsettings set org.gnome.desktop.interface icon-theme Material-Black-Cherry-Suru
+       gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-DarkRed
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/akame.jpg
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/akame.jpg
+       gsettings set org.gnome.desktop.background picture-options stretched
+    fi
+
+    package=athena-blue-eyes-theme
+    if pacman -Qq $package > /dev/null ; then
+       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+       gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark-B
+       gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark-compact
+       gsettings set org.gnome.desktop.interface icon-theme tokyonight_dark
+       gsettings set org.gnome.desktop.interface cursor-theme oreo_spark_lite_cursors
+       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/blue-eyes.jpg
+       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/blue-eyes.jpg
        gsettings set org.gnome.desktop.background picture-options stretched
     fi
 
