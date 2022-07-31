@@ -245,7 +245,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 40
+    corner_radius = 20
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -316,12 +316,12 @@
 
 [urgency_normal]
     #background = "#285577"
-    background = "#149414"
-    foreground = "#000000"
-    frame_color = "#000000"
+    background = "#33373a"
+    foreground = "#ffffff"
+    #frame_color = "#000000"
     timeout = 20
     # Icon for notifications with normal urgency, uncomment to enable
-    default_icon = "/usr/share/icons/hicolor/scalable/apps/cve.svg"
+    default_icon = "/usr/share/icons/pwnage/cve.png"
 
 [urgency_critical]
     background = "#900000"
