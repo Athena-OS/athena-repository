@@ -24,11 +24,11 @@ set -x BFETCH_INFO "pfetch"
 set -x BFETCH_ART "cowsay '<3 Athena OS'"
 set -x BFETCH_COLOR "$HOME/.local/textart/color/icon/panes.textart"
 
-sudo rm -rf /etc/pacman.d/gnupg
-sudo pacman-key --init
-sudo pacman-key --populate
+#sudo rm -rf /etc/pacman.d/gnupg
+#sudo pacman-key --init
+#sudo pacman-key --populate
 
-sed -i '/pacman-key/d' $HOME/.config/fish/config.fish
-sed -i '/gnupg/d' $HOME/.config/fish/config.fish
-sed -i '/^$/d' $HOME/.config/fish/config.fish
-sed -i '/sed/d' $HOME/.config/fish/config.fish
+#sed -i '/pacman-key/d' $HOME/.config/fish/config.fish
+#sed -i '/gnupg/d' $HOME/.config/fish/config.fish
+#sed -i '/^$/d' $HOME/.config/fish/config.fish
+#sed -i '/sed/d' $HOME/.config/fish/config.fish
