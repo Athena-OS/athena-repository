@@ -13,4 +13,4 @@ package() {
   cp -rf "${srcdir}/etc/calamares" "${pkgdir}/etc/"
   cp -rf "${srcdir}/usr/lib/calamares/modules/ucode" "${pkgdir}/usr/lib/calamares/modules/"
 }
-sha256sums=('4500d53ed004e144418da5500340ff4060719d8a92078c32d7a712901bb43aa0')
+sha256sums=('fb5c5538ceaf91b16b53e71e75639910db50dfbc76eaa84520165e381f66aa55')
