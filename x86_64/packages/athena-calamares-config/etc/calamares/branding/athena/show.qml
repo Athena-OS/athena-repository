@@ -46,7 +46,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background1
+            id: background2
             source: "../../images/graphite-dark.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -60,7 +60,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background1
+            id: background3
             source: "calamares-1.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -74,7 +74,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background1
+            id: background4
             source: "../../images/sweet-dark.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -89,7 +89,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background2
+            id: background5
             source: "calamares-2.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -103,7 +103,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background1
+            id: background6
             source: "../../images/cyborg-gruvbox.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -117,7 +117,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background4
+            id: background7
             source: "calamares-3.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -131,7 +131,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background1
+            id: background8
             source: "../../images/akame-theme.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -145,7 +145,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background5
+            id: background9
             source: "calamares-4.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
@@ -159,7 +159,7 @@ Presentation
         anchors.fill: parent
         anchors.verticalCenterOffset: 0
         Image {
-            id: background1
+            id: background10
             source: "../../images/blue-eyes-theme.png"
             width: parent.width; height: parent.height
             verticalAlignment: Image.AlignTop
