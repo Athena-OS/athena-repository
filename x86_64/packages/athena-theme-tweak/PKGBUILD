@@ -1,6 +1,6 @@
 pkgname="athena-theme-tweak"
 pkgver="1.0.0"
-pkgrel="1"
+pkgrel="3"
 pkgdesc="Athena Theme Tweak Tool"
 arch=("x86_64")
 license=("custom")
@@ -11,4 +11,4 @@ package() {
 
   install -Dm755 "${srcdir}/usr/local/bin/athena-theme-tweak" "${pkgdir}/usr/local/bin/"
 }
-sha256sums=('db0e27936c5303de70a3d69c7bd8f69d3ddb98efb24e2e767f3cabb848e8a093')
+sha256sums=('6e92a0962771cdff742f928bd2037fb725bdd68ec8214bbcf1ed671e9765677d')

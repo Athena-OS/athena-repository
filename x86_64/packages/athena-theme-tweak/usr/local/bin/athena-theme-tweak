@@ -137,10 +137,25 @@ if [ "$theme" ]; then
       if [ "${array_theme_names[$i]}" = "$theme" ]; then
         found_flag=1
         theme_package=${array_theme_packages[$i]}
+        
+        echo "Uninstalling all the previous installed Athena themes for avoiding conflicts..."
+	echo
+	for j in ${!array_theme_names[@]}
+    	do
+          { # try
+
+    	    sudo pacman -R --noconfirm ${array_theme_packages[$j]} 2>/dev/null
+
+	  } || { # catch
+    	    # Error handling
+	    echo "${array_theme_packages[$j]} not installed." 
+	  }
+	done
+
         echo "Installing $theme Theme..."
         echo
-        sudo pacman -Sy --noconfirm $theme_package
-
+        sudo pacman -Syy --noconfirm $theme_package
+        
         if [ "${theme_package}" = "athena-akame-theme" ]; then
            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
            gsettings set org.gnome.desktop.interface gtk-theme Abyss-BLOOD-3.36

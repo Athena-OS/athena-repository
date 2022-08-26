@@ -1,6 +1,6 @@
 pkgname="athena-application-config"
 pkgver="1.0.0"
-pkgrel="2"
+pkgrel="3"
 pkgdesc="Application configuration for Athena"
 arch=("x86_64")
 license=("custom")
@@ -41,4 +41,4 @@ package() {
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/variables.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
 }
-sha256sums=('56bdff4fdcf967af229879942a2e23ea97f2f2ffd4da3140e594b632dcf81d47')
+sha256sums=('e4082b92dc8e9fd2623bfa2cdb080390899065b0b0cb8dcc1ac05906f98252a7')

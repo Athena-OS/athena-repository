@@ -1,6 +1,6 @@
 pkgname="athena-graphite-theme"
 pkgver="1.0.0"
-pkgrel="1"
+pkgrel="2"
 pkgdesc="Graphite Dark theme with Tela Circle Black Dark icons for Athena"
 arch=("x86_64")
 license=("custom")
@@ -8,7 +8,7 @@ source=("$pkgname.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/usr/share/themes"
-  mkdir -p "${pkgdir}/usr/share/icons"
+  mkdir -p "${pkgdir}/usr/share/icons/pentoxic/blue"
   mkdir -p "${pkgdir}/usr/share/backgrounds/default"
 
   cp -rf "${srcdir}/usr/share/themes/Graphite-Dark-compact" "${pkgdir}/usr/share/themes/"
@@ -18,6 +18,7 @@ package() {
   cp -rf "${srcdir}/usr/share/icons/Tela-circle-black-dark" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/Bibata-Modern-Ice" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/arch-ascii.png" "${pkgdir}/usr/share/backgrounds/default/"  
+  cp -rf "${srcdir}"/usr/share/icons/pentoxic/blue/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('46a119ed7d98353545fab56c1783aa9d7f024cea7a20abcbe1402a641430bc44')
+sha256sums=('690d90e43dde9ed389ede8cfc7d314925bc9161b1020d4e46308a1bbc8e1e41a')
