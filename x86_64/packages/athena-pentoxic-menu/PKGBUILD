@@ -16,4 +16,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/hicolor/categories/* "${pkgdir}/usr/share/icons/hicolor/categories/"
   cp -rf "${srcdir}"/usr/share/icons/shells/* "${pkgdir}/usr/share/icons/shells/"
 }
-sha256sums=('712d75c30b3f7846d01d687c44dd8f5a552f4b2a72a5156895e355c6556669a4')
+sha256sums=('626237e7844f849c61d2806b0b6d431579b17d4e40c78bee93295cb202fae1ec')
