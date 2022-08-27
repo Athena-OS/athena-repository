@@ -144,7 +144,7 @@ if [ "$theme" ]; then
     	do
           { # try
 
-    	    sudo pacman -R --noconfirm ${array_theme_packages[$j]} 2>/dev/null
+    	    sudo pacman -Rs --noconfirm ${array_theme_packages[$j]} 2>/dev/null
 
 	  } || { # catch
     	    # Error handling
