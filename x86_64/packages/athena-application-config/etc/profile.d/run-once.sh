@@ -11,7 +11,7 @@ if [ -f "$FLAGFILE" ]; then
     gnome-extensions install $HOME/flypieschneegans.github.com.v16.shell-extension.zip
     gnome-extensions enable flypie@schneegans.github.com
 
-    gnome-extensions install $HOME/burn-my-windowsschneegans.github.com.v18.shell-extension.zip
+    gnome-extensions install $HOME/burn-my-windowsschneegans.github.com.v19.shell-extension.zip
     gnome-extensions enable burn-my-windows@schneegans.github.com
 
     gnome-extensions install $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
@@ -88,7 +88,7 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-options stretched
     fi
 
-    rm -rf $HOME/flypieschneegans.github.com.v16.shell-extension.zip $HOME/dash-to-dock $HOME/dingrastersoft.com.v46.shell-extension.zip $HOME/burn-my-windowsschneegans.github.com.v18.shell-extension.zip $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
+    rm -rf $HOME/flypieschneegans.github.com.v16.shell-extension.zip $HOME/dash-to-dock $HOME/dingrastersoft.com.v46.shell-extension.zip $HOME/burn-my-windowsschneegans.github.com.v19.shell-extension.zip $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
 
     $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
