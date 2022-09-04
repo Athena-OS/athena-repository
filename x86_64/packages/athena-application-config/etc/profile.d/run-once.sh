@@ -1,17 +1,17 @@
 #!/bin/sh
 
-FLAGFILE="$HOME/flag-work-once"
+FLAGFILE="$HOME/.flag-work-once"
+FLAGNET="$HOME/.flag-net-once"
 
 if [ -f "$FLAGFILE" ]; then
-    rm -rf "$FLAGFILE"
-    
+        
     xdg-mime default org.gnome.Nautilus.desktop inode/directory
     
      
     gnome-extensions install $HOME/flypieschneegans.github.com.v16.shell-extension.zip
     gnome-extensions enable flypie@schneegans.github.com
 
-    gnome-extensions install $HOME/burn-my-windowsschneegans.github.com.v19.shell-extension.zip
+    gnome-extensions install $HOME/burn-my-windowsschneegans.github.com.v18.shell-extension.zip
     gnome-extensions enable burn-my-windows@schneegans.github.com
 
     gnome-extensions install $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
@@ -88,12 +88,19 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-options stretched
     fi
 
-    rm -rf $HOME/flypieschneegans.github.com.v16.shell-extension.zip $HOME/dash-to-dock $HOME/dingrastersoft.com.v46.shell-extension.zip $HOME/burn-my-windowsschneegans.github.com.v19.shell-extension.zip $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
+    rm -rf $HOME/flypieschneegans.github.com.v16.shell-extension.zip $HOME/dash-to-dock $HOME/dingrastersoft.com.v46.shell-extension.zip $HOME/burn-my-windowsschneegans.github.com.v18.shell-extension.zip $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
-
-    $HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
+    rm -rf "$FLAGFILE"
     
-    /usr/local/bin/nist-feed -n -l
+fi
+
+if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+    if [ -f "$FLAGNET" ]; then
+    	$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
+    	/usr/local/bin/nist-feed -n -l
+    	rm -rf "$FLAGNET"
+    fi
+    /usr/local/bin/htb-update
 fi
 
 #If tun0 is down (i.e., after a reboot), the shell prompt must be updated with the running interfaces
@@ -103,6 +110,5 @@ if ! nmcli c show --active | grep -q tun ; then
 
 fi
 
-/usr/local/bin/htb-update
 export SHELL=$(which fish)
 gsettings set org.gnome.shell disable-user-extensions false
