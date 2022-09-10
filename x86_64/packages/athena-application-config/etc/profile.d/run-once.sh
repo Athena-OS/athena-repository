@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FLAGFILE="$HOME/.flag-work-once"
+FLAGFILE="$HOME/flag-work-once"
 FLAGNET="$HOME/.flag-net-once"
 
 if [ -f "$FLAGFILE" ]; then

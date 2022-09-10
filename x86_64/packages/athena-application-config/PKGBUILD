@@ -1,6 +1,6 @@
 pkgname="athena-application-config"
 pkgver="1.0.0"
-pkgrel="4"
+pkgrel="5"
 pkgdesc="Application configuration for Athena"
 arch=("x86_64")
 license=("custom")
@@ -23,6 +23,7 @@ package() {
   cp -rf "${srcdir}/etc/skel/.vim_runtime" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.viminfo" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.vimrc" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.flag-net-once" "${pkgdir}/etc/skel/"
 
   cp -rf "${srcdir}/usr/share/gnome-shell/gnome-shell-theme.gresource.new" "${pkgdir}/usr/share/gnome-shell/"
 
@@ -41,4 +42,4 @@ package() {
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/variables.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
 }
-sha256sums=('3b407d586c77b76e797168974c5b0f329584673c5d66b2a34f59e42b047230fa')
+sha256sums=('f69d609c41b75d11a6ac307711a0e2e411460d641c337c7e24b594f1b4a248b0')
