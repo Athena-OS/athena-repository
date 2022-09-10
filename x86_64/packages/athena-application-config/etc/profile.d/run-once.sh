@@ -3,23 +3,29 @@
 FLAGFILE="$HOME/flag-work-once"
 FLAGNET="$HOME/.flag-net-once"
 
+PIE="$HOME/flypieschneegans.github.com.v16.shell-extension.zip"
+BMW="$HOME/burn-my-windowsschneegans.github.com.v20.shell-extension.zip"
+IND="$HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip"
+DING="$HOME/dingrastersoft.com.v46.shell-extension.zip"
+D2D="$HOME/dash-to-dock"
+
 if [ -f "$FLAGFILE" ]; then
         
     xdg-mime default org.gnome.Nautilus.desktop inode/directory
     
      
-    gnome-extensions install $HOME/flypieschneegans.github.com.v16.shell-extension.zip
+    gnome-extensions install $PIE
     gnome-extensions enable flypie@schneegans.github.com
 
-    gnome-extensions install $HOME/burn-my-windowsschneegans.github.com.v18.shell-extension.zip
+    gnome-extensions install $BMW
     gnome-extensions enable burn-my-windows@schneegans.github.com
 
-    gnome-extensions install $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
+    gnome-extensions install $IND
     gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
 
-    make -C $HOME/dash-to-dock install
+    make -C $D2D install
 
-    gnome-extensions install $HOME/dingrastersoft.com.v46.shell-extension.zip
+    gnome-extensions install $DING
     gnome-extensions enable ding@rastersoft.com
 
     cat $HOME/dconf-interface.ini | dconf load /org/gnome/desktop/interface/
@@ -88,7 +94,7 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-options stretched
     fi
 
-    rm -rf $HOME/flypieschneegans.github.com.v16.shell-extension.zip $HOME/dash-to-dock $HOME/dingrastersoft.com.v46.shell-extension.zip $HOME/burn-my-windowsschneegans.github.com.v18.shell-extension.zip $HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip
+    rm -rf $PIE $BMW $IND $DING $D2D
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
     rm -rf "$FLAGFILE"
     
