@@ -89,14 +89,15 @@ def GUI(self, Gtk, GdkPixbuf):
             #"\n<span size='x-large'><b>Use the Easy Installation\n" + # noqa
             #"if the Advanced Installation fails</b></span>\n")  # noqa
     else:
-        label2.set_markup("Press <b>[CTRL+SPACE]</b> for showing the <b>PenTOXIC menu</b> or <b>[CTRL+TAB]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
+        label2.set_markup("Press <b>[CTRL+SPACE]</b> for the <b>PenTOXIC menu</b> or <b>[CTRL+TAB]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
                           "Click on <b>Read Team Machine</b> button for retrieving the main resources you need!\n\n" + #noqa
-                          "Athena is based on ArcoLinux.\n" + #noqa
-                          "The links below will get you started on ArcoLinux. We communicate with our community via a diversity of social media.\n"
-                          "Do join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
-                          "<b>Telegram</b> is for chitchat - <b>Discord</b> is for assistance.\n" +  # noqa
-                          "We have a <b>forum</b> for the longer and more technical questions.\n" +  # noqa
-                          "Learn, have fun and enjoy.")
+			  "Run <b>htb-update</b> by the terminal for setting your Hack The Box API key and start your hacking experience!")
+                          #"Athena is based on ArcoLinux.\n" + #noqa
+                          #"The links below will get you started on ArcoLinux. We communicate with our community via a diversity of social media.\n"
+                          #"Do join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
+                          #"<b>Telegram</b> is for chitchat - <b>Discord</b> is for assistance.\n" +  # noqa
+                          #"We have a <b>forum</b> for the longer and more technical questions.\n" +  # noqa
+                          #"Learn, have fun and enjoy.")
 
     hbox4.set_center_widget(label2)
     hbox1.pack_start(label, False, False, 0)
@@ -223,55 +224,43 @@ def GUI(self, Gtk, GdkPixbuf):
     # change this one every year
     button3 = Gtk.Button(label="Release info")
     button3.connect("clicked", self.on_link_clicked,
-                    "https://arcolinux.info/releases-2022/")
+                    "https://github.com/Athena-OS/athena-iso/releases")
     button3.set_size_request(200, 50)
 
-    button4 = Gtk.Button(label="Choose your project")
+    button4 = Gtk.Button(label="Athena OS project")
     button4.connect("clicked", self.on_link_clicked,
-                    "https://arcolinux.info/choose-your-project/")
+                    "https://github.com/Athena-OS/athena-iso")
     button4.set_size_request(200, 50)
 
-    button5 = Gtk.Button(label="Core info")
+    button5 = Gtk.Button(label="Open a ticket")
     button5.connect("clicked", self.on_link_clicked,
-                    "https://arcolinux.info/arcolinux-editions/")
+                    "https://github.com/Athena-OS/athena-iso/issues/new/choose")
     button5.set_size_request(200, 50)
-
-    button6 = Gtk.Button(label="Fast track")
-    button6.connect("clicked", self.on_link_clicked,
-                    "https://arcolinux.info/fast-track/")
-    button6.set_size_request(200, 50)
-
-    button7 = Gtk.Button(label="Forum")
-    button7.connect("clicked", self.on_link_clicked,
-                    "http://arcolinuxforum.com/")
-    button7.set_size_request(200, 50)
 
     hbox2.pack_start(button3, True, True, 0)
     hbox2.pack_start(button4, True, True, 0)
     hbox2.pack_start(button5, True, True, 0)
-    hbox2.pack_start(button6, True, True, 0)
-    hbox2.pack_start(button7, True, True, 0)
 
-    button8 = Gtk.Button(label="")
-    button8_label = button8.get_child()
-    button8_label.set_markup("<b>Donate</b>")
+
+    button8 = Gtk.Button(label="Discord")
     button8.connect("clicked", self.on_link_clicked,
-                    "https://arcolinux.info/donation/")
+                    "https://discord.com/invite/GuDyREsNkj")
 
-    button9 = Gtk.Button(label="Get Involved - Betatester")
+    button9 = Gtk.Button(label="Video Demo")
     button9.connect("clicked", self.on_link_clicked,
-                    "https://arcolinux.info/looking-for-betatesters/")
+                     "https://www.youtube.com/watch?v=4_ZY9Tj4U_8")
 
-    button10 = Gtk.Button(label="Get Involved - AAG")
+    button10 = Gtk.Button(label="")
+    button10_label = button10.get_child()
+    button10_label.set_markup("<b>Donate</b>")
     button10.connect("clicked", self.on_link_clicked,
-                     "https://www.arcolinux.info/joining-the-arcolinux-auditing-group/")
+                    "https://www.paypal.com/donate/?hosted_button_id=CPBJ5AC29D9GE")
 
-    button11 = Gtk.Button(label="Youtube ArcoLinux Channel")
+    button11 = Gtk.Button(label="Wiki")
     button11.connect("clicked", self.on_link_clicked,
-                     "https://www.youtube.com/erikdubois")
+                     "https://github.com/Athena-OS/athena-iso/wiki")
 
     button12 = Gtk.Button(label="Quit")
-    button12.set_size_request(200, 50)
     button12.connect("clicked", Gtk.main_quit)
     button12.set_tooltip_markup("Quit the Athena Welcome")
 
@@ -296,125 +285,125 @@ def GUI(self, Gtk, GdkPixbuf):
     # ======================================================================
     #                   SOCIAL LINKS
     # ======================================================================
-    fbE = Gtk.EventBox()
-    tE = Gtk.EventBox()
-    meE = Gtk.EventBox()
-    inE = Gtk.EventBox()
-    liE = Gtk.EventBox()
-    pE = Gtk.EventBox()
-    yE = Gtk.EventBox()
-    dE = Gtk.EventBox()
-    tgE = Gtk.EventBox()
-    elE = Gtk.EventBox()
+    #fbE = Gtk.EventBox()
+    #tE = Gtk.EventBox()
+    #meE = Gtk.EventBox()
+    #inE = Gtk.EventBox()
+    #liE = Gtk.EventBox()
+    #pE = Gtk.EventBox()
+    #yE = Gtk.EventBox()
+    #dE = Gtk.EventBox()
+    #tgE = Gtk.EventBox()
+    #elE = Gtk.EventBox()
 
-    pbfb = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/facebook.png'), 28, 28)
-    fbimage = Gtk.Image().new_from_pixbuf(pbfb)
+    #pbfb = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/facebook.png'), 28, 28)
+    #fbimage = Gtk.Image().new_from_pixbuf(pbfb)
 
-    pbt = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/twitter.png'), 28, 28)
-    timage = Gtk.Image().new_from_pixbuf(pbt)
+    #pbt = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/twitter.png'), 28, 28)
+    #timage = Gtk.Image().new_from_pixbuf(pbt)
 
-    pbme = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/mewe.png'), 23, 23)
-    meimage = Gtk.Image().new_from_pixbuf(pbme)
+    #pbme = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/mewe.png'), 23, 23)
+    #meimage = Gtk.Image().new_from_pixbuf(pbme)
 
-    pbin = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/insta.png'), 28, 28)
-    inimage = Gtk.Image().new_from_pixbuf(pbin)
+    #pbin = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/insta.png'), 28, 28)
+    #inimage = Gtk.Image().new_from_pixbuf(pbin)
 
-    pbli = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/linkedin.png'), 28, 28)
-    liimage = Gtk.Image().new_from_pixbuf(pbli)
+    #pbli = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/linkedin.png'), 28, 28)
+    #liimage = Gtk.Image().new_from_pixbuf(pbli)
 
-    pbp = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/patreon.png'), 28, 28)
-    pimage = Gtk.Image().new_from_pixbuf(pbp)
+    #pbp = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/patreon.png'), 28, 28)
+    #pimage = Gtk.Image().new_from_pixbuf(pbp)
 
-    pby = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/youtube.png'), 28, 28)
-    yimage = Gtk.Image().new_from_pixbuf(pby)
+    #pby = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/youtube.png'), 28, 28)
+    #yimage = Gtk.Image().new_from_pixbuf(pby)
 
-    pbd = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/discord.png'), 28, 28)
-    dimage = Gtk.Image().new_from_pixbuf(pbd)
+    #pbd = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/discord.png'), 28, 28)
+    #dimage = Gtk.Image().new_from_pixbuf(pbd)
 
-    pbtg = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/tg.png'), 28, 28)
-    tgimage = Gtk.Image().new_from_pixbuf(pbtg)
+    #pbtg = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/tg.png'), 28, 28)
+    #tgimage = Gtk.Image().new_from_pixbuf(pbtg)
 
-    pbel = GdkPixbuf.Pixbuf().new_from_file_at_size(
-        os.path.join(base_dir, 'images/element.png'), 28, 28)
-    elimage = Gtk.Image().new_from_pixbuf(pbel)
+    #pbel = GdkPixbuf.Pixbuf().new_from_file_at_size(
+    #    os.path.join(base_dir, 'images/element.png'), 28, 28)
+    #elimage = Gtk.Image().new_from_pixbuf(pbel)
 
-    fbE.add(fbimage)
-    tE.add(timage)
-    meE.add(meimage)
-    inE.add(inimage)
-    liE.add(liimage)
-    pE.add(pimage)
-    yE.add(yimage)
-    dE.add(dimage)
-    tgE.add(tgimage)
-    elE.add(elimage)
+    #fbE.add(fbimage)
+    #tE.add(timage)
+    #meE.add(meimage)
+    #inE.add(inimage)
+    #liE.add(liimage)
+    #pE.add(pimage)
+    #yE.add(yimage)
+    #dE.add(dimage)
+    #tgE.add(tgimage)
+    #elE.add(elimage)
 
-    fbE.connect("button_press_event", self.on_social_clicked,
-                "https://www.facebook.com/groups/arcolinux")
-    tE.connect("button_press_event", self.on_social_clicked,
-               "https://twitter.com/arcolinux")
-    meE.connect("button_press_event", self.on_social_clicked,
-                "https://mewe.com/group/5bbc4577a40f3002b313671d")
-    inE.connect("button_press_event", self.on_social_clicked,
-                "https://www.instagram.com/arcolinux/")
-    liE.connect("button_press_event", self.on_social_clicked,
-                "https://www.linkedin.com/in/arcolinux/")
-    pE.connect("button_press_event", self.on_social_clicked,
-               "https://www.patreon.com/arcolinux")
-    yE.connect("button_press_event", self.on_social_clicked,
-               "https://youtube.com/c/erikdubois")
-    dE.connect("button_press_event", self.on_social_clicked,
-               "https://discordapp.com/invite/R2amEEz")
-    tgE.connect("button_press_event", self.on_social_clicked,
-                "https://t.me/arcolinux_d_b")
-    elE.connect("button_press_event", self.on_social_clicked,
-                "https://app.element.io/#/room/!jUDkosOsuDbGWNzKYl:matrix.org")
+    #fbE.connect("button_press_event", self.on_social_clicked,
+    #            "https://www.facebook.com/groups/arcolinux")
+    #tE.connect("button_press_event", self.on_social_clicked,
+    #           "https://twitter.com/arcolinux")
+    #meE.connect("button_press_event", self.on_social_clicked,
+    #            "https://mewe.com/group/5bbc4577a40f3002b313671d")
+    #inE.connect("button_press_event", self.on_social_clicked,
+    #            "https://www.instagram.com/arcolinux/")
+    #liE.connect("button_press_event", self.on_social_clicked,
+    #            "https://www.linkedin.com/in/arcolinux/")
+    #pE.connect("button_press_event", self.on_social_clicked,
+    #           "https://www.patreon.com/arcolinux")
+    #yE.connect("button_press_event", self.on_social_clicked,
+    #           "https://youtube.com/c/erikdubois")
+    #dE.connect("button_press_event", self.on_social_clicked,
+    #           "https://discordapp.com/invite/R2amEEz")
+    #tgE.connect("button_press_event", self.on_social_clicked,
+    #            "https://t.me/arcolinux_d_b")
+    #elE.connect("button_press_event", self.on_social_clicked,
+    #            "https://app.element.io/#/room/!jUDkosOsuDbGWNzKYl:matrix.org")
 
-    fbE.set_property("has-tooltip", True)
-    tE.set_property("has-tooltip", True)
-    meE.set_property("has-tooltip", True)
-    inE.set_property("has-tooltip", True)
-    liE.set_property("has-tooltip", True)
-    pE.set_property("has-tooltip", True)
-    yE.set_property("has-tooltip", True)
-    dE.set_property("has-tooltip", True)
-    tgE.set_property("has-tooltip", True)
-    elE.set_property("has-tooltip", True)
+    #fbE.set_property("has-tooltip", True)
+    #tE.set_property("has-tooltip", True)
+    #meE.set_property("has-tooltip", True)
+    #inE.set_property("has-tooltip", True)
+    #liE.set_property("has-tooltip", True)
+    #pE.set_property("has-tooltip", True)
+    #yE.set_property("has-tooltip", True)
+    #dE.set_property("has-tooltip", True)
+    #tgE.set_property("has-tooltip", True)
+    #elE.set_property("has-tooltip", True)
 
-    fbE.connect("query-tooltip", self.tooltip_callback, "Facebook")
-    tE.connect("query-tooltip", self.tooltip_callback, "Twitter")
-    meE.connect("query-tooltip", self.tooltip_callback, "Mewe")
-    inE.connect("query-tooltip", self.tooltip_callback, "Instagram")
-    liE.connect("query-tooltip", self.tooltip_callback, "LinkedIn")
-    pE.connect("query-tooltip", self.tooltip_callback, "Patreon")
-    yE.connect("query-tooltip", self.tooltip_callback, "Youtube")
-    dE.connect("query-tooltip", self.tooltip_callback, "Discord")
-    tgE.connect("query-tooltip", self.tooltip_callback, "Telegram")
-    elE.connect("query-tooltip", self.tooltip_callback, "Element-Matrix")
+    #fbE.connect("query-tooltip", self.tooltip_callback, "Facebook")
+    #tE.connect("query-tooltip", self.tooltip_callback, "Twitter")
+    #meE.connect("query-tooltip", self.tooltip_callback, "Mewe")
+    #inE.connect("query-tooltip", self.tooltip_callback, "Instagram")
+    #liE.connect("query-tooltip", self.tooltip_callback, "LinkedIn")
+    #pE.connect("query-tooltip", self.tooltip_callback, "Patreon")
+    #yE.connect("query-tooltip", self.tooltip_callback, "Youtube")
+    #dE.connect("query-tooltip", self.tooltip_callback, "Discord")
+    #tgE.connect("query-tooltip", self.tooltip_callback, "Telegram")
+    #elE.connect("query-tooltip", self.tooltip_callback, "Element-Matrix")
 
-    hbox3.pack_start(fbE, False, False, 0)
-    hbox3.pack_start(tE, False, False, 0)
-    hbox3.pack_start(meE, False, False, 0)
-    hbox3.pack_start(inE, False, False, 0)
-    hbox3.pack_start(liE, False, False, 0)
-    hbox3.pack_start(elE, False, False, 0)
+    #hbox3.pack_start(fbE, False, False, 0)
+    #hbox3.pack_start(tE, False, False, 0)
+    #hbox3.pack_start(meE, False, False, 0)
+    #hbox3.pack_start(inE, False, False, 0)
+    #hbox3.pack_start(liE, False, False, 0)
+    #hbox3.pack_start(elE, False, False, 0)
 
-    hbox6.pack_start(pE, False, False, 50)
-    hbox6.pack_start(yE, False, False, 0)
-    hbox6.pack_start(dE, False, False, 0)
-    hbox6.pack_start(tgE, False, False, 0)
-    if username == user:
-        hbox3.pack_start(hboxUser, True, False, 0)
-    hbox3.pack_start(hbox6, True, False, 0)
+    #hbox6.pack_start(pE, False, False, 50)
+    #hbox6.pack_start(yE, False, False, 0)
+    #hbox6.pack_start(dE, False, False, 0)
+    #hbox6.pack_start(tgE, False, False, 0)
+    #if username == user:
+    #    hbox3.pack_start(hboxUser, True, False, 0)
+    #hbox3.pack_start(hbox6, True, False, 0)
 
     # ======================================================================
     #                   Start Athena Tweak Tool
