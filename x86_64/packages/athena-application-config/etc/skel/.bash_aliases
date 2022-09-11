@@ -69,7 +69,9 @@ alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
 alias vi='vim'
 alias svi='sudo vi'
+alias train='sl | lolcat'
 alias vis='vim "+set si"'
+alias devil='fortune | cowsay -f eyes | lolcat'
 
 #keyboard
 alias give-me-azerty-be="sudo localectl set-x11-keymap be"

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo -n "H4sIAAAAAAAAA7WTWW6EMAxA/zmFfzpiUEWuwEEipQfx4esFkpCFcWjxKMH7iwMDcEe2Q25Vw/QH4n3yKLVCiiyPUttMFvcctQ8dvOcR6iV0CDtA/QAdwdqpH6EDWDPVALVjrVQT1Iw1Uo1QK9ZGNUONWBO11/1R6lez867ewlqonZaZd8lS1v+hdmcoR7QPO8UGl9RkvVovc8uTu42+Y3CqTg1Fn7LTFVPCSV96uUpdq9i53bbNXW55LzXQZd/cPmtBAn0suaseAs5N4mgplh8teylOH1MWnsv0E9UuVZvYa/fyDUvjRfaUP4y6OEDcYeW9/bcJIcSlZjRkBV2ZFo4qVk9Kk4AU9BRG0j2ZUo7icMFTGLzjrKSx20kCIueT4hGkpEMAzufktxgoPwYwm3TvUAmqiRvmIMcQCML6oyVtQsDgaUKk5XYHiEGmpxCq69gON1cgShntXhXzS3xQfgElHtkULAwAAA==" | base64 -d | gunzip
+echo
+
+declare -a hacktools=("dmitry" "nmap" "spiderfoot" "theharvester" "enum4linux" "wafw00f" "fierce" "legion" "nikto" "unix-privesc-check" "wpscan" "burpsuite" "dirb" "dirbuster" "ffuf" "wfuzz" "sqlmap" "john" "hashcat" "hydra" "cewl" "crunch" "rsmangler" "medusa" "mitmproxy" "responder" "wireshark-qt" "aircrack-ng" "kismet" "reaver" "wifite" "fern-wifi-cracker" "spooftooph" "nasm" "radare2" "ghidra" "edb" "exploitdb" "metasploit" "set" "powersploit" "mimikatz" "evil-winrm" "proxychains-ng" "weevely")
+
+declare -a gitsource=("https://github.com/carlospolop/Auto_Wordlists" "https://github.com/fuzzdb-project/fuzzdb" "https://github.com/swisskyrepo/PayloadsAllTheThings" "https://github.com/danielmiessler/SecLists" "https://github.com/DragonJAR/Security-Wordlist")
+
+declare -a gitfolderdest=("/usr/share/payloads/Auto_Wordlists" "/usr/share/payloads/FuzzDB" "/usr/share/payloads/PayloadsAllTheThings" "/usr/share/payloads/SecLists" "/usr/share/payloads/Security-Wordlist")
+
+index=0
+
+echo
+echo "Installing main tools..."
+echo
+
+sudo pacman -Syy
+
+for i in "${hacktools[@]}"
+do 
+   if ! pacman -Qq $i > /dev/null ; then
+      sudo pacman -S --noconfirm $i
+   fi
+done
+
+echo
+echo "Retrieving payload repositories..."
+echo
+
+for i in "${gitsource[@]}"
+do
+   echo "Retrieving $i..."
+   sudo git clone $i ${gitfolderdest[$index]}
+   index=$(expr $index + 1)
+   echo
+done
+
+echo "All done."
+read -p "Press enter to continue"

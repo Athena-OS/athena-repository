@@ -15,9 +15,11 @@ package() {
 
   cp -rf "${srcdir}/etc/skel/.config/athena-welcome/settings.conf" "${pkgdir}/etc/skel/.config/athena-welcome/"
   cp -rf "${srcdir}/etc/skel/.config/autostart/athena-welcome.desktop" "${pkgdir}/etc/skel/.config/autostart/"  
-  cp -rf "${srcdir}/usr/local/bin/athena-welcome" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/athena-welcome" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/red-team-deployment" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/mirroars" "${pkgdir}/usr/local/bin/"
   cp -rf "${srcdir}/usr/share/applications/athena-welcome.desktop" "${pkgdir}/usr/share/applications/"
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/arcolinux-hello.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
 }
-sha256sums=('08f308abcf60dcde8c2b257f84b1aadda9e5808ca6701f96f58915ad7706c640')
+sha256sums=('49ca6e53d8aa9ec1041c2bcf8bd3610ae028c94b7fcaa793cf53522c99ed1cf5')

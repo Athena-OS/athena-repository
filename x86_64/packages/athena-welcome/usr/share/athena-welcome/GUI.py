@@ -89,7 +89,10 @@ def GUI(self, Gtk, GdkPixbuf):
             #"\n<span size='x-large'><b>Use the Easy Installation\n" + # noqa
             #"if the Advanced Installation fails</b></span>\n")  # noqa
     else:
-        label2.set_markup("The links below will get you started on ArcoLinux. We communicate with our community via a diversity of social media.\n"
+        label2.set_markup("Press <b>[CTRL+SPACE]</b> for showing the <b>PenTOXIC menu</b> or <b>[CTRL+TAB]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
+                          "Click on <b>Read Team Machine</b> button for retrieving the main resources you need!\n\n" + #noqa
+                          "Athena is based on ArcoLinux.\n" + #noqa
+                          "The links below will get you started on ArcoLinux. We communicate with our community via a diversity of social media.\n"
                           "Do join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
                           "<b>Telegram</b> is for chitchat - <b>Discord</b> is for assistance.\n" +  # noqa
                           "We have a <b>forum</b> for the longer and more technical questions.\n" +  # noqa
@@ -128,15 +131,21 @@ def GUI(self, Gtk, GdkPixbuf):
 
     self.button8 = Gtk.Button(label="")
     button8_label = self.button8.get_child()
-    button8_label.set_markup("<span size='large'><b>Update Arch Linux mirrors</b></span>")
+    button8_label.set_markup("<span size='large'><b>Update All Mirrors</b></span>")
     self.button8.connect("clicked", self.on_mirror_clicked)
     self.button8.set_size_request(420, 70)
 
-    self.buttonatt = Gtk.Button(label="")
-    buttonatt_label = self.buttonatt.get_child()
-    buttonatt_label.set_markup("<span size='large'><b>Launch Arch Linux Tweak Tool</b></span>")
-    self.buttonatt.connect("clicked", self.on_buttonatt_clicked)
-    self.buttonatt.set_size_request(420, 70)
+    self.buttonrtm = Gtk.Button(label="")
+    buttonrtm = self.buttonrtm.get_child()
+    buttonrtm.set_markup("<span size='large'><b>Red Team Machine</b></span>")
+    self.buttonrtm.connect("clicked", self.on_buttonrtm_clicked)
+    self.buttonrtm.set_size_request(420, 70)
+    
+    #self.buttonatt = Gtk.Button(label="")
+    #buttonatt_label = self.buttonatt.get_child()
+    #buttonatt_label.set_markup("<span size='large'><b>Launch Arch Linux Tweak Tool</b></span>")
+    #self.buttonatt.connect("clicked", self.on_buttonatt_clicked)
+    #self.buttonatt.set_size_request(420, 70)
 
     #I dont need a Software Manager
     #self.buttonpamac = Gtk.Button(label="")
@@ -159,10 +168,12 @@ def GUI(self, Gtk, GdkPixbuf):
     else:
         grid = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         self.button8.set_size_request(300, 70)
-        self.buttonatt.set_size_request(300, 70)
+        ##self.buttonatt.set_size_request(300, 70)
+        self.buttonrtm.set_size_request(300, 70)
         #self.buttonpamac.set_size_request(300, 70)
         #grid.pack_start(self.buttonpamac, True, False, 0)
-        grid.pack_start(self.buttonatt, True, False, 0)
+        ##grid.pack_start(self.buttonatt, True, False, 0)
+        grid.pack_start(self.buttonrtm, True, False, 0)
         grid.pack_start(self.button8, True, False, 0)
     # grid.set_row_homogeneous(True)
 

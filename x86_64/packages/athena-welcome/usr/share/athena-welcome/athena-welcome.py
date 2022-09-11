@@ -73,8 +73,13 @@ class Main(Gtk.Window):
         t.daemon = True
         t.start()
 
-    def on_buttonatt_clicked(self, widget):
-        t = threading.Thread(target=self.run_app, args=(["/usr/bin/archlinux-tweak-tool"],))
+    #def on_buttonatt_clicked(self, widget):
+        #t = threading.Thread(target=self.run_app, args=(["/usr/bin/archlinux-tweak-tool"],))
+        #t.daemon = True
+        #t.start()
+
+    def on_buttonrtm_clicked(self, widget):
+        t = threading.Thread(target=self.run_app, args=(["kitty", "/usr/bin/fish", "-c", "/home/athena/red-team-deployment"],))
         t.daemon = True
         t.start()
 
@@ -208,9 +213,13 @@ Do you want to install it?")
     #     md.destroy()
 
     def mirror_update(self):
-        GLib.idle_add(self.cc.set_markup, "<span foreground='orange'><b><i>Updating your mirrorlist</i></b> \nThis may take some time, please wait...</span>")  # noqa
+        GLib.idle_add(self.cc.set_markup, "<span foreground='orange'><b><i>Updating Arch Linux mirrorlist</i></b> \nThis may take some time, please wait...</span>")  # noqa
         GLib.idle_add(self.button8.set_sensitive, False)
         subprocess.run(["pkexec", "/usr/bin/reflector", "--age", "6", "--latest", "21", "--fastest", "21", "--threads", "21", "--sort", "rate", "--protocol", "https", "--save", "/etc/pacman.d/mirrorlist"], shell=False)
+        GLib.idle_add(self.cc.set_markup, "<span foreground='orange'><b><i>Updating BlackArch mirrorlist</i></b> \nThis may take around 5 minutes, please wait...</span>")  # noqa
+        subprocess.run(["pkexec", "/usr/local/bin/mirroars", "-t", "-r", "blackarch", "/etc/pacman.d/blackarch-mirrorlist", "-w"], shell=False)
+        GLib.idle_add(self.cc.set_markup, "<span foreground='orange'><b><i>Updating Chaotic AUR mirrorlist</i></b> \nThis may take some time, please wait...</span>")  # noqa
+        subprocess.run(["pkexec", "/usr/local/bin/mirroars", "-t", "-r", "chaotic-aur", "/etc/pacman.d/chaotic-mirrorlist", "-w"], shell=False)
         print("FINISHED!!!")
         GLib.idle_add(self.cc.set_markup, "<b>DONE</b>")
         GLib.idle_add(self.button8.set_sensitive, True)
