@@ -79,7 +79,7 @@ class Main(Gtk.Window):
         #t.start()
 
     def on_buttonrtm_clicked(self, widget):
-        t = threading.Thread(target=self.run_app, args=(["kitty", "/usr/bin/fish", "-c", "/home/athena/red-team-deployment"],))
+        t = threading.Thread(target=self.run_app, args=(["kitty", "/usr/bin/fish", "-c", "/usr/local/bin/red-team-deployment"],))
         t.daemon = True
         t.start()
 
