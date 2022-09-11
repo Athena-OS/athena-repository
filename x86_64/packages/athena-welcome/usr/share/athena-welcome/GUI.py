@@ -81,7 +81,7 @@ def GUI(self, Gtk, GdkPixbuf):
         label2.set_markup(
             "We advise to clean the computer with <b>Gparted</b> before installing.\n" +
             "During the Calamares installation many options will be open to you. You have the freedom of choice.\n" +  # noqa
-            "We communicate with our community via a diversity of social media." +  # noqa
+            "We communicate with our community via a diversity of social media.\n" +  # noqa
             "Join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
             "Reach us on <b>Discord</b> for chatting or assistance.\n")
         #label_warning.set_markup(
