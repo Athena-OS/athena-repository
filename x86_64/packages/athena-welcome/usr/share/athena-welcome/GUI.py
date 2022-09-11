@@ -89,11 +89,9 @@ def GUI(self, Gtk, GdkPixbuf):
             #"if the Advanced Installation fails</b></span>\n")  # noqa
     else:
         label2.set_markup("Press <b>[CTRL+SPACE]</b> for the <b>PenTOXIC menu</b> or <b>[CTRL+TAB]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
-                          "Click on <b>Read Team Machine</b> button for retrieving the main resources you need!\n\n" + #noqa
+                          "Click on <b>Red Team Machine</b> button for retrieving the main resources you need!\n\n" + #noqa
 			  "Run <b>htb-update</b> by the terminal for setting your Hack The Box API key and start your hacking experience!\n\n" + #noqa
                     
-                          #"Athena is based on ArcoLinux.\n" + #noqa
-                          
                           "Get started on Athena. We communicate with our community via Discord or GitHub.\n" + #noqa
                           "Join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
                           "Reach us on <b>Discord</b> for chatting or assistance.\n" +  # noqa
