@@ -82,22 +82,23 @@ def GUI(self, Gtk, GdkPixbuf):
             "We advise to clean the computer with <b>Gparted</b> before installing.\n" +
             "During the Calamares installation many options will be open to you. You have the freedom of choice.\n" +  # noqa
             "We communicate with our community via a diversity of social media." +  # noqa
-            "Do join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
-            "<b>Telegram</b> is for chitchat - <b>Discord</b> is for assistance.\n" +  # noqa
-            "We have a <b>forum</b> for the longer and more technical questions.\n")
+            "Join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
+            "Reach us on <b>Discord</b> for chatting or assistance.\n")
         #label_warning.set_markup(
             #"\n<span size='x-large'><b>Use the Easy Installation\n" + # noqa
             #"if the Advanced Installation fails</b></span>\n")  # noqa
     else:
         label2.set_markup("Press <b>[CTRL+SPACE]</b> for the <b>PenTOXIC menu</b> or <b>[CTRL+TAB]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
                           "Click on <b>Read Team Machine</b> button for retrieving the main resources you need!\n\n" + #noqa
-			  "Run <b>htb-update</b> by the terminal for setting your Hack The Box API key and start your hacking experience!")
+			  "Run <b>htb-update</b> by the terminal for setting your Hack The Box API key and start your hacking experience!\n\n" + #noqa
+                    
                           #"Athena is based on ArcoLinux.\n" + #noqa
-                          #"The links below will get you started on ArcoLinux. We communicate with our community via a diversity of social media.\n"
-                          #"Do join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
-                          #"<b>Telegram</b> is for chitchat - <b>Discord</b> is for assistance.\n" +  # noqa
-                          #"We have a <b>forum</b> for the longer and more technical questions.\n" +  # noqa
-                          #"Learn, have fun and enjoy.")
+                          
+                          "Get started on Athena. We communicate with our community via Discord or GitHub.\n" + #noqa
+                          "Join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
+                          "Reach us on <b>Discord</b> for chatting or assistance.\n" +  # noqa
+                          "Open a <b>ticket</b> for any issue or proposal.\n" +  # noqa
+                          "Learn, study and have fun.")
 
     hbox4.set_center_widget(label2)
     hbox1.pack_start(label, False, False, 0)
