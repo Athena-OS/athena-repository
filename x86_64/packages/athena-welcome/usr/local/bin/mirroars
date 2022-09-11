@@ -21,16 +21,15 @@
 # traps interrupt key to spit out pre-interrupt info
 trap finaloutput INT
 
-declare -r myname='rankmirrors'
-declare -r myver='1.7.1'
+declare -r myname='mirroars'
+declare -r myver='1.0.1'
 
 usage() {
 	cat <<EOF
 ${myname} v${myver}
 
-Ranks pacman mirrors by their connection and opening speed. Pacman mirror files
-are located in /etc/pacman.d/. It can also rank one mirror if the URL is
-provided.
+As rankmirrors, it ranks pacman mirrors by their connection and opening speed and update the related files. Pacman mirror files
+are located in /etc/pacman.d/. It can also rank one mirror if the URL is provided.
 
 Usage: ${myname} [options] <mirrorfile | url>
 
@@ -55,6 +54,7 @@ version() {
 	cat <<EOF
 ${myname} v${myver}
 Copyright (c) 2009 Matthew Bruenig <matthewbruenig@gmail.com>.
+Copyright (c) 2022 Antonio Voza <vozaanthony@gmail.com>
 
 This is free software; see the source for copying conditions.
 There is NO WARRANTY, to the extent permitted by law.
