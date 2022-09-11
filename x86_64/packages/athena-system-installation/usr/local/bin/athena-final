@@ -5,6 +5,10 @@ echo "Start athena-final"
 echo "#################################"
 echo
 echo "#################################"
+echo "##########Root cronjobs##########"
+echo "#################################"
+(crontab -l 2>/dev/null; echo "*/15 * * * * ( echo 3 | tee /proc/sys/vm/drop_caches)") | crontab -
+echo "#################################"
 echo "Permissions of important folders"
 echo "#################################"
 chmod 750 /etc/sudoers.d

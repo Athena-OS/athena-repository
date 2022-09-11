@@ -1,6 +1,6 @@
 pkgname="nist-feed"
 pkgver="1.0.0"
-pkgrel="1"
+pkgrel="2"
 pkgdesc="NIST NVD feed and popup notifications"
 arch=("x86_64")
 license=("custom")
@@ -17,4 +17,4 @@ package() {
   
   install -Dm755 "${srcdir}/usr/local/bin/nist-feed" "${pkgdir}/usr/local/bin/"
 }
-sha256sums=('dca06a584d80c7787bdc9e9d6340fa96cae469131d7802a1fa3051b9e77c2dec')
+sha256sums=('bf39ab7c9034e9bd95bab168ca9abb64385eabb1bdf935c541af2171781b5cbe')

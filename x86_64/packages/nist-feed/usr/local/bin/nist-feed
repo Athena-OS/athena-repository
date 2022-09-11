@@ -339,16 +339,16 @@ if [[ "$id" != "$LAST_CVE" ]] || [ $(crontab -l | wc -c) -eq 0 ];then #if the pr
    
    if [[ "$notify" -eq 1 ]] && [ ! "$severity" ] && [ ! "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l)") | crontab -
+      (crontab -l 2>/dev/null; echo "*/12 * * * * ( killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l)") | crontab -
    elif [[ "$notify" -eq 1 ]] && [ "$severity" ] && [ ! "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -s $severity)") | crontab -
+      (crontab -l 2>/dev/null; echo "*/12 * * * * ( killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -s $severity)") | crontab -
    elif [[ "$notify" -eq 1 ]] && [ ! "$severity" ] && [ "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -m $metric)") | crontab -
+      (crontab -l 2>/dev/null; echo "*/12 * * * * ( killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -m $metric)") | crontab -
    elif [[ "$notify" -eq 1 ]] && [ "$severity" ] && [ "$metric" ]; then
       crontab -l | sed '/nist-feed/d' | crontab
-      (crontab -l 2>/dev/null; echo "* * * * * ( sleep 5 ; killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -s $severity -m $metric)") | crontab -
+      (crontab -l 2>/dev/null; echo "*/12 * * * * ( killall dunst ; XDG_RUNTIME_DIR=/run/user/$(id -u) /usr/local/bin/nist-feed -l -s $severity -m $metric)") | crontab -
    fi
    
 fi
