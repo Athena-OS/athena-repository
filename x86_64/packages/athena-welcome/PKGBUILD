@@ -22,4 +22,4 @@ package() {
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/arcolinux-hello.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
 }
-sha256sums=('3d5b639bdb213ff75e0095800f8498f13dd1d12c7d079a582e613ee01c708735')
+sha256sums=('867f6e7479c9449eb269bea2fb21becadb01d559dd6f39a9233825aef4b1f41c')
