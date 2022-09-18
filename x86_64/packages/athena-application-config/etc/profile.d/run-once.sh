@@ -3,8 +3,8 @@
 FLAGFILE="$HOME/flag-work-once"
 FLAGNET="$HOME/.flag-net-once"
 
-PIE="$HOME/flypieschneegans.github.com.v16.shell-extension.zip"
-BMW="$HOME/burn-my-windowsschneegans.github.com.v20.shell-extension.zip"
+PIE="$HOME/flypieschneegans.github.com.v17.shell-extension.zip"
+BMW="$HOME/burn-my-windowsschneegans.github.com.v21.shell-extension.zip"
 IND="$HOME/appindicatorsupportrgcjonas.gmail.com.v42.shell-extension.zip"
 DING="$HOME/dingrastersoft.com.v46.shell-extension.zip"
 D2D="$HOME/dash-to-dock"

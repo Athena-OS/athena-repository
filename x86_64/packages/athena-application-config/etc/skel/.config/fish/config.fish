@@ -34,6 +34,8 @@ set -x SECURITYWORDLIST "$PAYLOADS/Security-Wordlist"
 set -x MIMIKATZ "/usr/share/windows/mimikatz/"
 set -x POWERSPLOIT "/usr/share/windows/powersploit/"
 
+set -gx TERM xterm-256color
+
 sudo pacman-key --init
 sudo pacman-key --populate
 
