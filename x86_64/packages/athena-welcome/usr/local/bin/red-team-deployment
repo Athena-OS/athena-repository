@@ -36,5 +36,17 @@ do
    echo
 done
 
+if [ ! -f /usr/share/payloads/SecLists/Passwords/Leaked-Databases/rockyou.txt ]
+then
+    echo "Extracting rockyou.txt..."
+    sudo tar -zxvf /usr/share/payloads/SecLists/Passwords/Leaked-Databases/rockyou.txt.tar.gz -C /usr/share/payloads/SecLists/Passwords/Leaked-Databases
+else
+    echo "rockyou.txt found!"
+fi
+
+sudo sed -i 's/^\#.*$//g' /usr/share/payloads/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt && sudo sed -i '/^$/d' /usr/share/payloads/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt
+sudo sed -i 's/^\#.*$//g' /usr/share/payloads/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt && sudo sed -i '/^$/d' /usr/share/payloads/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt
+sudo sed -i 's/^\#.*$//g' /usr/share/payloads/SecLists/Discovery/Web-Content/directory-list-2.3-big.txt && sudo sed -i '/^$/d' /usr/share/payloads/SecLists/Discovery/Web-Content/directory-list-2.3-big.txt
+
 echo "All done."
 read -p "Press enter to continue"

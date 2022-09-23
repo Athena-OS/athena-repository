@@ -34,6 +34,14 @@ set -x SECURITYWORDLIST "$PAYLOADS/Security-Wordlist"
 set -x MIMIKATZ "/usr/share/windows/mimikatz/"
 set -x POWERSPLOIT "/usr/share/windows/powersploit/"
 
+set -x ROCKYOU "$SECLISTS/Passwords/Leaked-Databases/rockyou.txt"
+set -x DIRSMALL "$SECLISTS/Discovery/Web-Content/directory-list-2.3-small.txt"
+set -x DIRMEDIUM "$SECLISTS/Discovery/Web-Content/directory-list-2.3-medium.txt"
+set -x DIRBIG "$SECLISTS/Discovery/Web-Content/directory-list-2.3-big.txt"
+set -x WEBAPI "$SECLISTS/Discovery/Web-Content/api/api-endpoints.txt"
+set -x WEBCOMMON "$SECLISTS/Discovery/Web-Content/common.txt"
+set -x WEBPARAM "$SECLISTS/Discovery/Web-Content/burp-parameter-names.txt"
+
 set -gx TERM xterm-256color
 
 sudo pacman-key --init
