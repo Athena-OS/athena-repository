@@ -76,7 +76,7 @@ def GUI(self, Gtk, GdkPixbuf):
     label_warning.set_justify(Gtk.Justification.CENTER)
     label_warning.set_line_wrap(True)
 
-    if username != user:
+    if username == user:
 
         label2.set_markup(
             "We advise to clean the computer with <b>Gparted</b> before installing.\n" +
@@ -161,7 +161,7 @@ def GUI(self, Gtk, GdkPixbuf):
     #self.buttonpamac.set_size_request(420, 70)
 
     # grid.add(button1)
-    if username != user:
+    if username == user:
         grid = Gtk.Grid()
         grid.attach(self.button8, 3, 4, 2, 2)
         #grid.attach(button13, 2, 0, 2, 2)
