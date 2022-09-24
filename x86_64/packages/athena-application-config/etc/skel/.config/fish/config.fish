@@ -43,10 +43,3 @@ set -x WEBCOMMON "$SECLISTS/Discovery/Web-Content/common.txt"
 set -x WEBPARAM "$SECLISTS/Discovery/Web-Content/burp-parameter-names.txt"
 
 set -gx TERM xterm-256color
-
-sudo pacman-key --init
-sudo pacman-key --populate
-
-sed -i '/pacman-key/d' $HOME/.config/fish/config.fish
-sed -i '/^$/d' $HOME/.config/fish/config.fish
-sed -i '/sed/d' $HOME/.config/fish/config.fish

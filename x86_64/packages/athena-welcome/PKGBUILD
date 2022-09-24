@@ -19,7 +19,7 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/red-team-deployment" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/mirroars" "${pkgdir}/usr/local/bin/"
   cp -rf "${srcdir}/usr/share/applications/athena-welcome.desktop" "${pkgdir}/usr/share/applications/"
-  cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/arcolinux-hello.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
+  cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/athena-hello-logo.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
 }
-sha256sums=('7bb58033a776514af26467076df7e2461f052dc930577071a9c147eea2487f6a')
+sha256sums=('7bc3471481306fb2ea8a0ccfab5e617ecd79ba5d449e5d0ca50a8599f5128576')

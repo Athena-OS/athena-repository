@@ -26,4 +26,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/hicolor/* "${pkgdir}/usr/share/icons/hicolor/"
   cp -rf "${srcdir}"/usr/share/pixmaps/* "${pkgdir}/usr/share/pixmaps/"
 }
-sha256sums=('d5eaaad35911d722b670216b5da51c96988069a0eb06f4032bc4687a5945de58')
+sha256sums=('68692c086121a7039c43172a03fdd2fae3043e8f310de5d5962dac5b09165ebd')
