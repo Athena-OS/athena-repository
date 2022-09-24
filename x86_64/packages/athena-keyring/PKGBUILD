@@ -11,4 +11,4 @@ package() {
 
   cp -rf "${srcdir}"/usr/share/pacman/keyrings/* "${pkgdir}/usr/share/pacman/keyrings/"
 }
-sha256sums=('86d8774cd71fbe5bfe380f2f7998f51a3635661c61e64ca5f32ac1880aedf9cc')
+sha256sums=('c54a3a1d8a196b7048ffe06db81fd63b8d6e9acc2a230c84ed10930205efdc30')

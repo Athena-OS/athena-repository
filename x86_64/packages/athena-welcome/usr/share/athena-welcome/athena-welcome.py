@@ -73,6 +73,11 @@ class Main(Gtk.Window):
         t.daemon = True
         t.start()
 
+    def on_keys_clicked(self, widget):
+        t = threading.Thread(target=self.run_app, args=(["kitty", "/usr/bin/fish", "-c", "/usr/local/bin/set-repo-keys"],))
+        t.daemon = True
+        t.start()
+
     #def on_buttonatt_clicked(self, widget):
         #t = threading.Thread(target=self.run_app, args=(["/usr/bin/archlinux-tweak-tool"],))
         #t.daemon = True
