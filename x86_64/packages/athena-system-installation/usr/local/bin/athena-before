@@ -23,6 +23,13 @@ echo
 mkdir -p /boot/grub/themes
 cp -Rf /usr/share/grub/themes/Vimix /boot/grub/themes/
 echo
+echo "#################################################################"
+echo "Rename Xsessions for running Wayland as default for Login Manager"
+echo "#################################################################"
+echo
+mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.disable
+mv /usr/share/xsessions/gnome-classic.desktop /usr/share/xsessions/gnome-classic.desktop.disable
+echo
 echo "#################################"
 echo "Changing into our own linux.preset"
 echo "#################################"
