@@ -24,10 +24,12 @@ Help()
    echo "Options:"
    echo "h     Print this Help."
    echo "l     List retired machines."
+   echo "m     Specify the machine name to play."
    echo
    echo "Usage Examples:"
    echo "htb-play"
    echo "htb-play -l"
+   echo "htb-play -m RouterSpace"
    echo
 }
 
@@ -289,7 +291,7 @@ ListRetiredMachines()
 # Process the input options. Add options as needed.        #
 ############################################################
 # Get the options
-while getopts ":hl" option; do #When using getopts, putting : after an option character means that it requires an argument (i.e., 'i:' requires arg).
+while getopts ":hlm:" option; do #When using getopts, putting : after an option character means that it requires an argument (i.e., 'i:' requires arg).
    case "${option}" in
       h) # display Help
          Help >&2
@@ -299,8 +301,11 @@ while getopts ":hl" option; do #When using getopts, putting : after an option ch
          ListRetiredMachines >&2
          exit 0
          ;;
-      #: )
-        #echo "Missing option argument for -$OPTARG" >&2; exit 0;;
+      m) # Enter a command
+         machine_name=$OPTARG
+         ;;
+      : )
+        echo "Missing option argument for -$OPTARG" >&2; exit 0;;
       #*  )
         #echo "Unimplemented option: -$OPTARG" >&2; exit 0;;
      \?) # Invalid option
@@ -311,9 +316,11 @@ done
 
 
 echo
-echo "What is the name of the machine you would like to play?"
-read machine_name
-echo
+if [ ! "$machine_name" ]; then
+    echo "What is the name of the machine you would like to play?"
+    read machine_name
+    echo
+fi
 
 { # try
     curl -s --location --request GET "https://www.hackthebox.com/api/v4/machine/profile/$machine_name" -H "Authorization: Bearer $appkey" | jq > $machine_json_file 

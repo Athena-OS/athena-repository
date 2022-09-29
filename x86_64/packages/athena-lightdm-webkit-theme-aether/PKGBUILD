@@ -22,5 +22,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.face" "${pkgdir}/etc/skel/" 
   cp -rf "${srcdir}/usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether" "${pkgdir}/usr/share/lightdm-webkit/themes/"
 }
-sha256sums=('d7747c930f76e2fff578a2775f3eaf72d6e7825779746583032c1b2ea6c8798a')
-sha256sums=('d7747c930f76e2fff578a2775f3eaf72d6e7825779746583032c1b2ea6c8798a')
+sha256sums=('8322fee5e2c42f2cddb9f020c8b2733433b6fb713b77bd35b2991c6f62b2fca7')
