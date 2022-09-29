@@ -1,0 +1,26 @@
+
+
+# Maintainer: Noi Sek <noi.t.sek | gmail>
+
+pkgname=athena-lightdm-webkit-theme-aether
+pkgver=2.2.2
+pkgrel=1
+pkgdesc="A sleek, customizable Archlinux theme for lightdm."
+arch=('any')
+url="https://github.com/NoiSek/Aether"
+license=('GPL3')
+depends=('lightdm' 'lightdm-webkit2-greeter>=2.2.3' 'ttf-opensans')
+install='lightdm-webkit-theme-aether.install'
+changelog='changelog.txt'
+#source=("https://github.com/NoiSek/Aether/archive/v$pkgver.tar.gz")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/lightdm-webkit/themes"
+  mkdir -p "${pkgdir}/etc/skel"
+
+  cp -rf "${srcdir}/etc/skel/.face" "${pkgdir}/etc/skel/" 
+  cp -rf "${srcdir}/usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether" "${pkgdir}/usr/share/lightdm-webkit/themes/"
+}
+sha256sums=('d7747c930f76e2fff578a2775f3eaf72d6e7825779746583032c1b2ea6c8798a')
+sha256sums=('d7747c930f76e2fff578a2775f3eaf72d6e7825779746583032c1b2ea6c8798a')

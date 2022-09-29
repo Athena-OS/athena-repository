@@ -14,7 +14,7 @@ package() {
   mkdir -p "${pkgdir}/usr/local/bin"
   mkdir -p "${pkgdir}/usr/local/share"
   mkdir -p "${pkgdir}/usr/share/icons/hicolor"
-  mkdir -p "${pkgdir}/usr/share/pixmaps"
+  mkdir -p "${pkgdir}/usr/share/pixmaps/faces"
 
   cp -rf "${srcdir}"/etc/modprobe.d/* "${pkgdir}/etc/modprobe.d/"
   cp -rf "${srcdir}/etc/pacman.d/gnupg/gpg.conf" "${pkgdir}/etc/pacman.d/gnupg/"
@@ -26,4 +26,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/hicolor/* "${pkgdir}/usr/share/icons/hicolor/"
   cp -rf "${srcdir}"/usr/share/pixmaps/* "${pkgdir}/usr/share/pixmaps/"
 }
-sha256sums=('68692c086121a7039c43172a03fdd2fae3043e8f310de5d5962dac5b09165ebd')
+sha256sums=('8e16ee4c1d9d9d4d9405de75eb2fb168bd8b352e2c0c1fd98279cc3eed87e8d1')
