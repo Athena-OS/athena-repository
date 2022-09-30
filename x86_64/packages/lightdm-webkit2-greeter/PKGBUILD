@@ -5,7 +5,7 @@ pkgrel="6"
 pkgdesc="lightdm-webkit2-greeter adaption for Athena"
 arch=("x86_64")
 license=("custom")
-depends=(accountsservice athena-webkit2gtk gnome-backgrounds lightdm)
+depends=(accountsservice webkit2gtk gnome-backgrounds lightdm)
 makedepends=(dbus-glib gettext gobject-introspection meson)
 source=("$pkgname.tar.gz")
 
