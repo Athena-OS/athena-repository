@@ -1,0 +1,29 @@
+
+pkgname="athena-lightdm-webkit2-greeter"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="lightdm-webkit2-greeter adaption for Athena"
+arch=("x86_64")
+license=("custom")
+depends=(accountsservice athena-webkit2gtk gnome-backgrounds lightdm)
+makedepends=(dbus-glib gettext gobject-introspection meson)
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/lightdm"
+  mkdir -p "${pkgdir}/usr/bin"
+  mkdir -p "${pkgdir}/usr/lib/lightdm-webkit2-greeter"
+  mkdir -p "${pkgdir}/usr/share/locale"
+  mkdir -p "${pkgdir}/usr/share/man/man1"
+  mkdir -p "${pkgdir}/usr/share/xgreeters"
+
+  cp -rf "${srcdir}/etc/lightdm/lightdm-webkit2-greeter.conf" "${pkgdir}/etc/lightdm/"
+  cp -rf "${srcdir}/usr/bin/lightdm-webkit2-greeter" "${pkgdir}/usr/bin/"
+  cp -rf "${srcdir}/usr/lib/lightdm-webkit2-greeter/liblightdm-webkit2-greeter-webext.so" "${pkgdir}/usr/lib/lightdm-webkit2-greeter/"
+  cp -rf "${srcdir}/usr/share/lightdm-webkit" "${pkgdir}/usr/share/"
+
+  cp -rf "${srcdir}"/usr/share/locale/* "${pkgdir}/usr/share/locale/"  
+  cp -rf "${srcdir}/usr/share/man/man1/lightdm-webkit2-greeter.1.gz" "${pkgdir}/usr/share/man/man1/"
+  cp -rf "${srcdir}/usr/share/xgreeters/lightdm-webkit2-greeter.desktop" "${pkgdir}/usr/share/xgreeters/"
+}
+sha256sums=('2d430b600474480c6aae0ac7aec77a6ccf50f8618cbccfc2fa5d7f1fb2a92940')
