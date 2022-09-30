@@ -1,7 +1,7 @@
 
 pkgname="lightdm-webkit2-greeter"
-pkgver="10.0.0"
-pkgrel="1"
+pkgver="2.2.5"
+pkgrel="6"
 pkgdesc="lightdm-webkit2-greeter adaption for Athena"
 arch=("x86_64")
 license=("custom")

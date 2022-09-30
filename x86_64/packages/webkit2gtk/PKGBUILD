@@ -1,6 +1,6 @@
 
 pkgname="webkit2gtk"
-pkgver="10.0.0"
+pkgver="2.36.7"
 pkgrel="1"
 pkgdesc="webkit2gtk adaption for Athena"
 arch=("x86_64")
