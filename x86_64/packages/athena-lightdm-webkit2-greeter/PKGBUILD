@@ -26,4 +26,4 @@ package() {
   cp -rf "${srcdir}/usr/share/man/man1/lightdm-webkit2-greeter.1.gz" "${pkgdir}/usr/share/man/man1/"
   cp -rf "${srcdir}/usr/share/xgreeters/lightdm-webkit2-greeter.desktop" "${pkgdir}/usr/share/xgreeters/"
 }
-sha256sums=('2d430b600474480c6aae0ac7aec77a6ccf50f8618cbccfc2fa5d7f1fb2a92940')
+sha256sums=('c02ee9ded5c8dc4de4216154b835f08ecd150604fd26c04231896199cf29d490')
