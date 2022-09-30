@@ -1,0 +1,24 @@
+
+pkgname="webkit2gtk"
+pkgver="10.0.0"
+pkgrel="1"
+pkgdesc="webkit2gtk adaption for Athena"
+arch=("x86_64")
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/include/webkitgtk-4.0"
+  mkdir -p "${pkgdir}/usr/lib"
+  mkdir -p "${pkgdir}/usr/share/gir-1.0"
+  mkdir -p "${pkgdir}/usr/share/licenses"
+  mkdir -p "${pkgdir}/usr/share/locale"
+
+  cp -rf "${srcdir}"/usr/include/webkitgtk-4.0/* "${pkgdir}/usr/include/webkitgtk-4.0/"
+  cp -rf "${srcdir}"/usr/lib/* "${pkgdir}/usr/lib/"
+  cp -rf "${srcdir}"/usr/share/gir-1.0/* "${pkgdir}/usr/share/gir-1.0/"
+
+  cp -rf "${srcdir}"/usr/share/licenses/* "${pkgdir}//usr/share/licenses/"
+  cp -rf "${srcdir}"/usr/share/locale/* "${pkgdir}/usr/share/locale/"  
+}
+sha256sums=('019e000279c9a3c4c8cbc11957968c10c8492b59143db12cfaec1a1929ff8c35')
