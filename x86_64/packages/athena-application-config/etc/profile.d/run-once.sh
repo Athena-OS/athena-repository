@@ -10,7 +10,25 @@ DING="$HOME/dingrastersoft.com.v49.shell-extension.zip"
 D2D="$HOME/dash-to-dock"
 
 if [ -f "$FLAGFILE" ]; then
-        
+
+    ############################################################
+    #                                                          #
+    #               SETTING LOCK SCREEN SHORTCUT               #
+    #                                                          #
+    ############################################################
+    
+    BEGINNING="gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+
+    KEY_PATH="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+
+    gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$KEY_PATH/custom0/']"
+
+    $BEGINNING/custom0/ name "Lock Screen"
+    $BEGINNING/custom0/ command "dm-tool lock"
+    $BEGINNING/custom0/ binding "<Super>L"
+
+    ############################################################
+
     xdg-mime default org.gnome.Nautilus.desktop inode/directory
     
      
