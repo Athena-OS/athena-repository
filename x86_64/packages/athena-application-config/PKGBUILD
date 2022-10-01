@@ -15,6 +15,7 @@ package() {
   cp -rf "${srcdir}"/etc/skel/* "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.bash_aliases" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.config" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}"/etc/skel/.face "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.icons" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.local" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.mozilla" "${pkgdir}/etc/skel/"
@@ -42,4 +43,4 @@ package() {
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/scripts/variables.sh" "$pkgdir/etc/skel/.tmux/plugins/tpm/scripts/"
 }
-sha256sums=('f08dada0ea05616629f8ad3144ef4678461afe8b787a4d0807c78cd4ef4a83f4')
+sha256sums=('767f173fa4f4c4d26fb2772000d654b775e012b4f60caec263b574e5d12f9528')

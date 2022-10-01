@@ -112,8 +112,6 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-options stretched
     fi
     
-    sed -i 's/^Icon\s*=\s*\(.*\)/Icon=\/usr\/share\/pixmaps\/faces\/hacker.jpg/g' /var/lib/AccountsService/users/$USER
-    
     rm -rf $PIE $BMW $IND $DING $D2D
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
     rm -rf "$FLAGFILE"
