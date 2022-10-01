@@ -13,6 +13,7 @@ echo "Permissions of important folders"
 echo "#################################"
 chmod 750 /etc/sudoers.d
 chmod 750 /etc/polkit-1/rules.d
+chmod 711 /home/*
 chgrp polkitd /etc/polkit-1/rules.d
 echo
 echo "#################################"
