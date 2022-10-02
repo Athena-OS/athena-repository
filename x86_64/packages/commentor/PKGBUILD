@@ -14,4 +14,4 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/c_filter" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/c_cleanup" "${pkgdir}/usr/local/bin/"
 }
-sha256sums=('2bdda26bd0e38af0685bfb9df27c4a820cf53c9c5b1393d9fa33ec2eeaf1b876')
+sha256sums=('7e473a5ca51fb326cf1c778b5d06f1c1dd36159dc4329070fe3cb04abc605ff3')

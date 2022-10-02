@@ -113,7 +113,7 @@ elif [ "$cstyle" ]; then
    #Look for /* */ comments
    tmpfile="cstylecomment.txt"
    curl -s -L $url > $tmpfile
-   cstylecomments=$(./decorate "$tmpfile" | ./filter | ./cleanup)
+   cstylecomments=$(c_decorate "$tmpfile" | c_filter | c_cleanup)
    rm -rf $tmpfile
 
    if [ ! "$cstylecomments" ]; then
