@@ -23,4 +23,4 @@ package() {
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/athena-hello-logo.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
 }
-sha256sums=('e50cfbda998bf9925a91cac6a8190ad7134bf89f9faba3c92ff0f314bc5c045e')
+sha256sums=('8acc27a35c6c8f661b9b6bcd868e7abce6b1f5c6526273e621eb253420cf4162')
