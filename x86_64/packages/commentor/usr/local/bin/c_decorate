@@ -1,0 +1,11 @@
+#! /bin/sed -f
+s:\r::g
+# trouble is //* first matches //, then matches /*
+s:[^/]/\*:\rC/*:g
+s:^/\*:\rC/*:g
+s:\*/:*/\rE:g
+# delete strings with http or https to avoid http[s]:// could be matches as a comment
+s!http[s]\?://\S*!!g
+s://\+:\rL&:g
+# does not handle quotes w/in comments
+# s:":\rQ":g
