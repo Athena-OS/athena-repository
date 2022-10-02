@@ -73,7 +73,7 @@ done
 
 echo
 if [ ! "$url" ]; then
-    echo "Error: no URL specified. Use -u https://targetsite.com/file.html."
+    echo "Error: no URL specified. Use -u https://targetsite.com/file.html -e <extension>."
     exit 0
 fi
 
