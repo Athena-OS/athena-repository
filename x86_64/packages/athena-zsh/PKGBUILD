@@ -24,4 +24,4 @@ build() {
 
   sed -i 's/fish/zsh/g' ~/.local/share/applications/*
 }
-sha256sums=('e6d47ecc40e1bdcede98413bb11c15e3f750facfa04e386b95cb821f04dde509')
+sha256sums=('7a8a938dba066df402f4138b8f1694efc42e2a3199af037b444f82c2910be2eb')
