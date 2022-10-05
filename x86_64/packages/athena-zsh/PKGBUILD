@@ -1,0 +1,27 @@
+pkgname="athena-zsh"
+pkgver="1.0.0"
+pkgrel="1"
+pkgdesc="ZSH for Athena"
+arch=("x86_64")
+license=("custom")
+depends=('zsh' 'zsh-theme-powerlevel10k' 'powerline-fonts')
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel"
+
+  cp -rf "${srcdir}/etc/skel/.oh-my-zsh" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.p10k.zsh" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.zshrc" "${pkgdir}/etc/skel/"
+  
+}
+
+build() {
+  dconf dump /org/gnome/shell/extensions/flypie/ > ~/temp.txt
+  sed -i 's/fish/zsh/g' ~/temp.txt
+  dconf load /org/gnome/shell/extensions/flypie/ < ~/temp.txt
+  rm -rf ~/temp.txt
+
+  sed -i 's/fish/zsh/g' ~/.local/share/applications/*
+}
+sha256sums=('e6d47ecc40e1bdcede98413bb11c15e3f750facfa04e386b95cb821f04dde509')
