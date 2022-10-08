@@ -48,7 +48,7 @@ if [ -f "$FLAGFILE" ]; then
 
     cat $HOME/dconf-interface.ini | dconf load /org/gnome/desktop/interface/
     cat $HOME/dconf-preferences.ini | dconf load /org/gnome/desktop/wm/preferences/
-    cat $HOME/dconf-shell.ini | dconf load /org/gnome/shell/
+    cat $HOME/dconf-shell-extensions.ini | dconf load /org/gnome/shell/extensions/
 
     sh ~/.vim_runtime/install_awesome_parameterized.sh ~/.vim_runtime $USER
 
@@ -113,7 +113,7 @@ if [ -f "$FLAGFILE" ]; then
     fi
     
     rm -rf $PIE $BMW $IND $DING $D2D
-    rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
+    rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell-extensions.ini
     rm -rf "$FLAGFILE"
     
 fi
@@ -134,5 +134,4 @@ if ! nmcli c show --active | grep -q tun ; then
 
 fi
 
-export SHELL=$(which fish)
 gsettings set org.gnome.shell disable-user-extensions false

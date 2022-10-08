@@ -56,9 +56,20 @@ echo
 
 if curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Playing"; then
 
-  sed -i "/PS1=/c\PS1='\\\\e[34m\\\\]┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️Attacker:$htb_user📡IP:$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')\\\\e[32m\\\\]🏆Prize:$machine_points points]\\\\n└──╼[👾]\\\\[\\\\e[36m\\\\]\\\$(pwd) $ \\\\[\\\\e[0m\\\\]'" $HOME/.bashrc
-
-  rm -rf $HOME/.config/fish/functions/fish_prompt.fish
+  result=$(basename -- "$SHELL")
+  echo "Shell: $result"
+  if [ $result = "bash" ]; then
+    FILE="$HOME/.bashrc.htb.bak"
+    if [ ! -f "$FILE" ]; then
+       cp -rf $HOME/.bashrc $FILE
+    fi
+    sed -i "/PS1=/c\PS1='\\\\e[34m\\\\]┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')\\\\e[32m\\\\]🏆Prize:$machine_points points]\\\\n└──╼[👾]\\\\[\\\\e[36m\\\\]\\\$(pwd) $ \\\\[\\\\e[0m\\\\]'" $HOME/.bashrc
+    source $HOME/.bashrc
+  elif [ $result = "fish" ]; then
+    FILE="$HOME/.config/fish/functions/fish_prompt.fish.htb.bak"
+    if [ ! -f "$FILE" ]; then
+       mv $HOME/.config/fish/functions/fish_prompt.fish $FILE
+    fi
 cat <<EOF > $HOME/.config/fish/functions/fish_prompt.fish
   function fish_prompt
       set_color 00ff00
@@ -66,13 +77,21 @@ cat <<EOF > $HOME/.config/fish/functions/fish_prompt.fish
       set_color ff00d7
       echo -n "⚔️Attacker:$htb_user📡IP:$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')"
       set_color 00ff00
-      echo "]🏆Prize:$machine_points points]"
+      echo "🏆Prize:$machine_points points]"
       set_color 00ff00
       echo -n "└──╼[👾]"
       set_color 00ffff
       echo (pwd) '$' (set_color normal)
       end
 EOF
+  elif [ $result = "zsh" ]; then
+      FILE="$HOME/.zshrc.htb.bak"
+      if [ ! -f "$FILE" ]; then
+         cp -rf $HOME/.zshrc $FILE
+      fi
+      sed -i "/PROMPT=/c\PROMPT=\"%F{46}┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️%F{201}Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')🏆%F{46}Prize:$machine_points points]\"$'\\\\n'\"└──╼[👾]%F{44}%~ $%f \"" $HOME/.zshrc
+      exec /usr/bin/zsh
+  fi
     echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
     echo
 elif curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Machine is VIP only"; then

@@ -29,4 +29,4 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/prompt-reset" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/share/pwnage/hackthebox/htb-update.py" "${pkgdir}/usr/share/pwnage/hackthebox/"
 }
-sha256sums=('ba22bc114684bb7d394b45680973faaf849219ec5c0d0fdaf82cc3c5084e18cc')
+sha256sums=('af0d92d69957800b60ab1604f68527383b8679c8960a52f5f9683b632ea2d3c4')
