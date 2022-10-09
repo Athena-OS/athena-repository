@@ -44,8 +44,11 @@ if [ $result = "oracle" ];
 
 		if pacman -Qi open-vm-tools &> /dev/null; then
 			systemctl disable vmware-vmblock-fuse.service
+			echo "Disabled vmware-vmblock-fuse.service"
 			systemctl disable vmtoolsd.service
 			echo "Disabled vmtoolsd.service"
+			systemctl disable mnt-hgfs.mount
+			echo "Disabled mnt-hgfs.mount"
 			pacman -Rns open-vm-tools --noconfirm
 			echo "Removed open-vm-tools"
 		fi
@@ -58,6 +61,12 @@ if [ $result = "oracle" ];
 		if [ -f /etc/systemd/system/multi-user.target.wants/vmtoolsd.service ]; then
 	   		rm /etc/systemd/system/multi-user.target.wants/vmtoolsd.service
 			echo "Removed vmtoolsd.service if still exists"
+			rm /etc/systemd/system/multi-user.target.wants/vmware-vmblock-fuse.service
+			echo "Removed vmware-vmblock-fuse.service if still exists"
+			rm /etc/systemd/system/mnt-hgfs.mount
+			echo "Removed mnt-hgfs.mount if still exists"
+			rm /etc/modules-load.d/open-vm-tools.conf
+			echo "Removed open-vm-tools.conf if still exists"
 		fi
 
 		#remove qemu
@@ -78,8 +87,11 @@ if [ $result = "kvm" ];
 
 		if pacman -Qi open-vm-tools &> /dev/null; then
 			systemctl disable vmware-vmblock-fuse.service
+			echo "Disabled vmware-vmblock-fuse.service"
 			systemctl disable vmtoolsd.service
 			echo "Disabled vmtoolsd.service"
+			systemctl disable mnt-hgfs.mount
+			echo "Disabled mnt-hgfs.mount"
 			pacman -Rns open-vm-tools --noconfirm
 			echo "Removed open-vm-tools"
 		fi
@@ -92,6 +104,12 @@ if [ $result = "kvm" ];
 		if [ -f /etc/systemd/system/multi-user.target.wants/vmtoolsd.service ]; then
 	   		rm /etc/systemd/system/multi-user.target.wants/vmtoolsd.service
 			echo "Removed vmtoolsd.service if still exists"
+			rm /etc/systemd/system/multi-user.target.wants/vmware-vmblock-fuse.service
+			echo "Removed vmware-vmblock-fuse.service if still exists"
+			rm /etc/systemd/system/mnt-hgfs.mount
+			echo "Removed mnt-hgfs.mount if still exists"
+			rm /etc/modules-load.d/open-vm-tools.conf
+			echo "Removed open-vm-tools.conf if still exists"
 		fi
 
 		#remove virtualbox
@@ -135,9 +153,8 @@ if [ $result = "vmware" ];
 			pacman -Rns qemu-guest-agent --noconfirm
 			echo "Removed qemu-guest-agent"
 		fi
-		
-		#fix unmounted shared folder after reboot issue
-		echo -n "vmhgfs-fuse /mnt/hgfs fuse defaults,allow_other 0 0" >> /etc/fstab
+		systemctl enable mnt-hgfs.mount
+		modprobe -v fuse		
 fi
 
 if [ $result = "none" ];
@@ -161,14 +178,17 @@ if [ $result = "none" ];
 
 		#remove vmware
 		if [ -f /etc/xdg/autostart/vmware-user.desktop ]; then
-	   		rm /etc/xdg/autostart/vmware-user.desktop
+   			rm /etc/xdg/autostart/vmware-user.desktop
 			echo "Removed vmware-user.desktop"
 		fi
 
 		if pacman -Qi open-vm-tools &> /dev/null; then
 			systemctl disable vmware-vmblock-fuse.service
+			echo "Disabled vmware-vmblock-fuse.service"
 			systemctl disable vmtoolsd.service
 			echo "Disabled vmtoolsd.service"
+			systemctl disable mnt-hgfs.mount
+			echo "Disabled mnt-hgfs.mount"
 			pacman -Rns open-vm-tools --noconfirm
 			echo "Removed open-vm-tools"
 		fi
@@ -181,6 +201,12 @@ if [ $result = "none" ];
 		if [ -f /etc/systemd/system/multi-user.target.wants/vmtoolsd.service ]; then
 	   		rm /etc/systemd/system/multi-user.target.wants/vmtoolsd.service
 			echo "Removed vmtoolsd.service if still exists"
+			rm /etc/systemd/system/multi-user.target.wants/vmware-vmblock-fuse.service
+			echo "Removed vmware-vmblock-fuse.service if still exists"
+			rm /etc/systemd/system/mnt-hgfs.mount
+			echo "Removed mnt-hgfs.mount if still exists"
+			rm /etc/modules-load.d/open-vm-tools.conf
+			echo "Removed open-vm-tools.conf if still exists"
 		fi
 
 		#remove qemu
