@@ -135,6 +135,9 @@ if [ $result = "vmware" ];
 			pacman -Rns qemu-guest-agent --noconfirm
 			echo "Removed qemu-guest-agent"
 		fi
+		
+		#fix unmounted shared folder after reboot issue
+		echo -n "vmhgfs-fuse /mnt/hgfs fuse defaults,allow_other 0 0" >> /etc/fstab
 fi
 
 if [ $result = "none" ];
