@@ -53,7 +53,16 @@ for machine in data["info"]:
     avatar_url = "https://www.hackthebox.com"+machine_avatar
     avatar_filename = os.path.expandvars("$HOME/.local/share/icons/hackthebox/avatar/"+machine_name+".png")
 
-    machine_command = 'kitty /usr/bin/fish -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';fish\\\\\\\\\\\"'
+    shell=os.path.expandvars('$SHELL')
+    
+    if "bash" in shell:
+        machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';bash\\\\\\\\\\\"'
+    elif "fish" in shell:
+        machine_command = 'kitty /usr/bin/fish -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';fish\\\\\\\\\\\"'
+    elif "zsh" in shell:
+        machine_command = 'kitty /usr/bin/zsh -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';zsh\\\\\\\\\\\"'
+    else:
+        machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';bash\\\\\\\\\\\"'
 
     # Open the url image, set stream to True, this will return the stream content.
     r = requests.get(avatar_url, stream = True)
