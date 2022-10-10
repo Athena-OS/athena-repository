@@ -70,12 +70,6 @@ echo "#################################"
 /usr/local/bin/athena-virtual-machine-check
 echo
 echo "#################################"
-echo "Athena shell check"
-echo "#################################"
-/usr/local/bin/athena-shell-check
-echo
-echo
-echo "#################################"
 echo "End athena-final"
 echo "#################################"
 echo

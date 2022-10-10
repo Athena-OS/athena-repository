@@ -11,6 +11,11 @@ pacman-key --init
 pacman-key --populate
 echo
 echo "#################################"
+echo "Athena shell check"
+echo "#################################"
+/usr/local/bin/athena-shell-check
+echo
+echo "#################################"
 echo "Set crontab"
 echo "#################################"
 echo

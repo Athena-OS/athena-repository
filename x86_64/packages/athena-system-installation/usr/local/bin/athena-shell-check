@@ -36,7 +36,7 @@ if pacman -Qq $package > /dev/null ; then
     sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/fish;/g' /etc/skel/.local/share/applications/*
     sed -i 's/Bash/Fish/g' /etc/skel/.local/share/applications/*
     sed -i "/export SHELL=/c\export SHELL=$(which fish)" /etc/skel/.bashrc
-cat > /etc/skel/.bashrc << EOF
+cat >> /etc/skel/.bashrc << EOF
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
 then
     exec fish
@@ -50,7 +50,7 @@ if pacman -Qq $package > /dev/null ; then
     sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/zsh;/g' /etc/skel/.local/share/applications/*
     sed -i 's/Bash/Zsh/g' /etc/skel/.local/share/applications/*
     sed -i "/export SHELL=/c\export SHELL=$(which zsh)" /etc/skel/.bashrc
-cat > /etc/skel/.bashrc << EOF
+cat >> /etc/skel/.bashrc << EOF
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTION_STRING} ]]
 then
     exec zsh
