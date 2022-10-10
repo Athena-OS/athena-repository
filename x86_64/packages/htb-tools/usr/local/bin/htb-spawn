@@ -63,7 +63,7 @@ if curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/
     if [ ! -f "$FILE" ]; then
        cp -rf $HOME/.bashrc $FILE
     fi
-    sed -i "/PS1=/c\PS1=\"\\\\e[34m\\\\]┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')\\\\e[32m\\\\]🏆Prize:$machine_points points]\\\\n└──╼[👾]\\\\[\\\\e[36m\\\\]\\\$(pwd) $ \\\\[\\\\e[0m\\\\]\"" $HOME/.bashrc
+    sed -i "/PS1=/c\PS1=\"\\\\e[32m\\\\]┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️\\\\e[34m\\\\]Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')\\\\e[32m\\\\]🏆Prize:$machine_points points]\\\\n└──╼[👾]\\\\[\\\\e[36m\\\\]\\\$(pwd) $ \\\\[\\\\e[0m\\\\]\"" $HOME/.bashrc
     source $HOME/.bashrc
   elif [ $result = "fish" ]; then
     FILE="$HOME/.config/fish/functions/fish_prompt.fish.htb.bak"

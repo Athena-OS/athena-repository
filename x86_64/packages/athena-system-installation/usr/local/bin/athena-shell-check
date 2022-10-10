@@ -19,8 +19,6 @@
 #
 ###############################################################################
 
-result=$(basename -- "$SHELL")
-
 while [ -e "/var/lib/pacman/db.lck" ];
 do
     echo 'Pacman is not ready yet. Will try again in 5 seconds.'
@@ -32,26 +30,26 @@ do
     fi
 done
 
-echo "You are working on "$result
-
-if [ $result = "fish" ];
-	then
-		sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/fish;/g' /etc/skel/dconf-shell-extensions.ini
-                sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/fish;/g' /etc/skel/.local/share/applications/*
-                sed -i 's/Bash/Fish/g' /etc/skel/.local/share/applications/*
-                sed -i "/export SHELL=/c\export SHELL=$(which fish)" /etc/skel/.bashrc
+package=athena-fish
+if pacman -Qq $package > /dev/null ; then
+	sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/fish;/g' /etc/skel/dconf-shell-extensions.ini
+    sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/fish;/g' /etc/skel/.local/share/applications/*
+    sed -i 's/Bash/Fish/g' /etc/skel/.local/share/applications/*
+    sed -i "/export SHELL=/c\export SHELL=$(which fish)" /etc/skel/.bashrc
 cat > /etc/skel/.bashrc << EOF
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
 then
 	exec fish
 fi
 EOF
-elif [ $result = "zsh" ];
-        then
-                sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/zsh;/g' /etc/skel/dconf-shell-extensions.ini
-                sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/zsh;/g' /etc/skel/.local/share/applications/*
-                sed -i 's/Bash/Zsh/g' /etc/skel/.local/share/applications/*
-                sed -i "/export SHELL=/c\export SHELL=$(which zsh)" /etc/skel/.bashrc
+fi
+
+package=athena-zsh
+if pacman -Qq $package > /dev/null ; then
+    sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/zsh;/g' /etc/skel/dconf-shell-extensions.ini
+    sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/zsh;/g' /etc/skel/.local/share/applications/*
+    sed -i 's/Bash/Zsh/g' /etc/skel/.local/share/applications/*
+    sed -i "/export SHELL=/c\export SHELL=$(which zsh)" /etc/skel/.bashrc
 cat > /etc/skel/.bashrc << EOF
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTION_STRING} ]]
 then
