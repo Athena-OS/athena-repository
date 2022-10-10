@@ -58,7 +58,7 @@ echo "#################################"
 echo "Permission of root"
 echo "#################################"
 chmod -v 750 /root
-
+echo
 # Do not do here - extra /home/root folder
 #echo "Hardcode-fixer" 
 #echo "#################################"
@@ -68,7 +68,12 @@ echo "#################################"
 echo "Athena virtual machine check"
 echo "#################################"
 /usr/local/bin/athena-virtual-machine-check
-
+echo
+echo "#################################"
+echo "Athena shell check"
+echo "#################################"
+/usr/local/bin/athena-shell-check
+echo
 echo
 echo "#################################"
 echo "End athena-final"

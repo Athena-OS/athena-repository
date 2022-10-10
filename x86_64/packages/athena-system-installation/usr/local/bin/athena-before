@@ -37,11 +37,6 @@ echo
 mv /etc/mkinitcpio.d/athena /etc/mkinitcpio.d/linux.preset
 echo
 echo "#################################"
-echo "Athena shell check"
-echo "#################################"
-/usr/local/bin/athena-shell-check
-echo
-echo "#################################"
 echo "End athena-before"
 echo "#################################"
 echo
