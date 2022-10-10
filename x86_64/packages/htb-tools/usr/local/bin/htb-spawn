@@ -57,7 +57,7 @@ echo
 if curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Playing"; then
 
   result=$(basename -- "$SHELL")
-  echo "Shell: $result"
+
   if [ $result = "bash" ]; then
     FILE="$HOME/.bashrc.htb.bak"
     if [ ! -f "$FILE" ]; then
