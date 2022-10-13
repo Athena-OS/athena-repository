@@ -86,4 +86,4 @@ package() {
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tmux-yank/scripts/copy_pane_pwd.sh" "$pkgdir/etc/skel/.tmux/plugins/tmux-yank/scripts/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tmux-yank/scripts/helpers.sh" "$pkgdir/etc/skel/.tmux/plugins/tmux-yank/scripts/"
 }
-sha256sums=('90de1825f92b46c8aaa82b649fae6a3a5be51249c779f3f6c0a2fb1d1b6e16c9')
+sha256sums=('3847033785a052a49c750318b42675213896b0af90767d8cfa5b438f306fc351')
