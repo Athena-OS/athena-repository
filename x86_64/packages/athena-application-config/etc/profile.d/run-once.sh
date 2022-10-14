@@ -118,14 +118,13 @@ if [ -f "$FLAGFILE" ]; then
     
 fi
 
-#if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
-#    if [ -f "$FLAGNET" ]; then
-#    	$HOME/.tmux/plugins/tpm/scripts/install_plugins.sh
-#    	/usr/local/bin/nist-feed -n -l
-#    	rm -rf "$FLAGNET"
-#    fi
-#    /usr/local/bin/htb-update
-#fi
+if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+    if [ -f "$FLAGNET" ]; then
+    	/usr/local/bin/nist-feed -n -l
+    	rm -rf "$FLAGNET"
+    fi
+    /usr/local/bin/htb-update
+fi
 
 #If tun0 is down (i.e., after a reboot), the shell prompt must be updated with the running interfaces
 if ! nmcli c show --active | grep -q tun ; then
