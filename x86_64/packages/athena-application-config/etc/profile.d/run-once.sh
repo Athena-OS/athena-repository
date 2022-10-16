@@ -21,11 +21,18 @@ if [ -f "$FLAGFILE" ]; then
 
     KEY_PATH="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
 
-    gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$KEY_PATH/custom0/']"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['$KEY_PATH/custom0/', '$KEY_PATH/custom1/']"
 
     $BEGINNING/custom0/ name "Lock Screen"
     $BEGINNING/custom0/ command "dm-tool lock"
     $BEGINNING/custom0/ binding "<Super>L"
+
+    $BEGINNING/custom1/ name "Terminal"
+    $BEGINNING/custom1/ command "kitty"
+    $BEGINNING/custom1/ binding "<CTRL><ALT>T"
+
+    gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>E']"
+    gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>D']"
 
     ############################################################
 
