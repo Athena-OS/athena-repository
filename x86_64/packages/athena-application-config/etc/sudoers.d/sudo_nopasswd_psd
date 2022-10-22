@@ -1,1 +1,1 @@
-(ALL, !root) NOPASSWD: /usr/bin/psd-overlay-helper
+!root ALL=(ALL)  NOPASSWD: /usr/bin/psd-overlay-helper
