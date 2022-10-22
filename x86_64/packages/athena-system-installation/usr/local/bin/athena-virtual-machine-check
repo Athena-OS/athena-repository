@@ -154,7 +154,10 @@ if [ $result = "vmware" ];
 			echo "Removed qemu-guest-agent"
 		fi
 		systemctl enable mnt-hgfs.mount
-		modprobe -v fuse		
+		modprobe -v fuse
+
+		sed -i 's/"$/ vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx"/' /etc/mkinitcpio.conf
+		mkinitcpio -P
 fi
 
 if [ $result = "none" ];

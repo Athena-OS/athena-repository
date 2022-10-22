@@ -122,6 +122,8 @@ if [ -f "$FLAGFILE" ]; then
     rm -rf $PIE $BMW $IND $DING $D2D
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
     rm -rf "$FLAGFILE"
+
+    systemctl --user enable psd
     
 fi
 

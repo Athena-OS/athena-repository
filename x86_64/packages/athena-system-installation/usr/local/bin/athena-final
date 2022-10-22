@@ -5,10 +5,6 @@ echo "Start athena-final"
 echo "#################################"
 echo
 echo "#################################"
-echo "##########Root cronjobs##########"
-echo "#################################"
-(crontab -l 2>/dev/null; echo "*/15 * * * * ( echo 3 | tee /proc/sys/vm/drop_caches)") | crontab -
-echo "#################################"
 echo "Permissions of important folders"
 echo "#################################"
 chmod 750 /etc/sudoers.d
@@ -68,6 +64,22 @@ echo "#################################"
 echo "Athena virtual machine check"
 echo "#################################"
 /usr/local/bin/athena-virtual-machine-check
+echo
+
+echo "#################################"
+echo "Improving compilation times"
+echo "#################################"
+sed -i 's/MAKEFLAGS=.*/MAKEFLAGS="-j$(nproc)"/g' /etc/makepkg.conf
+sed -i 's/#BUILDDIR=.*/BUILDDIR=\/tmp\/makepkg/g' /etc/makepkg.conf
+echo
+
+echo "#################################"
+echo "Enable last services"
+echo "#################################"
+systemctl enable set-cfs-tweaks.service
+systemctl enable ananicy
+systemctl enable irqbalance
+systemctl enable nohang.service
 echo
 echo "#################################"
 echo "End athena-final"

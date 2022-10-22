@@ -9,6 +9,7 @@ source=("$pkgname.tar.gz")
 package() {
   mkdir -p "${pkgdir}/etc/profile.d"
   mkdir -p "${pkgdir}/etc/skel"
+  mkdir -p "${pkgdir}/etc/sudoers.d"
   mkdir -p "${pkgdir}/usr/share/gnome-shell"
 
   cp -rf "${srcdir}/etc/profile.d/run-once.sh" "${pkgdir}/etc/profile.d/"
@@ -25,8 +26,13 @@ package() {
   cp -rf "${srcdir}/etc/skel/.viminfo" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.vimrc" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.flag-net-once" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/sudoers.d/sudo_nopasswd_psd" "${pkgdir}/etc/sudoers.d/"
 
   cp -rf "${srcdir}/usr/share/gnome-shell/gnome-shell-theme.gresource.new" "${pkgdir}/usr/share/gnome-shell/"
+  
+  chmod 700 "${pkgdir}/etc/skel/.mozilla/firefox-esr/iso1fa16.default-release"
+  
+  ln -s "${pkgdir}/etc/skel/.mozilla/firefox-esr" "${pkgdir}/etc/skel/.mozilla/firefox"
 
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/tpm" "$pkgdir/etc/skel/.tmux/plugins/tpm/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/bin/clean_plugins" "$pkgdir/etc/skel/.tmux/plugins/tpm/bin/"
@@ -86,4 +92,4 @@ package() {
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tmux-yank/scripts/copy_pane_pwd.sh" "$pkgdir/etc/skel/.tmux/plugins/tmux-yank/scripts/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tmux-yank/scripts/helpers.sh" "$pkgdir/etc/skel/.tmux/plugins/tmux-yank/scripts/"
 }
-sha256sums=('a3e4a97983b63a288c93ff3fd1f8fe1b745100dd23fe8a35e67839243288bceb')
+sha256sums=('cfa9a3b6788a07727e183fea00d9eff179c4aab544770e3508ea126906fa67cb')
