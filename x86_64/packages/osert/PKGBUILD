@@ -1,0 +1,40 @@
+pkgname="osert"
+pkgver="70.b7d4bc6"
+pkgrel="1"
+pkgdesc="Markdown Templates for Offensive Security exam reports."
+arch=("any")
+url='https://github.com/noraj/OSCP-Exam-Report-Template-Markdown'
+license=('GPL3')
+depends=('p7zip' 'pandoc' 'texlive-core' 'texlive-fontsextra' 'texlive-latexextra' 'xdg-utils')
+makedepends=('git' 'unzip')
+source=("git+https://github.com/D3vil0p3r/OSCP-Exam-Report-Template-Markdown.git"
+        "https://github.com/Wandmalfarbe/pandoc-latex-template/releases/download/v2.0.0/Eisvogel.tar.gz")
+
+pkgver() {
+  cd OSCP-Exam-Report-Template-Markdown/
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
+
+prepare(){
+  tar -zxvf Eisvogel.tar.gz
+}
+
+package() {
+  mkdir -p "$pkgdir/usr/share/$pkgname"
+  mkdir -p "$pkgdir/usr/bin"
+  mkdir -p "$pkgdir/usr/share/pandoc/data/templates/"
+  
+  mv eisvogel.latex "$pkgdir/usr/share/pandoc/data/templates/"
+
+  cp -rf "${srcdir}/OSCP-Exam-Report-Template-Markdown/src" "${pkgdir}/usr/share/$pkgname/"
+  install -Dm 755 -t "$pkgdir/usr/share/$pkgname/" "${srcdir}/OSCP-Exam-Report-Template-Markdown/generate.rb"
+
+  cat > "$pkgdir/usr/bin/$pkgname" << EOF
+#!/bin/sh
+exec /usr/share/$pkgname/generate.rb "\$@"
+EOF
+
+  chmod a+x "$pkgdir/usr/bin/$pkgname"
+}
+sha256sums=('SKIP'
+            'c9bf5d7019b65a28b397cb1ac12676bce11f5badb10a156098073950a07d3e37')
