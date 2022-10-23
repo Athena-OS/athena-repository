@@ -1,1 +1,1 @@
-!root ALL=(ALL)  NOPASSWD: /usr/bin/psd-overlay-helper
+%wheel ALL=(ALL)  NOPASSWD: /usr/bin/psd-overlay-helper

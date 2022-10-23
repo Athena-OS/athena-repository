@@ -124,7 +124,7 @@ if [ -f "$FLAGFILE" ]; then
     rm -rf "$FLAGFILE"
 
     systemctl --user enable psd
-    
+    ln -s "$HOME/.mozilla/firefox-esr" "$HOME/.mozilla/firefox"    
 fi
 
 if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
