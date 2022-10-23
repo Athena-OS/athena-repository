@@ -18,4 +18,4 @@ package() {
 
   cp -rf "${srcdir}/usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether" "${pkgdir}/usr/share/lightdm-webkit/themes/"
 }
-sha256sums=('0b8834de10bf4a28044d6d3e395ad3063426fe299ba98fa4980a9d3ee700300a')
+sha256sums=('9f5284dde024d558a8ef61a5f1637af47cc7ba313808e145a2938205f70f6c9d')
