@@ -53,6 +53,8 @@ if [ -f "$FLAGFILE" ]; then
     gnome-extensions install $DING
     gnome-extensions enable ding@rastersoft.com
 
+    gnome-extensions enable pop-shell@system76.com    
+
     cat $HOME/dconf-interface.ini | dconf load /org/gnome/desktop/interface/
     cat $HOME/dconf-preferences.ini | dconf load /org/gnome/desktop/wm/preferences/
     cat $HOME/dconf-shell.ini | dconf load /org/gnome/shell/
