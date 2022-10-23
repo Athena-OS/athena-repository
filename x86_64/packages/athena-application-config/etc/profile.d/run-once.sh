@@ -123,7 +123,7 @@ if [ -f "$FLAGFILE" ]; then
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
     rm -rf "$FLAGFILE"
 
-    systemctl --user enable psd
+    systemctl --user enable --now psd
     ln -s "$HOME/.mozilla/firefox-esr" "$HOME/.mozilla/firefox"    
 fi
 
