@@ -42,7 +42,7 @@ export SHELL=\$(which fish)
 EOF
 
 cat >> /etc/skel/.bashrc << EOF
-if [[ \$(ps --no-header --pid=\$PPID --format=comm) != "fish" && -z \${BASH_EXECUTION_STRING} ]]
+if [[ \$(ps --no-header --pid=\$PPID --format=comm) != "fish" ]]
 then
     exec fish
 fi
@@ -61,7 +61,7 @@ export SHELL=\$(which zsh)
 EOF
 
 cat >> /etc/skel/.bashrc << EOF
-if [[ \$(ps --no-header --pid=\$PPID --format=comm) != "zsh" && -z \${BASH_EXECUTION_STRING} ]]
+if [[ \$(ps --no-header --pid=\$PPID --format=comm) != "zsh" ]]
 then
     exec zsh
 fi
