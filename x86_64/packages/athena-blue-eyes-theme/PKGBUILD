@@ -1,8 +1,8 @@
-pkgname="athena-blue-eyes-theme"
-pkgver="1.0.0"
-pkgrel="2"
+pkgname=athena-blue-eyes-theme
+pkgver=1.0.0
+pkgrel=2
 pkgdesc="Blue Eyes samurai theme with Tokyo Night Dark icons for Athena"
-arch=("x86_64")
+arch=('x86_64')
 license=("custom")
 source=("$pkgname.tar.gz")
 
@@ -18,4 +18,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/cyan/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('237673db807d24579c623566621395286c63ba1d68eb03946e1a60c716a70d21')
+sha256sums=('e9c4480b2325c0bf1dd94ff64cbcb46ac014b072101a24f8ed864288faa35e24')

@@ -1,17 +1,32 @@
-pkgname="commentor"
-pkgver="1.0.0"
-pkgrel="1"
-pkgdesc="Extract all comments from the specified URL resource."
-arch=("x86_64")
-license=("custom")
-source=("$pkgname.tar.gz")
+pkgname=commentor
+pkgver=19.d81a660
+pkgrel=1
+pkgdesc='Extract all comments from the specified URL resource.'
+arch=('any')
+url='https://github.com/D3vil0p3r/comMENTOR'
+license=('GPL3')
+depends=('curl' 'tidy' 'xmlstarlet')
+makedepends=('git')
+source=("git+https://github.com/D3vil0p3r/$pkgname.git")
+sha512sums=('SKIP')
+pkgver() {
+  cd $pkgname
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
 
 package() {
-  mkdir -p "${pkgdir}/usr/local/bin"
+  mkdir -p "${pkgdir}/usr/share/$pkgname"
+  mkdir -p "${pkgdir}/usr/bin"
+  install -Dm 755 -t "${pkgdir}/usr/share/$pkgname/" "${srcdir}/$pkgname/c_cleanup" "${srcdir}/$pkgname/c_decorate" "${srcdir}/$pkgname/c_filter" "${srcdir}/$pkgname/$pkgname"
 
-  install -Dm755 "${srcdir}/usr/local/bin/commentor" "${pkgdir}/usr/local/bin/"
-  install -Dm755 "${srcdir}/usr/local/bin/c_decorate" "${pkgdir}/usr/local/bin/"
-  install -Dm755 "${srcdir}/usr/local/bin/c_filter" "${pkgdir}/usr/local/bin/"
-  install -Dm755 "${srcdir}/usr/local/bin/c_cleanup" "${pkgdir}/usr/local/bin/"
+  cat > "${pkgdir}/usr/bin/$pkgname" << EOF
+#!/bin/sh
+exec /usr/share/$pkgname/$pkgname "\$@"
+EOF
+
+  chmod a+x "${pkgdir}/usr/bin/$pkgname"
 }
-sha256sums=('8a7c7f60e239b38b8ae0ffc64a25c4efdb7a713b47a7e4002d350ff6d80138fb')
+sha512sums=('SKIP')
+sha512sums=('SKIP')
+sha512sums=('SKIP')
+sha512sums=('SKIP')

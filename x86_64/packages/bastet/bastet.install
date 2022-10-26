@@ -1,3 +1,0 @@
-post_install() {
-	echo "Users who wish to contribute to the global highscore must be members of the 'games' group!"
-}

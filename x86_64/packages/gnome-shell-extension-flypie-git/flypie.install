@@ -1,0 +1,15 @@
+post_install() {
+    echo
+    echo "$(tput bold)At the end, reboot and then run: gnome-extensions enable flypie@schneegans.github.com$(tput sgr0)"
+    echo
+}
+
+post_upgrade() {
+    post_install
+}
+
+post_remove() {
+    echo
+    echo "$(tput bold)At the end, run: gnome-extensions uninstall flypie@schneegans.github.com$(tput sgr0)"
+    echo
+}

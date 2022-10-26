@@ -1,8 +1,8 @@
-pkgname="osert"
-pkgver="71.d9fe6fb"
-pkgrel="1"
+pkgname=osert
+pkgver=71.d9fe6fb
+pkgrel=1
 pkgdesc="Markdown Templates for Offensive Security exam reports."
-arch=("any")
+arch=('any')
 url='https://github.com/noraj/OSCP-Exam-Report-Template-Markdown'
 license=('GPL3')
 depends=('p7zip' 'pandoc' 'texlive-core' 'texlive-fontsextra' 'texlive-latexextra' 'xdg-utils')

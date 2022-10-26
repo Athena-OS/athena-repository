@@ -1,8 +1,8 @@
-pkgname="nist-feed"
-pkgver="1.0.0"
-pkgrel="2"
+pkgname=nist-feed
+pkgver=1.0.0
+pkgrel=2
 pkgdesc="NIST NVD feed and popup notifications"
-arch=("x86_64")
+arch=('x86_64')
 license=("custom")
 depends=('cron' 'dunst')
 source=("$pkgname.tar.gz")

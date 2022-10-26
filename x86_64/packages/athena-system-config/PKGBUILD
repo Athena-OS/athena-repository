@@ -1,8 +1,8 @@
-pkgname="athena-system-config"
-pkgver="1.0.0"
-pkgrel="1"
+pkgname=athena-system-config
+pkgver=1.0.0
+pkgrel=1
 pkgdesc="System configuration for Athena"
-arch=("x86_64")
+arch=('x86_64')
 license=("custom")
 source=("$pkgname.tar.gz")
 
@@ -26,4 +26,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/hicolor/* "${pkgdir}/usr/share/icons/hicolor/"
   cp -rf "${srcdir}"/usr/share/pixmaps/* "${pkgdir}/usr/share/pixmaps/"
 }
-sha256sums=('51a41259c94d011da15c6b8e8106ce4e0215139035fd3bdcf3d3bf24fb7d1e9c')
+sha256sums=('7b4201b14fc65e49feebb5cdf1beeb20d9fec8064bb8c6dcb1e61222ba981326')

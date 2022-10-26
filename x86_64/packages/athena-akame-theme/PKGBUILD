@@ -1,8 +1,8 @@
-pkgname="athena-akame-theme"
-pkgver="1.0.0"
-pkgrel="2"
+pkgname=athena-akame-theme
+pkgver=1.0.0
+pkgrel=2
 pkgdesc="Akame theme with Material Black Cherry Suru icons for Athena"
-arch=("x86_64")
+arch=('x86_64')
 license=("custom")
 source=("$pkgname.tar.gz")
 
@@ -18,4 +18,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/red/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('bcea56c15fc51ed9e850f706efcee8f9e9bc7d994e07e3a666f8e97e7d1ca7c2')
+sha256sums=('b028c85318d172a3a57452e334637a94f80ae9b47fa25cf0a8a2c33b9cba1af7')

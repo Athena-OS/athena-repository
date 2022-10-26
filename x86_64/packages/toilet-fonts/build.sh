@@ -16,6 +16,6 @@ makepkg -f -sr --sign
 
 rm -rf src pkg *.tar.gz
 
-rm -rf ../../$pkgfile
+rm -rf ../../$pkgfile ../../$pkgfile.sig
 
 mv $pkgfile $pkgfile.sig ../../

@@ -1,0 +1,30 @@
+pkgname=gnome-shell-extension-appindicator-git
+pkgdesc="AppIndicator Support - add KStatusNotifierItem support to the Shell."
+pkgver=r479.5ebb018
+pkgrel=1
+_gitname=gnome-shell-extension-appindicator
+arch=('any')
+url="https://github.com/ubuntu/gnome-shell-extension-appindicator"
+license=("GPLv3")
+install="appindicator.install"
+depends=('gnome-shell' 'libappindicator-gtk3')
+makedepends=('eslint' 'meson' 'ninja' 'git')
+
+_dir="${_gitname}"
+source=("git+https://github.com/ubuntu/gnome-shell-extension-appindicator.git")
+sha256sums=("SKIP")
+
+pkgver() {
+    cd "${srcdir}/${_dir}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    meson "${srcdir}/${_dir}" /tmp/g-s-appindicators-build
+}
+
+package() {
+    ninja -C /tmp/g-s-appindicators-build install
+
+    install -Dm644 "${srcdir}/${_dir}/schemas/org.gnome.shell.extensions.appindicator.gschema.xml" -t "$pkgdir/usr/share/glib-2.0/schemas"
+}

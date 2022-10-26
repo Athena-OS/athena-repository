@@ -1,0 +1,30 @@
+pkgname=gnome-shell-extension-ding-git
+pkgdesc="Desktop Icons NG - add icons to the desktop."
+pkgver=r1079.3a5cc11
+pkgrel=1
+_gitname=desktop-icons-ng
+arch=('any')
+url="https://gitlab.com/rastersoft/desktop-icons-ng"
+license=("GPLv3")
+install="ding.install"
+depends=('gnome-shell' 'file-roller' 'nautilus')
+makedepends=('meson' 'ninja' 'git')
+
+_dir="${_gitname}"
+source=("git+https://gitlab.com/rastersoft/desktop-icons-ng.git")
+sha256sums=("SKIP")
+
+pkgver() {
+    cd "${srcdir}/${_dir}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+    meson "${srcdir}/${_dir}" /tmp/g-s-ding-build
+}
+
+package() {
+    ninja -C /tmp/g-s-ding-build install
+
+    install -Dm644 "${srcdir}/${_dir}/schemas/org.gnome.shell.extensions.ding.gschema.xml" -t "$pkgdir/usr/share/glib-2.0/schemas"
+}

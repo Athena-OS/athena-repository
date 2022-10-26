@@ -2,8 +2,8 @@
 
 #NEED ONLY TO EDIT  sourcefiles VARIABLE
 
-pkgname=$(grep "^pkgname=" PKGBUILD | awk -F"'" '{print $2}')
-pkgver=$(grep "^pkgver=" PKGBUILD | awk -F"'" '{print $2}')
+pkgname=$(grep "^pkgname=" PKGBUILD | awk -F"=" '{print $2}')
+pkgver=$(grep "^pkgver=" PKGBUILD | awk -F"=" '{print $2}')
 pkgrel=$(grep "^pkgrel=" PKGBUILD | awk -F"=" '{split($2,a," ");gsub(/"/, "", a[1]);print a[1]}')
 arch=$(grep "^arch=" PKGBUILD | awk -F"'" '{print $2}')
 
@@ -18,6 +18,6 @@ makepkg -f -sr --sign
 
 rm -rf src pkg $pkgname-$pkgver.tar.gz
 
-rm -rf ../../$pkgfile
+rm -rf ../../$pkgfile ../../$pkgfile.sig
 
 mv $pkgfile $pkgfile.sig ../../

@@ -1,8 +1,8 @@
-pkgname="figlet-fonts"
-pkgver="1.0.4"
-pkgrel="1"
+pkgname=figlet-fonts
+pkgver=1.0.4
+pkgrel=1
 pkgdesc='Figlet Fonts.'
-arch=("any")
+arch=('any')
 url='https://github.com/xero/figlet-fonts'
 license=('GPL3')
 depends=('figlet')
@@ -12,4 +12,4 @@ package() {
   mkdir -p "$pkgdir/usr/share/figlet/fonts"
   cp -rf "$srcdir"/usr/share/figlet/fonts/* "$pkgdir/usr/share/figlet/fonts/"
 }
-sha256sums=('22f41f936f08e1dda71b1b680db940b65cdf84ef1b720e3fa84f31e56702b7d4')
+sha256sums=('e2942189bb49dfff4073f47182da5bbc559fa4dece41788c104862aeca0d5197')

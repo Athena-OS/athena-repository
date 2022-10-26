@@ -1,0 +1,30 @@
+pkgname=gnome-shell-extension-ubuntu-dock-git
+pkgdesc="Ubuntu Dock - a dock for the Gnome Shell."
+pkgver=r2097.7c68cae
+pkgrel=1
+_gitorg=micheleg
+_gitname=dash-to-dock
+_gitbranch=ubuntu-dock
+arch=('any')
+url="https://github.com/micheleg/dash-to-dock/tree/ubuntu-dock"
+license=("GPLv3")
+install="ubuntu-dock.install"
+depends=('gnome-shell' 'sassc')
+makedepends=('make' 'git')
+
+_dir="${_gitname}"
+source=("${_dir}::git+https://github.com/${_gitorg}/${_gitname}.git#branch=${_gitbranch}")
+sha256sums=("SKIP")
+
+pkgver() {
+    cd "${srcdir}/${_dir}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+    cd "${srcdir}/${_dir}"
+    make -C "${srcdir}/${_dir}" install
+
+    install -Dm644 "${srcdir}/${_dir}/schemas/org.gnome.shell.extensions.dash-to-dock.gschema.xml" -t "$pkgdir/usr/share/glib-2.0/schemas"
+    install -Dm644 "${srcdir}/${_dir}/schemas/10_ubuntu-dock.gschema.override" -t "$pkgdir/usr/share/glib-2.0/schemas"
+}

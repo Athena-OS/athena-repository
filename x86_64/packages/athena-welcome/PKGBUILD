@@ -1,8 +1,8 @@
-pkgname="athena-welcome"
-pkgver="1.0.0"
-pkgrel="1"
+pkgname=athena-welcome
+pkgver=1.0.0
+pkgrel=1
 pkgdesc="Welcome App for Athena"
-arch=("x86_64")
+arch=('x86_64')
 license=("custom")
 depends=('libwnck3')
 source=("$pkgname.tar.gz")

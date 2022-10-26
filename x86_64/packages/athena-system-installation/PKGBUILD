@@ -1,8 +1,8 @@
-pkgname="athena-system-installation"
-pkgver="1.0.0"
-pkgrel="1"
+pkgname=athena-system-installation
+pkgver=1.0.0
+pkgrel=1
 pkgdesc="Installation files for Athena"
-arch=("x86_64")
+arch=('x86_64')
 license=("custom")
 source=("$pkgname.tar.gz")
 
