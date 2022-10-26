@@ -8,7 +8,7 @@ url="https://github.com/Schneegans/Fly-Pie"
 license=("GPLv3")
 install="flypie.install"
 depends=('gnome-shell')
-makedepends=('make' 'git')
+makedepends=('make' 'git' 'unzip')
 
 _dir="${_gitname}"
 source=("git+https://github.com/Schneegans/Fly-Pie.git")
@@ -20,8 +20,12 @@ pkgver() {
 }
 
 package() {
+    
+    mkdir -p "${pkgdir}/usr/share/gnome-shell/extensions/flypie@schneegans.github.com"
+   
     cd "${srcdir}/${_dir}"
-    make install
+    make zip
+    unzip "${srcdir}/${_dir}/flypie@schneegans.github.com.zip" -d "${pkgdir}/usr/share/gnome-shell/extensions/flypie@schneegans.github.com/"
 
-    install -Dm644 schemas/org.gnome.shell.extensions.flypie.gschema.xml -t "$pkgdir/usr/share/glib-2.0/schemas"
+    install -Dm644 "${srcdir}/${_dir}/schemas/org.gnome.shell.extensions.flypie.gschema.xml" -t "${pkgdir}/usr/share/glib-2.0/schemas"
 }

@@ -8,7 +8,7 @@ url="https://github.com/ubuntu/gnome-shell-extension-appindicator"
 license=("GPLv3")
 install="appindicator.install"
 depends=('gnome-shell' 'libappindicator-gtk3')
-makedepends=('eslint' 'meson' 'ninja' 'git')
+makedepends=('eslint' 'meson' 'ninja' 'git' 'unzip')
 
 _dir="${_gitname}"
 source=("git+https://github.com/ubuntu/gnome-shell-extension-appindicator.git")
@@ -20,11 +20,16 @@ pkgver() {
 }
 
 build() {
-    meson "${srcdir}/${_dir}" /tmp/g-s-appindicators-build
+    meson "${srcdir}/${_dir}"
 }
 
 package() {
-    ninja -C /tmp/g-s-appindicators-build install
+
+    mkdir -p "${pkgdir}/usr/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com"
+
+    ninja zip-file
+
+    unzip "/tmp/g-s-appindicators-build/appindicatorsupport@rgcjonas.gmail.com.zip" -d "${pkgdir}/usr/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com/"
 
     install -Dm644 "${srcdir}/${_dir}/schemas/org.gnome.shell.extensions.appindicator.gschema.xml" -t "$pkgdir/usr/share/glib-2.0/schemas"
 }

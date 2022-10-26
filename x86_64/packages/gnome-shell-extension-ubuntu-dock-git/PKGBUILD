@@ -10,7 +10,7 @@ url="https://github.com/micheleg/dash-to-dock/tree/ubuntu-dock"
 license=("GPLv3")
 install="ubuntu-dock.install"
 depends=('gnome-shell' 'sassc')
-makedepends=('make' 'git')
+makedepends=('eslint' 'make' 'git' 'unzip')
 
 _dir="${_gitname}"
 source=("${_dir}::git+https://github.com/${_gitorg}/${_gitname}.git#branch=${_gitbranch}")
@@ -22,8 +22,13 @@ pkgver() {
 }
 
 package() {
+
+    mkdir -p "${pkgdir}/usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com"
+
     cd "${srcdir}/${_dir}"
-    make -C "${srcdir}/${_dir}" install
+    make zip-file
+
+    unzip "${srcdir}/${_dir}/ubuntu-dock@ubuntu.com.zip" -d "${pkgdir}/usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com/"
 
     install -Dm644 "${srcdir}/${_dir}/schemas/org.gnome.shell.extensions.dash-to-dock.gschema.xml" -t "$pkgdir/usr/share/glib-2.0/schemas"
     install -Dm644 "${srcdir}/${_dir}/schemas/10_ubuntu-dock.gschema.override" -t "$pkgdir/usr/share/glib-2.0/schemas"
