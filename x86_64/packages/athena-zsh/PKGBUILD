@@ -13,4 +13,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.zshrc" "${pkgdir}/etc/skel/"
   
 }
-sha256sums=('9573c6945e5a0eb8de5e0186cc7385cef4c9c413870f92bd796cab03788cf094')
+sha256sums=('134efec4c1f12369c16ee3697ab98ea1ca948477311b492dcb0f7fe0e47af4ed')

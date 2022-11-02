@@ -13,4 +13,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/fish" "${pkgdir}/etc/skel/.config/"  
 }
 
-sha256sums=('15a5ce5ea5bc8d77c7eb722ee027b56ca6070e1dadbaad2e8c79e766af292e25')
+sha256sums=('b9bd82811a09a5fea8fdade0080f24cd0ecb9fc16c7286179f93bdad1174b81d')
