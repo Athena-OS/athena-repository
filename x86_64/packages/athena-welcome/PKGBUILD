@@ -17,7 +17,6 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/athena-welcome/settings.conf" "${pkgdir}/etc/skel/.config/athena-welcome/"
   cp -rf "${srcdir}/etc/skel/.config/autostart/athena-welcome.desktop" "${pkgdir}/etc/skel/.config/autostart/"  
   install -Dm755 "${srcdir}/usr/local/bin/athena-welcome" "${pkgdir}/usr/local/bin/"
-  install -Dm755 "${srcdir}/usr/local/bin/role-tools" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/hacking-variables" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/role-viewer" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/mirroars" "${pkgdir}/usr/local/bin/"
@@ -25,5 +24,6 @@ package() {
   cp -rf "${srcdir}/usr/share/applications/athena-welcome.desktop" "${pkgdir}/usr/share/applications/"
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/athena-hello-logo.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
+  chmod 755 "${pkgdir}/usr/share/athena-welcome/role-tools"
 }
-sha256sums=('c7a2e301762991b93476838709d25109103073771a8f71826b0b3d9d8ae5bac5')
+sha256sums=('cc4426d47bc486f83e7e8d0622962ed7bd09d5bac43648db04c46b61fb96e53b')
