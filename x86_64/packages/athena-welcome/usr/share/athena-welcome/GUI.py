@@ -4,6 +4,7 @@
 
 import os
 import getpass
+import combo
 from os.path import expanduser
 
 DEBUG = False
@@ -40,6 +41,8 @@ def GUI(self, Gtk, GdkPixbuf):
     hbox7 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox8 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox9 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+    hbox10 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10) #ComboBox
+    hbox11 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10) #Key shortcut
 
     # vbox1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     # vbox2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
@@ -89,7 +92,7 @@ def GUI(self, Gtk, GdkPixbuf):
             #"if the Advanced Installation fails</b></span>\n")  # noqa
     else:
         label2.set_markup("Press <b>[CTRL+SPACE]</b> for the <b>PenTOXIC menu</b> or <b>[CTRL+TAB]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
-                          "Click on <b>Red Team Machine</b> button for retrieving the main resources you need!\n\n" + #noqa
+                          "Choose your role and click on <b>Set Your Role</b> button for retrieving the main resources you need!\n\n" + #noqa
 			  "Run <b>htb-update</b> by the terminal for setting your Hack The Box API key and start your hacking experience!\n\n" + #noqa
                     
                           "Get started on Athena. We communicate with our community via Discord or GitHub.\n" + #noqa
@@ -103,6 +106,31 @@ def GUI(self, Gtk, GdkPixbuf):
     hbox1.pack_end(self.cc, False, False, 0)
     #hbox4.pack_start(label2, False, False, 0)
     hbox8.pack_start(label_warning, True, False, 0)
+
+    # ======================================================================
+    #                   COMBO MENU
+    # ======================================================================
+
+    roles = [
+        "Bug Bounty Hunter",
+        "Cracker",
+        "Enthusiast Student",
+        "Forensic Analyst",
+        "Malware Analyst",
+        "Mobile Analyst",
+        "Network Analyst",
+        "Red Teamer",
+        "Web Pentester",
+    ]
+    role_combo = Gtk.ComboBoxText()
+    role_combo.set_entry_text_column(0)
+    role_combo.connect("changed", self.on_role_combo_changed)
+    
+    for role in roles:
+        role_combo.append_text(role)
+
+    role_combo.set_active(2)
+    #The position of ComboBox roles is defined in the if-else of the usernames below in hbox1
 
     # ======================================================================
     #                   MAIN BUTTONS
@@ -143,7 +171,7 @@ def GUI(self, Gtk, GdkPixbuf):
 
     self.buttonrtm = Gtk.Button(label="")
     buttonrtm = self.buttonrtm.get_child()
-    buttonrtm.set_markup("<span size='large'><b>Red Team Machine</b></span>")
+    buttonrtm.set_markup("<span size='large'><b>Set Your Role</b></span>")
     self.buttonrtm.connect("clicked", self.on_buttonrtm_clicked)
     self.buttonrtm.set_size_request(420, 70)
     
@@ -172,16 +200,20 @@ def GUI(self, Gtk, GdkPixbuf):
         grid.attach(buttonca, 2, 2, 2, 2)
         grid.set_column_homogeneous(True)
         grid.set_row_homogeneous(True)
+
     else:
         grid = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
         self.button8.set_size_request(300, 70)
         ##self.buttonatt.set_size_request(300, 70)
         self.buttonrtm.set_size_request(300, 70)
+        
         #self.buttonpamac.set_size_request(300, 70)
         #grid.pack_start(self.buttonpamac, True, False, 0)
         ##grid.pack_start(self.buttonatt, True, False, 0)
         grid.pack_start(self.buttonrtm, True, False, 0)
         grid.pack_start(self.button8, True, False, 0)
+        hbox1.pack_end(role_combo, False, False, 0) #pack_end means starting from right position
+
     # grid.set_row_homogeneous(True)
 
     # ======================================================================
@@ -227,7 +259,27 @@ def GUI(self, Gtk, GdkPixbuf):
     #                   FOOTER BUTTON LINKS
     # ======================================================================
 
-    # change this one every year
+    ###########################################
+    #       First Line Footer Buttons        #
+    ###########################################
+
+    button13 = Gtk.Button(label="Show Tools for Roles")
+    button13.connect("clicked", self.on_buttonroletools_clicked)
+    button13.set_tooltip_markup("Show all the tools for each role")
+    button13.set_size_request(420, 0)
+
+    button14 = Gtk.Button(label="Hacking Variables")
+    button14.connect("clicked", self.on_buttonhv_clicked)
+    button14.set_tooltip_markup("Show the hacking variables")
+    button14.set_size_request(420, 0)
+
+    hbox11.pack_start(button13, True, True, 0)
+    hbox11.pack_end(button14, True, True, 0)
+
+    ###########################################
+    #       Second Line Footer Buttons        #
+    ###########################################
+
     button3 = Gtk.Button(label="Release info")
     button3.connect("clicked", self.on_link_clicked,
                     "https://github.com/Athena-OS/athena-iso/releases")
@@ -247,6 +299,9 @@ def GUI(self, Gtk, GdkPixbuf):
     hbox2.pack_start(button4, True, True, 0)
     hbox2.pack_start(button5, True, True, 0)
 
+    ###########################################
+    #       Third Line Footer Buttons        #
+    ###########################################
 
     button8 = Gtk.Button(label="Discord")
     button8.connect("clicked", self.on_link_clicked,
@@ -437,7 +492,7 @@ def GUI(self, Gtk, GdkPixbuf):
     # if self.is_connected():
     #     self.get_message(label3, label4)
 
-    self.vbox.pack_start(hbox1, False, False, 7)  # Logo
+    self.vbox.pack_start(hbox1, False, False, 7)  # Logo on the left and ComboBox on the right
     self.vbox.pack_start(hbox4, False, False, 7)  # welcome Label
     self.vbox.pack_start(hbox8, False, False, 7)  # warning Label
 
@@ -450,3 +505,4 @@ def GUI(self, Gtk, GdkPixbuf):
     #self.vbox.pack_end(hbox7, False, False, 0)  # Version
     self.vbox.pack_end(hbox5, False, False, 7)  # Buttons
     self.vbox.pack_end(hbox2, False, False, 7)  # Buttons
+    self.vbox.pack_end(hbox11, False, False, 7)  # Buttons

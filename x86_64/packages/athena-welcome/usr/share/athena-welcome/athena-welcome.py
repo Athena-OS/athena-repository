@@ -19,7 +19,6 @@ from gi.repository import Gtk, GdkPixbuf, GLib, Wnck  # noqa
 
 REMOTE_SERVER = "www.google.com"
 
-
 class Main(Gtk.Window):
     def __init__(self):
         super(Main, self).__init__(title="Athena Welcome")
@@ -29,6 +28,7 @@ class Main(Gtk.Window):
             GUI.base_dir, 'images/arcolinux.png'))
         self.set_position(Gtk.WindowPosition.CENTER)
         self.results = ""
+        self.role_id = ""
         if not os.path.exists(GUI.home + "/.config/athena-welcome/"):
             os.mkdir(GUI.home + "/.config/athena-welcome/")
             with open(GUI.Settings, "w") as f:
@@ -41,6 +41,30 @@ class Main(Gtk.Window):
             t = threading.Thread(target=self.internet_notifier, args=())
             t.daemon = True
             t.start()
+            
+    def on_role_combo_changed(self, combo):
+        GUI.role_name = combo.get_active_text()
+        if GUI.role_name is not None:
+            print("Selected: role=%s" % GUI.role_name)
+            if GUI.role_name == "Bug Bounty Hunter":
+                self.role_id = "BBH"
+            elif GUI.role_name == "Cracker":
+                self.role_id = "CR"
+            elif GUI.role_name == "Enthusiast Student":
+                self.role_id = "ES"
+            elif GUI.role_name == "Forensic Analyst":
+                self.role_id = "FA"
+            elif GUI.role_name == "Malware Analyst":
+                self.role_id = "MA"
+            elif GUI.role_name == "Mobile Analyst":
+                self.role_id = "MO"
+            elif GUI.role_name == "Network Analyst":
+                self.role_id = "NA"
+            elif GUI.role_name == "Red Teamer":
+                self.role_id = "RT"
+            elif GUI.role_name == "Web Pentester":
+                self.role_id = "WP"
+            
 
     def on_mirror_clicked(self, widget):
         t = threading.Thread(target=self.mirror_update)
@@ -84,7 +108,18 @@ class Main(Gtk.Window):
         #t.start()
 
     def on_buttonrtm_clicked(self, widget):
-        t = threading.Thread(target=self.run_app, args=(["kitty", os.path.expandvars('$SHELL'), "-c", "/usr/local/bin/red-team-deployment"],))
+        t = threading.Thread(target=self.run_app, args=(["kitty", os.path.expandvars('$SHELL'), "-c", "/usr/share/athena-welcome/role-tools "+self.role_id],))
+        t.daemon = True
+        t.start()
+
+    def on_buttonroletools_clicked(self, widget):
+        t = threading.Thread(target=self.run_app, args=(["/usr/local/bin/role-viewer"],))
+        t.daemon = True
+        t.start()
+
+
+    def on_buttonhv_clicked(self, widget):
+        t = threading.Thread(target=self.run_app, args=(["/usr/local/bin/hacking-variables"],))
         t.daemon = True
         t.start()
 

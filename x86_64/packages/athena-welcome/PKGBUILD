@@ -1,5 +1,5 @@
 pkgname=athena-welcome
-pkgver=1.0.0
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="Welcome App for Athena"
 arch=('x86_64')
@@ -17,11 +17,13 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/athena-welcome/settings.conf" "${pkgdir}/etc/skel/.config/athena-welcome/"
   cp -rf "${srcdir}/etc/skel/.config/autostart/athena-welcome.desktop" "${pkgdir}/etc/skel/.config/autostart/"  
   install -Dm755 "${srcdir}/usr/local/bin/athena-welcome" "${pkgdir}/usr/local/bin/"
-  install -Dm755 "${srcdir}/usr/local/bin/red-team-deployment" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/role-tools" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/hacking-variables" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/role-viewer" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/mirroars" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/set-repo-keys" "${pkgdir}/usr/local/bin/"
   cp -rf "${srcdir}/usr/share/applications/athena-welcome.desktop" "${pkgdir}/usr/share/applications/"
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/athena-hello-logo.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
 }
-sha256sums=('b58eeec301614962136dc4c8a469d132348e586f85eff813ebf1299a9191f623')
+sha256sums=('5ff3d06e8ccd74584fdde13400725b01595b9dc7fc7045bdbce7e3628e38bc62')
