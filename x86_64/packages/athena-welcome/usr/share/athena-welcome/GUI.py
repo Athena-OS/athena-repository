@@ -4,7 +4,6 @@
 
 import os
 import getpass
-import combo
 from os.path import expanduser
 
 DEBUG = False
