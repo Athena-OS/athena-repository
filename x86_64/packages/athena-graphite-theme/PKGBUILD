@@ -12,8 +12,6 @@ package() {
   mkdir -p "${pkgdir}/usr/share/backgrounds/default"
 
   cp -rf "${srcdir}/usr/share/themes/Graphite-Dark-compact" "${pkgdir}/usr/share/themes/"
-  cp -rf "${srcdir}/usr/share/themes/Graphite-Dark-compact-hdpi" "${pkgdir}/usr/share/themes/"
-  cp -rf "${srcdir}/usr/share/themes/Graphite-Dark-compact-xhdpi" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Tela-circle-black" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/Tela-circle-black-dark" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/Bibata-Modern-Ice" "${pkgdir}/usr/share/icons/"
@@ -21,4 +19,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/blue/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('f57b1accf70153bb9a986c3be4985e173706925abe7f47281c07e7abf9e8a397')
+sha256sums=('d60874ed9d36c55dcdf0a13f1a8330fa93a32bafecee3b70f515fdaa5faef1af')

@@ -40,6 +40,8 @@ if [ -f "$FLAGFILE" ]; then
 
     sh ~/.vim_runtime/install_awesome_parameterized.sh ~/.vim_runtime $USER
 
+    mkdir -p "${HOME}/.config/gtk-4.0"
+
     package=athena-sweet-dark-theme
     if pacman -Qq $package > /dev/null ; then
        gsettings set org.gnome.desktop.interface color-scheme prefer-dark
@@ -62,6 +64,9 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/arch-ascii.png
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/arch-ascii.png
        gsettings set org.gnome.desktop.background picture-options stretched
+       ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+       ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+       ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
     fi
 
     package=athena-gruvbox-theme

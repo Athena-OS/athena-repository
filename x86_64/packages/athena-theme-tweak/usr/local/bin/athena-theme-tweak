@@ -155,7 +155,9 @@ if [ "$theme" ]; then
         echo "Installing $theme Theme..."
         echo
         sudo pacman -Syy --noconfirm $theme_package
-        
+
+        mkdir -p "${HOME}/.config/gtk-4.0"
+
         if [ "${theme_package}" = "athena-akame-theme" ]; then
            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
            gsettings set org.gnome.desktop.interface gtk-theme Abyss-BLOOD-3.36
@@ -199,6 +201,9 @@ if [ "$theme" ]; then
            cp -rf $HOME/.config/kitty/kitty-themes/themes/Atom.conf $HOME/.config/kitty/current-theme.conf
            sudo sed -i "s/Inherits=.*/Inherits=Bibata-Modern-Ice/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'snow'/g" $HOME/.tmux.conf
+           ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+           ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
 
         if [ "${theme_package}" = "athena-gruvbox-theme" ]; then
