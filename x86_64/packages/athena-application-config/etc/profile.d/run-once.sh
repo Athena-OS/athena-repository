@@ -40,6 +40,7 @@ if [ -f "$FLAGFILE" ]; then
 
     sh ~/.vim_runtime/install_awesome_parameterized.sh ~/.vim_runtime $USER
 
+    rm -rf "${HOME}/.config/gtk-4.0"
     mkdir -p "${HOME}/.config/gtk-4.0"
 
     package=athena-sweet-dark-theme

@@ -156,6 +156,7 @@ if [ "$theme" ]; then
         echo
         sudo pacman -Syy --noconfirm $theme_package
 
+        rm -rf "${HOME}/.config/gtk-4.0"
         mkdir -p "${HOME}/.config/gtk-4.0"
 
         if [ "${theme_package}" = "athena-akame-theme" ]; then
