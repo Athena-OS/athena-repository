@@ -53,6 +53,9 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/neon_circle.jpg
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/neon_circle.jpg
        gsettings set org.gnome.desktop.background picture-options stretched
+       ln -sf "/usr/share/themes/Sweet-Dark/assets" "${HOME}/.config/assets"
+       ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+       ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
     fi
 
     package=athena-graphite-theme

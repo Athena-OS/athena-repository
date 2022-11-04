@@ -12,4 +12,4 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/athena-theme-tweak" "${pkgdir}/usr/local/bin/"
 }
 
-sha256sums=('6df2073017c65a52959aa22fbcac3a12a8092c0147570ab01e0a807b6084c440')
+sha256sums=('3aad60f0162417c0f5597624195900b5e37db3c6a8c500319510f2181433e4bb')

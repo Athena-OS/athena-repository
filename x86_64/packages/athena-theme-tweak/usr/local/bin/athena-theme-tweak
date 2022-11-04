@@ -235,6 +235,9 @@ if [ "$theme" ]; then
            cp -rf $HOME/.config/kitty/kitty-themes/themes/AdventureTime.conf $HOME/.config/kitty/current-theme.conf
            sudo sed -i "s/Inherits=.*/Inherits=oreo_spark_purple_cursors/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'violet'/g" $HOME/.tmux.conf
+           ln -sf "/usr/share/themes/Sweet-Dark/assets" "${HOME}/.config/assets"
+           ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
       fi
     done
