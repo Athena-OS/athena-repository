@@ -187,6 +187,9 @@ if [ "$theme" ]; then
            cp -rf $HOME/.config/kitty/kitty-themes/themes/Tokyo_Night_Storm.conf $HOME/.config/kitty/current-theme.conf
            sudo sed -i "s/Inherits=.*/Inherits=oreo_spark_lite_cursors/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'sky'/g" $HOME/.tmux.conf
+           ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+           ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
 
         if [ "${theme_package}" = "athena-graphite-theme" ]; then
@@ -220,6 +223,9 @@ if [ "$theme" ]; then
            cp -rf $HOME/.config/kitty/kitty-themes/themes/gruvbox_dark.conf $HOME/.config/kitty/current-theme.conf
            sudo sed -i "s/Inherits=.*/Inherits=Fuchsia-Pop/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'gold'/g" $HOME/.tmux.conf
+           ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+           ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
 
         if [ "${theme_package}" = "athena-sweet-dark-theme" ]; then

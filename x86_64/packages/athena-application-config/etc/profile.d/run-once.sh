@@ -83,6 +83,9 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/cyborg_gruv.png
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/cyborg_gruv.png
        gsettings set org.gnome.desktop.background picture-options stretched
+       ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+       ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+       ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
     fi
 
     package=athena-akame-theme
@@ -107,6 +110,9 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/blue-eyes.jpg
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/blue-eyes.jpg
        gsettings set org.gnome.desktop.background picture-options stretched
+       ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+       ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+       ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
     fi
     
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
