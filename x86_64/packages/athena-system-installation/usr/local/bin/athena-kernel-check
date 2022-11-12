@@ -1,0 +1,26 @@
+#!/bin/bash
+#set -e
+
+while [ -e "/var/lib/pacman/db.lck" ];
+do
+    echo 'Pacman is not ready yet. Will try again in 5 seconds.'
+    seconds=$(($seconds + 5))
+    sleep 5
+    if [[ "$seconds" == "30" ]]; then
+        echo 'Warning: removing pacman db.lck!'
+        rm /var/lib/pacman/db.lck
+    fi
+done
+
+declare -a packages=("linux" "linux-lts" "linux-hardened")
+
+for i in "${packages[@]}"
+do
+	if pacman -Qq $i > /dev/null ; then
+		#remove preinstalled linux-zen
+		pacman -R linux-zen linux-zen-headers
+		break
+	fi
+done
+
+# If the user chooses a kernel different from linux-zen, the preinstalled linux-zen and linux-zen-headers packages will be uninstalled
