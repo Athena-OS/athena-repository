@@ -35,17 +35,3 @@
   packages:
     - linux-zen
     - linux-zen-headers
-- name: "Intel-ucode"
-  description: "Installs intel-ucode"
-  critical: false
-  hidden: false
-  selected: false
-  packages:
-    - intel-ucode
-- name: "Amd-ucode"
-  description: "Installs amd-ucode"
-  critical: false
-  hidden: false
-  selected: false
-  packages:
-    - amd-ucode
