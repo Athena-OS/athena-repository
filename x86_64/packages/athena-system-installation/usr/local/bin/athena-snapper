@@ -10,6 +10,10 @@ if [ -f /usr/bin/snapper ]; then
 		snapper --no-dbus delete $i
 	done
 
+sed -i 's/#GRUB_BTRFS_LIMIT=.*/GRUB_BTRFS_LIMIT="10"/g' /etc/default/grub-btrfs/config
+sed -i 's/#GRUB_BTRFS_SHOW_SNAPSHOTS_FOUND=.*/GRUB_BTRFS_SHOW_SNAPSHOTS_FOUND="false"/g' /etc/default/grub-btrfs/config
+sed -i 's/#GRUB_BTRFS_SHOW_TOTAL_SNAPSHOTS_FOUND=.*/GRUB_BTRFS_SHOW_TOTAL_SNAPSHOTS_FOUND="false"/g' /etc/default/grub-btrfs/config
+
 echo "Creating snapper root config file..."
 
   cat > "/etc/snapper/configs/root" << EOF
