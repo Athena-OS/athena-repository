@@ -1,5 +1,5 @@
 - name: "Bash"
-  description: "Installs packages for Bash shell"
+  description: "Install packages for Bash shell"
   critical: false
   hidden: false
   selected: false
@@ -8,7 +8,7 @@
   packages:
     - bash
 - name: "Fish"
-  description: "Installs packages for Fish shell"
+  description: "Install packages for Fish shell"
   critical: false
   hidden: false
   selected: false
@@ -17,7 +17,7 @@
   packages:
     - athena-fish
 - name: "Zsh"
-  description: "Installs packages for Zsh shell"
+  description: "Install packages for Zsh shell"
   critical: false
   hidden: false
   selected: false

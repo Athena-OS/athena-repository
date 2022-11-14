@@ -1,5 +1,5 @@
-- name: "Nvidia-dkms"
-  description: "Installs nvidia-dkms"
+- name: "NVIDIA DKMS"
+  description: "Install NVIDIA DKMS"
   critical: false
   hidden: false
   selected: false
@@ -9,8 +9,8 @@
     - nvidia-dkms
     - nvidia-settings
     - nvidia-utils
-- name: "Nvidia Related"
-  description: "Nvidia related applications"
+- name: "NVIDIA Related"
+  description: "Install NVIDIA related applications"
   critical: false
   hidden: false
   selected: false
