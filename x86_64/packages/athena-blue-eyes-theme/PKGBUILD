@@ -18,4 +18,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/cyan/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('a0f53759bf457f7235860375bce2541866a4f568ef028172f1ccc1541c9ddd93')
+sha256sums=('9492326d9d1810d69b9e8e6d651cd3a5bc3f7ac97851ad87e3e56e563c585f87')
