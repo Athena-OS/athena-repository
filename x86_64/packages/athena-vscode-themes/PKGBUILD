@@ -22,4 +22,4 @@ package() {
   code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/gruvbox-material-6.5.0_vsixhub.com.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/red-blood-0.0.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
 }
-sha256sums=('99a60f7c0e236c465a82c1bbf30dc08f559b72b28ea7b542bbede2e0003ccdba')
+sha256sums=('f73223f11f34b0d8fecad34244e486bb4a313a61838c91830740c21f997c2e6c')
