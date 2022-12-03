@@ -43,7 +43,7 @@ variable_list = [
 ("Bug Bounty Hunter", "filebuster", "An extremely fast and flexible web fuzzer."),
 ("Bug Bounty Hunter", "dirstalk", "Modern alternative to dirbuster/dirb."),
 ("Bug Bounty Hunter", "dirbuster-ng", "C CLI implementation of the Java dirbuster tool."),
-("Bug Bounty Hunter", "gospider", "gospider"),
+("Bug Bounty Hunter", "gospider", "Fast web spider written in Go."),
 ("Bug Bounty Hunter", "hakrawler", "Simple, fast web crawler designed for easy, quick discovery of endpoints and assets within a web application."),
 ("Bug Bounty Hunter", "linkfinder", "Discovers endpoint and their parameters in JavaScript files."),
 ("Bug Bounty Hunter", "waybackurls", "Fetch all the URLs that the Wayback Machine knows about for a domain."),
