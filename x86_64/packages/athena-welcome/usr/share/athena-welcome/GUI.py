@@ -111,8 +111,9 @@ def GUI(self, Gtk, GdkPixbuf):
     # ======================================================================
 
     roles = [
+        "Black Hat Omniscient",
         "Bug Bounty Hunter",
-        "Cracker",
+        "Cracker Specialist",
         "Enthusiast Student",
         "Forensic Analyst",
         "Malware Analyst",
@@ -128,7 +129,7 @@ def GUI(self, Gtk, GdkPixbuf):
     for role in roles:
         role_combo.append_text(role)
 
-    role_combo.set_active(2)
+    role_combo.set_active(3)
     #The position of ComboBox roles is defined in the if-else of the usernames below in hbox1
 
     # ======================================================================

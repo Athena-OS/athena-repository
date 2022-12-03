@@ -16,6 +16,8 @@ gitweb=0
 #                  ROLE TOOLS                  #
 ################################################
 
+declare -a blackhattools=("blackarch")
+
 declare -a bbhtools=("nmap" "sublist3r" "amass" "massdns" "findomain" "theharvester" "chaos-client" "domained" "shuffledns" "altdns" "dns-parallel-prober" "dnscan" "knock" "hakrevdns" "dnsx" "subfinder" "assetfinder" "vhostscan" "masscan" "rustscan" "naabu" "sandmap" "eyewitness" "eyeballer" "scrying" "depix" "httpscreenshot" "aquatone" "gowitness" "webanalyze" "whatweb" "httpx" "feroxbuster" "dirsearch" "filebuster" "dirstalk" "dirbuster-ng" "gospider" "hakrawler" "linkfinder" "waybackurls" "gau" "parameth" "parampampam" "arjun" "commix" "corsy" "corstest" "crlfuzz" "injectus" "xsrfprobe" "dotdotpwn" "fdsploit" "liffy" "lfisuite" "graphqlmap" "ysoserial" "phpggc" "smuggler" "h2csmuggler" "ssrfmap" "gopherus" "ssrf-sheriff" "extended-ssrf-search" "lorsrf" "rbndr" "nosqli" "xsstrike" "xsscrapy" "dalfox" "xsser" "xspear" "docem" "brutexss" "xsscon" "xxeserv" "xxexploiter" "xxeinjector" "changeme" "brutex" "patator" "gitleaks" "trufflehog" "gitgraber" "gitrob" "gitminer" "shhgit" "detect-secrets" "whispers" "gittools" "git-dumper" "dvcs-ripper" "s3scanner" "awsbucketdump" "cmsmap" "joomscan" "pyfiscan" "jwt-hack" "jwt-cracker" "wafw00f" "nikto" "wpscan" "burpsuite" "dirb" "ffuf" "wfuzz" "sqlmap" "nosqlmap" "sleuthql" "subjack" "subover" "second-order" "takeover" "nuclei" "sn1per" "arachni" "jaeles" "getsploit" "findsploit" "jsonbee" "hydra" "cewl" "crunch" "exploitdb" "metasploit" "gobuster" "commentor" "osert" "wordlister")
 
 declare -a malwareanalysttools=("blackarch-binary" "blackarch-debugger" "blackarch-decompiler" "blackarch-disassembler" "blackarch-malware" "blackarch-reversing" "nasm")
@@ -45,6 +47,9 @@ declare -a gitfolderdest=("/usr/share/payloads/Auto_Wordlists" "/usr/share/paylo
 
 if [ $role = "BBH" ]; then   
    hacktools=("${bbhtools[@]}")
+   gitweb=1
+elif [ $role = "BH" ]; then
+   hacktools=("${blackhattools[@]}")
    gitweb=1
 elif [ $role = "CR" ]; then
    hacktools=("${crackertools[@]}")

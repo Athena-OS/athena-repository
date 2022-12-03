@@ -5,6 +5,7 @@ from gi.repository import Gtk
 
 # list of tuples for each variable, containing the environment variable name, its path, and the security category
 variable_list = [
+("blackarch", "All the hacking weapons in your machine.", "Black Hat Omniscient"),
 ("nmap", "Utility for network discovery and security auditing.", "Bug Bounty Hunter"),
 ("sublist3r", "A Fast subdomains enumeration tool for penetration testers.", "Bug Bounty Hunter"),
 ("amass", "In-depth subdomain enumeration written in Go.", "Bug Bounty Hunter"),
@@ -135,8 +136,8 @@ variable_list = [
 ("commentor", "Extract all comments from the specified URL resource.", "Bug Bounty Hunter"),
 ("osert", "Markdown Templates for Offensive Security exam reports.", "Bug Bounty Hunter"),
 ("wordlister", "A simple wordlist generator and mangler written in python.", "Bug Bounty Hunter"),
-("blackarch-cracker", "Packages used for cracking cryptography functions. Details: https://blackarch.org/cracker.html", "Cracker"),
-("blackarch-crypto", "Packages related to the cryptography. Details: https://blackarch.org/crypto.html", "Cracker"),
+("blackarch-cracker", "Packages used for cracking cryptography functions. Details: https://blackarch.org/cracker.html", "Cracker Specialist"),
+("blackarch-crypto", "Packages related to the cryptography. Details: https://blackarch.org/crypto.html", "Cracker Specialist"),
 ("blackarch-forensic", "Packages for retrieving data on physical disks or embedded memories. Details: https://blackarch.org/forensic.html", "Forensic Analyst"),
 ("blackarch-binary", "Packages that operate on binary. Details: https://blackarch.org/binary.html", "Malware Analyst"),
 ("blackarch-debugger", "Debugger packages. Details: https://blackarch.org/debugger.html", "Malware Analyst"),
@@ -256,13 +257,13 @@ class TreeViewFilterWindow(Gtk.Window):
 
         # creating buttons to filter by Category, and setting up their events
         self.buttons = list()
-        for var_category in ["Bug Bounty Hunter", "Cracker", "Enthusiast Student", "Forensic Analyst", "Malware Analyst"]:
+        for var_category in ["Black Hat Omniscient", "Bug Bounty Hunter", "Cracker Specialist", "Enthusiast Student", "Forensic Analyst"]:
             button = Gtk.Button(label=var_category)
             self.buttons.append(button)
             button.connect("clicked", self.on_selection_button_clicked)
 
         self.buttons_bottom = list()
-        for var_category in ["Mobile Analyst", "Network Analyst", "Red Teamer", "Web Pentester", "None"]:
+        for var_category in ["Malware Analyst", "Mobile Analyst", "Network Analyst", "Red Teamer", "Web Pentester", "None"]:
             button_bottom = Gtk.Button(label=var_category)
             self.buttons_bottom.append(button_bottom)
             button_bottom.connect("clicked", self.on_selection_button_clicked)

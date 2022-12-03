@@ -46,9 +46,11 @@ class Main(Gtk.Window):
         GUI.role_name = combo.get_active_text()
         if GUI.role_name is not None:
             print("Selected: role=%s" % GUI.role_name)
-            if GUI.role_name == "Bug Bounty Hunter":
+            if GUI.role_name == "Black Hat Omniscient":
+                self.role_id = "BH"
+            elif GUI.role_name == "Bug Bounty Hunter":
                 self.role_id = "BBH"
-            elif GUI.role_name == "Cracker":
+            elif GUI.role_name == "Cracker Specialist":
                 self.role_id = "CR"
             elif GUI.role_name == "Enthusiast Student":
                 self.role_id = "ES"
