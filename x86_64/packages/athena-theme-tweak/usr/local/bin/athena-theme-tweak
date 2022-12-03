@@ -202,6 +202,7 @@ if [ "$theme" ]; then
            gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/arch-ascii.png
            gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/arch-ascii.png
            gsettings set org.gnome.desktop.background picture-options stretched
+           gsettings set org.gnome.shell.extensions.user-theme name "Graphite-Dark-compact"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Just Black",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/Atom.conf $HOME/.config/kitty/current-theme.conf
            sudo sed -i "s/Inherits=.*/Inherits=Bibata-Modern-Ice/g" /usr/share/icons/default/index.theme
@@ -232,20 +233,21 @@ if [ "$theme" ]; then
 
         if [ "${theme_package}" = "athena-sweet-dark-theme" ]; then
            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-           gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark
-           gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark
+           gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark-v40
+           gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark-v40
            gsettings set org.gnome.desktop.interface icon-theme Sweet-Purple
            gsettings set org.gnome.desktop.interface cursor-theme oreo_spark_purple_cursors
            gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/neon_circle.jpg
            gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/neon_circle.jpg
            gsettings set org.gnome.desktop.background picture-options stretched
+           gsettings set org.gnome.shell.extensions.user-theme name "Sweet-Dark-v40"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Radical",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/AdventureTime.conf $HOME/.config/kitty/current-theme.conf
            sudo sed -i "s/Inherits=.*/Inherits=oreo_spark_purple_cursors/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'violet'/g" $HOME/.tmux.conf
-           ln -sf "/usr/share/themes/Sweet-Dark/assets" "${HOME}/.config/assets"
-           ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-           ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+           ln -sf "/usr/share/themes/Sweet-Dark-v40/assets" "${HOME}/.config/assets"
+           ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
       fi
     done

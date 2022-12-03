@@ -46,16 +46,17 @@ if [ -f "$FLAGFILE" ]; then
     package=athena-sweet-dark-theme
     if pacman -Qq $package > /dev/null ; then
        gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-       gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark
-       gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark
+       gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark-v40
+       gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark-v40
        gsettings set org.gnome.desktop.interface icon-theme Sweet-Purple
        gsettings set org.gnome.desktop.interface cursor-theme oreo_spark_purple_cursors
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/neon_circle.jpg
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/neon_circle.jpg
        gsettings set org.gnome.desktop.background picture-options stretched
-       ln -sf "/usr/share/themes/Sweet-Dark/assets" "${HOME}/.config/assets"
-       ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-       ln -sf "/usr/share/themes/Sweet-Dark/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+       gsettings set org.gnome.shell.extensions.user-theme name "Sweet-Dark-v40"
+       ln -sf "/usr/share/themes/Sweet-Dark-v40/assets" "${HOME}/.config/assets"
+       ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+       ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
     fi
 
     package=athena-graphite-theme
@@ -68,6 +69,7 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/arch-ascii.png
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/arch-ascii.png
        gsettings set org.gnome.desktop.background picture-options stretched
+       gsettings set org.gnome.shell.extensions.user-theme name "Graphite-Dark-compact"
        ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
        ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
        ln -sf "/usr/share/themes/Graphite-Dark-compact/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"

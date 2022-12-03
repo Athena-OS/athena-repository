@@ -11,11 +11,11 @@ package() {
   mkdir -p "${pkgdir}/usr/share/icons/pentoxic/purple"
   mkdir -p "${pkgdir}/usr/share/backgrounds/default"
 
-  cp -rf "${srcdir}/usr/share/themes/Sweet-Dark" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/themes/Sweet-Dark-v40" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Sweet-Purple" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/candy-icons" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/oreo_spark_purple_cursors" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/neon_circle.jpg" "${pkgdir}/usr/share/backgrounds/default/"
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/purple/* "${pkgdir}/usr/share/icons/pentoxic/"
 }
-sha256sums=('b800ce510b396ac42cc9986715d9b7a230b4255b6cb08218bb8fe2a381b64e04')
+sha256sums=('9a206cec664cf8b79078f7e4b7f2691f4813aa65369b47f52171aa2bddfb3e4c')
