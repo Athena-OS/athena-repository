@@ -13,9 +13,9 @@ package() {
 
   cp -rf "${srcdir}/usr/share/themes/Tokyonight-Dark-B" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/tokyonight_dark" "${pkgdir}/usr/share/icons/"
-  cp -rf "${srcdir}/usr/share/icons/oreo_spark_lite_cursors" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/oreo_blue_cursors" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/blue-eyes.jpg" "${pkgdir}/usr/share/backgrounds/default/"
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/cyan/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('9492326d9d1810d69b9e8e6d651cd3a5bc3f7ac97851ad87e3e56e563c585f87')
+sha256sums=('f22fbed5d48dfdd46efef606d30a3f6b70d1c5dafdca731681a1c1b6c6fe2510')

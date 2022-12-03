@@ -30,6 +30,7 @@ echo
 mv /usr/share/xsessions/gnome.desktop /usr/share/xsessions/gnome.desktop.disable
 mv /usr/share/xsessions/gnome-classic.desktop /usr/share/xsessions/gnome-classic.desktop.disable
 mv /usr/share/xsessions/gnome-classic-xorg.desktop /usr/share/xsessions/gnome-classic-xorg.desktop.disable
+mv /usr/share/wayland-sessions/gnome.desktop /usr/share/wayland-sessions/gnome.desktop.disable
 mv /usr/share/wayland-sessions/gnome-classic-wayland.desktop /usr/share/wayland-sessions/gnome-classic-wayland.desktop.disable
 mv /usr/share/wayland-sessions/gnome-classic.desktop /usr/share/wayland-sessions/gnome-classic.desktop.disable
 echo

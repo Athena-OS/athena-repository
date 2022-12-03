@@ -1,0 +1,41 @@
+
+
+Fri Dec  2 20:26:51 2022
+Command line: TestDisk
+
+TestDisk 7.1, Data Recovery Utility, July 2019
+Christophe GRENIER <grenier@cgsecurity.org>
+https://www.cgsecurity.org
+OS: Linux, kernel 6.0.10-zen2-1-zen (#1 ZEN SMP PREEMPT_DYNAMIC Sat, 26 Nov 2022 16:51:24 +0000) x86_64
+Compiler: GCC 11.2
+ext2fs lib: 1.46.5, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.3
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+/dev/sr0 is not an ATA disk
+Hard disk list
+Disk /dev/sda - 53 GB / 50 GiB - CHS 6527 255 63, sector size=512 - VMware, VMware Virtual S, FW:1.0
+Disk /dev/sr0 - 2291 MB / 2184 MiB - 1118694 sectors (RO), sector size=2048 - VMware Virtual IDE CDROM Drive, S/N:10000000000000000001, FW:00000001
+
+Partition table type (auto): Intel
+Disk /dev/sda - 53 GB / 50 GiB - VMware, VMware Virtual S
+Partition table type: Intel
+
+Interface Advanced
+Geometry from i386 MBR: head=255 sector=63
+ 1 * Linux                    0  32 33  5378  59 30   86399269
+     btrfs blocksize=4096 Backup superblock, 44 GB / 41 GiB
+ 2 P Linux Swap            5378  59 31  6526 254 63   18454938
+     SWAP2 version 1, pagesize=4096, 9448 MB / 9011 MiB
+search_superblock
+
+ 1 * Linux                    0  32 33  5378  59 30   86399269
+     btrfs blocksize=4096 Backup superblock, 44 GB / 41 GiB
+Support for this filesystem wasn't enabled during compilation.
+
+Interface Advanced
+Geometry from i386 MBR: head=255 sector=63
+ 1 * Linux                    0  32 33  5378  59 30   86399269
+     btrfs blocksize=4096 Backup superblock, 44 GB / 41 GiB
+ 2 P Linux Swap            5378  59 31  6526 254 63   18454938
+     SWAP2 version 1, pagesize=4096, 9448 MB / 9011 MiB
+
+TestDisk exited normally.

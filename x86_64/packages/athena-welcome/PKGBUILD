@@ -26,4 +26,4 @@ package() {
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
   chmod 755 "${pkgdir}/usr/share/athena-welcome/role-tools"
 }
-sha256sums=('cc4426d47bc486f83e7e8d0622962ed7bd09d5bac43648db04c46b61fb96e53b')
+sha256sums=('24d5a61f215788159a5b069bf1b0e849b6750b0297a10743139efccdc8ad6aa9')

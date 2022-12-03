@@ -83,6 +83,7 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/cyborg_gruv.png
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/cyborg_gruv.png
        gsettings set org.gnome.desktop.background picture-options stretched
+       gsettings set org.gnome.shell.extensions.user-theme name "Gruvbox-Dark-B"
        ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
        ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
        ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
@@ -106,10 +107,11 @@ if [ -f "$FLAGFILE" ]; then
        gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark-B
        gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark-compact
        gsettings set org.gnome.desktop.interface icon-theme tokyonight_dark
-       gsettings set org.gnome.desktop.interface cursor-theme oreo_spark_lite_cursors
+       gsettings set org.gnome.desktop.interface cursor-theme oreo_blue_cursors
        gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/blue-eyes.jpg
        gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/blue-eyes.jpg
        gsettings set org.gnome.desktop.background picture-options stretched
+       gsettings set org.gnome.shell.extensions.user-theme name "Tokyonight-Dark-B"
        ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
        ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
        ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
@@ -124,7 +126,8 @@ fi
 
 if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
     if [ -f "$FLAGNET" ]; then
-    	/usr/local/bin/nist-feed -n -l
+    # Commented for keeping nist-feed disable. The user decides if enable it.
+    #	/usr/local/bin/nist-feed -n -l
     	rm -rf "$FLAGNET"
     fi
     /usr/local/bin/htb-update

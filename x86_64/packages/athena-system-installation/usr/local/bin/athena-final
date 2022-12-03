@@ -80,6 +80,7 @@ systemctl enable set-cfs-tweaks.service
 systemctl enable ananicy
 systemctl enable irqbalance
 systemctl enable nohang.service
+systemctl enable vnstat.service
 echo
 echo "#################################"
 echo "End athena-final"
