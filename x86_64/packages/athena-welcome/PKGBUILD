@@ -25,5 +25,6 @@ package() {
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/athena-hello-logo.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
   chmod 755 "${pkgdir}/usr/share/athena-welcome/role-tools"
+
 }
-sha256sums=('c1dba53faf4a480bbfe520863fa2fe349750b00575e7f560703f55029195f568')
+sha256sums=('6290b250733a105172c43f52bfe0fddf27a277efe28b7b288991f234576f7c11')
