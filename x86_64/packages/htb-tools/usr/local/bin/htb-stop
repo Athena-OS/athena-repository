@@ -2,13 +2,30 @@
 
 appkey=$(secret-tool lookup htb-api user-htb-api)
 
-{ # try
+if curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq '.info.type' | grep -q "Starting Point"; then
+    machine_id=$(curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq '.info.id')
+    if [ "$machine_id" ]; then #if $machine_id is not empty...
+        { # try
 
-    curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq '.message'
+            curl -s --location --request POST https://www.hackthebox.com/api/v4/vm/terminate --data "{\"machine_id\":$machine_id}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message'
 
-} || { # catch
-    echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
-    exit 1
-}
+        } || { # catch
+            echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
+            exit 1
+        }
+    else
+        echo "It seems no Starting Point machine is active."
+        exit 1
+    fi
+    
+else
+    { # try
 
+        curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq '.message'
+
+    } || { # catch
+        echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
+        exit 1
+    }
+fi
 prompt-reset

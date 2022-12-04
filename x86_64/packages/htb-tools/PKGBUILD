@@ -18,7 +18,15 @@ package() {
   cp -rf "${srcdir}/usr/share/icons/pwnage/htb-reset.png" "${pkgdir}/usr/share/icons/pwnage/"
   cp -rf "${srcdir}/usr/share/icons/pwnage/htb-stop.png" "${pkgdir}/usr/share/icons/pwnage/"
   cp -rf "${srcdir}/usr/share/icons/pwnage/htb-website.png" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/ic-vip+-big.svg" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/ic-vip-big.svg" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/machines.svg" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/startingpoint.svg" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/Tier-0.svg" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/Tier-1.svg" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/Tier-2.svg" "${pkgdir}/usr/share/icons/pwnage/"
   cp -rf "${srcdir}/usr/share/icons/pwnage/vpn-icon.png" "${pkgdir}/usr/share/icons/pwnage/"
+  cp -rf "${srcdir}/usr/share/icons/pwnage/vpnfree.svg" "${pkgdir}/usr/share/icons/pwnage/"
 
   install -Dm755 "${srcdir}/usr/local/bin/htb-flag" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-play" "${pkgdir}/usr/local/bin/"
@@ -30,4 +38,4 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/prompt-reset" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/share/pwnage/hackthebox/htb-update.py" "${pkgdir}/usr/share/pwnage/hackthebox/"
 }
-sha256sums=('b4fcfd2bdd06ba8c3ae76cb39e10cfa78bbb817a9e08d705d2d007031c713bfa')
+sha256sums=('dcf1a73b556bbd6fd047cb079ccbff8cfbd0603ce9632719efd52d3901762c3f')

@@ -41,6 +41,52 @@ def arg_parse():
     args = parser.parse_args()
     return args
 
+def htb_machines_to_flypie(data,param):
+    fly_new = ""
+
+    for machine in data[param]:
+        machine_id=str(machine["id"])
+        machine_name=machine["name"]
+        machine_avatar=machine["avatar"]
+
+        avatar_url = "https://www.hackthebox.com"+machine_avatar
+        avatar_filename = os.path.expandvars("$HOME/.local/share/icons/hackthebox/avatar/"+machine_name+".png")
+
+        shell=os.path.expandvars('$SHELL')
+
+        if "bash" in shell:
+            machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';bash\\\\\\\\\\\"'
+        elif "fish" in shell:
+            machine_command = 'kitty /usr/bin/fish -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';fish\\\\\\\\\\\"'
+        elif "zsh" in shell:
+            machine_command = 'kitty /usr/bin/zsh -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';zsh\\\\\\\\\\\"'
+        else:
+            machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';bash\\\\\\\\\\\"'
+
+        # Open the url image, set stream to True, this will return the stream content.
+        r = requests.get(avatar_url, stream = True)
+
+        # Check if the image was retrieved successfully
+        if r.status_code == 200:
+            # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
+            r.raw.decode_content = True
+
+            # Open a local file with wb ( write binary ) permission.
+            with open(avatar_filename,'wb') as f:
+                shutil.copyfileobj(r.raw, f)
+
+            #print('Image successfully Downloaded: ',avatar_filename)
+            subprocess.call("convert "+avatar_filename+" -resize 200x "+avatar_filename,shell=True)
+        else:
+            print('Image Couldn\'t be retreived')
+
+
+        fly_object = '{\\"name\\":\\"'+machine_name+'\\",\\"icon\\":\\"'+avatar_filename+'\\",\\"type\\":\\"Command\\",\\"data\\":{\\"command\\":\\"'+machine_command+'\\"},\\"angle\\":-1},'
+        fly_new = fly_new + fly_object
+
+    fly_new = "[" + fly_new[:-1] + "]"
+    return fly_new
+
 args = arg_parse()
 
 if args.help:
@@ -89,58 +135,17 @@ if "parse error: Invalid numeric literal" in htb_user:
 
 subprocess.call("mkdir -p $HOME/.local/share/icons/hackthebox/avatar",shell=True)
 
-subprocess.call("curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list -H \"Authorization: Bearer "+appkey+"\" | jq > "+machine_config,shell=True)
+############ Retrieving the list of available machines and generate a flypie string of objects ############
 
+subprocess.call("curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list -H \"Authorization: Bearer "+appkey+"\" | jq > "+machine_config,shell=True)
 
 with open(machine_config) as json_file:
     data = json.load(json_file)
 
 subprocess.call("rm -rf "+machine_config,shell=True)
 
-for machine in data["info"]:
-    machine_id=str(machine["id"])
-    machine_name=machine["name"]
-    machine_avatar=machine["avatar"]
-    machine_ip=machine["ip"]
-    machine_points=str(machine["points"])
-
-    avatar_url = "https://www.hackthebox.com"+machine_avatar
-    avatar_filename = os.path.expandvars("$HOME/.local/share/icons/hackthebox/avatar/"+machine_name+".png")
-
-    shell=os.path.expandvars('$SHELL')
-    
-    if "bash" in shell:
-        machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';bash\\\\\\\\\\\"'
-    elif "fish" in shell:
-        machine_command = 'kitty /usr/bin/fish -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';fish\\\\\\\\\\\"'
-    elif "zsh" in shell:
-        machine_command = 'kitty /usr/bin/zsh -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';zsh\\\\\\\\\\\"'
-    else:
-        machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+machine_ip+' '+machine_points+' '+htb_user+';bash\\\\\\\\\\\"'
-
-    # Open the url image, set stream to True, this will return the stream content.
-    r = requests.get(avatar_url, stream = True)
-
-    # Check if the image was retrieved successfully
-    if r.status_code == 200:
-        # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
-        r.raw.decode_content = True
-    
-        # Open a local file with wb ( write binary ) permission.
-        with open(avatar_filename,'wb') as f:
-            shutil.copyfileobj(r.raw, f)
-
-        #print('Image successfully Downloaded: ',avatar_filename)
-        subprocess.call("convert "+avatar_filename+" -resize 200x "+avatar_filename,shell=True)
-    else:
-        print('Image Couldn\'t be retreived')
-
-
-    fly_object = '{\\"name\\":\\"'+machine_name+'\\",\\"icon\\":\\"'+avatar_filename+'\\",\\"type\\":\\"Command\\",\\"data\\":{\\"command\\":\\"'+machine_command+'\\"},\\"angle\\":-1},'
-    fly_new = fly_new + fly_object
-
-
-fly_new = "[" + fly_new[:-1] + "]"
+param = "info"
+fly_new = htb_machines_to_flypie(data,param)
 
 subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
 with open(input_config,'r') as fly_file:
@@ -149,6 +154,84 @@ subprocess.call("rm -rf "+input_config,shell=True)
 
 #NOTE: if you change the icon of Available Machine, REMEMBER to change the path here below
 fly_out = re.sub(r'(?<=\{\\"name\\":\\"Available Machines\\",\\"icon\\":\\"\/usr\/share\/icons\/pwnage\/htb-machines.png\\",\\"type\\":\\"CustomMenu\\",\\"children\\":)(.*?)(?=,\\"angle\\":-1,\\"data\\":\{\}\})', fly_new, contents)
+
+with open(output_config, 'w') as f:
+    f.write(fly_out)
+
+subprocess.call("dconf load /org/gnome/shell/extensions/flypie/ < "+output_config,shell=True)
+subprocess.call("rm -rf "+output_config,shell=True)
+
+############ Retrieving the list of Tier 0 starting point machines and generate a flypie string of objects but first, query APIs ############
+
+subprocess.call("curl -s --location --request GET https://www.hackthebox.com/api/v4/sp/tier/1 -H \"Authorization: Bearer "+appkey+"\" | jq '.data' > "+machine_config,shell=True)
+
+with open(machine_config) as json_file:
+    data = json.load(json_file)
+
+subprocess.call("rm -rf "+machine_config,shell=True)
+
+param = "machines"
+fly_new = htb_machines_to_flypie(data,param)
+
+subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
+with open(input_config,'r') as fly_file:
+    contents = fly_file.read()
+subprocess.call("rm -rf "+input_config,shell=True)
+
+#NOTE: if you change the icon of Tier-0, REMEMBER to change the path here below
+fly_out = re.sub(r'(?<=\{\\"name\\":\\"Tier 0\\",\\"icon\\":\\"\/usr\/share\/icons\/pwnage\/Tier-0.svg\\",\\"type\\":\\"CustomMenu\\",\\"children\\":)(.*?)(?=,\\"angle\\":-1,\\"data\\":\{\}\})', fly_new, contents)
+
+with open(output_config, 'w') as f:
+    f.write(fly_out)
+
+subprocess.call("dconf load /org/gnome/shell/extensions/flypie/ < "+output_config,shell=True)
+subprocess.call("rm -rf "+output_config,shell=True)
+
+############ Retrieving the list of Tier 1 starting point machines and generate a flypie string of objects but first, query APIs ############
+
+subprocess.call("curl -s --location --request GET https://www.hackthebox.com/api/v4/sp/tier/2 -H \"Authorization: Bearer "+appkey+"\" | jq '.data' > "+machine_config,shell=True)
+
+with open(machine_config) as json_file:
+    data = json.load(json_file)
+
+subprocess.call("rm -rf "+machine_config,shell=True)
+
+param = "machines"
+fly_new = htb_machines_to_flypie(data,param)
+
+subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
+with open(input_config,'r') as fly_file:
+    contents = fly_file.read()
+subprocess.call("rm -rf "+input_config,shell=True)
+
+#NOTE: if you change the icon of Tier-1, REMEMBER to change the path here below
+fly_out = re.sub(r'(?<=\{\\"name\\":\\"Tier 1\\",\\"icon\\":\\"\/usr\/share\/icons\/pwnage\/Tier-1.svg\\",\\"type\\":\\"CustomMenu\\",\\"children\\":)(.*?)(?=,\\"angle\\":-1,\\"data\\":\{\}\})', fly_new, contents)
+
+with open(output_config, 'w') as f:
+    f.write(fly_out)
+
+subprocess.call("dconf load /org/gnome/shell/extensions/flypie/ < "+output_config,shell=True)
+subprocess.call("rm -rf "+output_config,shell=True)
+
+############ Retrieving the list of Tier 2 starting point machines and generate a flypie string of objects but first, query APIs ############
+
+subprocess.call("curl -s --location --request GET https://www.hackthebox.com/api/v4/sp/tier/3 -H \"Authorization: Bearer "+appkey+"\" | jq '.data' > "+machine_config,shell=True)
+
+with open(machine_config) as json_file:
+    data = json.load(json_file)
+
+subprocess.call("rm -rf "+machine_config,shell=True)
+
+param = "machines"
+fly_new = htb_machines_to_flypie(data,param)
+
+subprocess.call("dconf dump /org/gnome/shell/extensions/flypie/ > "+input_config,shell=True)
+with open(input_config,'r') as fly_file:
+    contents = fly_file.read()
+subprocess.call("rm -rf "+input_config,shell=True)
+
+#NOTE: if you change the icon of Tier-2, REMEMBER to change the path here below
+fly_out = re.sub(r'(?<=\{\\"name\\":\\"Tier 2\\",\\"icon\\":\\"\/usr\/share\/icons\/pwnage\/Tier-2.svg\\",\\"type\\":\\"CustomMenu\\",\\"children\\":)(.*?)(?=,\\"angle\\":-1,\\"data\\":\{\}\})', fly_new, contents)
 
 with open(output_config, 'w') as f:
     f.write(fly_out)

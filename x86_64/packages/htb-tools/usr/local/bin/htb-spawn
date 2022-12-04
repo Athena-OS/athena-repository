@@ -1,17 +1,88 @@
 #!/bin/sh
 
-if [[ $# -ne 6 ]] ; then
-    echo 'Please, provide the needed parameters: Machine ID, AppKey, Machine Name, IP Address, Points, HTB User'
+###########################
+change_shell() {
+
+    result=$(basename -- "$SHELL")
+    machine_name=$1
+    machine_ip=$2
+    htb_user=$3
+    machine_points=$4
+
+    if [ $result = "bash" ]; then
+      FILE="$HOME/.bashrc.htb.bak"
+      if [ ! -f "$FILE" ]; then
+         cp -rf $HOME/.bashrc $FILE
+      fi
+      sed -i "/PS1=/c\PS1=\"\\\\e[32m\\\\]┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️\\\\e[34m\\\\]Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')\\\\e[32m\\\\]🏆Prize:$machine_points points]\\\\n└──╼[👾]\\\\[\\\\e[36m\\\\]\\\$(pwd) $ \\\\[\\\\e[0m\\\\]\"" $HOME/.bashrc
+      source $HOME/.bashrc
+    elif [ $result = "fish" ]; then
+      FILE="$HOME/.config/fish/functions/fish_prompt.fish.htb.bak"
+      if [ ! -f "$FILE" ]; then
+         mv $HOME/.config/fish/functions/fish_prompt.fish $FILE
+      fi
+    cat <<EOF > $HOME/.config/fish/functions/fish_prompt.fish
+function fish_prompt
+    set_color 00ff00
+    echo -n "┌──[Target:$machine_name🌐IP:$machine_ip"
+    set_color ff00d7
+    echo -n "⚔️Attacker:$htb_user📡IP:$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')"
+    set_color 00ff00
+    echo "🏆Prize:$machine_points points]"
+    set_color 00ff00
+    echo -n "└──╼[👾]"
+    set_color 00ffff
+    echo (pwd) '$' (set_color normal)
+    end
+EOF
+      elif [ $result = "zsh" ]; then
+          FILE="$HOME/.zshrc.htb.bak"
+          if [ ! -f "$FILE" ]; then
+             cp -rf $HOME/.zshrc $FILE
+          fi
+          sed -i "/PROMPT=/c\PROMPT=\"%F{46}┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️%F{201}Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')🏆%F{46}Prize:$machine_points points]\"$'\\\\n'\"└──╼[👾]%F{44}%~ $%f \"" $HOME/.zshrc
+          exec /usr/bin/zsh
+      fi
+}
+###########################
+
+if [[ $# -ne 4 ]] ; then
+    echo 'Please, provide the needed parameters: Machine ID, AppKey, Machine Name, HTB User'
     exit 1
 fi
 
 machine_id=$1
 appkey=$2
 machine_name=$3
-machine_ip=$4
-machine_points=$5
-htb_user=$6
+htb_user=$4
+
+# Free VPN
 VPNArray=("EUFree1" "EUFree2" "EUFree3" "USFree1" "USFree2" "USFree3" "AUFree1" "SGFree1")
+
+# Append VIP VPN
+## EU
+for i in {1:28}; do
+    VPNArray+=("EUVIP"+"$i")
+done
+## US
+for i in {1:27}; do
+    VPNArray+=("USVIP"+"$i")
+done
+## SG
+for i in {1:2}; do
+    VPNArray+=("SGVIP"+"$i")
+done
+VPNArray+=("AUVIP1")
+
+# Append VIP+ VPN
+## EU
+for i in {1:2}; do
+    VPNArray+=("EUVIP+"+"$i")
+done
+## US
+VPNArray+=("USVIP+1")
+## SG
+VPNArray+=("SGVIP+1")
 
 machine_json_file="$HOME/.machine.json"
 
@@ -21,7 +92,12 @@ else
   while [[ ! ${VPNArray[*]} =~ (^|[[:space:]])$vpn_server($|[[:space:]]) ]] #Use of ':space:' for Exact match in the array
   do
      echo "VPN Server not running. Type one of the following VPN servers:"
-     echo -e "\e[36mEUFree1 EUFree2 EUFree3 USFree1 USFree2 USFree3 AUFree1 SGFree1\e[0m"
+     echo -e "\e[36mStarting Point Free VPN: EUSPFree1 USSPFree1\e[0m"
+     echo -e "\e[36mStarting Point VIP VPN: EUSPVIP1 USSPVIP1\e[0m"
+     echo -e
+     echo -e "\e[36mMachines Free VPN: EUFree1 EUFree2 EUFree3 USFree1 USFree2 USFree3 AUFree1 SGFree1\e[0m"
+     echo -e "\e[33mMachines VIP VPN: EUVIP1 to EUVIP28 or USVIP1 to USVIP27 or SGVIP1 SGVIP2 AUVIP1\e[0m"
+     echo -e "\e[31mMachines VIP+ VPN: EUVIP+1 EUVIP+2 USVIP+1 SGVIP+1\e[0m"
      echo -n "VPN Server:"
      read vpn_server
      htb-vpn $vpn_server
@@ -38,66 +114,62 @@ fi
     exit 1
 }
 
-machine_userflag=$(cat $machine_json_file | jq '.info.authUserInUserOwns')
-machine_rootflag=$(cat $machine_json_file | jq '.info.authUserInRootOwns')
+if cat $machine_json_file | grep -q "Starting Point Machine"; then
+    if curl -s --location --request POST https://www.hackthebox.com/api/v4/vm/spawn --data "{\"machine_id\":$machine_id}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Machine deployed to lab."; then
 
-rm -rf $machine_json_file
+        machine_ip=""
+        echo "Waiting for IP address to be assigned to the target machine. It will take around 1 minute..."
+        sleep 5
+        while [ -z "$machine_ip" ] || [ "$machine_ip" == "null" ]; do            
+            sleep 30 #Too many API requests could be blocked, so we sleep for 30 seconds.
+            machine_ip=$(curl -s --location --request GET https://www.hackthebox.com/api/v4/sp/profile/$machine_id -H "Authorization: Bearer $appkey" | jq '.info.ip' | tr -d '"')
+        done
+        machine_points="0"
 
-if [ $machine_userflag != "null" ]; then
-  echo "Hey! You have already found the User Flag! Nice one!"
-fi
+        change_shell $machine_name $machine_ip $htb_user $machine_points
 
-if [ $machine_rootflag != "null" ]; then
-  echo "Hey! You have already found the Root Flag! Keep it up!"
-fi
+        echo -e "Remember to activate the VPN for HTB Starting Point Machines."
+        echo -e "\e[33mFor submitting the answers of the task questions, visit Hack The Box website: https://app.hackthebox.com/starting-point\e[0m"
+        echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
+        echo
 
-printf '%b\n' "$(base64 -d <<<"H4sIAAAAAAAAA+1buw6DMAzc+xVZWlUoSlCZqn5K+wv8/9oHUgkQIEBCDtueqlOHi+/imICVihunsL+9yqp6lo/7rb42P+t1iB1CcVjqWAzxkW3ZCtJEkH0QvU5GtGWkQ8wnyG5tu0h5g0Y/XhqME2jsEno7RHmyxVkbT9Bdbl9sV2g0rnsiymeDf9At/cZjBTSSCXfDbHx9wSghXSsQOQTnVW6jQCO/RUdaMkbLTYgP0EiLnagjU7Yk239wtbXl1FQMEd00Vp1GC41jXiT3CZRva2g5gJ2bKNbbomhysOtlTHbjE3oKWYcwb3ecM5Gf8dmXfnyk17gx9aih/JJgiBSeh1K+ygNUqZHbAtFENBFNRBPRRDQRTUSTuJoc8jLKl0VhFN8bZzR66RAs8Tp2UnQvz6zuGu4XZJ/BC0R/oSUpHeJ+ET/4GJbR9bxCEL4hccjuY7v7vA48bDe2DjG5t5yhO9hlLx5rjc/8kD1wBVncoox5ZHpMUhyUsYxNRMAILtp6otXA0RG4BcnZ4O3J+cuWwxtaDodVdT0AAA==" | gunzip)" #User printf for colored output
-echo
-
-if curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Playing"; then
-
-  result=$(basename -- "$SHELL")
-
-  if [ $result = "bash" ]; then
-    FILE="$HOME/.bashrc.htb.bak"
-    if [ ! -f "$FILE" ]; then
-       cp -rf $HOME/.bashrc $FILE
+    elif curl -s --location --request POST https://www.hackthebox.com/api/v4/vm/spawn --data "{\"machine_id\":$machine_id}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "You must stop your active machine before spawning another one."; then
+        echo "You must stop your active machine before spawning another one."
+        echo
     fi
-    sed -i "/PS1=/c\PS1=\"\\\\e[32m\\\\]┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️\\\\e[34m\\\\]Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')\\\\e[32m\\\\]🏆Prize:$machine_points points]\\\\n└──╼[👾]\\\\[\\\\e[36m\\\\]\\\$(pwd) $ \\\\[\\\\e[0m\\\\]\"" $HOME/.bashrc
-    source $HOME/.bashrc
-  elif [ $result = "fish" ]; then
-    FILE="$HOME/.config/fish/functions/fish_prompt.fish.htb.bak"
-    if [ ! -f "$FILE" ]; then
-       mv $HOME/.config/fish/functions/fish_prompt.fish $FILE
+else
+
+    machine_userflag=$(cat $machine_json_file | jq '.info.authUserInUserOwns')
+    machine_rootflag=$(cat $machine_json_file | jq '.info.authUserInRootOwns')
+
+    machine_ip=$(cat $machine_json_file | jq '.info.ip' | tr -d '"')
+    machine_points=$(cat $machine_json_file | jq '.info.points')
+
+    rm -rf $machine_json_file
+
+    if [ $machine_userflag != "null" ]; then
+      echo "Hey! You have already found the User Flag! Nice one!"
     fi
-cat <<EOF > $HOME/.config/fish/functions/fish_prompt.fish
-  function fish_prompt
-      set_color 00ff00
-      echo -n "┌──[Target:$machine_name🌐IP:$machine_ip"
-      set_color ff00d7
-      echo -n "⚔️Attacker:$htb_user📡IP:$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\1/p')"
-      set_color 00ff00
-      echo "🏆Prize:$machine_points points]"
-      set_color 00ff00
-      echo -n "└──╼[👾]"
-      set_color 00ffff
-      echo (pwd) '$' (set_color normal)
-      end
-EOF
-  elif [ $result = "zsh" ]; then
-      FILE="$HOME/.zshrc.htb.bak"
-      if [ ! -f "$FILE" ]; then
-         cp -rf $HOME/.zshrc $FILE
-      fi
-      sed -i "/PROMPT=/c\PROMPT=\"%F{46}┌──[Target:$machine_name🌐IP:$machine_ip🚀⚔️%F{201}Attacker:$htb_user📡IP:\$(ip -f inet addr show tun0 | sed -En -e 's/.*inet ([0-9.]+).*/\\\1/p')🏆%F{46}Prize:$machine_points points]\"$'\\\\n'\"└──╼[👾]%F{44}%~ $%f \"" $HOME/.zshrc
-      exec /usr/bin/zsh
-  fi
-    echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
+
+    if [ $machine_rootflag != "null" ]; then
+      echo "Hey! You have already found the Root Flag! Keep it up!"
+    fi
+
+    printf '%b\n' "$(base64 -d <<<"H4sIAAAAAAAAA+1buw6DMAzc+xVZWlUoSlCZqn5K+wv8/9oHUgkQIEBCDtueqlOHi+/imICVihunsL+9yqp6lo/7rb42P+t1iB1CcVjqWAzxkW3ZCtJEkH0QvU5GtGWkQ8wnyG5tu0h5g0Y/XhqME2jsEno7RHmyxVkbT9Bdbl9sV2g0rnsiymeDf9At/cZjBTSSCXfDbHx9wSghXSsQOQTnVW6jQCO/RUdaMkbLTYgP0EiLnagjU7Yk239wtbXl1FQMEd00Vp1GC41jXiT3CZRva2g5gJ2bKNbbomhysOtlTHbjE3oKWYcwb3ecM5Gf8dmXfnyk17gx9aih/JJgiBSeh1K+ygNUqZHbAtFENBFNRBPRRDQRTUSTuJoc8jLKl0VhFN8bZzR66RAs8Tp2UnQvz6zuGu4XZJ/BC0R/oSUpHeJ+ET/4GJbR9bxCEL4hccjuY7v7vA48bDe2DjG5t5yhO9hlLx5rjc/8kD1wBVncoox5ZHpMUhyUsYxNRMAILtp6otXA0RG4BcnZ4O3J+cuWwxtaDodVdT0AAA==" | gunzip)" #User printf for colored output
     echo
-elif curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Machine is VIP only"; then
-    echo "Machine is VIP only."
-    echo
-elif curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Machine is on Release Arena"; then
-    echo "Machine is on Release Arena."
-    echo
+
+    if curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Playing"; then
+
+        change_shell $machine_name $machine_ip $htb_user $machine_points
+
+        echo -e "Remember to activate the VPN for HTB Machines."
+        echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
+        echo
+    elif curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Machine is VIP only"; then
+        echo "Machine is VIP only."
+        echo
+    elif curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/play/$machine_id" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "Machine is on Release Arena"; then
+        echo "Machine is on Release Arena."
+        echo
+    fi
 fi
