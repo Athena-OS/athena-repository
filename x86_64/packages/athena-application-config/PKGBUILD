@@ -19,7 +19,6 @@ package() {
   cp -rf "${srcdir}"/etc/skel/.face "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.icons" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.local" "${pkgdir}/etc/skel/"
-  cp -rf "${srcdir}/etc/skel/.mozilla" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.tmux" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.tmux.conf" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.vim_runtime" "${pkgdir}/etc/skel/"
@@ -29,8 +28,6 @@ package() {
   cp -rf "${srcdir}/etc/sudoers.d/sudo_nopasswd_psd" "${pkgdir}/etc/sudoers.d/"
   
   cp -rf "${srcdir}/usr/share/gnome-shell/gnome-shell-theme.gresource.new" "${pkgdir}/usr/share/gnome-shell/"
-  
-  chmod 700 "${pkgdir}/etc/skel/.mozilla/firefox-esr/iso1fa16.default-release"
   
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/tpm" "$pkgdir/etc/skel/.tmux/plugins/tpm/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tpm/bin/clean_plugins" "$pkgdir/etc/skel/.tmux/plugins/tpm/bin/"
@@ -90,4 +87,4 @@ package() {
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tmux-yank/scripts/copy_pane_pwd.sh" "$pkgdir/etc/skel/.tmux/plugins/tmux-yank/scripts/"
   install -Dm755 "$srcdir/etc/skel/.tmux/plugins/tmux-yank/scripts/helpers.sh" "$pkgdir/etc/skel/.tmux/plugins/tmux-yank/scripts/"
 }
-sha256sums=('310dd5012dc7b31f1cab762d6e4e1b5ba3db4b8bf82d547253aa309f97b98091')
+sha256sums=('72607dae090c6962fd43ec9a5ee4be0ff98645a1031d47d3ace7e1f7cfe30185')

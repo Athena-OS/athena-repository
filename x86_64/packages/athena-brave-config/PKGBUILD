@@ -1,0 +1,19 @@
+pkgname=athena-brave-config
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Brave configuration for Athena"
+arch=('x86_64')
+license=("custom")
+depends=('brave-bin' 'profile-sync-daemon-brave')
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel/.config"
+
+  cp -rf "${srcdir}/etc/skel/.config/BraveSoftware" "${pkgdir}/etc/skel/.config/"
+  cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
+
+  chmod 700 "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser/Default"
+  
+}
+sha256sums=('56f2e217979e267b73e3935bc99f373364ef40a52649177bea987a07cdf23f2d')

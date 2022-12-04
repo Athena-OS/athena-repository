@@ -4,6 +4,54 @@ import re
 import requests # to get image from the web
 import shutil # to save it locally
 import os
+import base64, zlib
+import argparse
+
+class ParseDataArgs(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        setattr(namespace, self.dest, dict())
+        d = dict(x.split("=") for x in values.split("&"))
+        for key, value in d.items():
+            getattr(namespace, self.dest)[key] = value
+
+def print_banner():
+    #cat banner.txt | gzip | base64
+    # In Python, the Base64 encoded string must come from an echo -ne. Without -e argument, the color patterns are not expanded.
+    encoded_data = "H4sIAAAAAAAAA+1ayw4CIQy8+wteuGgMIWC8GT/Fb9j/v7ruJgor1aLAToVeHBOj05lueVil8saG97Ht9Xg5n4bD+DpwsPPf5OFhUjnUxL/lRyrXGjbfSYhAncJ2DLjSdUkaWwTKIX3rBQIj0n2OxnCPvLGRwKO5FNcXFoEfB6uY1I/Aaxw2IjcCMbJGPsbdAegUQrkh2t1nVZ+hEQjjSZicAUdrBKLtWZPTSriOL8dyh93GfWzmZSdYhhB4peIyHadMeRhZLdI744gpDT3zzXZQKFoIMHsTDha0MHg9TU4hiGoNNfFimRLmqEW8tvCxjmwB5Wlc7Okhdspdoa5QV6gr1BVqU6HVDkSxLCX/Trryu7VocHB1axTescyZ0LAp4PbAup5LCOlS2J93ePlbGPpyQpX2DvrSazmnEh9NQWBKYVumvCzemJbbR6yhZ4ngWuU/YU2p/n78r2lPYiNETN2mQMgheB7J4bOEpNhVYZhfdgPFVDw7WCsAAA=="
+    banner = zlib.decompress(base64.b64decode(encoded_data), 16 + zlib.MAX_WBITS).decode('utf-8')
+    print(f"{banner}")
+
+def help():
+   # Display Help
+   print_banner()
+   print("HTB Update helps you to connect your machine to the Hack The Box platform.\n")
+
+   print("List of arguments:\n")
+   
+   print("-d, --delete          delete the Hack The Box API Token from the keyring")
+   print("-h, --help            show this help message and exit")
+   print("-r, --reset           reset the Hack The Box API Token")
+
+def arg_parse():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("-d", "--delete", action='store_true', help="delete the Hack The Box API Token from the key vault")
+    parser.add_argument("-h", "--help", action='store_true', help="show this help message and exit")
+    parser.add_argument("-r", "--reset", action='store_true', help="reset the Hack The Box API Token")
+
+    args = parser.parse_args()
+    return args
+
+args = arg_parse()
+
+if args.help:
+    help()
+    exit()
+
+if args.delete:
+    print("Deleting the stored Hack The Box API Key...")
+    subprocess.call("secret-tool clear htb-api user-htb-api",shell=True)
+    print("Hack The Box API Key successfully deleted.")
+    exit()
 
 #### VARIABLE SETTING ####
 input_config = os.path.expandvars("$HOME/.fly.txt")
@@ -12,6 +60,12 @@ machine_config = os.path.expandvars("$HOME/.machine.json")
 appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
 fly_new = ""
 
+if args.reset:
+    print("Resetting the Hack The Box API Key...")
+    subprocess.call("secret-tool clear htb-api user-htb-api",shell=True)
+    print("Please, insert your App Token after the 'Password' label, it will be stored in a secure keyring.")
+    subprocess.call("secret-tool store --label='HTB API key' htb-api user-htb-api",shell=True)
+    appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
 
 if not appkey:
     print("Hack The Box API Key not set. Please, insert your App Token after the 'Password' label, it will be stored in a secure keyring.")

@@ -1,0 +1,19 @@
+pkgname=athena-firefox-config
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Mozilla Firefox configuration for Athena"
+arch=('x86_64')
+license=("custom")
+depends=('firefox-esr' 'profile-sync-daemon')
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/etc/skel/.config"
+
+  cp -rf "${srcdir}/etc/skel/.mozilla" "${pkgdir}/etc/skel/"
+  cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
+
+  chmod 700 "${pkgdir}/etc/skel/.mozilla/firefox-esr/iso1fa16.default-release"
+  
+}
+sha256sums=('00281a1caa4b1da020f33db84a08734ea80ebb5c085abbe31d3db143d6f2c421')
