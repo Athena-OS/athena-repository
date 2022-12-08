@@ -27,9 +27,9 @@ declare -A vpn_servers=( ["EUFree1"]="1" ["EUFree2"]="201" ["EUFree3"]="253" ["U
 
 vpn_id=${vpn_servers[$chosen_server]}
 
+echo "Connecting to $chosen_server server [id=$vpn_id]..."
 sudo killall openvpn > /dev/null 2>&1
 htb-stop
-echo "Connecting to $chosen_server server [id=$vpn_id]..."
 
 #Care: if you run the same switch curl command, one time the VPN enables to the specified server, the second one disable
 
