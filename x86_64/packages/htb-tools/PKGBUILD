@@ -33,9 +33,16 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/htb-reset" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-stop" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-spawn" "${pkgdir}/usr/local/bin/"
-  install -Dm755 "${srcdir}/usr/local/bin/htb-update" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/htb-vpn" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/prompt-reset" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/share/pwnage/hackthebox/htb-update.py" "${pkgdir}/usr/share/pwnage/hackthebox/"
+
+  cat > "${pkgdir}/usr/local/bin/htb-update" << EOF
+#!/bin/sh
+
+python /usr/share/pwnage/hackthebox/htb-update.py "\$@"
+EOF
+  
+  chmod a+x "${pkgdir}/usr/local/bin/htb-update"
 }
-sha256sums=('dcf1a73b556bbd6fd047cb079ccbff8cfbd0603ce9632719efd52d3901762c3f')
+sha256sums=('c0b82c2b8ae6e10d136428ce5880b400b16039546d43545122bb48519fa5fc9e')
