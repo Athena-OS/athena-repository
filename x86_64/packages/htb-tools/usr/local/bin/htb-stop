@@ -1,14 +1,20 @@
 #!/bin/sh
 
 appkey=$(secret-tool lookup htb-api user-htb-api)
+machine_id=$(curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq '.info.id')
+
+if [ -z "$machine_id" ] || [ $machine_id == "null" ]; then
+    echo -e "\e[32mNo active machine!\e[0m"
+    exit 1
+fi
 
 if curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq '.info.type' | grep -q "Starting Point"; then
-    machine_id=$(curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/active -H "Authorization: Bearer $appkey" | jq '.info.id')
+    
     if [ "$machine_id" ]; then #if $machine_id is not empty...
         { # try
 
             curl -s --location --request POST https://www.hackthebox.com/api/v4/vm/terminate --data "{\"machine_id\":$machine_id}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message'
-
+            
         } || { # catch
             echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
             exit 1
@@ -21,11 +27,21 @@ if curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/ac
 else
     { # try
 
-        curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq '.message'
+        if curl -s --location --request POST "https://www.hackthebox.com/api/v4/machine/stop" -H "Authorization: Bearer $appkey" | jq '.message' | grep -q "You are not playing a machine."; then # If you are using a VIP account, the machine can be stopped only by api/v4/vm/terminate API (even if the machine is free)
+            { # try
+            
+                curl -s --location --request POST https://www.hackthebox.com/api/v4/vm/terminate --data "{\"machine_id\":$machine_id}" -H "Content-Type: application/json" -H "Authorization: Bearer $appkey" | jq '.message'
+
+            } || { # catch
+                echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
+                exit 1
+            }
+        fi
 
     } || { # catch
         echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
         exit 1
     }
+
 fi
 prompt-reset
