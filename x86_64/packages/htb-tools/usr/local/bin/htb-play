@@ -330,17 +330,13 @@ fi
        rm -rf $machine_json_file
        exit 1
     fi
-    htb_user=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/info" -H "Authorization: Bearer $appkey" | jq '.info.name')
 } || { # catch
     echo -e "\e[31mError. Maybe your API key is incorrect or expired. Renew your API key by running htb-update.\e[0m"
     rm -rf $machine_json_file
     exit 1
 }
 
-id=$(jq -r ".info.id" $machine_json_file)
 name=$(jq -r ".info.name" $machine_json_file)
-ip=$(jq -r ".info.ip" $machine_json_file)
-points=$(jq -r ".info.points" $machine_json_file)
 rm -rf $machine_json_file
 
-htb-spawn $id $appkey $name $ip $points $htb_user
+htb-spawn $name

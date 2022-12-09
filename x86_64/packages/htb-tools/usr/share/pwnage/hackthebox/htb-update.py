@@ -45,7 +45,6 @@ def htb_machines_to_flypie(data,param):
     fly_new = ""
 
     for machine in data[param]:
-        machine_id=str(machine["id"])
         machine_name=machine["name"]
         machine_avatar=machine["avatar"]
 
@@ -55,13 +54,13 @@ def htb_machines_to_flypie(data,param):
         shell=os.path.expandvars('$SHELL')
 
         if "bash" in shell:
-            machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';bash\\\\\\\\\\\"'
+            machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_name+';bash\\\\\\\\\\\"'
         elif "fish" in shell:
-            machine_command = 'kitty /usr/bin/fish -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';fish\\\\\\\\\\\"'
+            machine_command = 'kitty /usr/bin/fish -c \\\\\\\\\\\"htb-spawn '+machine_name+';fish\\\\\\\\\\\"'
         elif "zsh" in shell:
-            machine_command = 'kitty /usr/bin/zsh -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';zsh\\\\\\\\\\\"'
+            machine_command = 'kitty /usr/bin/zsh -c \\\\\\\\\\\"htb-spawn '+machine_name+';zsh\\\\\\\\\\\"'
         else:
-            machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_id+' '+appkey+' '+machine_name+' '+htb_user+';bash\\\\\\\\\\\"'
+            machine_command = 'kitty /usr/bin/bash -c \\\\\\\\\\\"htb-spawn '+machine_name+';bash\\\\\\\\\\\"'
 
         # Open the url image, set stream to True, this will return the stream content.
         r = requests.get(avatar_url, stream = True)
@@ -118,6 +117,7 @@ if not appkey:
     subprocess.call("secret-tool store --label='HTB API key' htb-api user-htb-api",shell=True)
     appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")    
 
+# Use htb_user only for checking the validity of the HTB APP TOKEN
 htb_user=subprocess.getoutput("curl -s --location --request GET https://www.hackthebox.com/api/v4/user/info -H \"Authorization: Bearer "+appkey+"\" | jq '.info.name'")
 htb_user=htb_user.replace('"','')
 
