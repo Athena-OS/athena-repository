@@ -54,6 +54,8 @@ fi
 machine_name=$1
 appkey=$(secret-tool lookup htb-api user-htb-api)
 htb_user=$(curl -s --location --request GET "https://www.hackthebox.com/api/v4/user/info" -H "Authorization: Bearer $appkey" | jq '.info.name')
+htb_config="$HOME/.htb.conf"
+change_prompt=$(cat $htb_config | grep "^prompt_change=" | awk -F"=" '{print $2}')
 
 # Free VPN
 VPNArray=("EUFree1" "EUFree2" "EUFree3" "USFree1" "USFree2" "USFree3" "AUFree1" "SGFree1")
@@ -149,8 +151,10 @@ if cat $machine_json_file | grep -q "Starting Point Machine"; then
 
         printf '%b\n' "$(base64 -d <<<"H4sIAAAAAAAAA+1buw6DMAzc+xVZWlUoSlCZqn5K+wv8/9oHUgkQIEBCDtueqlOHi+/imICVihunsL+9yqp6lo/7rb42P+t1iB1CcVjqWAzxkW3ZCtJEkH0QvU5GtGWkQ8wnyG5tu0h5g0Y/XhqME2jsEno7RHmyxVkbT9Bdbl9sV2g0rnsiymeDf9At/cZjBTSSCXfDbHx9wSghXSsQOQTnVW6jQCO/RUdaMkbLTYgP0EiLnagjU7Yk239wtbXl1FQMEd00Vp1GC41jXiT3CZRva2g5gJ2bKNbbomhysOtlTHbjE3oKWYcwb3ecM5Gf8dmXfnyk17gx9aih/JJgiBSeh1K+ygNUqZHbAtFENBFNRBPRRDQRTUSTuJoc8jLKl0VhFN8bZzR66RAs8Tp2UnQvz6zuGu4XZJ/BC0R/oSUpHeJ+ET/4GJbR9bxCEL4hccjuY7v7vA48bDe2DjG5t5yhO9hlLx5rjc/8kD1wBVncoox5ZHpMUhyUsYxNRMAILtp6otXA0RG4BcnZ4O3J+cuWwxtaDodVdT0AAA==" | gunzip)" #User printf for colored output
         echo
-
-        change_shell $machine_name $machine_ip $htb_user $machine_points
+        
+        if [ $change_prompt = "true" ]; then
+            change_shell $machine_name $machine_ip $htb_user $machine_points
+        fi
 
         #echo -e "Remember to activate the VPN for HTB Starting Point Machines."
         echo -e "\e[33mFor submitting the answers of the task questions, visit Hack The Box website: https://app.hackthebox.com/starting-point\e[0m"
@@ -212,8 +216,10 @@ else
         if [ $machine_rootflag != "null" ]; then
           echo "Hey! You have already found the Root Flag! Keep it up!"
         fi
-
-        change_shell $machine_name $machine_ip $htb_user $machine_points
+        
+        if [ $change_prompt = "true" ]; then
+            change_shell $machine_name $machine_ip $htb_user $machine_points
+        fi
 
         #echo -e "Remember to activate the VPN for HTB Machines."
         echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
@@ -238,8 +244,10 @@ else
         if [ $machine_rootflag != "null" ]; then
           echo "Hey! You have already found the Root Flag! Keep it up!"
         fi
-
-        change_shell $machine_name $machine_ip $htb_user $machine_points
+        
+        if [ $change_prompt = "true" ]; then
+            change_shell $machine_name $machine_ip $htb_user $machine_points
+        fi
 
         #echo -e "Remember to activate the VPN for HTB Machines."
         echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"

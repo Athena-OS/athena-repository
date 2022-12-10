@@ -45,4 +45,4 @@ EOF
   
   chmod a+x "${pkgdir}/usr/local/bin/htb-update"
 }
-sha256sums=('5496d2e44a4b74cb50e356db00d53fb20268621e563c7afd60dc5e2a4853c50f')
+sha256sums=('0cc4df7bd0e914f06ffc25170f72b54a5a3e00f355986e17d8068ba34ad90fb4')

@@ -6,6 +6,7 @@ import shutil # to save it locally
 import os
 import base64, zlib
 import argparse
+import pathlib
 
 class ParseDataArgs(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
@@ -30,12 +31,14 @@ def help():
    
    print("-d, --delete          delete the Hack The Box API Token from the keyring")
    print("-h, --help            show this help message and exit")
+   print("-p, --prompt          set if the shell prompt should be changed")
    print("-r, --reset           reset the Hack The Box API Token")
 
 def arg_parse():
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument("-d", "--delete", action='store_true', help="delete the Hack The Box API Token from the key vault")
     parser.add_argument("-h", "--help", action='store_true', help="show this help message and exit")
+    parser.add_argument("-p", "--prompt", choices=["true", "false"], help="set if the shell prompt should be changed")
     parser.add_argument("-r", "--reset", action='store_true', help="reset the Hack The Box API Token")
 
     args = parser.parse_args()
@@ -102,8 +105,17 @@ if args.delete:
 input_config = os.path.expandvars("$HOME/.fly.txt")
 output_config = os.path.expandvars("$HOME/.flyout.txt")
 machine_config = os.path.expandvars("$HOME/.machine.json")
+htb_config = os.path.expandvars("$HOME/.htb.conf")
 appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
 fly_new = ""
+
+file = pathlib.Path(htb_config)
+if not file.exists ():
+    # Creating HTB config file
+    with open(htb_config, "w") as file:
+        lines = ["# HTB configuration file.\n\n", "# Enable/Disable shell prompt change\n", "prompt_change=false" ]
+        file.writelines(lines)
+        file.close()
 
 if args.reset:
     print("Resetting the Hack The Box API Key...")
@@ -111,6 +123,12 @@ if args.reset:
     print("Please, insert your App Token after the 'Password' label, it will be stored in a secure keyring.")
     subprocess.call("secret-tool store --label='HTB API key' htb-api user-htb-api",shell=True)
     appkey = subprocess.getoutput("secret-tool lookup htb-api user-htb-api")
+
+if args.prompt == "false":
+    print("Shell prompt change disabled.")
+    subprocess.call("sed -i 's/prompt_change=.*/prompt_change=false/g' "+htb_config,shell=True)
+elif args.prompt == "true":
+    subprocess.call("sed -i 's/prompt_change=.*/prompt_change=true/g' "+htb_config,shell=True)
 
 if not appkey:
     print("Hack The Box API Key not set. Please, insert your App Token after the 'Password' label, it will be stored in a secure keyring.")
