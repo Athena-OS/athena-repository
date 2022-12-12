@@ -2,7 +2,7 @@
 
 #NEED ONLY TO EDIT  sourcefiles VARIABLE
 
-sourcefiles="etc"
+sourcefiles="etc usr"
 
 pkgname=$(grep "^pkgname=" PKGBUILD | awk -F"=" '{print $2}')
 pkgver=$(grep "^pkgver=" PKGBUILD | awk -F"=" '{print $2}')
@@ -20,7 +20,7 @@ tar -zcvf $pkgname.tar.gz $sourcefiles
 makepkg -g >> PKGBUILD
 makepkg -f -sr --sign
 
-rm -rf src pkg $pkgname.tar.gz
+rm -rf src pkg $pkgname.tar.gz PwnFox.jar
 
 rm -rf ../../$pkgfile ../../$pkgfile.sig
 

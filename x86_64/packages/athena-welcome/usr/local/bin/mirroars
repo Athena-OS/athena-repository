@@ -219,7 +219,7 @@ while [[ $1 ]]; do
         if [[ ! "$MIRRORLIST" =~ .*".bak".* ]] && [[ ! -f "$MIRRORLIST.bak" ]]; then #if MIRRORLIST filename does not have .bak extension...
             cp -rf "$MIRRORLIST" "$MIRRORLIST.bak" #<reponame>-mirrorlist.bak must be the one never changed, the original one. We need it because the original one must be sorted and could remove some URL
         fi
-		IFS=$'\n' linearray=( $(<$MIRRORLIST.bak) ) # We take as reference for checking the .bak file because it has all servers. We must do this because BlackArch doest not have mirrorlist online
+		IFS=$'\n' linearray=( $(<$MIRRORLIST.bak) ) # We take as reference for checking the .bak file because it has all servers. We must do this because BlackArch does not have mirrorlist online
 		[[ $linearray ]] || err "File is empty."
 		shift
 	else
