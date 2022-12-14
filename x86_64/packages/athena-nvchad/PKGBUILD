@@ -16,4 +16,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/nvim" "${pkgdir}/etc/skel/.config/"
   cp -rf "${srcdir}/etc/skel/.local/share/nvim" "${pkgdir}/etc/skel/.local/share" 
 }
-sha256sums=('780e0ae11f9e5009ffb3bfc2a0bb47f4e08d16f28daddf3b359fab65adecec03')
+sha256sums=('b50817cb234da72610baea22a16235581b6e236f4aa72ec98ac49e258da946cd')
