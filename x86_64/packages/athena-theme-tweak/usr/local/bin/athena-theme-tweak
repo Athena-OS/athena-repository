@@ -56,15 +56,19 @@ Help()
    echo "Athena Theme Tweak allows you to easily switch to different Athena themes."
    echo
    echo "Options:"
+   echo "-b                        Set the current browser logo in PenTOXIC menu."
    echo "-c                        Random colored output."
    echo "-h                        Print this Help."
    echo "-l                        List all available Athena themes."
-   echo "-t                        Specify an Athena theme to be set."
+   echo "-t <theme-name>           Specify an Athena theme to be set."
    echo
    echo "Usage Examples"
    echo
    echo "Set Athena Blue Eyes Samurai theme:" 
    echo "athena-theme-tweak -t BlueEyesSamurai"
+   echo
+   echo "Set the current browser logo in PenTOXIC menu:"
+   echo "athena-theme-tweak -b"
    echo
 }
 
@@ -74,6 +78,9 @@ Help()
 # Get the options
 while getopts "chlt:" option; do #When using getopts, putting : after an option character means that it requires an argument (i.e., 'i:' requires arg).
    case "${option}" in
+      b)
+         browser=1
+         ;;
       c)
          cecho
          ;;
@@ -139,18 +146,18 @@ if [ "$theme" ]; then
         theme_package=${array_theme_packages[$i]}
         
         echo "Uninstalling all the previous installed Athena themes for avoiding conflicts..."
-	echo
-	for j in ${!array_theme_names[@]}
-   do
+	     echo
+	     for j in ${!array_theme_names[@]}
+        do
           { # try
 
     	    sudo pacman -Rs --noconfirm ${array_theme_packages[$j]} 2>/dev/null
 
-	  } || { # catch
+	       } || { # catch
     	    # Error handling
-	    echo "${array_theme_packages[$j]} not installed." 
-	  }
-	done
+	       echo "${array_theme_packages[$j]} not installed." 
+	       }
+	     done
 
         echo "Installing $theme Theme..."
         echo
@@ -249,19 +256,6 @@ if [ "$theme" ]; then
            ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
            ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
-
-        # Check the browser
-        if pacman -Qs "athena-firefox-config" > /dev/null ; then
-	       dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
-               sed -i "s/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/g" $HOME/.tmp.txt
-	       dconf load /org/gnome/shell/ < $HOME/.tmp.txt
-          rm -rf $HOME/.tmp.txt
-	     elif pacman -Qs "athena-brave-config" > /dev/null ; then
-          dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
-               sed -i "s/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/g" $HOME/.tmp.txt
-	       dconf load /org/gnome/shell/ < $HOME/.tmp.txt
-          rm -rf $HOME/.tmp.txt
-	     fi
       fi
     done
     if [[ ! "$found_flag" ]]; then
@@ -269,4 +263,19 @@ if [ "$theme" ]; then
         exit 0
     fi
     echo "Logout or reboot for applying correctly the new theme."
+fi
+
+if [ "$browser" ]; then
+   # Check the browser
+   if pacman -Qs "athena-firefox-config" > /dev/null ; then
+	  dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
+     sed -i "s/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/g" $HOME/.tmp.txt
+	  dconf load /org/gnome/shell/ < $HOME/.tmp.txt
+     rm -rf $HOME/.tmp.txt
+	elif pacman -Qs "athena-brave-config" > /dev/null ; then
+     dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
+     sed -i "s/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/g" $HOME/.tmp.txt
+	  dconf load /org/gnome/shell/ < $HOME/.tmp.txt
+     rm -rf $HOME/.tmp.txt
+	fi   
 fi
