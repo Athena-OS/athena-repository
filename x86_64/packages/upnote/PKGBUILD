@@ -1,0 +1,25 @@
+pkgname=upnote
+pkgver=6.11.3
+pkgrel=1
+pkgdesc='An elegant and powerful note app that works seamlessly across platforms.'
+url='https://getupnote.com'
+arch=('any')
+license=('custom')
+options=(!strip)
+source=("https://upnote.sfo3.cdn.digitaloceanspaces.com/UpNote.AppImage")
+sha512sums=('SKIP')
+
+package() {
+
+  install -dm 755 "$pkgdir/usr/share/$pkgname"
+  install -dm 755 "$pkgdir/usr/bin"
+  install -Dm 755 "UpNote.AppImage" "$pkgdir/usr/share/$pkgname/"
+
+  cat > "$pkgdir/usr/bin/$pkgname" << EOF
+#!/bin/sh
+cd /usr/share/$pkgname/
+exec ./UpNote.AppImage "\$@"
+EOF
+
+  chmod a+x "$pkgdir/usr/bin/$pkgname"
+}
