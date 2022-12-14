@@ -1,2 +1,3 @@
-2022/12/03-15:54:50.916 7672 Creating DB /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/gcbommkclmclpchllfjekcdonpmejbdp since it was missing.
-2022/12/03-15:54:50.921 7672 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/gcbommkclmclpchllfjekcdonpmejbdp/MANIFEST-000001
+2022/12/14-03:05:42.453 217e2 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/gcbommkclmclpchllfjekcdonpmejbdp/MANIFEST-000001
+2022/12/14-03:05:42.453 217e2 Recovering log #3
+2022/12/14-03:05:42.465 217e2 Reusing old log /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/gcbommkclmclpchllfjekcdonpmejbdp/000003.log 

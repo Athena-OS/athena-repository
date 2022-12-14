@@ -1,14 +1,3 @@
-2022/12/03-15:55:39.207 73e6 Creating DB /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm since it was missing.
-2022/12/03-15:55:39.209 73e6 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/MANIFEST-000001
-2022/12/03-15:55:40.300 7671 Level-0 table #5: started
-2022/12/03-15:55:40.314 7671 Level-0 table #5: 1492275 bytes OK
-2022/12/03-15:55:40.320 7671 Delete type=0 #3
-2022/12/03-15:58:26.751 7127 Level-0 table #7: started
-2022/12/03-15:58:26.802 7127 Level-0 table #7: 1547231 bytes OK
-2022/12/03-15:58:26.803 7127 Delete type=0 #4
-2022/12/03-15:59:39.694 7bc0 Level-0 table #9: started
-2022/12/03-15:59:39.719 7bc0 Level-0 table #9: 1667479 bytes OK
-2022/12/03-15:59:39.721 7bc0 Delete type=0 #6
-2022/12/03-16:06:28.560 7e6c Level-0 table #11: started
-2022/12/03-16:06:28.588 7e6c Level-0 table #11: 1651943 bytes OK
-2022/12/03-16:06:28.590 7e6c Delete type=0 #8
+2022/12/14-03:05:42.492 217df Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/MANIFEST-000001
+2022/12/14-03:05:42.492 217df Recovering log #10
+2022/12/14-03:05:42.498 217df Reusing old log /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/000010.log 

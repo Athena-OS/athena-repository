@@ -8,12 +8,11 @@ depends=('brave-bin' 'profile-sync-daemon-brave')
 source=("$pkgname.tar.gz")
 
 package() {
-  mkdir -p "${pkgdir}/etc/skel/.config"
+  install -dm 700 "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser/Default"
 
-  cp -rf "${srcdir}/etc/skel/.config/BraveSoftware" "${pkgdir}/etc/skel/.config/"
+  cp -rf "${srcdir}"/etc/skel/.config/BraveSoftware/Brave-Browser/Default/* "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser/Default/"
+  cp -rf "${srcdir}/etc/skel/.config/BraveSoftware/Brave-Browser/Local State" "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser/"
   cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
-
-  chmod 700 "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser/Default"
   
 }
-sha256sums=('56f2e217979e267b73e3935bc99f373364ef40a52649177bea987a07cdf23f2d')
+sha256sums=('b25ea17e8183fd3b93622829f78c72cedc0c2aa818bca04780919c037cc89191')

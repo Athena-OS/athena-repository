@@ -8,12 +8,10 @@ depends=('firefox-esr' 'profile-sync-daemon')
 source=("$pkgname.tar.gz")
 
 package() {
-  mkdir -p "${pkgdir}/etc/skel/.config"
+  install -dm 700 "${pkgdir}/etc/skel/.mozilla/firefox-esr/iso1fa16.default-release"
 
   cp -rf "${srcdir}/etc/skel/.mozilla" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
-
-  chmod 700 "${pkgdir}/etc/skel/.mozilla/firefox-esr/iso1fa16.default-release"
   
 }
 sha256sums=('033328b12778256532223156867b802323d94e68923c9f8ff76aff83ccf5c247')
