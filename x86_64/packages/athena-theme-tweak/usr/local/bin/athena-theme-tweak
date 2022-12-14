@@ -141,7 +141,7 @@ if [ "$theme" ]; then
         echo "Uninstalling all the previous installed Athena themes for avoiding conflicts..."
 	echo
 	for j in ${!array_theme_names[@]}
-    	do
+   do
           { # try
 
     	    sudo pacman -Rs --noconfirm ${array_theme_packages[$j]} 2>/dev/null
@@ -249,6 +249,19 @@ if [ "$theme" ]; then
            ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
            ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
+
+        # Check the browser
+        if pacman -Qs "athena-firefox-config" > /dev/null ; then
+	       dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
+               sed -i "s/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/g" $HOME/.tmp.txt
+	       dconf load /org/gnome/shell/ < $HOME/.tmp.txt
+          rm -rf $HOME/.tmp.txt
+	     elif pacman -Qs "athena-brave-config" > /dev/null ; then
+          dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
+               sed -i "s/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/g" $HOME/.tmp.txt
+	       dconf load /org/gnome/shell/ < $HOME/.tmp.txt
+          rm -rf $HOME/.tmp.txt
+	     fi
       fi
     done
     if [[ ! "$found_flag" ]]; then
