@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=SecLists
-Comment=SecLists
-Icon=/usr/share/icons/hicolor/128x128/apps/kali-bettercap-128x128.png
-Exec=kitty /usr/bin/bash -c "if test -d /usr/share/payloads/SecLists; then cd /usr/share/payloads/SecLists;$SHELL;else echo \"SecLists not found. I'm retrieving it for you...\";sudo git clone https://github.com/danielmiessler/SecLists /usr/share/payloads/SecLists;cd /usr/share/payloads/SecLists;$SHELL;fi;"
-Terminal=false
-Categories=Tags;Describing;Application
