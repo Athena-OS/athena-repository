@@ -7,8 +7,6 @@
   expanded: true
   packages:
     - cherrytree
-    - joplin-appimage
     - notion-app-enhanced
     - obsidian
-    - upnote
 
