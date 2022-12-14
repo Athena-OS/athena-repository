@@ -5,21 +5,15 @@ pkgdesc="Mozilla Firefox configuration for Athena"
 arch=('x86_64')
 license=("custom")
 depends=('firefox-esr' 'profile-sync-daemon')
-source=("$pkgname.tar.gz"
-	"https://github.com/yeswehack/PwnFox/releases/latest/download/PwnFox.jar")
+source=("$pkgname.tar.gz")
 
 package() {
   mkdir -p "${pkgdir}/etc/skel/.config"
-  mkdir -p "${pkgdir}/etc/skel/.BurpSuite"
-  mkdir -p "${pkgdir}/usr/share/burpsuite"
 
   cp -rf "${srcdir}/etc/skel/.mozilla" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
-  install -Dm 644 "${srcdir}/etc/skel/.BurpSuite/UserConfigCommunity.json" "${pkgdir}/etc/skel/.BurpSuite/"
-  install -Dm 755 "PwnFox.jar" "${pkgdir}/usr/share/burpsuite/"
 
   chmod 700 "${pkgdir}/etc/skel/.mozilla/firefox-esr/iso1fa16.default-release"
   
 }
-sha256sums=('ab364bbd79d2deb179126c68b183024c4a14ad6f0b3f5e518015b0f828aee284'
-            'eddaef68aff92fd69f507497803f86ddab9727515825732248ed442da08d971e')
+sha256sums=('033328b12778256532223156867b802323d94e68923c9f8ff76aff83ccf5c247')
