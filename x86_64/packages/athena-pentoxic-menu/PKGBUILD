@@ -1,0 +1,19 @@
+pkgname=athena-pentoxic-menu
+pkgver=1.0.0
+pkgrel=2
+pkgdesc="PenTOXIC Menu for Athena"
+arch=('x86_64')
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/icons/hicolor/128x128"
+  mkdir -p "${pkgdir}/usr/share/icons/hicolor/categories"
+  mkdir -p "${pkgdir}/usr/share/icons/shells"
+  
+
+  cp -rf "${srcdir}"/usr/share/icons/hicolor/128x128/* "${pkgdir}/usr/share/icons/hicolor/128x128/"
+  cp -rf "${srcdir}"/usr/share/icons/hicolor/categories/* "${pkgdir}/usr/share/icons/hicolor/categories/"
+  cp -rf "${srcdir}"/usr/share/icons/shells/* "${pkgdir}/usr/share/icons/shells/"
+}
+sha256sums=('69202d8fa1b40560ddad980f8f6cc1b878e377ead604219319f03be29484f630')

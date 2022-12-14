@@ -1,0 +1,15 @@
+pkgname=athena-theme-tweak
+pkgver=1.0.0
+pkgrel=3
+pkgdesc="Athena Theme Tweak Tool"
+arch=('x86_64')
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/local/bin"
+
+  install -Dm755 "${srcdir}/usr/local/bin/athena-theme-tweak" "${pkgdir}/usr/local/bin/"
+}
+
+sha256sums=('dab5a2555784fc8ead0f705580c13e81c5c1227b84d83bcfc48f959297df27ae')

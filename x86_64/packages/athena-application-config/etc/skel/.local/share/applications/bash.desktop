@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Bash Shell
+Comment=Bash Shell
+Icon=/usr/share/icons/shells/bash.svg
+Exec=kitty /usr/bin/bash
+Terminal=false
+Categories=Tags;Describing;Application

@@ -1,0 +1,18 @@
+pkgname=ratinject
+pkgver=1.1
+pkgrel=1
+pkgdesc='An Executable to gain Undetectable Persistence in Windows via 4 Registry Keys.'
+url='https://github.com/S12cybersecurity/RatInject'
+arch=('any')
+license=('GPL3')
+source=("https://github.com/S12cybersecurity/RatInject/releases/latest/download/ratinject.zip")
+sha512sums=('SKIP')
+
+package() {
+
+  install -dm 755 "$pkgdir/usr/share/windows/$pkgname"
+
+  rm $pkgname.zip
+
+  cp -a --no-preserve=ownership $pkgname.exe "$pkgdir/usr/share/windows/$pkgname"
+}

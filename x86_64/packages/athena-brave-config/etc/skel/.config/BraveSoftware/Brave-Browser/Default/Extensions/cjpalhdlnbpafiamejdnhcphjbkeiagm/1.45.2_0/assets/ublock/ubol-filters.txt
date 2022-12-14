@@ -1,0 +1,20 @@
+! Title: uBO Lite filters
+! Description: Filters optimized for uBO Lite
+! Expires: 4 days
+! Last modified: %timestamp%
+! Homepage: https://github.com/uBlockOrigin/uAssets
+! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+!
+! GitHub issues: https://github.com/uBlockOrigin/uAssets/issues
+! GitHub pull requests: https://github.com/uBlockOrigin/uAssets/pulls
+
+! https://github.com/uBlockOrigin/uBOL-issues/issues/8
+||pushbullet.com^$3p,badfilter
+
+! https://github.com/uBlockOrigin/uBOL-issues/issues/10
+*$frame,script,3p,denyallow=google.com|googleapis.com|gstatic.com|hcaptcha.com|recaptcha.net,domain=sxyprn.com|sxyprn.net
+
+! popular sites addressed by entity filters
+pornhub.com##+js(set, page_params.holiday_promo, true)
+pornhub.com###pb_block
+pornhub.com###relatedVideosCenter > .wrapVideoBlock

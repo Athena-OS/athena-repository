@@ -1,0 +1,47 @@
+#!/bin/bash
+#set -e
+###############################################################################
+# Author	:	Erik Dubois
+# Website	:	https://www.erikdubois.be
+# Website	:	https://www.arcolinux.info
+# Website	:	https://www.arcolinux.com
+# Website	:	https://www.arcolinuxd.com
+# Website	:	https://www.arcolinuxb.com
+# Website	:	https://www.arcolinuxiso.com
+# Website	:	https://www.arcolinuxforum.com
+###############################################################################
+#
+#   ADAPTED FOR ATHENA
+#
+###############################################################################
+#
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
+#
+###############################################################################
+
+while [ -e "/var/lib/pacman/db.lck" ];
+do
+    echo 'Pacman is not ready yet. Will try again in 5 seconds.'
+    seconds=$(($seconds + 5))
+    sleep 5
+    if [[ "$seconds" == "30" ]]; then
+        echo 'Warning: removing pacman db.lck!'
+        rm /var/lib/pacman/db.lck
+    fi
+done
+
+package=athena-firefox-config
+if pacman -Qq $package > /dev/null ; then
+    echo 'Uninstalling brave package...'
+    pacman -R brave
+    echo 'Done.'
+    sed -i "s/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/g" /etc/skel/dconf-shell.ini
+fi
+
+package=athena-brave-config
+if pacman -Qq $package > /dev/null ; then
+    echo 'Uninstalling firefox-esr package...'
+    pacman -R firefox-esr
+    echo 'Done.'
+    sed -i "s/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/g" /etc/skel/dconf-shell.ini
+fi

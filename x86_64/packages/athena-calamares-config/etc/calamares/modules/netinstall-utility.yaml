@@ -1,0 +1,12 @@
+- name: "Note-taking apps"
+  description: "Select your favourite note-taking application"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: true
+  packages:
+    - cherrytree
+    - notion-app-enhanced
+    - obsidian
+

@@ -1,0 +1,69 @@
+#!/bin/bash
+#set -e
+###############################################################################
+# Author	:	Erik Dubois
+# Website	:	https://www.erikdubois.be
+# Website	:	https://www.arcolinux.info
+# Website	:	https://www.arcolinux.com
+# Website	:	https://www.arcolinuxd.com
+# Website	:	https://www.arcolinuxb.com
+# Website	:	https://www.arcolinuxiso.com
+# Website	:	https://www.arcolinuxforum.com
+###############################################################################
+#
+#   ADAPTED FOR ATHENA
+#
+###############################################################################
+#
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
+#
+###############################################################################
+
+while [ -e "/var/lib/pacman/db.lck" ];
+do
+    echo 'Pacman is not ready yet. Will try again in 5 seconds.'
+    seconds=$(($seconds + 5))
+    sleep 5
+    if [[ "$seconds" == "30" ]]; then
+        echo 'Warning: removing pacman db.lck!'
+        rm /var/lib/pacman/db.lck
+    fi
+done
+
+package=athena-fish
+if pacman -Qq $package > /dev/null ; then
+    sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/fish;/g' /etc/skel/dconf-shell.ini
+    sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/fish;/g' /etc/skel/.local/share/applications/*
+    sed -i 's/Bash/Fish/g' /etc/skel/.local/share/applications/*
+    sed -i "/export SHELL=/c\export SHELL=\$(which fish)" /etc/skel/.bashrc
+
+cat >> /etc/profile.d/shell.sh << EOF
+export SHELL=\$(which fish)
+EOF
+
+cat >> /etc/skel/.bashrc << EOF
+if [[ \$(ps --no-header --pid=\$PPID --format=comm) != "fish" && -z \${BASH_EXECUTION_STRING} ]]
+then
+    exec fish
+fi
+EOF
+fi
+
+package=athena-zsh
+if pacman -Qq $package > /dev/null ; then
+    sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/zsh;/g' /etc/skel/dconf-shell.ini
+    sed -i 's/\/usr\/bin\/bash;/\/usr\/bin\/zsh;/g' /etc/skel/.local/share/applications/*
+    sed -i 's/Bash/Zsh/g' /etc/skel/.local/share/applications/*
+    sed -i "/export SHELL=/c\export SHELL=\$(which zsh)" /etc/skel/.bashrc
+
+cat >> /etc/profile.d/shell.sh << EOF
+export SHELL=\$(which zsh)
+EOF
+
+cat >> /etc/skel/.bashrc << EOF
+if [[ \$(ps --no-header --pid=\$PPID --format=comm) != "zsh" && -z \${BASH_EXECUTION_STRING} ]]
+then
+    exec zsh
+fi
+EOF
+fi

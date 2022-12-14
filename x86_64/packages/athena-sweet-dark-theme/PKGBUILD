@@ -1,0 +1,21 @@
+pkgname=athena-sweet-dark-theme
+pkgver=1.0.0
+pkgrel=2
+pkgdesc="Sweet Dark theme with Sweet Purple icons for Athena"
+arch=('x86_64')
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/themes"
+  mkdir -p "${pkgdir}/usr/share/icons/pentoxic/purple"
+  mkdir -p "${pkgdir}/usr/share/backgrounds/default"
+
+  cp -rf "${srcdir}/usr/share/themes/Sweet-Dark-v40" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/icons/Sweet-Purple" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/candy-icons" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/icons/oreo_spark_purple_cursors" "${pkgdir}/usr/share/icons/"
+  cp -rf "${srcdir}/usr/share/backgrounds/default/neon_circle.jpg" "${pkgdir}/usr/share/backgrounds/default/"
+  cp -rf "${srcdir}"/usr/share/icons/pentoxic/purple/* "${pkgdir}/usr/share/icons/pentoxic/"
+}
+sha256sums=('7e5095682a3c70406b78f7039ba6de75ed925343e1c884331d1316cad0244898')

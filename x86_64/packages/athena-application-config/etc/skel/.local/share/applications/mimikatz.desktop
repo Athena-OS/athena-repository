@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Mimikatz
+Comment=Mimikatz
+Icon=/usr/share/icons/hicolor/128x128/apps/kali-mimikatz-128x128.png
+Exec=kitty /usr/bin/bash -c "if test -d /usr/share/windows/mimikatz;then cd /usr/share/windows/mimikatz;$SHELL;else echo \"Mimikatz is not installed. I'm retrieving it for you...\";sudo pacman -S mimikatz;cd /usr/share/windows/mimikatz;$SHELL;fi;"
+Terminal=false
+Categories=Tags;Describing;Application
