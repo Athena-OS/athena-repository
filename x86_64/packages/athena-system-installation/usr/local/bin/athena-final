@@ -67,6 +67,12 @@ echo "#################################"
 echo
 
 echo "#################################"
+echo "Athena browser check"
+echo "#################################"
+/usr/local/bin/athena-browser-check
+echo
+
+echo "#################################"
 echo "Improving compilation times"
 echo "#################################"
 sed -i 's/MAKEFLAGS=.*/MAKEFLAGS="-j$(nproc)"/g' /etc/makepkg.conf

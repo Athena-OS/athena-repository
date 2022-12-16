@@ -40,6 +40,14 @@ echo "#################################"
 echo
 mv /etc/mkinitcpio.d/athena /etc/mkinitcpio.d/linux.preset
 echo
+
+echo "##########################"
+echo "Uninstall Live env browser"
+echo "##########################"
+echo
+pacman -Rns athena-firefox-config --noconfirm
+pacman -Rns firefox-esr --noconfirm
+echo
 echo "#################################"
 echo "End athena-before"
 echo "#################################"
