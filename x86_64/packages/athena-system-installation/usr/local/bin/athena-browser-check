@@ -33,7 +33,7 @@ done
 package=athena-firefox-config
 if pacman -Qq $package > /dev/null ; then
     echo 'Uninstalling Brave browser and its dependencies...'
-    pacman -Rcns athena-brave-config
+    pacman -R --noconfirm athena-brave-config brave-bin
     echo 'Done.'
     sed -i 's/{\\\"name\\\":\\\"Brave\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/brave.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"brave\\\"},\\\"angle\\\":-1}/{\\\"name\\\":\\\"Firefox ESR\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"firefox-esr\\\"},\\\"angle\\\":-1}/g' /etc/skel/dconf-shell.ini
 fi
@@ -41,7 +41,7 @@ fi
 package=athena-brave-config
 if pacman -Qq $package > /dev/null ; then
     echo 'Uninstalling Firefox ESR browser and its dependencies...'
-    pacman -Rcns athena-firefox-config
+    pacman -R --noconfirm athena-firefox-config firefox-esr
     echo 'Done.'
     sed -i 's/{\\\"name\\\":\\\"Firefox ESR\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"firefox-esr\\\"},\\\"angle\\\":-1}/{\\\"name\\\":\\\"Brave\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/brave.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"brave\\\"},\\\"angle\\\":-1}/g' /etc/skel/dconf-shell.ini
 fi

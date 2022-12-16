@@ -4,7 +4,7 @@ pkgrel=1
 pkgdesc="Mozilla Firefox configuration for Athena"
 arch=('x86_64')
 license=("custom")
-depends=('firefox-esr' 'profile-sync-daemon')
+depends=('athena-nightab' 'firefox-esr' 'profile-sync-daemon')
 source=("$pkgname.tar.gz")
 
 package() {
@@ -14,4 +14,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
   
 }
-sha256sums=('8de6953e72b993063359eaf0308cd292fcb07df95040e4bf738775b620711882')
+sha256sums=('78c4090acdfb3331e1e118e893c91a1f18986a9671ea782d566bf3c9e33f5e1e')

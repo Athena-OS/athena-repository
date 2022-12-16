@@ -76,7 +76,7 @@ Help()
 # Process the input options. Add options as needed.        #
 ############################################################
 # Get the options
-while getopts "chlt:" option; do #When using getopts, putting : after an option character means that it requires an argument (i.e., 'i:' requires arg).
+while getopts "bchlt:" option; do #When using getopts, putting : after an option character means that it requires an argument (i.e., 'i:' requires arg).
    case "${option}" in
       b)
          browser=1

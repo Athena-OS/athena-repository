@@ -4,7 +4,7 @@ pkgrel=1
 pkgdesc="Brave configuration for Athena"
 arch=('x86_64')
 license=("custom")
-depends=('brave-bin' 'profile-sync-daemon-brave')
+depends=('athena-nightab' 'brave-bin' 'profile-sync-daemon-brave')
 source=("$pkgname.tar.gz")
 
 package() {

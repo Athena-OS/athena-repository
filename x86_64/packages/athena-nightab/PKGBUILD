@@ -1,0 +1,16 @@
+pkgname=athena-nightab
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Nightab browser themes for Athena"
+arch=('x86_64')
+license=("custom")
+source=("$pkgname.tar.gz")
+
+package() {
+  mkdir -p "${pkgdir}/usr/share/nightab"
+
+  cp -rf "${srcdir}/usr/share/nightab/athena_astronaut.json" "${pkgdir}/usr/share/nightab/"
+  cp -rf "${srcdir}/usr/share/nightab/athena_persona_5.json" "${pkgdir}/usr/share/nightab/"
+  
+}
+sha256sums=('1a1881b75657b8372d604096d11a764c0e3d3656901b6fe0060a12257e63487b')
