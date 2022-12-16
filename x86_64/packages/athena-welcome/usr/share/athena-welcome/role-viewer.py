@@ -191,6 +191,7 @@ variable_list = [
 ("Enthusiast Student", "osert", "Markdown Templates for Offensive Security exam reports."),
 ("Enthusiast Student", "wordlister", "A simple wordlist generator and mangler written in python."),
 ("Enthusiast Student", "binwalk", "A tool for searching binary images for embedded files and executable code."),
+("Enthusiast Student", "pwncat-cs", "A fancy reverse and bind shell handler."),
 ("Forensic Analyst", "blackarch-forensic", "Packages for retrieving data on physical disks or embedded memories. Details: https://blackarch.org/forensic.html"),
 ("Malware Analyst", "blackarch-binary", "Packages that operate on binary. Details: https://blackarch.org/binary.html"),
 ("Malware Analyst", "blackarch-debugger", "Debugger packages. Details: https://blackarch.org/debugger.html"),

@@ -177,7 +177,6 @@ if [ "$theme" ]; then
            gsettings set org.gnome.desktop.background picture-options stretched
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "red-blood",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/CrayonPonyFish.conf $HOME/.config/kitty/current-theme.conf
-           sudo sed -i "s/Inherits=.*/Inherits=Bibata-Modern-DarkRed/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'redwine'/g" $HOME/.tmux.conf
         fi
 
@@ -193,7 +192,6 @@ if [ "$theme" ]; then
            gsettings set org.gnome.shell.extensions.user-theme name "Tokyonight-Dark-B"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Tokyo Night Storm",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/Tokyo_Night_Storm.conf $HOME/.config/kitty/current-theme.conf
-           sudo sed -i "s/Inherits=.*/Inherits=oreo_blue_cursors/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'sky'/g" $HOME/.tmux.conf
            ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
            ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
@@ -212,7 +210,6 @@ if [ "$theme" ]; then
            gsettings set org.gnome.shell.extensions.user-theme name "Graphite-Dark"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Just Black",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/Atom.conf $HOME/.config/kitty/current-theme.conf
-           sudo sed -i "s/Inherits=.*/Inherits=Bibata-Modern-Ice/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'snow'/g" $HOME/.tmux.conf
            ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
            ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
@@ -231,7 +228,6 @@ if [ "$theme" ]; then
            gsettings set org.gnome.shell.extensions.user-theme name "Gruvbox-Dark-B"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Gruvbox Material Dark",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/gruvbox_dark.conf $HOME/.config/kitty/current-theme.conf
-           sudo sed -i "s/Inherits=.*/Inherits=Fuchsia-Pop/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'gold'/g" $HOME/.tmux.conf
            ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
            ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
@@ -250,7 +246,6 @@ if [ "$theme" ]; then
            gsettings set org.gnome.shell.extensions.user-theme name "Sweet-Dark-v40"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Radical",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/AdventureTime.conf $HOME/.config/kitty/current-theme.conf
-           sudo sed -i "s/Inherits=.*/Inherits=oreo_spark_purple_cursors/g" /usr/share/icons/default/index.theme
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'violet'/g" $HOME/.tmux.conf
            ln -sf "/usr/share/themes/Sweet-Dark-v40/assets" "${HOME}/.config/assets"
            ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
@@ -268,14 +263,18 @@ fi
 if [ "$browser" ]; then
    # Check the browser
    if pacman -Qs "athena-firefox-config" > /dev/null ; then
-	  dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
-     sed -i "s/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/g" $HOME/.tmp.txt
-	  dconf load /org/gnome/shell/ < $HOME/.tmp.txt
-     rm -rf $HOME/.tmp.txt
-	elif pacman -Qs "athena-brave-config" > /dev/null ; then
+     echo "Firefox browser found."
      dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
-     sed -i "s/{\"name\":\"Firefox ESR\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\",\"type\":\"Command\",\"data\":{\"command\":\"firefox-esr\"},\"angle\":-1}/{\"name\":\"Brave\",\"icon\":\"\/usr\/share\/icons\/pentoxic\/brave.png\",\"type\":\"Command\",\"data\":{\"command\":\"brave\"},\"angle\":-1}/g" $HOME/.tmp.txt
-	  dconf load /org/gnome/shell/ < $HOME/.tmp.txt
+     sed -i 's/{\\\"name\\\":\\\"Brave\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/brave.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"brave\\\"},\\\"angle\\\":-1}/{\\\"name\\\":\\\"Firefox ESR\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"firefox-esr\\\"},\\\"angle\\\":-1}/g' $HOME/.tmp.txt
+     dconf load /org/gnome/shell/ < $HOME/.tmp.txt
      rm -rf $HOME/.tmp.txt
-	fi   
+     echo "Done."
+   elif pacman -Qs "athena-brave-config" > /dev/null ; then
+     echo "Brave browser found."     
+     dconf dump /org/gnome/shell/ > $HOME/.tmp.txt
+     sed -i 's/{\\\"name\\\":\\\"Firefox ESR\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/firefox_logo_arch-256x256.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"firefox-esr\\\"},\\\"angle\\\":-1}/{\\\"name\\\":\\\"Brave\\\",\\\"icon\\\":\\\"\/usr\/share\/icons\/pentoxic\/brave.png\\\",\\\"type\\\":\\\"Command\\\",\\\"data\\\":{\\\"command\\\":\\\"brave\\\"},\\\"angle\\\":-1}/g' $HOME/.tmp.txt
+     dconf load /org/gnome/shell/ < $HOME/.tmp.txt
+     rm -rf $HOME/.tmp.txt
+     echo "Done."
+   fi   
 fi

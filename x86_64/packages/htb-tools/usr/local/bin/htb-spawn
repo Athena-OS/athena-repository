@@ -103,9 +103,11 @@ machine_json_file="$HOME/.machine.json"
 echo "Stopping any active machine..."
 htb-stop
 
+vpn_type=$(curl -s --location --request GET https://www.hackthebox.com/api/v4/connection/status -H "Authorization: Bearer $appkey" | jq '.[0].type' | tr -d '"')
+
 if cat $machine_json_file | grep -q "Starting Point Machine"; then
 
-    if nmcli c show --active | grep -q tun  && curl -s --location --request GET https://www.hackthebox.com/api/v4/connection/status -H "Authorization: Bearer $appkey" | jq '.[0].type' | grep -q "Starting Point"; then
+    if nmcli c show --active | grep -q tun  && [ "$vpn_type" == "Starting Point" ]; then
          echo "Starting Point VPN Server already running."
     else
       while [[ ! ${VPNArrayStartingPoint[*]} =~ (^|[[:space:]])$vpn_server($|[[:space:]]) ]] # Until the VPN input is not contained in the VPNArray variable, loop. Use of ':space:' for Exact match in the array
@@ -171,7 +173,7 @@ if cat $machine_json_file | grep -q "Starting Point Machine"; then
     fi
 else
 
-    if nmcli c show --active | grep -q tun && (curl -s --location --request GET https://www.hackthebox.com/api/v4/connection/status -H "Authorization: Bearer $appkey" | jq '.[0].type' | grep -q "Free" || curl -s --location --request GET https://www.hackthebox.com/api/v4/connection/status -H "Authorization: Bearer $appkey" | jq '.[0].type' | grep -q "VIP"); then
+    if nmcli c show --active | grep -q tun && ([ "$vpn_type" == "Free" ] || [ "$vpn_type" == "VIP" ]); then
          echo "Lab VPN Server already running."
     else
       while [[ ! ${VPNArray[*]} =~ (^|[[:space:]])$vpn_server($|[[:space:]]) ]] # Until the VPN input is not contained in the VPNArray variable, loop. Use of ':space:' for Exact match in the array

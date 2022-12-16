@@ -29,10 +29,10 @@ def help():
 
    print("List of arguments:\n")
    
-   print("-d, --delete          delete the Hack The Box API Token from the keyring")
-   print("-h, --help            show this help message and exit")
-   print("-p, --prompt          set if the shell prompt should be changed")
-   print("-r, --reset           reset the Hack The Box API Token")
+   print("-d, --delete                 delete the Hack The Box API Token from the keyring")
+   print("-h, --help                   show this help message and exit")
+   print("-p, --prompt <true|false>    set if the shell prompt should be changed")
+   print("-r, --reset                  reset the Hack The Box API Token")
 
 def arg_parse():
     parser = argparse.ArgumentParser(add_help=False)

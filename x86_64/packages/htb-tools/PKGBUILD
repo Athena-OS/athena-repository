@@ -8,10 +8,12 @@ depends=('python-requests')
 source=("$pkgname.tar.gz")
 
 package() {
+  mkdir -p "${pkgdir}/etc/skel"
   mkdir -p "${pkgdir}/usr/local/bin"
   mkdir -p "${pkgdir}/usr/share/icons/pwnage"  
   mkdir -p "${pkgdir}/usr/share/pwnage/hackthebox"  
 
+  cp -rf "${srcdir}/etc/skel/.htb.conf" "${pkgdir}/etc/skel/"
   cp -rf "${srcdir}/usr/share/icons/pwnage/flags" "${pkgdir}/usr/share/icons/pwnage/"
   cp -rf "${srcdir}/usr/share/icons/pwnage/htb-flag.png" "${pkgdir}/usr/share/icons/pwnage/"
   cp -rf "${srcdir}/usr/share/icons/pwnage/htb-machines.png" "${pkgdir}/usr/share/icons/pwnage/"
@@ -45,4 +47,4 @@ EOF
   
   chmod a+x "${pkgdir}/usr/local/bin/htb-update"
 }
-sha256sums=('e2448e38705571a5399d2e0d1ed745b89a3e821468689d69a7865ddcedabf8b1')
+sha256sums=('7a6bf63e75149c59e463c3ba16e7e45ea6adf8a81ad8184e0d1df8e2553dc375')
