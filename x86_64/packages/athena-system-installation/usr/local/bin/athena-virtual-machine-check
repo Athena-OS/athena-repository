@@ -156,8 +156,8 @@ if [ $result = "vmware" ];
 		systemctl enable mnt-hgfs.mount
 		modprobe -v fuse
 
-		sed -i 's/"$/ vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx"/' /etc/mkinitcpio.conf
-		mkinitcpio -P
+		sed -in '/^MODULES*/ s/"$/ vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx"/g' /etc/mkinitcpio.conf
+                mkinitcpio -P
 fi
 
 if [ $result = "none" ];

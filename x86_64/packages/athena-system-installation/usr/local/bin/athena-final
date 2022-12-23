@@ -61,6 +61,12 @@ echo
 #hardcode-fixer
 
 echo "#################################"
+echo "Athena graphical driver check"
+echo "#################################"
+/usr/local/bin/athena-graphical-check
+echo
+
+echo "#################################"
 echo "Athena virtual machine check"
 echo "#################################"
 /usr/local/bin/athena-virtual-machine-check
