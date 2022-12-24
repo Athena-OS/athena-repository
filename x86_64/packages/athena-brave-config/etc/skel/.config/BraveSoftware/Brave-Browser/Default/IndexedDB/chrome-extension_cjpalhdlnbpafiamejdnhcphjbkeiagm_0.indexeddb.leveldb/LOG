@@ -1,2 +1,3 @@
-2022/12/14-03:05:42.598 217dc Creating DB /home/athena/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb since it was missing.
-2022/12/14-03:05:42.603 217dc Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/MANIFEST-000001
+2022/12/24-19:00:21.697 20ac Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/MANIFEST-000001
+2022/12/24-19:00:21.697 20ac Recovering log #3
+2022/12/24-19:00:21.697 20ac Reusing old log /home/athena/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/000003.log 

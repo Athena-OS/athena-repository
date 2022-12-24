@@ -1,2 +1,3 @@
-2022/12/14-03:07:40.342 21b36 Creating DB /home/athena/.config/BraveSoftware/Brave-Browser/Default/Platform Notifications since it was missing.
-2022/12/14-03:07:40.347 21b36 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Platform Notifications/MANIFEST-000001
+2022/12/24-19:00:19.907 2086 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Platform Notifications/MANIFEST-000001
+2022/12/24-19:00:19.907 2086 Recovering log #3
+2022/12/24-19:00:19.907 2086 Reusing old log /home/athena/.config/BraveSoftware/Brave-Browser/Default/Platform Notifications/000003.log 

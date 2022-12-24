@@ -9,4 +9,12 @@
     - cherrytree
     - notion-app-enhanced
     - obsidian
-
+- name: "Screenshot apps"
+  description: "Select your favourite screenshot application"
+  critical: false
+  hidden: false
+  selected: false
+  immutable: false
+  expanded: true
+  packages:
+    - flameshot
