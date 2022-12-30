@@ -2,7 +2,7 @@ pkgname=athena-vscode-themes
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="VSCode themes for Athena"
-arch=('x86_64')
+arch=('any')
 license=("custom")
 depends=('code')
 source=("$pkgname.tar.gz")
@@ -22,4 +22,4 @@ package() {
   code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/gruvbox-material-6.5.0_vsixhub.com.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
   code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/red-blood-0.0.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
 }
-sha256sums=('4fb56d14ef163ced56f89615839fc7e937f1321840fb9d56caf959230fde8c29')
+sha256sums=('e9aea18cc97971f798b50ebe21fce7be9c03380699f0ac4edb554ec16bfba4ca')

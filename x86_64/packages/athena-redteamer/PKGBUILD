@@ -1,0 +1,7 @@
+pkgname=athena-redteamer
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Red Teamer Role tools"
+arch=('any')
+license=("custom")
+depends=('blackarch-cracker' 'blackarch-database' 'blackarch-debugger' 'blackarch-decompiler' 'blackarch-exploitation' 'blackarch-fuzzer' 'blackarch-networking' 'blackarch-recon' 'blackarch-scanner' 'blackarch-sniffer' 'blackarch-spoof' 'blackarch-webapp' 'blackarch-windows')

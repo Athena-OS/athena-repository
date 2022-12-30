@@ -2,7 +2,7 @@ pkgname=athena-nvchad
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="Neovim config written in lua aiming to provide a base configuration with very beautiful UI and blazing fast startuptime for Athena"
-arch=('x86_64')
+arch=('any')
 license=("custom")
 depends=('neovim')
 source=("$pkgname.tar.gz")
@@ -16,4 +16,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/nvim" "${pkgdir}/etc/skel/.config/"
   cp -rf "${srcdir}/etc/skel/.local/share/nvim" "${pkgdir}/etc/skel/.local/share" 
 }
-sha256sums=('d6918e227134f5d464e41092093263ed456862efb077b362c2dd30bd500e4f6e')
+sha256sums=('93df18a844bd320ad26a69279eb6a515fdfba0992d908d0a87a57069c0ce8090')

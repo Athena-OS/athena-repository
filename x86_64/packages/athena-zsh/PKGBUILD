@@ -2,7 +2,7 @@ pkgname=athena-zsh
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="Zsh for Athena"
-arch=('x86_64')
+arch=('any')
 license=("custom")
 depends=('zsh' 'powerline-fonts')
 source=("$pkgname.tar.gz")
@@ -13,4 +13,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.zshrc" "${pkgdir}/etc/skel/"
   
 }
-sha256sums=('96ab63d19bfad7c8644f00bbdb53ca2726d2edd41ef0eca1fe3bd82c771fc26d')
+sha256sums=('a00557e2f79c5235bbb015e708f709659f0cae0854ff4e0d7438dab0a214302a')

@@ -2,7 +2,7 @@ pkgname=htb-tools
 pkgver=1.0.4
 pkgrel=2
 pkgdesc="Hack The Box tools"
-arch=('x86_64')
+arch=('any')
 license=("custom")
 depends=('python-requests')
 source=("$pkgname.tar.gz")
@@ -47,4 +47,4 @@ EOF
   
   chmod a+x "${pkgdir}/usr/local/bin/htb-update"
 }
-sha256sums=('7a6bf63e75149c59e463c3ba16e7e45ea6adf8a81ad8184e0d1df8e2553dc375')
+sha256sums=('b2224affa14a3a16d06ea632719294f2280661e791afe029b809ecbcef268efe')

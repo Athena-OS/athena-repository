@@ -225,7 +225,8 @@ variable_list = [
 ("Red Teamer", "blackarch-windows", "Native Windows packages. Details: https://blackarch.org/windows.html"),
 ("Red Teamer", "ratinject", "An Executable to gain Undetectable Persistence in Windows via 4 Registry Keys."),
 ("Red Teamer", "ians", "A Python-based hacking toolset."),
-("Web Pentester", "blackarch-webapp", "Packages that target web applications. Details: https://blackarch.org/webapp.html")
+("Web Pentester", "blackarch-webapp", "Packages that target web applications. Details: https://blackarch.org/webapp.html"),
+("Web Pentester", "blackarch-fuzzer", "Fuzzers. Details: https://blackarch.org/fuzzer.html")
 ]
 
 

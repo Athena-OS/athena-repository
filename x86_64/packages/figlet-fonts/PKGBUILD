@@ -12,4 +12,4 @@ package() {
   mkdir -p "$pkgdir/usr/share/figlet/fonts"
   cp -rf "$srcdir"/usr/share/figlet/fonts/* "$pkgdir/usr/share/figlet/fonts/"
 }
-sha256sums=('8e6c324b8dc31e264ad4d2b3a04374cfc498e985378923c513021baa5abb22b6')
+sha256sums=('bf88a3b4e5da834cff912d032a30b02d76a413436efb4279af4afb34d324b698')
