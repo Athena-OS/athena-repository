@@ -2,8 +2,6 @@
 
 #NEED ONLY TO EDIT  sourcefiles VARIABLE
 
-sourcefiles="usr"
-
 pkgname=$(grep "^pkgname=" PKGBUILD | awk -F"=" '{print $2}')
 pkgver=$(grep "^pkgver=" PKGBUILD | awk -F"=" '{print $2}')
 pkgrel=$(grep "^pkgrel=" PKGBUILD | awk -F"=" '{split($2,a," ");gsub(/"/, "", a[1]);print a[1]}')
@@ -15,12 +13,10 @@ echo $pkgfile
 
 sed -i '/^sha256/d' PKGBUILD
 
-tar -zcvf $pkgname.tar.gz $sourcefiles 
-
 makepkg -g >> PKGBUILD
 makepkg -f -sr --sign
 
-rm -rf src pkg $pkgname.tar.gz
+rm -rf src pkg
 
 rm -rf ../../$pkgfile ../../$pkgfile.sig
 

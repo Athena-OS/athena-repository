@@ -4,12 +4,20 @@ pkgrel=3
 pkgdesc="Athena Theme Tweak Tool"
 arch=('any')
 license=("custom")
-source=("$pkgname.tar.gz")
 
 package() {
-  mkdir -p "${pkgdir}/usr/local/bin"
 
-  install -Dm755 "${srcdir}/usr/local/bin/athena-theme-tweak" "${pkgdir}/usr/local/bin/"
+  install -dm 755 "$pkgdir/usr/bin"
+  install -dm 755 "$pkgdir/usr/share/$pkgname"
+
+  cp -a "$pkgname.py" "$pkgdir/usr/share/$pkgname/"
+
+  cat > "$pkgdir/usr/bin/$pkgname" << EOF
+#!/bin/sh
+cd /usr/share/$pkgname
+exec python $pkgname.py "\$@"
+EOF
+
+  chmod +x "$pkgdir/usr/bin/$pkgname"
 }
 
-sha256sums=('048d1e06d7efe3fda6698c93d5f15cb743c12c92071c6b50310bd8bf05c6aa0b')
