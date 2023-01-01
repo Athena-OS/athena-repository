@@ -1,0 +1,7 @@
+pkgname=athena-network
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Network Analyst Role tools"
+arch=('any')
+license=("custom")
+depends=('blackarch-ids' 'blackarch-networking' 'blackarch-proxy' 'blackarch-radio' 'blackarch-sniffer' 'blackarch-spoof' 'blackarch-tunnel' 'blackarch-wireless')

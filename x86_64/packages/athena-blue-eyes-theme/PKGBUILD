@@ -12,10 +12,11 @@ package() {
   mkdir -p "${pkgdir}/usr/share/backgrounds/default"  
 
   cp -rf "${srcdir}/usr/share/themes/Tokyonight-Dark-B" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/themes/Tokyonight-Dark-BL" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/tokyonight_dark" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/oreo_blue_cursors" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/blue-eyes.jpg" "${pkgdir}/usr/share/backgrounds/default/"
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/cyan/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('f9a237669dac4e39ce49c1b2341d7570746840d01488130a617a5cd16164541f')
+sha256sums=('d310698506cb1ba2eea64b81d5e2331da39dd7b5935f79fe461bf25fb6644524')
