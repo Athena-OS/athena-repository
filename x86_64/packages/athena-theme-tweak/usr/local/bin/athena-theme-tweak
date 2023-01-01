@@ -72,6 +72,31 @@ Help()
    echo
 }
 
+Menu()
+{
+   PS3='Do you prefer Border or Borderless theme? '
+   options=("Border" "Borderless" "Quit")
+   select opt in "${options[@]}"
+   do
+       case $opt in
+           "Border")
+               border=1
+               break
+               ;;
+           "Borderless")
+               border=0
+               break
+               ;;
+           "Quit")
+               kill -s TERM $TOP_PID
+               break
+               ;;
+           *) echo "Invalid option" > /dev/stderr;;
+       esac
+   done
+   echo $border #Return the value
+}
+
 ############################################################
 # Process the input options. Add options as needed.        #
 ############################################################
@@ -144,32 +169,31 @@ if [ "$theme" ]; then
       if [ "${array_theme_names[$i]}" = "$theme" ]; then
         found_flag=1
         theme_package=${array_theme_packages[$i]}
-        
-        echo "Uninstalling all the previous installed Athena themes for avoiding conflicts..."
-	     echo
-	     for j in ${!array_theme_names[@]}
+
+        echo "Detecting the current theme..."
+        for j in ${!array_theme_packages[@]}
         do
-          { # try
-
-    	    sudo pacman -Rs --noconfirm ${array_theme_packages[$j]} 2>/dev/null
-
-	       } || { # catch
-    	    # Error handling
-	       echo "${array_theme_packages[$j]} not installed." 
-	       }
+           if pacman -Qi ${array_theme_packages[$j]} > /dev/null 2>&1; then
+             current_theme=${array_theme_packages[$j]}
+             break
+           fi
 	     done
+        echo "The theme ${current_theme} is installed."
 
         echo "Installing $theme Theme..."
         echo
-        sudo pacman -Syy --noconfirm $theme_package
+        sudo pacman -Syy --noconfirm --overwrite "*" $theme_package
 
-        rm -rf "${HOME}/.config/gtk-4.0"
+        #rm -rf "${HOME}/.config/gtk-4.0"
         mkdir -p "${HOME}/.config/gtk-4.0"
 
         if [ "${theme_package}" = "athena-akame-theme" ]; then
+           theme_name="Abyss-BLOOD-3.36"
+
            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-           gsettings set org.gnome.desktop.interface gtk-theme Abyss-BLOOD-3.36
-           gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
+           gsettings set org.gnome.desktop.interface gtk-theme $theme_name
+           gsettings set org.gnome.desktop.wm.preferences theme $theme_name
+           gsettings set org.gnome.shell.extensions.user-theme name ""
            gsettings set org.gnome.desktop.interface icon-theme Material-Black-Cherry-Suru
            gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-DarkRed
            gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/akame.jpg
@@ -181,75 +205,110 @@ if [ "$theme" ]; then
         fi
 
         if [ "${theme_package}" = "athena-blue-eyes-theme" ]; then
-           gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-           gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark-B
-           gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
+           echo
+           border=$(Menu)
+           echo
+           if [[ "${border}" -eq 1 ]]; then
+               theme_name="Tokyonight-Dark-B"
+           else
+               theme_name="Tokyonight-Dark-BL"
+           fi
+           
+           gsettings set org.gnome.desktop.interface gtk-theme $theme_name
+           gsettings set org.gnome.desktop.wm.preferences theme $theme_name
+           gsettings set org.gnome.shell.extensions.user-theme name $theme_name
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+
+           gsettings set org.gnome.desktop.interface color-scheme prefer-dark           
            gsettings set org.gnome.desktop.interface icon-theme tokyonight_dark
            gsettings set org.gnome.desktop.interface cursor-theme oreo_blue_cursors
            gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/blue-eyes.jpg
            gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/blue-eyes.jpg
            gsettings set org.gnome.desktop.background picture-options stretched
-           gsettings set org.gnome.shell.extensions.user-theme name "Tokyonight-Dark-B"
+           
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Tokyo Night Storm",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/Tokyo_Night_Storm.conf $HOME/.config/kitty/current-theme.conf
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'sky'/g" $HOME/.tmux.conf
-           ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
-           ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-           ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+           
         fi
 
         if [ "${theme_package}" = "athena-graphite-theme" ]; then
+           echo
+           border=$(Menu)
+           echo
+           if [[ "${border}" -eq 1 ]]; then
+               theme_name="Graphite-Dark"
+           else
+               theme_name="Graphite-Dark-Rimless"
+           fi
+           
+           gsettings set org.gnome.desktop.interface gtk-theme $theme_name
+           gsettings set org.gnome.desktop.wm.preferences theme $theme_name
+           gsettings set org.gnome.shell.extensions.user-theme name $theme_name
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+
            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-           gsettings set org.gnome.desktop.interface gtk-theme Graphite-Dark
-           gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
            gsettings set org.gnome.desktop.interface icon-theme Tela-circle-black-dark
            gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice
            gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/arch-ascii.png
            gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/arch-ascii.png
            gsettings set org.gnome.desktop.background picture-options stretched
-           gsettings set org.gnome.shell.extensions.user-theme name "Graphite-Dark"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Just Black",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/Atom.conf $HOME/.config/kitty/current-theme.conf
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'snow'/g" $HOME/.tmux.conf
-           ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
-           ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-           ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
 
         if [ "${theme_package}" = "athena-gruvbox-theme" ]; then
+           echo
+           border=$(Menu)
+           echo
+           if [[ "${border}" -eq 1 ]]; then
+               theme_name="Gruvbox-Dark-B"
+           else
+               theme_name="Gruvbox-Dark-BL"
+           fi
+           
+           gsettings set org.gnome.desktop.interface gtk-theme $theme_name
+           gsettings set org.gnome.desktop.wm.preferences theme $theme_name
+           gsettings set org.gnome.shell.extensions.user-theme name $theme_name
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+
            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-           gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-B
-           gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
            gsettings set org.gnome.desktop.interface icon-theme Material-Black-Mango-Suru
            gsettings set org.gnome.desktop.interface cursor-theme Fuchsia-Pop
            gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/cyborg_gruv.png
            gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/cyborg_gruv.png
            gsettings set org.gnome.desktop.background picture-options stretched
-           gsettings set org.gnome.shell.extensions.user-theme name "Gruvbox-Dark-B"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Gruvbox Material Dark",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/gruvbox_dark.conf $HOME/.config/kitty/current-theme.conf
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'gold'/g" $HOME/.tmux.conf
-           ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
-           ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-           ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
 
         if [ "${theme_package}" = "athena-sweet-dark-theme" ]; then
+           theme_name="Sweet-Dark-v40"
+
+           gsettings set org.gnome.desktop.interface gtk-theme $theme_name
+           gsettings set org.gnome.desktop.wm.preferences theme $theme_name
+           gsettings set org.gnome.shell.extensions.user-theme name $theme_name
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+           ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+
            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-           gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark-v40
-           gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark-v40
            gsettings set org.gnome.desktop.interface icon-theme Sweet-Purple
            gsettings set org.gnome.desktop.interface cursor-theme oreo_spark_purple_cursors
            gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/neon_circle.jpg
            gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/neon_circle.jpg
            gsettings set org.gnome.desktop.background picture-options stretched
-           gsettings set org.gnome.shell.extensions.user-theme name "Sweet-Dark-v40"
            sed -i 's/"workbench.colorTheme":.*/"workbench.colorTheme": "Radical",/g' "$HOME/.config/Code - OSS/User/settings.json"
            cp -rf $HOME/.config/kitty/kitty-themes/themes/AdventureTime.conf $HOME/.config/kitty/current-theme.conf
            sed -i "s/set -g @tmux_power_theme.*/set -g @tmux_power_theme 'violet'/g" $HOME/.tmux.conf
-           ln -sf "/usr/share/themes/Sweet-Dark-v40/assets" "${HOME}/.config/assets"
-           ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-           ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
         fi
       fi
     done
@@ -257,7 +316,14 @@ if [ "$theme" ]; then
         echo "Theme not found!"
         exit 0
     fi
-    echo "Logout or reboot for applying correctly the new theme."
+
+    if [ "${theme_package}" != "${current_theme}" ]; then
+        echo "Uninstalling the previous installed Athena theme: $current_theme..."
+	     echo
+	     sudo pacman -Rs --noconfirm $current_theme
+    fi
+        
+    echo "Logout or reboot for applying correctly the new theme if needed."
 fi
 
 if [ "$browser" ]; then
