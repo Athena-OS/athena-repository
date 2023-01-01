@@ -11,11 +11,12 @@ package() {
   mkdir -p "${pkgdir}/usr/share/icons/pentoxic/red"
   mkdir -p "${pkgdir}/usr/share/backgrounds/default"
 
-  cp -rf "${srcdir}/usr/share/themes/Abyss-BLOOD-3.36" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/themes/Quartz-Red" "${pkgdir}/usr/share/themes/"
+  cp -rf "${srcdir}/usr/share/themes/Quartz-Dark-Red" "${pkgdir}/usr/share/themes/"
   cp -rf "${srcdir}/usr/share/icons/Material-Black-Cherry-Suru" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/icons/Bibata-Modern-DarkRed" "${pkgdir}/usr/share/icons/"
   cp -rf "${srcdir}/usr/share/backgrounds/default/akame.jpg" "${pkgdir}/usr/share/backgrounds/default/"  
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/red/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('221dbb66b7edef2e6dba5d4519e1a71bbf9fc7f63f156a0616bd7d83af81858c')
+sha256sums=('593150776e77afd5830253f022a366e37044c10ba505df59f3a280d9664cb9da')

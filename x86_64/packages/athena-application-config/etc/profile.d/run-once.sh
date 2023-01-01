@@ -46,79 +46,78 @@ if [ -f "$FLAGFILE" ]; then
 
     package=athena-sweet-dark-theme
     if pacman -Qq $package > /dev/null ; then
-       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-       gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark-v40
-       gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark-v40
-       gsettings set org.gnome.desktop.interface icon-theme Sweet-Purple
-       gsettings set org.gnome.desktop.interface cursor-theme oreo_spark_purple_cursors
-       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/neon_circle.jpg
-       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/neon_circle.jpg
-       gsettings set org.gnome.desktop.background picture-options stretched
-       gsettings set org.gnome.shell.extensions.user-theme name "Sweet-Dark-v40"
-       ln -sf "/usr/share/themes/Sweet-Dark-v40/assets" "${HOME}/.config/assets"
-       ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-       ln -sf "/usr/share/themes/Sweet-Dark-v40/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+         theme_name="Sweet-Dark-v40"
+         gnome_shell="Sweet-Dark-v40"
+
+         color_scheme="prefer-dark"
+         icon_theme="Sweet-Purple"
+         cursor_theme="oreo_spark_purple_cursors"
+         background_theme="file:///usr/share/backgrounds/default/neon_circle.jpg"
+         picture_options="stretched"
     fi
 
     package=athena-graphite-theme
     if pacman -Qq $package > /dev/null ; then
-       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-       gsettings set org.gnome.desktop.interface gtk-theme Graphite-Dark
-       gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
-       gsettings set org.gnome.desktop.interface icon-theme Tela-circle-black-dark
-       gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice
-       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/arch-ascii.png
-       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/arch-ascii.png
-       gsettings set org.gnome.desktop.background picture-options stretched
-       gsettings set org.gnome.shell.extensions.user-theme name "Graphite-Dark"
-       ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
-       ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-       ln -sf "/usr/share/themes/Graphite-Dark/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+         theme_name="Graphite-Dark"
+         gnome_shell="Graphite-Dark"
+
+         color_scheme="prefer-dark"
+         icon_theme="Tela-circle-black-dark"
+         cursor_theme="Bibata-Modern-Ice"
+         background_theme="file:///usr/share/backgrounds/default/arch-ascii.png"
+         picture_options="stretched"
     fi
 
     package=athena-gruvbox-theme
     if pacman -Qq $package > /dev/null ; then
-       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-       gsettings set org.gnome.desktop.interface gtk-theme Gruvbox-Dark-B
-       gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
-       gsettings set org.gnome.desktop.interface icon-theme Material-Black-Mango-Suru
-       gsettings set org.gnome.desktop.interface cursor-theme Fuchsia-Pop
-       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/cyborg_gruv.png
-       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/cyborg_gruv.png
-       gsettings set org.gnome.desktop.background picture-options stretched
-       gsettings set org.gnome.shell.extensions.user-theme name "Gruvbox-Dark-B"
-       ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
-       ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-       ln -sf "/usr/share/themes/Gruvbox-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+         theme_name="Gruvbox-Dark-B"
+         gnome_shell="Gruvbox-Dark-B"
+
+         color_scheme="prefer-dark"
+         icon_theme="Material-Black-Mango-Suru"
+         cursor_theme="Fuchsia-Pop"
+         background_theme="file:///usr/share/backgrounds/default/cyborg_gruv.png"
+         picture_options="stretched"
     fi
 
     package=athena-akame-theme
     if pacman -Qq $package > /dev/null ; then
-       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-       gsettings set org.gnome.desktop.interface gtk-theme Abyss-BLOOD-3.36
-       gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
-       gsettings set org.gnome.desktop.interface icon-theme Material-Black-Cherry-Suru
-       gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-DarkRed
-       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/akame.jpg
-       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/akame.jpg
-       gsettings set org.gnome.desktop.background picture-options stretched
+         theme_name="Quartz-Dark-Red"
+         gnome_shell="Quartz-Red"
+
+         color_scheme="prefer-dark"
+         icon_theme="Material-Black-Cherry-Suru
+         cursor_theme="Bibata-Modern-DarkRed"
+         background_theme="file:///usr/share/backgrounds/default/akame.jpg"
+         picture_options="stretched"
     fi
 
     package=athena-blue-eyes-theme
     if pacman -Qq $package > /dev/null ; then
-       gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-       gsettings set org.gnome.desktop.interface gtk-theme Tokyonight-Dark-B
-       gsettings set org.gnome.desktop.wm.preferences theme Graphite-Dark
-       gsettings set org.gnome.desktop.interface icon-theme tokyonight_dark
-       gsettings set org.gnome.desktop.interface cursor-theme oreo_blue_cursors
-       gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/default/blue-eyes.jpg
-       gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/default/blue-eyes.jpg
-       gsettings set org.gnome.desktop.background picture-options stretched
-       gsettings set org.gnome.shell.extensions.user-theme name "Tokyonight-Dark-B"
-       ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
-       ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
-       ln -sf "/usr/share/themes/Tokyonight-Dark-B/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
+         theme_name="Tokyonight-Dark-B"
+         gnome_shell="Tokyonight-Dark-B"
+
+         color_scheme="prefer-dark"
+         icon_theme="tokyonight_dark
+         cursor_theme="oreo_blue_cursors"
+         background_theme="file:///usr/share/backgrounds/default/blue-eyes.jpg"
+         picture_options="stretched"
     fi
+
+    gsettings set org.gnome.desktop.interface gtk-theme $theme_name
+    gsettings set org.gnome.desktop.wm.preferences theme $theme_name
+    gsettings set org.gnome.shell.extensions.user-theme name $gnome_shell
+
+    gsettings set org.gnome.desktop.interface color-scheme $color_scheme
+    gsettings set org.gnome.desktop.interface icon-theme $icon_theme
+    gsettings set org.gnome.desktop.interface cursor-theme $cursor_theme
+    gsettings set org.gnome.desktop.background picture-uri-dark $background_theme
+    gsettings set org.gnome.desktop.background picture-uri $background_theme
+    gsettings set org.gnome.desktop.background picture-options $picture_options
+
+    ln -sf "/usr/share/themes/$theme_name/assets" "${HOME}/.config/assets"
+    ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
+    ln -sf "/usr/share/themes/$theme_name/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
     
     rm -rf $HOME/dconf-interface.ini $HOME/dconf-preferences.ini $HOME/dconf-shell.ini
     rm -rf "$FLAGFILE"

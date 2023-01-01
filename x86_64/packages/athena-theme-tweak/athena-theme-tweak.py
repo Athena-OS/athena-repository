@@ -183,7 +183,8 @@ if args.theme:
     subprocess.call("mkdir -p "+home+"/.config/gtk-4.0", shell=True)
     
     if chosen_theme == "AkameGaKill":
-        theme_name = "Abyss-BLOOD-3.36"
+        theme_name = "Quartz-Dark-Red"
+        gnome_shell = "Quartz-Red"
 
         color_scheme = "prefer-dark"
         icon_theme = "Material-Black-Cherry-Suru"
@@ -194,120 +195,98 @@ if args.theme:
         kitty_theme = "CrayonPonyFish.conf"
         tmux_theme = "redwine"
 
-        #Reinitialize gsettings for applying the changes correctly when we change between border and borderless in the same theme
-        subprocess.call("gsettings set org.gnome.desktop.interface gtk-theme \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.wm.preferences theme \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.shell.extensions.user-theme name \"\"", shell=True)
-        subprocess.call("sleep 1", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.interface gtk-theme "+theme_name, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.wm.preferences theme "+theme_name, shell=True)
-        #subprocess.call("gsettings set org.gnome.shell.extensions.user-theme name "+theme_name, shell=True)
+    elif chosen_theme == "BlueEyesSamurai":
+        b = menu()
+        if b == 1:
+            theme_name = "Tokyonight-Dark-B"
+            gnome_shell = "Tokyonight-Dark-B"
+        else:
+            theme_name = "Tokyonight-Dark-BL"
+            gnome_shell = "Tokyonight-Dark-BL"
 
-        #subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/assets\" \""+home+"/.config/gtk-4.0/assets\"", shell=True)
-        #subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/gtk.css\" \""+home+"/.config/gtk-4.0/gtk.css\"", shell=True)
-        #subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/gtk-dark.css\" \""+home+"/.config/gtk-4.0/gtk-dark.css\"", shell=True)
-        #subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/assets\" \""+home+"/.config/assets\"", shell=True)
+        color_scheme = "prefer-dark"
+        icon_theme = "tokyonight_dark"
+        cursor_theme = "oreo_blue_cursors"
+        background_theme = "file:///usr/share/backgrounds/default/blue-eyes.jpg"
+        picture_options = "stretched"
+        vscode_theme = "Tokyo Night Storm"
+        kitty_theme = "Tokyo_Night_Storm.conf"
+        tmux_theme = "sky"
 
-        subprocess.call("gsettings set org.gnome.desktop.interface color-scheme "+color_scheme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.interface icon-theme "+icon_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.interface cursor-theme "+cursor_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri-dark \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri-dark "+background_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri "+background_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-options "+picture_options, shell=True)
+    elif chosen_theme == "CyborgGruvbox":
+        b = menu()
+        if b == 1:
+            theme_name = "Gruvbox-Dark-B"
+            gnome_shell = "Gruvbox-Dark-B"
+        else:
+            theme_name = "Gruvbox-Dark-BL"
+            gnome_shell = "Gruvbox-Dark-BL"
 
-        subprocess.call("sed -i 's/\"workbench.colorTheme\":.*/\"workbench.colorTheme\": \""+vscode_theme+"\",/g' \""+home+"/.config/Code - OSS/User/settings.json\"", shell=True)
-        subprocess.call("cp -rf "+home+"/.config/kitty/kitty-themes/themes/"+kitty_theme+" "+home+"/.config/kitty/current-theme.conf", shell=True)
-        subprocess.call("sed -i 's/set -g @tmux_power_theme.*/set -g @tmux_power_theme \'"+tmux_theme+"\'/g' "+home+"/.tmux.conf", shell=True)
+        color_scheme = "prefer-dark"
+        icon_theme = "Material-Black-Mango-Suru"
+        cursor_theme = "Fuchsia-Pop"
+        background_theme = "file:///usr/share/backgrounds/default/cyborg_gruv.png"
+        picture_options = "stretched"
+        vscode_theme = "Gruvbox Material Dark"
+        kitty_theme = "gruvbox_dark.conf"
+        tmux_theme = "gold"
 
-    else:
-    
-        if chosen_theme == "BlueEyesSamurai":
-            b = menu()
-            if b == 1:
-                theme_name = "Tokyonight-Dark-B"
-            else:
-                theme_name = "Tokyonight-Dark-BL"
+    elif chosen_theme == "Graphite":
+        b = menu()
+        if b == 1:
+            theme_name = "Graphite-Dark"
+            gnome_shell = "Graphite-Dark"
+        else:
+            theme_name = "Graphite-Dark-Rimless"
+            gnome_shell = "Graphite-Dark-Rimless"
 
-            color_scheme = "prefer-dark"
-            icon_theme = "tokyonight_dark"
-            cursor_theme = "oreo_blue_cursors"
-            background_theme = "file:///usr/share/backgrounds/default/blue-eyes.jpg"
-            picture_options = "stretched"
-            vscode_theme = "Tokyo Night Storm"
-            kitty_theme = "Tokyo_Night_Storm.conf"
-            tmux_theme = "sky"
+        color_scheme = "prefer-dark"
+        icon_theme = "Tela-circle-black-dark"
+        cursor_theme = "Bibata-Modern-Ice"
+        background_theme = "file:///usr/share/backgrounds/default/arch-ascii.png"
+        picture_options = "stretched"
+        vscode_theme = "Just Black"
+        kitty_theme = "Atom.conf"
+        tmux_theme = "snow"
 
-        elif chosen_theme == "CyborgGruvbox":
-            b = menu()
-            if b == 1:
-                theme_name = "Gruvbox-Dark-B"
-            else:
-                theme_name = "Gruvbox-Dark-BL"
+    elif chosen_theme == "SweetDark":
+        theme_name = "Sweet-Dark-v40"
+        gnome_shell = "Sweet-Dark-v40"
 
-            color_scheme = "prefer-dark"
-            icon_theme = "Material-Black-Mango-Suru"
-            cursor_theme = "Fuchsia-Pop"
-            background_theme = "file:///usr/share/backgrounds/default/cyborg_gruv.png"
-            picture_options = "stretched"
-            vscode_theme = "Gruvbox Material Dark"
-            kitty_theme = "gruvbox_dark.conf"
-            tmux_theme = "gold"
+        color_scheme = "prefer-dark"
+        icon_theme = "Sweet-Purple"
+        cursor_theme = "oreo_spark_purple_cursors"
+        background_theme = "file:///usr/share/backgrounds/default/neon_circle.jpg"
+        picture_options = "stretched"
+        vscode_theme = "Radical"
+        kitty_theme = "AdventureTime.conf"
+        tmux_theme = "violet"
 
-        elif chosen_theme == "Graphite":
-            b = menu()
-            if b == 1:
-                theme_name = "Graphite-Dark"
-            else:
-                theme_name = "Graphite-Dark-Rimless"
+    #Reinitialize gsettings for applying the changes correctly when we change between border and borderless in the same theme
+    subprocess.call("gsettings set org.gnome.desktop.interface gtk-theme \"\"", shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.wm.preferences theme \"\"", shell=True)
+    subprocess.call("gsettings set org.gnome.shell.extensions.user-theme name \"\"", shell=True)
+    subprocess.call("sleep 1", shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.interface gtk-theme "+theme_name, shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.wm.preferences theme "+theme_name, shell=True)
+    subprocess.call("gsettings set org.gnome.shell.extensions.user-theme name "+gnome_shell, shell=True)
 
-            color_scheme = "prefer-dark"
-            icon_theme = "Tela-circle-black-dark"
-            cursor_theme = "Bibata-Modern-Ice"
-            background_theme = "file:///usr/share/backgrounds/default/arch-ascii.png"
-            picture_options = "stretched"
-            vscode_theme = "Just Black"
-            kitty_theme = "Atom.conf"
-            tmux_theme = "snow"
+    subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/assets\" \""+home+"/.config/gtk-4.0/assets\"", shell=True)
+    subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/gtk.css\" \""+home+"/.config/gtk-4.0/gtk.css\"", shell=True)
+    subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/gtk-dark.css\" \""+home+"/.config/gtk-4.0/gtk-dark.css\"", shell=True)
+    subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/assets\" \""+home+"/.config/assets\"", shell=True)
 
-        elif chosen_theme == "SweetDark":
-            theme_name = "Sweet-Dark-v40"
+    subprocess.call("gsettings set org.gnome.desktop.interface color-scheme "+color_scheme, shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.interface icon-theme "+icon_theme, shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.interface cursor-theme "+cursor_theme, shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.background picture-uri-dark \"\"", shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.background picture-uri-dark "+background_theme, shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.background picture-uri \"\"", shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.background picture-uri "+background_theme, shell=True)
+    subprocess.call("gsettings set org.gnome.desktop.background picture-options "+picture_options, shell=True)
 
-            color_scheme = "prefer-dark"
-            icon_theme = "Sweet-Purple"
-            cursor_theme = "oreo_spark_purple_cursors"
-            background_theme = "file:///usr/share/backgrounds/default/neon_circle.jpg"
-            picture_options = "stretched"
-            vscode_theme = "Radical"
-            kitty_theme = "AdventureTime.conf"
-            tmux_theme = "violet"
-
-        #Reinitialize gsettings for applying the changes correctly when we change between border and borderless in the same theme
-        subprocess.call("gsettings set org.gnome.desktop.interface gtk-theme \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.wm.preferences theme \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.shell.extensions.user-theme name \"\"", shell=True)
-        subprocess.call("sleep 1", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.interface gtk-theme "+theme_name, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.wm.preferences theme "+theme_name, shell=True)
-        subprocess.call("gsettings set org.gnome.shell.extensions.user-theme name "+theme_name, shell=True)
-
-        subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/assets\" \""+home+"/.config/gtk-4.0/assets\"", shell=True)
-        subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/gtk.css\" \""+home+"/.config/gtk-4.0/gtk.css\"", shell=True)
-        subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/gtk-4.0/gtk-dark.css\" \""+home+"/.config/gtk-4.0/gtk-dark.css\"", shell=True)
-        subprocess.call("ln -sf \"/usr/share/themes/"+theme_name+"/assets\" \""+home+"/.config/assets\"", shell=True)
-
-        subprocess.call("gsettings set org.gnome.desktop.interface color-scheme "+color_scheme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.interface icon-theme "+icon_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.interface cursor-theme "+cursor_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri-dark \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri-dark "+background_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri \"\"", shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-uri "+background_theme, shell=True)
-        subprocess.call("gsettings set org.gnome.desktop.background picture-options "+picture_options, shell=True)
-
-        subprocess.call("sed -i 's/\"workbench.colorTheme\":.*/\"workbench.colorTheme\": \""+vscode_theme+"\",/g' \""+home+"/.config/Code - OSS/User/settings.json\"", shell=True)
-        subprocess.call("cp -rf "+home+"/.config/kitty/kitty-themes/themes/"+kitty_theme+" "+home+"/.config/kitty/current-theme.conf", shell=True)
-        subprocess.call("sed -i 's/set -g @tmux_power_theme.*/set -g @tmux_power_theme \'"+tmux_theme+"\'/g' "+home+"/.tmux.conf", shell=True)
+    subprocess.call("sed -i 's/\"workbench.colorTheme\":.*/\"workbench.colorTheme\": \""+vscode_theme+"\",/g' \""+home+"/.config/Code - OSS/User/settings.json\"", shell=True)
+    subprocess.call("cp -rf "+home+"/.config/kitty/kitty-themes/themes/"+kitty_theme+" "+home+"/.config/kitty/current-theme.conf", shell=True)
+    subprocess.call("sed -i 's/set -g @tmux_power_theme.*/set -g @tmux_power_theme \'"+tmux_theme+"\'/g' "+home+"/.tmux.conf", shell=True)
 
     exit()
