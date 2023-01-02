@@ -119,6 +119,7 @@ def GUI(self, Gtk, GdkPixbuf):
         "Malware Analyst",
         "Mobile Analyst",
         "Network Analyst",
+        "OSINT Specialist",
         "Red Teamer",
         "Web Pentester",
     ]

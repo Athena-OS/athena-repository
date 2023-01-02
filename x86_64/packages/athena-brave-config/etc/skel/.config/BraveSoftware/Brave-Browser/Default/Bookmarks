@@ -1,5 +1,5 @@
 {
-   "checksum": "53480693eebc7a33d16d02004e2da49b",
+   "checksum": "0437084dc0f179bc5b451a45fbda6262",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -764,6 +764,17 @@
                "type": "url",
                "url": "https://darkfeed.io/"
             }, {
+               "date_added": "13317111606742634",
+               "date_last_used": "0",
+               "guid": "1d0a29e8-d486-4f68-a5ea-12b2a8d80b01",
+               "id": "235",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "de🔸digger find public files in Google Drive",
+               "type": "url",
+               "url": "https://www.dedigger.com/"
+            }, {
                "date_added": "13270467810000000",
                "date_last_used": "0",
                "guid": "84acfee4-e2e2-4741-9274-83b3ea9ade44",
@@ -771,6 +782,28 @@
                "name": "DeHashed — #FreeThePassword",
                "type": "url",
                "url": "https://dehashed.com/"
+            }, {
+               "date_added": "13317111850140389",
+               "date_last_used": "0",
+               "guid": "57ce6fc7-5c45-4c0e-bee1-752c0c6cf8b8",
+               "id": "239",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Diff Checker - Compare the difference between images",
+               "type": "url",
+               "url": "https://www.diffchecker.com/image-compare/"
+            }, {
+               "date_added": "13317111817881197",
+               "date_last_used": "0",
+               "guid": "2b45cf03-0a87-4185-a7d5-f72a203303e3",
+               "id": "238",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Forensic Magnifier - free online photo forensics tools - 29a.ch",
+               "type": "url",
+               "url": "https://29a.ch/photo-forensics/#forensic-magnifier"
             }, {
                "date_added": "13270466201000000",
                "date_last_used": "0",
@@ -803,6 +836,17 @@
                "name": "Hunter (Email Hunter) - Find email addresses in seconds",
                "type": "url",
                "url": "https://hunter.io/"
+            }, {
+               "date_added": "13317111928888715",
+               "date_last_used": "0",
+               "guid": "e2e87aa4-bc06-433a-9742-a259ce339c17",
+               "id": "240",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "i2OCR - Free Online OCR",
+               "type": "url",
+               "url": "https://www.i2ocr.com/"
             }, {
                "date_added": "13270467486000000",
                "date_last_used": "0",
@@ -908,6 +952,28 @@
                "type": "url",
                "url": "https://shodan.io/"
             }, {
+               "date_added": "13317111743123502",
+               "date_last_used": "0",
+               "guid": "a282a1b1-303a-43e7-bf90-e9d02fffda79",
+               "id": "236",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "Squatm3gator - a complete web solution based on the python tool squatm3, designed to enumerate available domains generated modifying the original domain name through different cybersquatting techniques",
+               "type": "url",
+               "url": "https://github.com/david3107/squatm3gator"
+            }, {
+               "date_added": "13317111789982246",
+               "date_last_used": "0",
+               "guid": "606502d9-b42a-4201-9873-1443db1016c8",
+               "id": "237",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "TinEye Reverse Image Search",
+               "type": "url",
+               "url": "https://tineye.com/"
+            }, {
                "date_added": "13270467207000000",
                "date_last_used": "0",
                "guid": "1064c6ea-11a5-4c2e-a52d-1cbefd0fc619",
@@ -966,7 +1032,7 @@
             } ],
             "date_added": "13314552638739981",
             "date_last_used": "0",
-            "date_modified": "0",
+            "date_modified": "13317111941846536",
             "guid": "e8c50d74-3f7e-446a-8ead-5a6020e3ae84",
             "id": "79",
             "name": "OSINT",
@@ -1874,7 +1940,7 @@
          } ],
          "date_added": "13314552444625412",
          "date_last_used": "0",
-         "date_modified": "0",
+         "date_modified": "13317111606742634",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks",

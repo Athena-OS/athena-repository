@@ -8,18 +8,11 @@ depends=('code')
 source=("$pkgname.tar.gz")
 
 package() {
-  mkdir -p "${pkgdir}/etc/skel/.vscode-oss/extensions"
+  mkdir -p "${pkgdir}/etc/skel/.vscode-oss"
   mkdir -p "${pkgdir}/etc/skel/.config/Code - OSS/User"
   
   cp -rf "${srcdir}/etc/skel/.config/Code - OSS/User/settings.json" "${pkgdir}/etc/skel/.config/Code - OSS/User/"
-  
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/thorerik.hacker-theme-2.0.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/carrie999.cyberpunk-2020-0.1.4.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/dhedgecock.radical-vscode-3.2.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/enkia.tokyo-night-0.8.4.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/hfac.msdos-theme-0.1.0.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/nur.just-black-3.1.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/gruvbox-material-6.5.0_vsixhub.com.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
-  code --no-sandbox --install-extension "${srcdir}/etc/skel/.vscode-oss/extensions/red-blood-0.0.1.vsix" --extensions-dir "${pkgdir}/etc/skel/.vscode-oss/extensions"
+
+  cp -rf "${srcdir}/etc/skel/.vscode-oss/extensions" "${pkgdir}/etc/skel/.vscode-oss/"
 }
-sha256sums=('e9aea18cc97971f798b50ebe21fce7be9c03380699f0ac4edb554ec16bfba4ca')
+sha256sums=('21c8d2ef82d2e3fb4092b2758e89316b0617530d94eadfbe2ddae56be97bf9e7')

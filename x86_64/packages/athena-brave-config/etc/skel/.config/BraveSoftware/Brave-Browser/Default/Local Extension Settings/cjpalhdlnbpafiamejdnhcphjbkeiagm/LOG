@@ -1,3 +1,20 @@
-2022/12/24-19:00:21.569 20aa Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/MANIFEST-000001
-2022/12/24-19:00:21.569 20aa Recovering log #28
-2022/12/24-19:00:21.619 20aa Reusing old log /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/000028.log 
+2023/01/02-07:13:15.767 124e9 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/MANIFEST-000001
+2023/01/02-07:13:15.768 124e9 Recovering log #40
+2023/01/02-07:13:15.807 124e9 Reusing old log /home/athena/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/000040.log 
+2023/01/02-07:15:03.492 125f1 Level-0 table #44: started
+2023/01/02-07:15:03.509 125f1 Level-0 table #44: 1601433 bytes OK
+2023/01/02-07:15:03.509 125f1 Delete type=0 #40
+2023/01/02-07:15:03.510 1251b Compacting 4@0 + 4@1 files
+2023/01/02-07:15:03.547 1251b Generated table #45@0: 14 keys, 2242261 bytes
+2023/01/02-07:15:03.581 1251b Generated table #46@0: 23 keys, 2163079 bytes
+2023/01/02-07:15:03.582 1251b Generated table #47@0: 5 keys, 68733 bytes
+2023/01/02-07:15:03.582 1251b Compacted 4@0 + 4@1 files => 4474073 bytes
+2023/01/02-07:15:03.582 1251b compacted to: files[ 0 3 1 0 0 0 0 ]
+2023/01/02-07:15:03.582 1251b Delete type=2 #30
+2023/01/02-07:15:03.582 1251b Delete type=2 #31
+2023/01/02-07:15:03.582 1251b Delete type=2 #32
+2023/01/02-07:15:03.582 1251b Delete type=2 #33
+2023/01/02-07:15:03.582 1251b Delete type=2 #44
+2023/01/02-07:15:03.582 1251b Delete type=2 #41
+2023/01/02-07:15:03.582 1251b Delete type=2 #38
+2023/01/02-07:15:03.582 1251b Delete type=2 #36

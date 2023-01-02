@@ -210,6 +210,17 @@ variable_list = [
 ("Network Analyst", "blackarch-spoof", "Packages that attempt to spoof the attacker. Details: https://blackarch.org/spoof.html"),
 ("Network Analyst", "blackarch-tunnel", "Packages that are used to tunnel network traffic on a given network. Details: https://blackarch.org/tunnel.html"),
 ("Network Analyst", "blackarch-wireless", "Packages that operate on wireless network at any level. Details: https://blackarch.org/wireless.html"),
+("OSINT Specialist", "blackarch-recon", "Packages that actively seeks vulnerable exploits in the wild. Details: https://blackarch.org/recon.html"),
+("OSINT Specialist", "belati", "The Traditional Swiss Army Knife for OSINT."),
+("OSINT Specialist", "de4dot", ".NET deobfuscator and unpacker."),
+("OSINT Specialist", "netz", "Discover internet-wide misconfigurations while drinking coffee."),
+("OSINT Specialist", "phoneinfoga", "Information gathering & OSINT framework for phone numbers."),
+("OSINT Specialist", "sherlock", "Find usernames across social networks."),
+("OSINT Specialist", "skiptracer", "OSINT webscraping framework. Skipping the needs of API keys."),
+("OSINT Specialist", "sleuthkit", "File system and media management forensic analysis tools."),
+("OSINT Specialist", "sn0int", "Semi-automatic OSINT framework and package manager."),
+("OSINT Specialist", "sniffglue", "Secure multithreaded packet sniffer."),
+("OSINT Specialist", "twint", "An advanced Twitter scraping & OSINT tool written in Python."),
 ("Red Teamer", "blackarch-cracker", "Packages used for cracking cryptography functions. Details: https://blackarch.org/cracker.html"),
 ("Red Teamer", "blackarch-database", "Packages for database exploitation at any level. Details: https://blackarch.org/database.html"),
 ("Red Teamer", "blackarch-debugger", "Debugger packages. Details: https://blackarch.org/debugger.html"),
@@ -269,13 +280,13 @@ class TreeViewFilterWindow(Gtk.Window):
             button.connect("clicked", self.on_selection_button_clicked)
 
         self.buttons_bottom = list()
-        for var_category in ["Malware Analyst", "Mobile Analyst", "Network Analyst", "Red Teamer", "Web Pentester"]:
+        for var_category in ["Malware Analyst", "Mobile Analyst", "Network Analyst", "OSINT Specialist", "Red Teamer"]:
             button_bottom = Gtk.Button(label=var_category)
             self.buttons_bottom.append(button_bottom)
             button_bottom.connect("clicked", self.on_selection_button_clicked)
 
         self.buttons_deeper = list()
-        for var_category in ["None"]:
+        for var_category in ["Web Pentester", "None"]:
             button_deeper = Gtk.Button(label=var_category)
             self.buttons_deeper.append(button_deeper)
             button_deeper.connect("clicked", self.on_selection_button_clicked)
@@ -309,7 +320,7 @@ class TreeViewFilterWindow(Gtk.Window):
         ##################################################################
         self.scrollable_deeper = Gtk.ScrolledWindow()
         self.scrollable_deeper.set_vexpand(True)
-        self.grid.attach(self.scrollable_deeper, 2, 0, 3, 12)
+        self.grid.attach(self.scrollable_deeper, 0, 0, 3, 12)
         self.grid.attach_next_to(
             self.buttons_deeper[0], self.scrollable_deeper, Gtk.PositionType.BOTTOM, 1, 1
         )

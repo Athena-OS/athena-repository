@@ -1,2 +1,3 @@
-2022/12/17-02:19:42.698 1fb2 Creating DB /home/athena/.config/BraveSoftware/Brave-Browser/Default/Extension Scripts since it was missing.
-2022/12/17-02:19:42.701 1fb2 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Extension Scripts/MANIFEST-000001
+2022/12/24-18:33:33.084 938 Reusing MANIFEST /home/athena/.config/BraveSoftware/Brave-Browser/Default/Extension Scripts/MANIFEST-000001
+2022/12/24-18:33:33.084 938 Recovering log #3
+2022/12/24-18:33:33.084 938 Reusing old log /home/athena/.config/BraveSoftware/Brave-Browser/Default/Extension Scripts/000003.log 

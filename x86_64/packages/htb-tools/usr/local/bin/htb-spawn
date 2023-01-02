@@ -158,6 +158,18 @@ if cat $machine_json_file | grep -q "Starting Point Machine"; then
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
+        echo -e "\e[32mDo you want to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
+        select yn in "Yes" "No"; do
+            case $yn in
+                Yes ) 
+                    domain_name="$(echo "$machine_name" | sed -e 's/\(.*\)/\L\1/').htb"
+                    read -p "$(echo -e "\e[32mType the domain name to assign \e[31m[i.e., $domain_name]\e[32m: \e[0m")" ans
+                    sudo sed -i "2i$machine_ip  $ans" /etc/hosts #added on the 2nd line of /etc/hosts
+                    break;;
+                No ) break;;
+            esac
+        done
+
         #echo -e "Remember to activate the VPN for HTB Starting Point Machines."
         echo -e "\e[33mFor submitting the answers of the task questions, visit Hack The Box website: https://app.hackthebox.com/starting-point\e[0m"
         echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
@@ -223,6 +235,18 @@ else
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
+        echo -e "\e[32mDo you want to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
+        select yn in "Yes" "No"; do
+            case $yn in
+                Yes ) 
+                    domain_name="$(echo "$machine_name" | sed -e 's/\(.*\)/\L\1/').htb"
+                    read -p "$(echo -e "\e[32mType the domain name to assign \e[31m[i.e., $domain_name]\e[32m: \e[0m")" ans
+                    sudo sed -i "2i$machine_ip  $ans" /etc/hosts #added on the 2nd line of /etc/hosts
+                    break;;
+                No ) break;;
+            esac
+        done
+
         #echo -e "Remember to activate the VPN for HTB Machines."
         echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
         echo
@@ -250,6 +274,18 @@ else
         if [ $change_prompt = "true" ]; then
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
+
+        echo -e "\e[32mDo you want to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
+        select yn in "Yes" "No"; do
+            case $yn in
+                Yes ) 
+                    domain_name="$(echo "$machine_name" | sed -e 's/\(.*\)/\L\1/').htb"
+                    read -p "$(echo -e "\e[32mType the domain name to assign \e[31m[i.e., $domain_name]\e[32m: \e[0m")" ans
+                    sudo sed -i "2i$machine_ip  $ans" /etc/hosts #added on the 2nd line of /etc/hosts
+                    break;;
+                No ) break;;
+            esac
+        done
 
         #echo -e "Remember to activate the VPN for HTB Machines."
         echo -e "\e[32mPlaying $machine_name. Good luck!\e[0m"
