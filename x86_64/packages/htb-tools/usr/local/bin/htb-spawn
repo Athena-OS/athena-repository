@@ -158,7 +158,7 @@ if cat $machine_json_file | grep -q "Starting Point Machine"; then
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
-        echo -e "\e[32mDo you want to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
+        echo -e "\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
         select yn in "Yes" "No"; do
             case $yn in
                 Yes ) 
@@ -235,7 +235,7 @@ else
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
-        echo -e "\e[32mDo you want to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
+        echo -e "\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
         select yn in "Yes" "No"; do
             case $yn in
                 Yes ) 
@@ -275,7 +275,7 @@ else
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
-        echo -e "\e[32mDo you want to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
+        echo -e "\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
         select yn in "Yes" "No"; do
             case $yn in
                 Yes ) 
