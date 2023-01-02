@@ -11,9 +11,15 @@ pkgfile=$pkgname-$pkgver-$pkgrel-$arch.pkg.tar.zst
 
 echo $pkgfile
 
-makepkg -f -sr --sign
+sed -i '/depends=/d' PKGBUILD
+sed -i '/^$/d' PKGBUILD #Delete all empty lines
 
-rm -rf src pkg $pkgname.tar.gz
+printf '\n' >> PKGBUILD #Avoid that the new "depends" string is placed on an existing row
+printf 'depends=( ' >> PKGBUILD
+printf "'%s' " $(pacman -Sgq blackarch-cracker blackarch-database blackarch-debugger blackarch-decompiler blackarch-exploitation blackarch-fuzzer blackarch-networking blackarch-recon blackarch-scanner blackarch-sniffer blackarch-spoof blackarch-webapp blackarch-windows) >> PKGBUILD
+printf ')\n' >> PKGBUILD
+
+makepkg -f -sr --sign
 
 rm -rf ../../../$pkgfile ../../../$pkgfile.sig
 
