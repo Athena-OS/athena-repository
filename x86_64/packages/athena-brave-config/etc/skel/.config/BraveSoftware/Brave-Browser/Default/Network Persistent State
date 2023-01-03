@@ -1,1 +1,1 @@
-{"net":{"http_server_properties":{"servers":[{"anonymization":["OAAAADMAAABjaHJvbWUtZXh0ZW5zaW9uOi8vY2pwYWxoZGxuYnBhZmlhbWVqZG5oY3BoamJrZWlhZ20A","OAAAADMAAABjaHJvbWUtZXh0ZW5zaW9uOi8vY2pwYWxoZGxuYnBhZmlhbWVqZG5oY3BoamJrZWlhZ20A"],"network_stats":{"srtt":33562},"server":"https://cdn.jsdelivr.net"}],"version":5},"network_qualities":{}}}
+{"net":{"http_server_properties":{"servers":[],"version":5},"network_qualities":{}}}

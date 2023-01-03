@@ -15,4 +15,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
   
 }
-sha256sums=('dc073fc1b572218e0cf203547d0261cda0f7562d98a63a934ab816085de46270')
+sha256sums=('1913ef14b52af9307539957ab30752a300619276686b91465d230592baf2a724')
