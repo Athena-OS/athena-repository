@@ -27,4 +27,4 @@ package() {
   chmod 755 "${pkgdir}/usr/share/athena-welcome/role-tools"
 
 }
-sha256sums=('c4ba71223cd9cea7f9b02726daa556f05bf89293dfa95388089f65edaf38fc26')
+sha256sums=('acf76ba424f06ab80f3ccfd912a825e4f979be9bb3c75b63b1bedb6e1973bbf2')

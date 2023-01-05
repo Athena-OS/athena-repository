@@ -1,0 +1,32 @@
+pkgname=athena-security-wordlist
+_pkgname=Security-Wordlist
+pkgver=22.08c8741
+pkgrel=1
+pkgdesc='A wordlist repository with human-curated and reviewed content.'
+arch=('any')
+url='https://github.com/DragonJAR/Security-Wordlist'
+license=('GPL3')
+depends=()
+makedepends=('git')
+source=("git+https://github.com/DragonJAR/$_pkgname.git")
+sha512sums=('SKIP')
+
+pkgver() {
+  cd $_pkgname
+
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
+
+package() {
+  cd $_pkgname
+
+  install -dm 755 "$pkgdir/usr/share/payloads/$_pkgname"
+
+  install -Dm 644 -t "$pkgdir/usr/share/doc/$_pkgname/" *.md
+  install -Dm 644 LICENSE "$pkgdir/usr/share/licenses/$_pkgname/LICENSE"
+
+  rm *.md LICENSE
+
+  find -maxdepth 1 | grep -v \\.git |
+  xargs -I{} cp -r {} "$pkgdir/usr/share/payloads/$_pkgname"
+}
