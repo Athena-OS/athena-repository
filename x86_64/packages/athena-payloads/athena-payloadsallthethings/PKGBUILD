@@ -1,6 +1,6 @@
 pkgname=athena-payloadsallthethings
 _pkgname=PayloadsAllTheThings
-pkgver=1662.d4742a9
+pkgver=1661.095024f
 pkgrel=1
 pkgdesc='A list of useful payloads and bypass for Web Application Security and Pentest/CTF.'
 arch=('any')

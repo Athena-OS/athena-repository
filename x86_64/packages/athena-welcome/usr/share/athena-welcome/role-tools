@@ -12,8 +12,6 @@ fi
 role=$1
 gitweb=0
 
-declare -A gitsource=(["https://github.com/danielmiessler/SecLists"]="/usr/share/payloads/SecLists" ["https://github.com/DragonJAR/Security-Wordlist"]="/usr/share/payloads/Security-Wordlist")
-
 #echo $role
 if [ $role = "BH" ]; then
    hacktools="athena-blackhat"
@@ -48,6 +46,8 @@ else
    exit 1
 fi
 
+index=0
+
 ################################################
 #              UNINSTALLING TOOLS              #
 ################################################
@@ -76,14 +76,7 @@ if [ $gitweb ]; then
    echo "Retrieving payload repositories..."
    echo
    
-   sudo pacman -S --noconfirm athena-payloadsallthethings athena-fuzzdb athena-auto-wordlists
-
-   for i in "${!gitsource[@]}"
-   do
-      echo "Retrieving $i..."
-      sudo git clone $i ${gitsource[$i]}
-      echo
-   done
+   sudo pacman -S --noconfirm athena-seclists athena-payloadsallthethings athena-fuzzdb athena-auto-wordlists athena-security-wordlist
    
    if [ ! -f /usr/share/payloads/SecLists/Passwords/Leaked-Databases/rockyou.txt ]
    then
