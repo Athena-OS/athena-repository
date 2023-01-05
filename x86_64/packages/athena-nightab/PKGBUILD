@@ -13,4 +13,4 @@ package() {
   cp -rf "${srcdir}/usr/share/nightab/athena_persona_5.json" "${pkgdir}/usr/share/nightab/"
   
 }
-sha256sums=('1a1881b75657b8372d604096d11a764c0e3d3656901b6fe0060a12257e63487b')
+sha256sums=('6e0a3f61d549c250ccb0b3f7ad36f1a92fb961a3bf57210532ebceaaa544a671')

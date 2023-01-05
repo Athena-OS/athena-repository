@@ -86,7 +86,7 @@ if [ -f "$FLAGFILE" ]; then
          gnome_shell="Quartz-Red"
 
          color_scheme="prefer-dark"
-         icon_theme="Material-Black-Cherry-Suru
+         icon_theme="Material-Black-Cherry-Suru"
          cursor_theme="Bibata-Modern-DarkRed"
          background_theme="file:///usr/share/backgrounds/default/akame.jpg"
          picture_options="stretched"
@@ -98,7 +98,7 @@ if [ -f "$FLAGFILE" ]; then
          gnome_shell="Tokyonight-Dark-B"
 
          color_scheme="prefer-dark"
-         icon_theme="tokyonight_dark
+         icon_theme="tokyonight_dark"
          cursor_theme="oreo_blue_cursors"
          background_theme="file:///usr/share/backgrounds/default/blue-eyes.jpg"
          picture_options="stretched"

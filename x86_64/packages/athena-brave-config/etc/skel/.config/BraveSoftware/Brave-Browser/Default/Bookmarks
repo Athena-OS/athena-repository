@@ -1,9 +1,20 @@
 {
-   "checksum": "b821d00b2a00d9d0c05471f7c3b8c30f",
+   "checksum": "ea08c26eb02824bd82ae295643d0b88c",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "children": [ {
+               "date_added": "13317356445519403",
+               "date_last_used": "0",
+               "guid": "2d90b25e-9bf1-4296-8c2b-42c52a5f5da1",
+               "id": "244",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "ChatGPT - OpenAI",
+               "type": "url",
+               "url": "https://chat.openai.com/"
+            }, {
                "date_added": "13314513287000000",
                "date_last_used": "0",
                "guid": "2c26b1f2-fbd1-41da-b82a-4500a77d38cd",
@@ -14,7 +25,7 @@
             } ],
             "date_added": "13314552638736979",
             "date_last_used": "0",
-            "date_modified": "0",
+            "date_modified": "13317356471279170",
             "guid": "aa6379dc-9fb8-4ff7-8868-550656bf5803",
             "id": "5",
             "name": "Awesome",
@@ -1043,7 +1054,7 @@
             } ],
             "date_added": "13314552638739981",
             "date_last_used": "0",
-            "date_modified": "13317185271516022",
+            "date_modified": "13317356445519403",
             "guid": "e8c50d74-3f7e-446a-8ead-5a6020e3ae84",
             "id": "79",
             "name": "OSINT",
