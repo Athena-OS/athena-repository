@@ -1,7 +1,7 @@
 #!/bin/sh
 
 FLAGFILE="$HOME/flag-work-once"
-FLAGNET="$HOME/.flag-net-once"
+#FLAGNET="$HOME/.flag-net-once"
 
 if [ -f "$FLAGFILE" ]; then
 
@@ -126,14 +126,14 @@ if [ -f "$FLAGFILE" ]; then
     ln -s "$HOME/.mozilla/firefox-esr" "$HOME/.mozilla/firefox"    
 fi
 
-if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
-    if [ -f "$FLAGNET" ]; then
-    # Commented for keeping nist-feed disable. The user decides if enable it.
-    #	/usr/local/bin/nist-feed -n -l
-    	rm -rf "$FLAGNET"
-    fi
-    /usr/local/bin/htb-update
-fi
+#if ping -q -c 1 -W 1 8.8.8.8 >/dev/null; then
+#    if [ -f "$FLAGNET" ]; then
+#    # Commented for keeping nist-feed disable. The user decides if enable it.
+#    #	/usr/local/bin/nist-feed -n -l
+#    	rm -rf "$FLAGNET"
+#    fi
+#    /usr/local/bin/htb-update
+#fi
 
 #If tun0 is down (i.e., after a reboot), the shell prompt must be updated with the running interfaces
 if ! nmcli c show --active | grep -q tun ; then

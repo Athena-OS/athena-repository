@@ -42,6 +42,7 @@ def GUI(self, Gtk, GdkPixbuf):
     hbox9 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
     hbox10 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10) #ComboBox
     hbox11 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10) #Key shortcut
+    hboxmiddle = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
 
     # vbox1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
     # vbox2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
@@ -163,18 +164,29 @@ def GUI(self, Gtk, GdkPixbuf):
     buttonca.connect("clicked", self.on_aica_clicked)
     buttonca.set_size_request(0, 80)
 
+    self.buttonhtb = Gtk.Button(label="")
+    buttonhtb = self.buttonhtb.get_child()
+    buttonhtb.set_markup("<span size='large'><b>HTB Update</b></span>")
+    self.buttonhtb.connect("clicked", self.on_buttonhtb_clicked)
+    self.buttonhtb.set_size_request(200, 50)
 
-    self.button8 = Gtk.Button(label="")
-    button8_label = self.button8.get_child()
-    button8_label.set_markup("<span size='large'><b>Update All Mirrors</b></span>")
-    self.button8.connect("clicked", self.on_mirror_clicked)
-    self.button8.set_size_request(420, 70)
+    self.buttontools = Gtk.Button(label="")
+    buttontools = self.buttontools.get_child()
+    buttontools.set_markup("<span size='large'><b>Tool Recipe</b></span>")
+    self.buttontools.connect("clicked", self.on_buttontools_clicked)
+    self.buttontools.set_size_request(200, 50)
 
     self.buttonrtm = Gtk.Button(label="")
     buttonrtm = self.buttonrtm.get_child()
     buttonrtm.set_markup("<span size='large'><b>Set Your Role</b></span>")
     self.buttonrtm.connect("clicked", self.on_buttonrtm_clicked)
     self.buttonrtm.set_size_request(420, 70)
+
+    self.button8 = Gtk.Button(label="")
+    button8_label = self.button8.get_child()
+    button8_label.set_markup("<span size='large'><b>Update All Mirrors</b></span>")
+    self.button8.connect("clicked", self.on_mirror_clicked)
+    self.button8.set_size_request(420, 70)
     
     #self.buttonatt = Gtk.Button(label="")
     #buttonatt_label = self.buttonatt.get_child()
@@ -203,10 +215,18 @@ def GUI(self, Gtk, GdkPixbuf):
         grid.set_row_homogeneous(True)
 
     else:
+
+        #First Top Level Buttons
+        self.buttonhtb.set_size_request(300, 50)
+        self.buttontools.set_size_request(300, 50)
+        hboxmiddle.pack_start(self.buttonhtb, True, False, 0)
+        hboxmiddle.pack_start(self.buttontools, True, False, 0)
+        #Second Top Level Buttons
         grid = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
+        self.buttonrtm.set_size_request(300, 70)
         self.button8.set_size_request(300, 70)
         ##self.buttonatt.set_size_request(300, 70)
-        self.buttonrtm.set_size_request(300, 70)
+        
         
         #self.buttonpamac.set_size_request(300, 70)
         #grid.pack_start(self.buttonpamac, True, False, 0)
@@ -214,7 +234,7 @@ def GUI(self, Gtk, GdkPixbuf):
         grid.pack_start(self.buttonrtm, True, False, 0)
         grid.pack_start(self.button8, True, False, 0)
         hbox1.pack_end(role_combo, False, False, 0) #pack_end means starting from right position
-
+        
     # grid.set_row_homogeneous(True)
 
     # ======================================================================
@@ -496,6 +516,8 @@ def GUI(self, Gtk, GdkPixbuf):
     self.vbox.pack_start(hbox1, False, False, 7)  # Logo on the left and ComboBox on the right
     self.vbox.pack_start(hbox4, False, False, 7)  # welcome Label
     self.vbox.pack_start(hbox8, False, False, 7)  # warning Label
+
+    self.vbox.pack_start(hboxmiddle, False, False, 7)  # HTB Update and Tool list buttons grid
 
     self.vbox.pack_start(grid, True, False, 7)  # Run GParted/Calamares
 

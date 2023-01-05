@@ -316,10 +316,9 @@ done
 
 
 echo
-if [ ! "$machine_name" ]; then
-    echo "What is the name of the machine you would like to play?"
-    read machine_name
-    echo
+if [[ $# -eq 0 ]] ; then
+    Help
+    exit 0
 fi
 
 { # try

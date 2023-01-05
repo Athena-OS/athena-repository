@@ -19,6 +19,7 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/athena-welcome" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/hacking-variables" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/role-viewer" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/tool-recipe" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/mirroars" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/set-repo-keys" "${pkgdir}/usr/local/bin/"
   cp -rf "${srcdir}/usr/share/applications/athena-welcome.desktop" "${pkgdir}/usr/share/applications/"
@@ -27,4 +28,4 @@ package() {
   chmod 755 "${pkgdir}/usr/share/athena-welcome/role-tools"
 
 }
-sha256sums=('acf76ba424f06ab80f3ccfd912a825e4f979be9bb3c75b63b1bedb6e1973bbf2')
+sha256sums=('b97d16739b18cd997d84516569202a3a38883c11147d8b996770896a3251a112')

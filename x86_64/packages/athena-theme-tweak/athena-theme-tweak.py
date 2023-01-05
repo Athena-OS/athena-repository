@@ -114,6 +114,20 @@ def menu():
             print('Invalid option. Please enter a number between 1 and 3.')
 
 args = arg_parse()
+#### Print help message if no arguments are supplied
+flag_args = False
+
+#Get all argument values. If you find a not False/None arg value, go out from the loop and continue.
+for arg in vars(args):
+    #print(arg, getattr(args, arg))
+    if getattr(args, arg): #It is true if this value is different from False or None
+        flag_args = True
+        break
+
+if not flag_args:
+    help()
+    exit()
+###############
 
 if args.colored:
     print(colors.fg.random)

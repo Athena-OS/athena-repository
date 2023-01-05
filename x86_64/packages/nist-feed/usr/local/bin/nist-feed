@@ -216,6 +216,11 @@ while getopts "A:a:Cc:e:hi:lm:nP:r:s:S:U:V:z" option; do #When using getopts, pu
    esac
 done
 
+if [[ $# -eq 0 ]] ; then
+    Help
+    exit 0
+fi
+
 banner
 
 echo

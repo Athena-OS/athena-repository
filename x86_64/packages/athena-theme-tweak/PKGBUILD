@@ -22,4 +22,4 @@ EOF
   chmod +x "$pkgdir/usr/bin/$pkgname"
 }
 
-sha256sums=('b25bf7753be399580655aed56c05fde90595f9012bb8c5a69408d8dfe44ced58')
+sha256sums=('2285253d2810b342aed7b91fda2f3bc766f74b635e65767ab2045428e59892c5')

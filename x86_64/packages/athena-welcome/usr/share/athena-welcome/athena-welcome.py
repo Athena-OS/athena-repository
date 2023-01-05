@@ -111,6 +111,16 @@ class Main(Gtk.Window):
         #t.daemon = True
         #t.start()
 
+    def on_buttonhtb_clicked(self, widget):
+        t = threading.Thread(target=self.run_app, args=(["kitty", os.path.expandvars('$SHELL'), "-c", "/usr/local/bin/htb-update"],))
+        t.daemon = True
+        t.start()
+
+    def on_buttontools_clicked(self, widget):
+        t = threading.Thread(target=self.run_app, args=(["/usr/share/athena-welcome/tool-recipe"],))
+        t.daemon = True
+        t.start()
+
     def on_buttonrtm_clicked(self, widget):
         t = threading.Thread(target=self.run_app, args=(["kitty", os.path.expandvars('$SHELL'), "-c", "/usr/share/athena-welcome/role-tools "+self.role_id],))
         t.daemon = True
