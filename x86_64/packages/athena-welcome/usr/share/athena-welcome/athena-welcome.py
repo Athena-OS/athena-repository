@@ -117,7 +117,7 @@ class Main(Gtk.Window):
         t.start()
 
     def on_buttontools_clicked(self, widget):
-        t = threading.Thread(target=self.run_app, args=(["/usr/share/athena-welcome/tool-recipe"],))
+        t = threading.Thread(target=self.run_app, args=(["/usr/local/bin/tool-recipe"],))
         t.daemon = True
         t.start()
 

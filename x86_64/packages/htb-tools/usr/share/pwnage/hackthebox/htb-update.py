@@ -154,6 +154,7 @@ if "parse error: Invalid numeric literal" in htb_user:
 subprocess.call("mkdir -p $HOME/.local/share/icons/hackthebox/avatar",shell=True)
 
 ############ Retrieving the list of available machines and generate a flypie string of objects ############
+print("Retrieving updated data from Hack The Box... Gimme some time hackerzzz...")
 
 subprocess.call("curl -s --location --request GET https://www.hackthebox.com/api/v4/machine/list -H \"Authorization: Bearer "+appkey+"\" | jq > "+machine_config,shell=True)
 
@@ -256,3 +257,5 @@ with open(output_config, 'w') as f:
 
 subprocess.call("dconf load /org/gnome/shell/extensions/flypie/ < "+output_config,shell=True)
 subprocess.call("rm -rf "+output_config,shell=True)
+
+input("Done. Press Enter to continue...")

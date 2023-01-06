@@ -93,7 +93,7 @@ def GUI(self, Gtk, GdkPixbuf):
     else:
         label2.set_markup("Press <b>[CTRL+SPACE]</b> for the <b>PenTOXIC menu</b> or <b>[CTRL+TAB]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
                           "Choose your role and click on <b>Set Your Role</b> button for retrieving the main resources you need!\n\n" + #noqa
-			  "Run <b>htb-update</b> by the terminal for setting your Hack The Box API key and start your hacking experience!\n\n" + #noqa
+			  "Click on <b>HTB Update</b> for setting your Hack The Box API key and start your hacking experience!\n\n" + #noqa
                     
                           "Get started on Athena. We communicate with our community via Discord or GitHub.\n" + #noqa
                           "Join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
@@ -164,11 +164,28 @@ def GUI(self, Gtk, GdkPixbuf):
     buttonca.connect("clicked", self.on_aica_clicked)
     buttonca.set_size_request(0, 80)
 
-    self.buttonhtb = Gtk.Button(label="")
-    buttonhtb = self.buttonhtb.get_child()
-    buttonhtb.set_markup("<span size='large'><b>HTB Update</b></span>")
+    gridimg = Gtk.Grid ()
+    pb = GdkPixbuf.Pixbuf.new_from_file_at_size('htb.png', 35, 35)
+    img = Gtk.Image()
+    img.set_from_pixbuf(pb)
+    label = Gtk.Label ("<span size='large'><b>HTB Update</b></span>")
+    label.set_use_markup(True)
+    gridimg.attach (img, 0, 0, 40, 1) #40 is used to shift the icon from left to right in the button section
+    gridimg.attach (label, 1, 0, 100, 1) #100 is used to shift the icon from right to left in the button section
+    gridimg.set_column_homogeneous(True) #These two lines are important for managing the centering of icon and label
+    gridimg.set_row_homogeneous(True)    
+
+    self.buttonhtb = Gtk.Button(xalign=0.5, yalign=2) #Icon image centered by yalign=2
+    #buttonhtb = self.buttonhtb.get_child()
+    #self.buttonhtb.set_always_show_image (True)
+    #buttonhtb.set_markup("<span size='large'><b>HTB Update</b></span>")
+    #self.buttonhtb.set_image(img) # Used for putting only the icon in the button. I need also label so I don't use this
+    #self.buttonhtb.set_image_position(Gtk.PositionType.TOP)
+    #self.buttonhtb.get_style_context().add_class("btn_article")
     self.buttonhtb.connect("clicked", self.on_buttonhtb_clicked)
     self.buttonhtb.set_size_request(200, 50)
+    gridimg.show_all ()
+    self.buttonhtb.add(gridimg)
 
     self.buttontools = Gtk.Button(label="")
     buttontools = self.buttontools.get_child()
