@@ -353,7 +353,7 @@ def GUI(self, Gtk, GdkPixbuf):
     button10_label = button10.get_child()
     button10_label.set_markup("<b>Donate</b>")
     button10.connect("clicked", self.on_link_clicked,
-                    "https://www.paypal.com/donate/?hosted_button_id=CPBJ5AC29D9GE")
+                    "https://github.com/sponsors/Athena-OS")
 
     button11 = Gtk.Button(label="Wiki")
     button11.connect("clicked", self.on_link_clicked,
