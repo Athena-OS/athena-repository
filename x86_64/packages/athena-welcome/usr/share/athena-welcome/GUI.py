@@ -91,15 +91,14 @@ def GUI(self, Gtk, GdkPixbuf):
             #"\n<span size='x-large'><b>Use the Easy Installation\n" + # noqa
             #"if the Advanced Installation fails</b></span>\n")  # noqa
     else:
-        label2.set_markup("Press <b>[CTRL+SPACE]</b> for the <b>PenTOXIC menu</b> or <b>[CTRL+SHIFT+SPACE]</b> for the <b>PWNage menu</b>. Explore them!\n" + # noqa
-                          "Choose your role and click on <b>Set Your Role</b> button for retrieving the main resources you need!\n\n" + #noqa
-			  "Click on <b>HTB Update</b> for setting your Hack The Box API key and start your hacking experience!\n\n" + #noqa
+        label2.set_markup("Press <b>[CTRL+SPACE]</b> for the <b>PenTOXIC menu</b> or <b>[CTRL+SHIFT+SPACE]</b> for the <b>PWNage menu</b> to explore them.\n\n" + # noqa
+                          "Choose your role and click the <b>Set Your Role</b> button to retrieve the main resources you need!\n\n" + #noqa
+			  "Click <b>HTB Update</b> to set your Hack The Box API key and start your hacking experience!\n\n" + #noqa
                     
-                          "Get started on Athena. We communicate with our community via Discord or GitHub.\n" + #noqa
-                          "Join us to learn the latest news, ask questions or for casual talk.\n" +  # noqa
-                          "Reach us on <b>Discord</b> for chatting or assistance.\n" +  # noqa
-                          "Open a <b>ticket</b> for any issue or proposal.\n" +  # noqa
-                          "Learn, study and have fun.")
+                          "Get started on Athena. We communicate with our community through Discord or GitHub.\n" + #noqa
+                          "Join us to learn the latest news, ask questions or just for chatting.\n" +  # noqa
+                          "Open a <b>ticket</b> for any issues or proposals.\n" +  # noqa
+                          "Learn, study and have fun!")
 
     hbox4.set_center_widget(label2)
     hbox1.pack_start(label, False, False, 0)
@@ -165,7 +164,7 @@ def GUI(self, Gtk, GdkPixbuf):
     buttonca.set_size_request(0, 80)
 
     gridimg = Gtk.Grid ()
-    pb = GdkPixbuf.Pixbuf.new_from_file_at_size('htb.png', 35, 35)
+    pb = GdkPixbuf.Pixbuf.new_from_file_at_size('images/htb.png', 35, 35)
     img = Gtk.Image()
     img.set_from_pixbuf(pb)
     label = Gtk.Label ("<span size='large'><b>HTB Update</b></span>")
@@ -175,7 +174,7 @@ def GUI(self, Gtk, GdkPixbuf):
     gridimg.set_column_homogeneous(True) #These two lines are important for managing the centering of icon and label
     gridimg.set_row_homogeneous(True)    
 
-    self.buttonhtb = Gtk.Button(xalign=0.5, yalign=2) #Icon image centered by yalign=2
+    self.buttonhtb = Gtk.Button(xalign=0.5, yalign=1) #Icon image centered by yalign=1 (maybe no... It is override by gridimg.attach above)
     #buttonhtb = self.buttonhtb.get_child()
     #self.buttonhtb.set_always_show_image (True)
     #buttonhtb.set_markup("<span size='large'><b>HTB Update</b></span>")

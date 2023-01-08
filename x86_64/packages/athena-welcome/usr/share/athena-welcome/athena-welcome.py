@@ -23,9 +23,9 @@ class Main(Gtk.Window):
     def __init__(self):
         super(Main, self).__init__(title="Athena Welcome")
         self.set_border_width(10)
-        self.set_default_size(860, 250)
+        self.set_default_size(920, 250)
         self.set_icon_from_file(os.path.join(
-            GUI.base_dir, 'images/arcolinux.png'))
+            GUI.base_dir, 'images/athena-logo-white.png')) #Set the application icon on X11
         self.set_position(Gtk.WindowPosition.CENTER)
         self.results = ""
         self.role_id = ""

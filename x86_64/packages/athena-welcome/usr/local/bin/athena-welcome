@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 cd /usr/share/athena-welcome
-exec python athena-welcome.py "$@"
+exec env GDK_BACKEND=x11 python athena-welcome.py "$@"
