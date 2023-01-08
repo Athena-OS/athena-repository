@@ -20,7 +20,7 @@ tar -zcvf $pkgname.tar.gz $sourcefiles
 makepkg -g >> PKGBUILD
 makepkg -f -sr --sign
 
-rm -rf src pkg $pkgname.tar.gz
+rm -rf src pkg $pkgname.tar.gz usr/share/athena-welcome/__pycache__
 
 rm -rf ../../$pkgfile ../../$pkgfile.sig
 
