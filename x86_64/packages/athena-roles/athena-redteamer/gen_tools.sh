@@ -1,6 +1,6 @@
 #!/bin/sh
 
-to_exclude=("seclists" "argus-clients" "xplico" "faradaysec" "inguma")
+to_exclude=("seclists" "argus-clients" "xplico" "faradaysec" "inguma" "fuzzdb" "cansina")
 
 sed -i '/depends=/d' PKGBUILD
 sed -i '/^$/d' PKGBUILD #Delete all empty lines

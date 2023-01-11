@@ -32,8 +32,10 @@ if pacman -Qq $package > /dev/null ; then
   mkinitcpio -P
   sed -in '/^GRUB_CMDLINE_LINUX_DEFAULT*/ s/"$/ nvidia-drm.modeset=1"/g' /etc/default/grub
   grub-mkconfig -o /boot/grub/grub.cfg
-fi
+  nvx on
+  sed -i '2iexport __NV_PRIME_RENDER_OFFLOAD=1\nexport __VK_LAYER_NV_optimus=NVIDIA_only\nexport __GLX_VENDOR_LIBRARY_NAME=nvidia' /etc/skel/.bashrc
 
+fi
 
 echo
 echo "#################################"

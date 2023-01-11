@@ -1,6 +1,6 @@
 #!/bin/sh
 
-to_exclude=("")
+to_exclude=("inguma")
 
 sed -i '/depends=/d' PKGBUILD
 sed -i '/^$/d' PKGBUILD #Delete all empty lines

@@ -7,6 +7,7 @@
   expanded: false
   packages:
     - nvidia-dkms
+    - nvidia-exec
     - nvidia-settings
     - nvidia-utils
 - name: "NVIDIA Related"
