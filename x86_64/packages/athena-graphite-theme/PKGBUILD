@@ -1,6 +1,6 @@
 pkgname=athena-graphite-theme
 pkgver=1.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Graphite Dark theme with Tela Circle Black Dark icons for Athena"
 arch=('any')
 license=("custom")
@@ -20,4 +20,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/blue/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('55c29caae77fa159012622c700ca487b509b1e31bd50a9400d6265d9e22c614d')
+sha256sums=('6c3a33479e69ce57aae3dc9ef607bd92f5fe7c1a0cad6591662588728f87944d')

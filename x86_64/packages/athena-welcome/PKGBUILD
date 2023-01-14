@@ -1,10 +1,10 @@
 pkgname=athena-welcome
 pkgver=2.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Welcome App for Athena"
 arch=('any')
 license=("custom")
-depends=('libwnck3')
+depends=('libwnck3' 'rsync')
 source=("$pkgname.tar.gz")
 
 package() {
@@ -22,10 +22,11 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/tool-recipe" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/mirroars" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/set-repo-keys" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/athena-update" "${pkgdir}/usr/local/bin/"
   cp -rf "${srcdir}/usr/share/applications/athena-welcome.desktop" "${pkgdir}/usr/share/applications/"
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/athena-hello-logo.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
   chmod 755 "${pkgdir}/usr/share/athena-welcome/role-tools"
 
 }
-sha256sums=('28f847f0d6a64ab2c1f8b46c0780757cddf308d4beaa00db2d7725707971abd0')
+sha256sums=('2566596a9fe988046b8a5d282d8d4b5599dde17f5760427db6ff2452b6f295c9')

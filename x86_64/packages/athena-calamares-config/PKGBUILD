@@ -1,6 +1,6 @@
 pkgname=athena-calamares-config
 pkgver=1.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Calamares Configuration for Athena"
 arch=('any')
 license=("custom")

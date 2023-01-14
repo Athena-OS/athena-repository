@@ -1,6 +1,6 @@
 pkgname=athena-fish
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Fish for Athena"
 arch=('any')
 license=("custom")
@@ -13,4 +13,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/fish" "${pkgdir}/etc/skel/.config/"  
 }
 
-sha256sums=('f8c8559ee4145073dae07b981960b55d73bcbe0fe78ed5260d40d1f5aee5adb6')
+sha256sums=('a28518a7da05f12867d6a8894c5d0f2f7d15f3b44f6027798d77fe4fda13358b')

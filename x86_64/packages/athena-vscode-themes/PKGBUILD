@@ -1,6 +1,6 @@
 pkgname=athena-vscode-themes
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="VSCode themes for Athena"
 arch=('any')
 license=("custom")
@@ -15,4 +15,4 @@ package() {
 
   cp -rf "${srcdir}/etc/skel/.vscode-oss/extensions" "${pkgdir}/etc/skel/.vscode-oss/"
 }
-sha256sums=('21c8d2ef82d2e3fb4092b2758e89316b0617530d94eadfbe2ddae56be97bf9e7')
+sha256sums=('8b17c660821b6121b839e327c77c6a789fc30f650b0ae6c61dc32cf24191aed7')

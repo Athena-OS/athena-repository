@@ -1,6 +1,6 @@
 pkgname=athena-nightab
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Nightab browser themes for Athena"
 arch=('any')
 license=("custom")
@@ -13,4 +13,4 @@ package() {
   cp -rf "${srcdir}/usr/share/nightab/athena_persona_5.json" "${pkgdir}/usr/share/nightab/"
   
 }
-sha256sums=('6e0a3f61d549c250ccb0b3f7ad36f1a92fb961a3bf57210532ebceaaa544a671')
+sha256sums=('06dd24caa95d1c97867e5e707cca33eaf053b9acae2745742e88ad6d47abb064')

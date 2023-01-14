@@ -1,6 +1,6 @@
 pkgname=athena-gruvbox-theme
 pkgver=1.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Gruvbox theme with Material Black Mango Suru icons for Athena"
 arch=('any')
 license=("custom")
@@ -19,4 +19,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/icons/pentoxic/gruvbox/* "${pkgdir}/usr/share/icons/pentoxic/"
 
 }
-sha256sums=('aefd621f9392d4cf74f59640d2cbd8fe8abd2b39e72c0a096a30484eb8ceccc3')
+sha256sums=('dce3e318fef7e21c5dc80566b59805ad8760661029cc41fba907eb2fa9bfbbc9')

@@ -1,6 +1,6 @@
 pkgname=athena-pwnage-menu
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="PWNage Menu for Athena"
 arch=('any')
 license=("custom")
@@ -11,4 +11,4 @@ package() {
 
   cp -rf "${srcdir}"/usr/share/icons/pwnage/* "${pkgdir}/usr/share/icons/pwnage/"
 }
-sha256sums=('288ba5778f4d5ce55e440a555e07e6ce8cc5e8f27d5a902e19e77a3a6d104aba')
+sha256sums=('75e05062cb135f5247f3df741fc57275b03cbc1c7b5f96ccb89ed505ea7b5576')

@@ -1,6 +1,6 @@
 pkgname=textart
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Text Art collection"
 arch=('any')
 license=("custom")
@@ -17,4 +17,4 @@ package() {
   install -Dm755 "${srcdir}"/etc/skel/.local/textart/color/stark/*.textart "${pkgdir}/etc/skel/.local/textart/color/stark/"
 
 }
-sha256sums=('52fe4aef104fcb86190baed44cc9482ae1ceec55745574d72544fbc7c9e57c8f')
+sha256sums=('8a11790e11484492fe9ce81ab5b36a50c940f120a329c8a04ff2043ed72ea9d3')

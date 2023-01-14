@@ -1,6 +1,6 @@
 pkgname=athena-keyring
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Keyring for Athena"
 arch=('any')
 license=("custom")
@@ -12,4 +12,4 @@ package() {
   cp -rf "${srcdir}"/usr/share/pacman/keyrings/* "${pkgdir}/usr/share/pacman/keyrings/"
 }
 
-sha256sums=('66688eeab97ab296937c4a1b15ad40e52815d3c66826cb4331c790e9df246014')
+sha256sums=('763af93eaa3e70ee0aa908fc75823cb8269b60aa9366ab7193c7cb9c47caac9f')
