@@ -13,6 +13,7 @@ variable_list = [
     ("bfetch", "SuperB general-purpose fetch displayer."),
     ("bless", "High-quality, full-featured hex editor."),
     ("btrfs-assistant", "GUI management tool to make managing a Btrfs filesystem easier."),
+    ("cligpt", "ChatGPT but in the terminal."),
     ("cmatrix", "Text flying in and out in a terminal like as seen in 'The Matrix' movie."),
     ("code", "Core engine of Visual Studio Code."),
     ("convert", "Convert between image formats as well as resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more."),
