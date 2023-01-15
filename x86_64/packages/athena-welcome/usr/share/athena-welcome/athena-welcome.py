@@ -131,6 +131,10 @@ class Main(Gtk.Window):
         t.daemon = True
         t.start()
 
+    def on_buttonupdate_clicked(self, widget):
+        t = threading.Thread(target=self.run_app, args=(["kitty", os.path.expandvars('$SHELL'), "-c", "/usr/local/bin/athena-upgrade"],))
+        t.daemon = True
+        t.start()
 
     def on_buttonhv_clicked(self, widget):
         t = threading.Thread(target=self.run_app, args=(["/usr/local/bin/hacking-variables"],))

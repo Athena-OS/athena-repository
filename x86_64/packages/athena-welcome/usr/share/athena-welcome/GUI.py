@@ -303,14 +303,20 @@ def GUI(self, Gtk, GdkPixbuf):
     button13 = Gtk.Button(label="Show Tools for Roles")
     button13.connect("clicked", self.on_buttonroletools_clicked)
     button13.set_tooltip_markup("Show all the tools for each role")
-    button13.set_size_request(420, 0)
+    button13.set_size_request(300, 0)
+
+    buttonupdate = Gtk.Button(label="Upgrade Athena")
+    buttonupdate.connect("clicked", self.on_buttonupdate_clicked)
+    buttonupdate.set_tooltip_markup("Upgrade Athena")
+    buttonupdate.set_size_request(300, 0)
 
     button14 = Gtk.Button(label="Hacking Variables")
     button14.connect("clicked", self.on_buttonhv_clicked)
     button14.set_tooltip_markup("Show the hacking variables")
-    button14.set_size_request(420, 0)
+    button14.set_size_request(300, 0)
 
     hbox11.pack_start(button13, True, True, 0)
+    hbox11.pack_start(buttonupdate, True, True, 0)
     hbox11.pack_end(button14, True, True, 0)
 
     ###########################################
