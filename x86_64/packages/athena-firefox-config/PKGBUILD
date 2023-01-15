@@ -9,9 +9,10 @@ source=("$pkgname.tar.gz")
 
 package() {
   install -dm 700 "${pkgdir}/etc/skel/.mozilla/firefox-esr/iso1fa16.default-release"
+  install -dm 755 "${pkgdir}/etc/skel/.config/psd"
 
   cp -rf "${srcdir}/etc/skel/.mozilla" "${pkgdir}/etc/skel/"
-  cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
+  cp -rf "${srcdir}/etc/skel/.config/psd/psd.conf" "${pkgdir}/etc/skel/.config/psd/"  
   
 }
 sha256sums=('82c8ff4d235c660550acded74a8eb2117ae84effeba4d1c156e7f9974a7e2445')

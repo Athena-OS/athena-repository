@@ -9,10 +9,11 @@ source=("$pkgname.tar.gz")
 
 package() {
   install -dm 700 "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser"
+  install -dm 755 "${pkgdir}/etc/skel/.config/psd"
 
   cp -rf "${srcdir}/etc/skel/.config/BraveSoftware/Brave-Browser/Default" "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser/"
   cp -rf "${srcdir}/etc/skel/.config/BraveSoftware/Brave-Browser/Local State" "${pkgdir}/etc/skel/.config/BraveSoftware/Brave-Browser/"
-  cp -rf "${srcdir}/etc/skel/.config/psd" "${pkgdir}/etc/skel/.config/"  
+  cp -rf "${srcdir}/etc/skel/.config/psd/psd.conf" "${pkgdir}/etc/skel/.config/psd/"  
   
 }
 sha256sums=('38ea956f95d2c2a4b280129f1574d134ef6b11715cd41c5c40e6266025291f2e')
