@@ -84,29 +84,43 @@ select yn in "Yes" "No"; do
 done
 
 package="athena-brave-config"
-if pacman -Qi $package > /dev/null ; then
+if pacman -Qi $package > /dev/null 2>&1 ; then
     echo "[10/16] Do you wish to update Brave Browser profile? Type 'No' if you added additional bookmarks or extensions in the current profile."
     select yn in "Yes" "No"; do
         case $yn in
-            Yes ) sudo rsync -a --delete "/etc/skel/.config/BraveSoftware/Brave-Browser/" "$HOME/.config/BraveSoftware/Brave-Browser/"; rsync -a --delete "/etc/skel/.config/psd/" "$HOME/.config/psd/"; sudo chown -LR $USER "$HOME/.config/BraveSoftware"; sudo chgrp -LR $USER "$HOME/.config/BraveSoftware"; break;;
+            Yes )            
+            systemctl --user stop psd
+            systemctl --user disable psd
+            sudo rsync -a --delete "/etc/skel/.config/BraveSoftware/Brave-Browser/" "$HOME/.config/BraveSoftware/Brave-Browser/"; rsync -a --delete "/etc/skel/.config/psd/" "$HOME/.config/psd/";
+            sudo chown -LR $USER "$HOME/.config/BraveSoftware"; sudo chgrp -LR $USER "$HOME/.config/BraveSoftware"
+            systemctl --user enable psd
+            systemctl --user start psd
+            break;;
             No ) break;;
         esac
     done
 fi
 
 package="athena-firefox-config"
-if pacman -Qi $package > /dev/null ; then
+if pacman -Qi $package > /dev/null 2>&1 ; then
     echo "[10/16] Do you wish to update Firefox Browser profile? Type 'No' if you added additional bookmarks or extensions in the current profile."
     select yn in "Yes" "No"; do
         case $yn in
-            Yes ) sudo rsync -a --delete "/etc/skel/.mozilla/firefox-esr/" "$HOME/.mozilla/firefox-esr/"; rsync -a --delete "/etc/skel/.config/psd/" "$HOME/.config/psd/"; sudo chown -LR $USER "$HOME/.mozilla"; sudo chgrp -LR $USER "$HOME/.mozilla"; break;;
+            Yes ) 
+            systemctl --user stop psd
+            systemctl --user disable psd
+            sudo rsync -a --delete "/etc/skel/.mozilla/firefox-esr/" "$HOME/.mozilla/firefox-esr/"; rsync -a --delete "/etc/skel/.config/psd/" "$HOME/.config/psd/"
+            sudo chown -LR $USER "$HOME/.mozilla"; sudo chgrp -LR $USER "$HOME/.mozilla"
+            systemctl --user enable psd
+            systemctl --user start psd
+            break;;
             No ) break;;
         esac
     done
 fi
 
 package="athena-fish"
-if pacman -Qi $package > /dev/null ; then
+if pacman -Qi $package > /dev/null 2>&1 ; then
     echo "[11/16] Do you wish to update FISH config files? Type 'No' if you customized them."
     select yn in "Yes" "No"; do
         case $yn in
@@ -117,7 +131,7 @@ if pacman -Qi $package > /dev/null ; then
 fi
 
 package="athena-zsh"
-if pacman -Qi $package > /dev/null ; then
+if pacman -Qi $package > /dev/null 2>&1 ; then
     echo "[11/16] Do you wish to update ZSH .zshrc file? Type 'No' if you customized them."
     select yn in "Yes" "No"; do
         case $yn in
@@ -171,4 +185,4 @@ done
 # sudo pacman -S <package-name>
 
 # At the end, run run-once
-source /etc/profile.d/run-once.sh
+source /etc/profile.d/run-once.sh > /dev/null 2>&1
