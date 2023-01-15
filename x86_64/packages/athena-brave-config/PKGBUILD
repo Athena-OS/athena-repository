@@ -4,7 +4,7 @@ pkgrel=2
 pkgdesc="Brave configuration for Athena"
 arch=('any')
 license=("custom")
-depends=('athena-nightab' 'brave-bin' 'profile-sync-daemon-brave')
+depends=('athena-nighttab' 'brave-bin' 'profile-sync-daemon-brave')
 source=("$pkgname.tar.gz")
 
 package() {
@@ -16,4 +16,4 @@ package() {
   cp -rf "${srcdir}/etc/skel/.config/psd/psd.conf" "${pkgdir}/etc/skel/.config/psd/"  
   
 }
-sha256sums=('38ea956f95d2c2a4b280129f1574d134ef6b11715cd41c5c40e6266025291f2e')
+sha256sums=('5bcf937370848916a7363e97e5aef6614059988b9ba2d5f33c7bd72e67343384')
