@@ -137,6 +137,7 @@ variable_list = [
 ("Bug Bounty Hunter", "osert", "Markdown Templates for Offensive Security exam reports."),
 ("Bug Bounty Hunter", "wordlister", "A simple wordlist generator and mangler written in python."),
 ("Bug Bounty Hunter", "pwncat-cs", "A fancy reverse and bind shell handler."),
+("Bug Bounty Hunter", "shello", "A small script to generate reverse shells."),
 ("Cracker Specialist", "blackarch-cracker", "Packages used for cracking cryptography functions. Details: https://blackarch.org/cracker.html"),
 ("Cracker Specialist", "blackarch-crypto", "Packages related to the cryptography. Details: https://blackarch.org/crypto.html"),
 ("Enthusiast Student", "legion", "Automatic Enumeration Tool based in Open Source tools."),
@@ -192,6 +193,7 @@ variable_list = [
 ("Enthusiast Student", "wordlister", "A simple wordlist generator and mangler written in python."),
 ("Enthusiast Student", "binwalk", "A tool for searching binary images for embedded files and executable code."),
 ("Enthusiast Student", "pwncat-cs", "A fancy reverse and bind shell handler."),
+("Enthusiast Student", "shello", "A small script to generate reverse shells."),
 ("Forensic Analyst", "blackarch-forensic", "Packages for retrieving data on physical disks or embedded memories. Details: https://blackarch.org/forensic.html"),
 ("Malware Analyst", "blackarch-binary", "Packages that operate on binary. Details: https://blackarch.org/binary.html"),
 ("Malware Analyst", "blackarch-debugger", "Debugger packages. Details: https://blackarch.org/debugger.html"),
@@ -200,6 +202,7 @@ variable_list = [
 ("Malware Analyst", "blackarch-malware", "Packages that count as any type of malicious software or malware detection. Details: https://blackarch.org/malware.html"),
 ("Malware Analyst", "blackarch-reversing", "Decompiler, disassembler or any similar program. Details: https://blackarch.org/reversing.html"),
 ("Malware Analyst", "nasm", "Netwide Assembler."),
+("Malware Analyst", "redneuron", "Framework Creator of Malware focused in attacking Windows but created to execute framework in Linux."),
 ("Mobile Analyst", "blackarch-mobile", "Packages that manipulate mobile platforms. Details: https://blackarch.org/mobile.html"),
 ("Mobile Analyst", "blackarch-reversing", "Decompiler, disassembler or any similar program. Details: https://blackarch.org/reversing.html"),
 ("Network Analyst", "blackarch-ids", "Packages working on IDS. Details: https://blackarch.org/ids.html"),
@@ -236,8 +239,11 @@ variable_list = [
 ("Red Teamer", "blackarch-windows", "Native Windows packages. Details: https://blackarch.org/windows.html"),
 ("Red Teamer", "ratinject", "An Executable to gain Undetectable Persistence in Windows via 4 Registry Keys."),
 ("Red Teamer", "ians", "A Python-based hacking toolset."),
+("Red Teamer", "shello", "A small script to generate reverse shells."),
+("Red Teamer", "redneuron", "Framework Creator of Malware focused in attacking Windows but created to execute framework in Linux."),
 ("Web Pentester", "blackarch-webapp", "Packages that target web applications. Details: https://blackarch.org/webapp.html"),
-("Web Pentester", "blackarch-fuzzer", "Fuzzers. Details: https://blackarch.org/fuzzer.html")
+("Web Pentester", "blackarch-fuzzer", "Fuzzers. Details: https://blackarch.org/fuzzer.html"),
+("Web Pentester", "shello", "A small script to generate reverse shells.")
 ]
 
 
