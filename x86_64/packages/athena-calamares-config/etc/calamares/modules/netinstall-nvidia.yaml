@@ -18,16 +18,9 @@
   immutable: false
   expanded: false
   packages:
-    - bumblebee
     - cuda
     - disper
     - envycontrol
     - gwe
     - nvflash
-    - nvidia
-    - nvidia-lts
-    - nvidia-prime
-    - nvidia-xrun
     - nvtop
-    - optimus-manager
-    - optimus-manager-qt

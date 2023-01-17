@@ -25,7 +25,7 @@ do
     fi
 done
 
-package=nvidia
+package=nvidia-dkms
 if pacman -Qq $package > /dev/null ; then
   pacman -Rns bumblebee optimus-manager-qt optimus-manager --noconfirm
   sed -in '/^MODULES*/ s/"$/ nvidia nvidia_modeset nvidia_uvm nvidia_drm"/g' /etc/mkinitcpio.conf
@@ -34,7 +34,6 @@ if pacman -Qq $package > /dev/null ; then
   grub-mkconfig -o /boot/grub/grub.cfg
   nvx on
   sed -i '2iexport __NV_PRIME_RENDER_OFFLOAD=1\nexport __VK_LAYER_NV_optimus=NVIDIA_only\nexport __GLX_VENDOR_LIBRARY_NAME=nvidia' /etc/skel/.bashrc
-
 fi
 
 echo
