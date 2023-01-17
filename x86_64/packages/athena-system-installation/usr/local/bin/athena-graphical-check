@@ -27,7 +27,6 @@ done
 
 package=nvidia-dkms
 if pacman -Qq $package > /dev/null ; then
-  pacman -Rns bumblebee optimus-manager-qt optimus-manager --noconfirm
   sed -in '/^MODULES*/ s/"$/ nvidia nvidia_modeset nvidia_uvm nvidia_drm"/g' /etc/mkinitcpio.conf
   mkinitcpio -P
   sed -in '/^GRUB_CMDLINE_LINUX_DEFAULT*/ s/"$/ nvidia-drm.modeset=1"/g' /etc/default/grub
