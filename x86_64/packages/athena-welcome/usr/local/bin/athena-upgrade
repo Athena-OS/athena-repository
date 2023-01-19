@@ -92,6 +92,7 @@ if pacman -Qi $package > /dev/null 2>&1 ; then
             Yes )            
             systemctl --user stop psd
             systemctl --user disable psd
+            mkdir -p "$HOME/.config/BraveSoftware/Brave-Browser"
             sudo rsync -a --delete "/etc/skel/.config/BraveSoftware/Brave-Browser/" "$HOME/.config/BraveSoftware/Brave-Browser/"; rsync -a --delete "/etc/skel/.config/psd/" "$HOME/.config/psd/";
             sudo chown -LR $USER "$HOME/.config/BraveSoftware"; sudo chgrp -LR $USER "$HOME/.config/BraveSoftware"
             systemctl --user enable psd
@@ -110,6 +111,7 @@ if pacman -Qi $package > /dev/null 2>&1 ; then
             Yes ) 
             systemctl --user stop psd
             systemctl --user disable psd
+            mkdir -p "$HOME/.mozilla/firefox-esr"
             sudo rsync -a --delete "/etc/skel/.mozilla/firefox-esr/" "$HOME/.mozilla/firefox-esr/"; rsync -a --delete "/etc/skel/.config/psd/" "$HOME/.config/psd/"
             sudo chown -LR $USER "$HOME/.mozilla"; sudo chgrp -LR $USER "$HOME/.mozilla"
             systemctl --user enable psd
