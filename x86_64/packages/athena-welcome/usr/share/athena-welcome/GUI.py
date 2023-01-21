@@ -141,13 +141,13 @@ def GUI(self, Gtk, GdkPixbuf):
     button1_label = button1.get_child()
     button1_label.set_markup("<span size='large'><b>Run GParted</b></span>")
     button1.connect("clicked", self.on_gp_clicked)
-    button1.set_size_request(0, 80)
+    button1.set_size_request(0, 50)
 
     buttonkeys = Gtk.Button(label="")
     buttonkeys_label = buttonkeys.get_child()
     buttonkeys_label.set_markup("<span size='large'><b>Set BlackArch and Chaotic keys</b></span>")
     buttonkeys.connect("clicked", self.on_keys_clicked)
-    buttonkeys.set_size_request(0, 80)
+    buttonkeys.set_size_request(0, 50)
 
     #button2 = Gtk.Button(label="")
     #button2_label = button2.get_child()
@@ -161,7 +161,7 @@ def GUI(self, Gtk, GdkPixbuf):
     buttonca_label.set_markup("<span size='large'><b>Install Athena!</b></span>")
 
     buttonca.connect("clicked", self.on_aica_clicked)
-    buttonca.set_size_request(0, 80)
+    buttonca.set_size_request(0, 50)
 
     gridimg = Gtk.Grid ()
     pb = GdkPixbuf.Pixbuf.new_from_file_at_size('images/htb.png', 35, 35)
@@ -299,27 +299,25 @@ def GUI(self, Gtk, GdkPixbuf):
     ###########################################
     #       First Line Footer Buttons        #
     ###########################################
-
-    button13 = Gtk.Button(label="Show Tools for Roles")
-    button13.connect("clicked", self.on_buttonroletools_clicked)
-    button13.set_tooltip_markup("Show all the tools for each role")
-    button13.set_size_request(300, 0)
-
     if username != user:
+        button13 = Gtk.Button(label="Show Tools for Roles")
+        button13.connect("clicked", self.on_buttonroletools_clicked)
+        button13.set_tooltip_markup("Show all the tools for each role")
+        button13.set_size_request(300, 0)
+ 
         buttonupdate = Gtk.Button(label="Upgrade Athena")
         buttonupdate.connect("clicked", self.on_buttonupdate_clicked)
         buttonupdate.set_tooltip_markup("Upgrade Athena")
         buttonupdate.set_size_request(300, 0)
 
-    button14 = Gtk.Button(label="Hacking Variables")
-    button14.connect("clicked", self.on_buttonhv_clicked)
-    button14.set_tooltip_markup("Show the hacking variables")
-    button14.set_size_request(300, 0)
+        button14 = Gtk.Button(label="Hacking Variables")
+        button14.connect("clicked", self.on_buttonhv_clicked)
+        button14.set_tooltip_markup("Show the hacking variables")
+        button14.set_size_request(300, 0)
 
-    hbox11.pack_start(button13, True, True, 0)
-    if username != user:
+        hbox11.pack_start(button13, True, True, 0)
         hbox11.pack_start(buttonupdate, True, True, 0)
-    hbox11.pack_end(button14, True, True, 0)
+        hbox11.pack_end(button14, True, True, 0)
 
     ###########################################
     #       Second Line Footer Buttons        #
