@@ -1,6 +1,6 @@
 pkgname=athena-welcome
 pkgver=2.0.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Welcome App for Athena"
 arch=('any')
 license=("custom")
@@ -23,10 +23,11 @@ package() {
   install -Dm755 "${srcdir}/usr/local/bin/mirroars" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/set-repo-keys" "${pkgdir}/usr/local/bin/"
   install -Dm755 "${srcdir}/usr/local/bin/athena-upgrade" "${pkgdir}/usr/local/bin/"
+  install -Dm755 "${srcdir}/usr/local/bin/athena-fix" "${pkgdir}/usr/local/bin/"
   cp -rf "${srcdir}/usr/share/applications/athena-welcome.desktop" "${pkgdir}/usr/share/applications/"
   cp -rf "${srcdir}/usr/share/icons/hicolor/scalable/apps/athena-hello-logo.svg" "${pkgdir}/usr/share/icons/hicolor/scalable/apps/"
   cp -rf "${srcdir}/usr/share/athena-welcome" "${pkgdir}/usr/share/"
   chmod 755 "${pkgdir}/usr/share/athena-welcome/role-tools"
 
 }
-sha256sums=('96fba38002ed54eab97c8e5b1ab9373d27fe03a991a27221464d912da5520ae3')
+sha256sums=('29a02db5f6cf0776073c09872ff956d0e2317d1a800cd7be8e2b19d3a27a37b0')
