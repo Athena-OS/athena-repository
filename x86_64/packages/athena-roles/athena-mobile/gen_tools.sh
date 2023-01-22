@@ -1,6 +1,6 @@
 #!/bin/sh
 
-to_exclude=("apkid" "mobsf" "quickscope")
+to_exclude=("apkid" "mobsf" "quickscope" "smartphone-pentest-framework")
 
 sed -i '/depends=/d' PKGBUILD
 sed -i '/^$/d' PKGBUILD #Delete all empty lines

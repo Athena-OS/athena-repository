@@ -158,15 +158,16 @@ if cat $machine_json_file | grep -q "Starting Point Machine"; then
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
-        echo -e "\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
-        select yn in "Yes" "No"; do
+        while true; do
+            read -p $'\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts? (y/n) \e[0m' yn
             case $yn in
-                Yes ) 
+                [yY] ) 
                     domain_name="$(echo "$machine_name" | sed -e 's/\(.*\)/\L\1/').htb"
                     read -p "$(echo -e "\e[32mType the domain name to assign \e[31m[i.e., $domain_name]\e[32m: \e[0m")" ans
                     sudo sed -i "2i$machine_ip  $ans" /etc/hosts #added on the 2nd line of /etc/hosts
                     break;;
-                No ) break;;
+                [nN] ) break;;
+                * ) echo "Invalid answer.";;
             esac
         done
 
@@ -235,15 +236,16 @@ else
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
-        echo -e "\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
-        select yn in "Yes" "No"; do
+        while true; do
+            read -p $'\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts? (y/n) \e[0m' yn
             case $yn in
-                Yes ) 
+                [yY] ) 
                     domain_name="$(echo "$machine_name" | sed -e 's/\(.*\)/\L\1/').htb"
                     read -p "$(echo -e "\e[32mType the domain name to assign \e[31m[i.e., $domain_name]\e[32m: \e[0m")" ans
                     sudo sed -i "2i$machine_ip  $ans" /etc/hosts #added on the 2nd line of /etc/hosts
                     break;;
-                No ) break;;
+                [nN] ) break;;
+                * ) echo "Invalid answer.";;
             esac
         done
 
@@ -275,15 +277,16 @@ else
             change_shell $machine_name $machine_ip $htb_user $machine_points
         fi
 
-        echo -e "\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts?\e[0m"
-        select yn in "Yes" "No"; do
+        while true; do
+            read -p $'\e[32mWould you like to assign a domain name to the target machine IP address and store it in /etc/hosts? (y/n) \e[0m' yn
             case $yn in
-                Yes ) 
+                [yY] ) 
                     domain_name="$(echo "$machine_name" | sed -e 's/\(.*\)/\L\1/').htb"
                     read -p "$(echo -e "\e[32mType the domain name to assign \e[31m[i.e., $domain_name]\e[32m: \e[0m")" ans
                     sudo sed -i "2i$machine_ip  $ans" /etc/hosts #added on the 2nd line of /etc/hosts
                     break;;
-                No ) break;;
+                [nN] ) break;;
+                * ) echo "Invalid answer.";;
             esac
         done
 

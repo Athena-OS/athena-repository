@@ -8,3 +8,6 @@ xplico
 ##depending on pyqt3
 faradaysec
 inguma
+
+## depending on mysql in conflict with mariadb-client
+smartphone-pentest-framework (deprecated, should be removed from BA)

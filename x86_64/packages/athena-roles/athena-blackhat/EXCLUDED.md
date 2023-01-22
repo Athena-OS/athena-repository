@@ -12,6 +12,9 @@ argus-clients
 qt3
 xplico
 
+#mysql and mariadb-client conflict
+smartphone-pentest-framework (deprecated, should be removed from BA)
+
 ##depending on qt3
 pyqt3
 qscintilla-qt3
