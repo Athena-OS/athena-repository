@@ -1,7 +1,0 @@
-#!/bin/sh
-
-echo -e "\e[32mFixing known issues...\e[0m"
-sudo sed -i "/mirror.osbeck.com/d" /etc/pacman.d/mirrorlist
-sudo sed -i "s/#Server/Server/g" /etc/pacman.d/blackarch-mirrorlist
-sudo pacman -Syy
-echo -e "\e[32mDone.\e[0m"
