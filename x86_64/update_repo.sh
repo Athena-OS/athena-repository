@@ -1,8 +1,10 @@
 #!/bin/bash
 
-rm athena-repository*
+REPO_NAME="athena-repository"
 
-repo-add --verify --sign -R athena-repository.db.tar.gz *.pkg.tar.zst
+rm $REPO_NAME*
+
+repo-add --verify --sign -R $REPO_NAME.db.tar.gz *.pkg.tar.zst
 
 echo "####################################"
 echo "Repo Updated!!"
