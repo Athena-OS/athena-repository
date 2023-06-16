@@ -4,8 +4,22 @@ Add this to your `/etc/pacman.conf`:
 ```
 [athena-repository]
 SigLevel = Optional TrustedOnly
-Server = https://athena-os.github.io/$repo/$arch
+Include = /etc/pacman.d/athena-repository-mirrorlist
 ```
+Add mirror file in `/etc/pacman.d/athena-repository-mirrorlist` ,
+and choose the mirror location of your region and write it inside the mirror file.
+
+```copy
+# Athena Linux Mirrors
+
+# Main
+https://athena-os.github.io/$repo/$arch
+
+# South Korea
+https://mirror.pardesicat.xyz/athena-repository/$repo/$arch
+```
+
+
 and on the terminal execute:
 ```
 sudo pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
