@@ -10,15 +10,12 @@ Add mirror file in `/etc/pacman.d/athena-repository-mirrorlist` ,
 and choose the mirror location of your region and write it inside the mirror file.
 
 ```copy
-# Athena Linux Mirrors
-
-# Main
+# Global
 https://athena-os.github.io/$repo/$arch
 
 # South Korea
 https://mirror.pardesicat.xyz/athena-repository/$repo/$arch
 ```
-
 
 and on the terminal execute:
 ```
